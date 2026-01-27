@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Butlers Med Pharmacy - Coming Soon</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #6dd5fa, #ffffff);
+        font-family: 'Fredoka One', cursive;
+        color: #333;
+        overflow: hidden;
+    }
+
+    .container {
+        text-align: center;
+        animation: float 2s ease-in-out infinite alternate;
+    }
+
+    h1 {
+        font-size: 3em;
+        color: #ff6b6b;
+        margin-bottom: 20px;
+    }
+
+    p {
+        font-size: 1.5em;
+        color: #1e90ff;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0px); }
+        100% { transform: translateY(-20px); }
+    }
+
+    .sparkle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #fff;
+        border-radius: 50%;
+        animation: sparkle 3s linear infinite;
+    }
+
+    @keyframes sparkle {
+        0% { transform: translateY(0) translateX(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-500px) translateX(300px) rotate(720deg); opacity: 0; }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h1>Hello! Welcome to Butlers Med Pharmacy</h1>
+    <p>We are under development.<br>Come back soon!</p>
+</div>
+
+<!-- Sparkles -->
+<div class="sparkle" style="left:10%; animation-delay: 0s;"></div>
+<div class="sparkle" style="left:30%; animation-delay: 1s;"></div>
+<div class="sparkle" style="left:50%; animation-delay: 2s;"></div>
+<div class="sparkle" style="left:70%; animation-delay: 3s;"></div>
+<div class="sparkle" style="left:90%; animation-delay: 4s;"></div>
+
+</body>
+</html>
