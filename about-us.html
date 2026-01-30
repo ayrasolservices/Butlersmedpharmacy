@@ -1,1 +1,2077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pharmacy - About</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS for Hero Section Starts Here */
+        .pharmacy-about {
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin-bottom: 30px;
+        }
 
+        .pharmacy-about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(173, 216, 230, 0.3);
+            z-index: 1;
+        }
+
+        .about-content {
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            padding: 40px;
+            max-width: 800px;
+        }
+
+        .pharmacy-plus {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 40px;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        .plus-circle {
+            width: 100%;
+            height: 100%;
+            border: 4px solid #ffffff;
+            border-radius: 50%;
+            position: relative;
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .plus-sign {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: 70%;
+        }
+
+        .plus-line {
+            position: absolute;
+            background: #ffffff;
+            border-radius: 3px;
+        }
+
+        .vertical-line {
+            width: 12px;
+            height: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: growV 1s ease-out 0.5s both;
+        }
+
+        .horizontal-line {
+            width: 100%;
+            height: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: growH 1s ease-out 0.8s both;
+        }
+
+        .about-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            margin-bottom: 30px;
+            color: #ffffff;
+            position: relative;
+            animation: slideDown 1.2s ease-out both;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #ffffff;
+            animation: expandLine 1s ease-out 1.5s both;
+        }
+
+        .about-description {
+            font-size: 1.4rem;
+            color: #ffffff;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.8s both;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+            padding: 0;
+            background: transparent;
+            backdrop-filter: none;
+            border-radius: 0;
+        }
+
+        .bg-element {
+            position: absolute;
+            border-radius: 50%;
+            background: #ffffff;
+            opacity: 0.1;
+            z-index: 1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .bg-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .bg-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 15%;
+            right: 8%;
+            background: #ffffff;
+            opacity: 0.08;
+            animation-delay: 2s;
+        }
+
+        .bg-3 {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            }
+        }
+
+        @keyframes growV {
+            0% { height: 0; }
+            100% { height: 100%; }
+        }
+
+        @keyframes growH {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+                letter-spacing: 20px;
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+                letter-spacing: normal;
+            }
+        }
+
+        @keyframes expandLine {
+            0% { width: 0; }
+            100% { width: 100px; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(20px, -20px) rotate(180deg); }
+        }
+
+        @media (max-width: 1400px) {
+            .about-title { font-size: 4rem; }
+            .about-description { font-size: 1.3rem; }
+        }
+
+        @media (max-width: 1280px) {
+            .about-title { font-size: 3.8rem; }
+            .about-description { font-size: 1.25rem; }
+            .about-content { padding: 35px; }
+            .pharmacy-plus { width: 110px; height: 110px; }
+        }
+
+        @media (max-width: 1200px) {
+            .about-title { font-size: 3.5rem; }
+            .pharmacy-plus { width: 100px; height: 100px; }
+            .bg-1 { width: 250px; height: 250px; }
+            .bg-2 { width: 180px; height: 180px; }
+        }
+
+        @media (max-width: 1024px) {
+            .about-title { font-size: 3.2rem; }
+            .about-content { padding: 30px; }
+            .about-description { font-size: 1.2rem; }
+            .pharmacy-plus { margin-bottom: 35px; }
+        }
+
+        @media (max-width: 992px) {
+            .about-title { font-size: 3rem; }
+            .about-description { font-size: 1.2rem; max-width: 500px; }
+            .pharmacy-plus { width: 90px; height: 90px; margin-bottom: 30px; }
+            .bg-1 { width: 220px; height: 220px; }
+            .bg-2 { width: 160px; height: 160px; }
+            .bg-3 { width: 130px; height: 130px; }
+        }
+
+        @media (max-width: 768px) {
+            .about-title { font-size: 2.8rem; }
+            .about-description { font-size: 1.1rem; max-width: 450px; }
+            .pharmacy-plus { width: 80px; height: 80px; margin-bottom: 25px; }
+            .plus-circle { border-width: 3px; }
+            .vertical-line { width: 10px; }
+            .horizontal-line { height: 10px; }
+            .about-content { padding: 25px; }
+            .bg-1 { width: 200px; height: 200px; }
+            .bg-2 { width: 150px; height: 150px; }
+            .bg-3 { width: 120px; height: 120px; }
+        }
+
+        @media (max-width: 640px) {
+            .about-title { font-size: 2.5rem; }
+            .about-description { font-size: 1rem; max-width: 400px; }
+            .pharmacy-plus { width: 70px; height: 70px; margin-bottom: 20px; }
+            .about-content { padding: 20px; }
+            .vertical-line { width: 8px; }
+            .horizontal-line { height: 8px; }
+            .bg-1 { width: 180px; height: 180px; left: 3%; }
+            .bg-2 { width: 140px; height: 140px; right: 5%; }
+            .bg-3 { width: 110px; height: 110px; }
+        }
+
+        @media (max-width: 576px) {
+            .about-title { font-size: 2.3rem; }
+            .about-description { font-size: 0.95rem; max-width: 350px; }
+            .pharmacy-plus { width: 65px; height: 65px; margin-bottom: 18px; }
+            .about-content { padding: 18px; }
+            .bg-1 { width: 160px; height: 160px; }
+            .bg-2 { width: 120px; height: 120px; }
+            .bg-3 { width: 100px; height: 100px; }
+        }
+
+        @media (max-width: 480px) {
+            .about-title { font-size: 2rem; }
+            .about-description { font-size: 0.9rem; max-width: 320px; }
+            .pharmacy-plus { width: 60px; height: 60px; margin-bottom: 15px; }
+            .plus-circle { border-width: 2px; }
+            .vertical-line { width: 6px; }
+            .horizontal-line { height: 6px; }
+            .about-content { padding: 15px; }
+            .bg-1 { width: 140px; height: 140px; }
+            .bg-2 { width: 100px; height: 100px; }
+            .bg-3 { width: 90px; height: 90px; }
+        }
+
+        @media (max-width: 360px) {
+            .about-title { font-size: 1.8rem; }
+            .about-description { font-size: 0.85rem; max-width: 280px; }
+            .pharmacy-plus { width: 55px; height: 55px; margin-bottom: 12px; }
+            .vertical-line { width: 5px; }
+            .horizontal-line { height: 5px; }
+            .about-content { padding: 12px; }
+            .bg-1 { width: 120px; height: 120px; }
+            .bg-2 { width: 90px; height: 90px; }
+            .bg-3 { width: 80px; height: 80px; }
+        }
+        /* CSS for Hero Section Ends Here */
+
+        /* CSS for About Us Section Starts Here */
+        .about-us-section {
+            position: relative;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9)),
+                        url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #333;
+            text-align: center;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .about-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 35px;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+
+        .about-us-section h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #203F99;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            padding-bottom: 15px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .about-us-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #203F99, #FD0511);
+            border-radius: 2px;
+        }
+
+        .about-us-section p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #444;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.7s;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .about-us-section {
+                padding: 50px 20px;
+            }
+            
+            .about-us-section h2 {
+                font-size: 38px;
+            }
+            
+            .about-container {
+                padding: 35px 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .about-us-section {
+                padding: 45px 20px;
+            }
+            
+            .about-us-section p {
+                font-size: 17px;
+            }
+            
+            .about-container {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-us-section {
+                padding: 40px 20px;
+                background-attachment: scroll;
+            }
+            
+            .about-us-section h2 {
+                font-size: 32px;
+                margin-bottom: 18px;
+            }
+            
+            .about-us-section p {
+                font-size: 16px;
+                line-height: 1.6;
+            }
+            
+            .about-container {
+                padding: 25px 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-us-section {
+                padding: 35px 15px;
+            }
+            
+            .about-us-section h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+            
+            .about-container {
+                padding: 25px 18px;
+            }
+            
+            .about-us-section p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .about-us-section {
+                padding: 30px 10px;
+            }
+            
+            .about-us-section h2 {
+                font-size: 26px;
+            }
+            
+            .about-us-section p {
+                font-size: 14px;
+            }
+            
+            .about-container {
+                padding: 20px 15px;
+            }
+        }
+        /* CSS for About Us Section Ends Here */
+
+        /* CSS for Mission Section Starts Here */
+        .mission-section{
+            padding: 60px 20px;
+            display:flex;
+            justify-content:center;
+            font-family:Inter, Arial, sans-serif;
+            color:#0f2c45;
+            margin-bottom: 30px;
+        }
+
+        .mission-container{
+            max-width:1100px;
+            width:100%;
+        }
+
+        .mission-header{
+            text-align:center;
+            margin-bottom:30px;
+            opacity:0;
+            transform:translateY(10px);
+            transition:0.6s ease;
+        }
+
+        .mission-header.show{
+            opacity:1;
+            transform:none;
+        }
+
+        .mission-header h2{
+            font-size:42px;
+            font-weight:800;
+            margin-bottom:12px;
+            color:#203F99;
+        }
+
+        .mission-header p{
+            max-width:800px;
+            margin:auto;
+            font-size:15px;
+            line-height:1.75;
+            color:#5a6f83;
+        }
+
+        .mission-content{
+            opacity:0;
+            transform:translateY(14px);
+            transition:0.6s ease;
+        }
+
+        .mission-content.show{
+            opacity:1;
+            transform:none;
+        }
+
+        .mission-grid{
+            display:grid;
+            grid-template-columns:1fr 1.2fr;
+            gap:25px;
+            align-items:center;
+        }
+
+        .mission-image{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+        .mission-image img{
+            width:100%;
+            max-width:400px;
+            object-fit:contain;
+        }
+
+        .mission-text{
+            background:#f1f6ff;
+            border-radius:25px;
+            padding:28px;
+        }
+
+        .mission-text h3{
+            font-size:26px;
+            font-weight:700;
+            margin-bottom:12px;
+            color:#203F99;
+        }
+
+        .mission-text p{
+            font-size:15px;
+            line-height:1.8;
+            color:#4e667b;
+            margin-bottom:12px;
+        }
+
+        @media(max-width:900px){
+            .mission-grid{
+                grid-template-columns:1fr;
+                text-align:center;
+            }
+            .mission-header h2{
+                font-size:34px;
+            }
+            .mission-text h3{
+                font-size:22px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mission-section {
+                padding: 50px 20px;
+            }
+            .mission-header h2 {
+                font-size: 30px;
+            }
+            .mission-text {
+                padding: 25px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .mission-section {
+                padding: 40px 15px;
+            }
+            .mission-header h2 {
+                font-size: 28px;
+            }
+            .mission-text {
+                padding: 22px;
+            }
+            .mission-text h3 {
+                font-size: 20px;
+            }
+        }
+        /* CSS for Mission Section Ends Here */
+
+        /* CSS for Why Choose Us Section Starts Here */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        .ph-section {
+            width: 100%;
+            padding: 60px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .ph-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .ph-heading {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.2;
+            color: #203F99;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .ph-heading.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ph-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #4A5568;
+            line-height: 1.6;
+            margin-bottom: 50px;
+            max-width: 850px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+        }
+
+        .ph-subtitle.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ph-tabs-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 35px;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e2e8f0;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease 0.4s, transform 0.8s ease 0.4s;
+        }
+
+        .ph-tabs-container.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .ph-tabs-sidebar {
+            background-color: #F8FAFC;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .ph-tab-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 18px;
+            background: none;
+            border: none;
+            text-align: left;
+            color: #4A5568;
+            font-size: 1.05rem;
+            font-weight: 500;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: 1px solid transparent;
+        }
+
+        .ph-tab-btn:hover {
+            background-color: rgba(32, 63, 153, 0.08);
+            color: #203F99;
+            border-color: rgba(32, 63, 153, 0.2);
+            transform: translateX(5px);
+        }
+
+        .ph-tab-btn.active {
+            background-color: #203F99;
+            color: white;
+            box-shadow: 0 6px 15px rgba(32, 63, 153, 0.3);
+            border-color: #203F99;
+            transform: translateX(5px);
+        }
+
+        .ph-tab-icon {
+            font-size: 1.3rem;
+            width: 28px;
+            text-align: center;
+        }
+
+        .ph-tabs-content {
+            padding: 35px;
+            background-color: white;
+        }
+
+        .ph-tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .ph-tab-pane.active {
+            display: block;
+        }
+
+        .ph-tab-pane h3 {
+            font-size: 1.7rem;
+            color: #203F99;
+            margin-bottom: 18px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .ph-tab-pane p {
+            font-size: 1.1rem;
+            color: #4A5568;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 1400px) {
+            .ph-container {
+                max-width: 1100px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .ph-container {
+                max-width: 1000px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .ph-container {
+                max-width: 900px;
+            }
+            .ph-heading {
+                font-size: 2.3rem;
+            }
+            .ph-subtitle {
+                font-size: 1.15rem;
+                max-width: 800px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .ph-container {
+                max-width: 800px;
+            }
+            .ph-heading {
+                font-size: 2.1rem;
+            }
+            .ph-subtitle {
+                font-size: 1.1rem;
+                max-width: 700px;
+            }
+            .ph-tabs-container {
+                gap: 30px;
+            }
+            .ph-tabs-sidebar {
+                padding: 25px;
+            }
+            .ph-tabs-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .ph-section {
+                padding: 50px 20px;
+            }
+            .ph-container {
+                max-width: 700px;
+            }
+            .ph-tabs-container {
+                grid-template-columns: 1fr;
+            }
+            .ph-tabs-sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 20px;
+                gap: 10px;
+            }
+            .ph-tab-btn {
+                flex-shrink: 0;
+                width: auto;
+                padding: 15px 18px;
+                white-space: nowrap;
+            }
+            .ph-tab-btn:hover {
+                transform: translateY(-3px);
+            }
+            .ph-tab-btn.active {
+                transform: translateY(-3px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ph-section {
+                padding: 45px 15px;
+            }
+            .ph-container {
+                max-width: 600px;
+            }
+            .ph-heading {
+                font-size: 1.9rem;
+            }
+            .ph-subtitle {
+                font-size: 1.05rem;
+                margin-bottom: 40px;
+                max-width: 600px;
+            }
+            .ph-tabs-content {
+                padding: 25px;
+            }
+            .ph-tab-pane h3 {
+                font-size: 1.5rem;
+            }
+            .ph-tab-pane p {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .ph-container {
+                max-width: 540px;
+            }
+            .ph-heading {
+                font-size: 1.8rem;
+            }
+            .ph-subtitle {
+                font-size: 1rem;
+                max-width: 500px;
+            }
+            .ph-tabs-sidebar {
+                padding: 15px;
+            }
+            .ph-tab-btn {
+                padding: 12px 16px;
+                font-size: 0.95rem;
+            }
+            .ph-tab-icon {
+                font-size: 1.1rem;
+                width: 24px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ph-container {
+                max-width: 480px;
+            }
+            .ph-section {
+                padding: 40px 12px;
+            }
+            .ph-heading {
+                font-size: 1.7rem;
+            }
+            .ph-subtitle {
+                font-size: 0.95rem;
+                margin-bottom: 35px;
+                max-width: 450px;
+            }
+            .ph-tabs-content {
+                padding: 20px;
+            }
+            .ph-tab-pane h3 {
+                font-size: 1.4rem;
+            }
+            .ph-tab-pane p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ph-container {
+                max-width: 400px;
+            }
+            .ph-heading {
+                font-size: 1.6rem;
+            }
+            .ph-subtitle {
+                font-size: 0.9rem;
+                max-width: 380px;
+            }
+            .ph-tabs-sidebar {
+                padding: 12px;
+            }
+            .ph-tab-btn {
+                padding: 10px 14px;
+                font-size: 0.9rem;
+            }
+            .ph-tab-icon {
+                font-size: 1rem;
+                width: 22px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .ph-container {
+                max-width: 320px;
+            }
+            .ph-heading {
+                font-size: 1.5rem;
+            }
+            .ph-subtitle {
+                font-size: 0.85rem;
+                max-width: 300px;
+            }
+            .ph-tabs-content {
+                padding: 18px;
+            }
+            .ph-tab-pane h3 {
+                font-size: 1.3rem;
+            }
+            .ph-tab-pane p {
+                font-size: 0.95rem;
+            }
+            .ph-tabs-sidebar {
+                padding: 10px;
+                gap: 8px;
+            }
+            .ph-tab-btn {
+                padding: 8px 12px;
+                font-size: 0.85rem;
+            }
+        }
+        /* CSS for Why Choose Us Section Ends Here */
+
+        /* CSS for Reviews Section Starts Here */
+        .reviews-section {
+            width: 100%;
+            padding: 60px 20px;
+            margin-bottom: 30px;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .reviews-header h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #203F99;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .reviews-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #203F99, #FD0511);
+            border-radius: 2px;
+        }
+
+        .reviews-header p {
+            font-size: 1.2rem;
+            color: #4A5568;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            padding: 30px 20px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reviews-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .review-card {
+            border-radius: 18px;
+            padding: 35px 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .review-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .white-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+        }
+
+        .blue-card {
+            background: #203F99;
+            border: none;
+        }
+
+        .blue-card .review-text {
+            color: white;
+        }
+
+        .blue-card .review-text::before {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .blue-card .reviewer-name {
+            color: white;
+        }
+
+        .blue-card .stars {
+            color: #FFD700;
+        }
+
+        .review-content {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .review-text {
+            color: #334155;
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-weight: 400;
+            flex-grow: 1;
+            position: relative;
+            padding-left: 22px;
+        }
+
+        .review-text::before {
+            content: '"';
+            position: absolute;
+            left: 0;
+            top: -5px;
+            font-size: 42px;
+            color: #e2e8f0;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .review-footer {
+            margin-top: auto;
+            padding-top: 18px;
+        }
+
+        .stars {
+            color: #FD0511;
+            font-size: 18px;
+            margin-bottom: 10px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .stars i {
+            filter: drop-shadow(0 2px 4px rgba(253, 5, 17, 0.2));
+        }
+
+        .reviewer-name {
+            font-weight: 700;
+            color: #203F99;
+            font-size: 17px;
+            letter-spacing: 0.5px;
+        }
+
+        .white-card .reviewer-name {
+            color: #203F99;
+        }
+
+        @media (max-width: 1400px) {
+            .reviews-container {
+                gap: 22px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .reviews-container {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .review-card {
+                padding: 30px 25px;
+            }
+            .reviews-header h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .reviews-container {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .reviews-container {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 800px;
+            }
+            
+            .blue-card {
+                order: 3;
+                grid-column: span 2;
+                max-width: 500px;
+                justify-self: center;
+            }
+            
+            .white-card:nth-child(3) {
+                order: 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .reviews-container {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+            
+            .blue-card {
+                grid-column: span 1;
+                max-width: 100%;
+                order: 2;
+            }
+            
+            .review-card {
+                padding: 30px 25px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .reviews-header p {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .review-card {
+                padding: 28px 22px;
+            }
+            
+            .stars {
+                font-size: 16px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 2rem;
+            }
+            
+            .reviews-header p {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .review-card {
+                padding: 25px 20px;
+            }
+            
+            .review-text {
+                font-size: 14px;
+            }
+            
+            .reviewer-name {
+                font-size: 16px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 1.9rem;
+            }
+            
+            .reviews-section {
+                padding: 50px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .review-card {
+                padding: 22px 18px;
+            }
+            
+            .stars {
+                font-size: 15px;
+                gap: 3px;
+            }
+            
+            .review-text::before {
+                font-size: 36px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .reviews-header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .review-card {
+                padding: 20px 16px;
+            }
+            
+            .review-text {
+                font-size: 13.5px;
+            }
+            
+            .reviewer-name {
+                font-size: 15px;
+            }
+            
+            .reviews-header h2 {
+                font-size: 1.7rem;
+            }
+        }
+        /* CSS for Reviews Section Ends Here */
+
+        /* CSS for FAQ Section Starts Here */
+        .ph-faq-section {
+            padding: 60px 0;
+            margin-top: 30px;
+        }
+
+        .ph-faq-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 50px;
+        }
+
+        .ph-faq-images {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ph-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 550px;
+        }
+
+        .ph-faq-images img {
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(32, 63, 153, 0.12);
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+            object-fit: cover;
+            position: absolute;
+            display: block;
+        }
+
+        .ph-faq-img-1 {
+            width: 85%;
+            height: 380px;
+            top: 280px;
+            left: 0;
+            z-index: 2;
+            transform: rotate(-3deg);
+        }
+
+        .ph-faq-img-2 {
+            width: 75%;
+            height: 330px;
+            bottom: 140px; 
+            right: 0;
+            z-index: 1;
+            transform: rotate(3deg);
+            opacity: 0.9;
+        }
+
+        .ph-faq-images:hover .ph-faq-img-2 {
+            transform: rotate(0deg) translateY(-90px);
+            opacity: 1;
+            box-shadow: 0 18px 35px rgba(32, 63, 153, 0.25);
+            z-index: 3;
+        }
+
+        .ph-faq-images:hover .ph-faq-img-1 {
+            transform: rotate(-1deg) translateY(-8px);
+            box-shadow: 0 12px 30px rgba(32, 63, 153, 0.2);
+        }
+
+        .ph-faq-questions {
+            flex: 1.2;
+            min-width: 300px;
+        }
+
+        .ph-faq-header {
+            margin-bottom: 35px;
+        }
+
+        .ph-faq-header h2 {
+            font-size: 2.3rem;
+            margin-bottom: 12px;
+            color: #203F99;
+            font-weight: 700;
+            line-height: 1.2;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .ph-faq-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, #FD0511, #203F99);
+            border-radius: 2px;
+        }
+
+        .ph-faq-subtitle {
+            font-size: 1.1rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        .ph-faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .ph-faq-item {
+            background: white;
+            border-radius: 12px;
+            padding: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .ph-faq-item:hover {
+            box-shadow: 0 6px 18px rgba(253, 5, 17, 0.08);
+            border-color: #ffe0e1;
+        }
+
+        .ph-faq-question {
+            display: flex;
+            align-items: center;
+            padding: 22px 25px;
+            cursor: pointer;
+            gap: 18px;
+            position: relative;
+        }
+
+        .ph-faq-number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: linear-gradient(135deg, #FD0511, #203F99);
+            color: white;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .ph-faq-question h3 {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1e293b;
+            line-height: 1.5;
+            margin: 0;
+            flex: 1;
+            transition: color 0.2s ease;
+        }
+
+        .ph-faq-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: #fff0f1;
+            border-radius: 8px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .ph-faq-icon {
+            width: 18px;
+            height: 18px;
+            fill: #FD0511;
+            transition: transform 0.3s ease;
+        }
+
+        .ph-faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1), padding 0.3s ease;
+            padding: 0 25px;
+            opacity: 0;
+        }
+
+        .ph-faq-answer p {
+            color: #475569;
+            line-height: 1.7;
+            margin: 0;
+            padding-bottom: 0;
+            font-size: 15px;
+        }
+
+        .ph-faq-item.active {
+            box-shadow: 0 8px 22px rgba(253, 5, 17, 0.12);
+            border-color: #FD0511;
+        }
+
+        .ph-faq-item.active .ph-faq-question h3 {
+            color: #203F99;
+        }
+
+        .ph-faq-item.active .ph-faq-toggle {
+            background: linear-gradient(135deg, #FD0511, #203F99);
+        }
+
+        .ph-faq-item.active .ph-faq-icon {
+            fill: white;
+            transform: rotate(45deg);
+        }
+
+        .ph-faq-item.active .ph-faq-answer {
+            max-height: 500px;
+            padding: 0 25px 25px;
+            opacity: 1;
+        }
+
+        .ph-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        @media (max-width: 992px) {
+            .ph-faq-container {
+                flex-direction: column;
+                gap: 45px;
+            }
+            
+            .ph-faq-images {
+                margin-left: 0;
+                width: 100%;
+                max-width: 480px;
+                margin: 0 auto;
+            }
+            
+            .ph-image-wrapper {
+                height: 480px;
+            }
+            
+            .ph-faq-img-1 {
+                height: 320px;
+                width: 80%;
+                top: 90px;
+            }
+            
+            .ph-faq-img-2 {
+                height: 280px;
+                width: 70%;
+                bottom: 90px;
+            }
+            
+            .ph-faq-images:hover .ph-faq-img-2 {
+                transform: rotate(0deg) translateY(-70px);
+            }
+            
+            .ph-faq-header h2 {
+                font-size: 2.1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .ph-faq-section {
+                padding: 50px 0;
+            }
+            
+            .ph-faq-header h2 {
+                font-size: 1.9rem;
+            }
+            
+            .ph-image-wrapper {
+                height: 420px;
+            }
+            
+            .ph-faq-img-1 {
+                height: 280px;
+                top: 85px;
+            }
+            
+            .ph-faq-img-2 {
+                height: 250px;
+                bottom: 85px;
+            }
+            
+            .ph-faq-images:hover .ph-faq-img-2 {
+                transform: rotate(0deg) translateY(-50px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .ph-faq-question {
+                padding: 20px 22px;
+                gap: 16px;
+            }
+            
+            .ph-faq-question h3 {
+                font-size: 16px;
+            }
+            
+            .ph-faq-answer {
+                padding: 0 22px;
+            }
+            
+            .ph-faq-item.active .ph-faq-answer {
+                padding: 0 22px 22px;
+            }
+            
+            .ph-image-wrapper {
+                height: 380px;
+            }
+            
+            .ph-faq-img-1 {
+                height: 240px;
+                top: 80px;
+            }
+            
+            .ph-faq-img-2 {
+                height: 220px;
+                bottom: 80px;
+            }
+            
+            .ph-faq-images:hover .ph-faq-img-2 {
+                transform: rotate(0deg) translateY(-40px);
+            }
+            
+            .ph-faq-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+        /* CSS for FAQ Section Ends Here */
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="pharmacy-about">
+        <div class="bg-element bg-1"></div>
+        <div class="bg-element bg-2"></div>
+        <div class="bg-element bg-3"></div>
+        
+        <div class="about-content">
+            <div class="pharmacy-plus">
+                <div class="plus-circle">
+                    <div class="plus-sign">
+                        <div class="plus-line vertical-line"></div>
+                        <div class="plus-line horizontal-line"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="about-title">ABOUT US</h1>
+            
+            <p class="about-description">
+                Dedicated to providing exceptional pharmaceutical care with compassion and expertise. Your health is our priority.
+            </p>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us-section">
+        <div class="about-container">
+            <h2>About Us</h2>
+            <p>
+                At Butlers Med Pharmacy, we are committed to providing exceptional pharmaceutical care 
+                and healthcare solutions to our community. Our mission is to ensure every patient 
+                receives personalized, reliable, and professional service that prioritizes their 
+                health and wellbeing above all else.
+                <br><br>
+                With a dedicated team of experienced pharmacists and healthcare professionals, 
+                we strive to be your trusted partner in managing medications, offering health 
+                consultations, and providing quality medical products. We believe in building 
+                lasting relationships with our customers through integrity, expertise, and 
+                compassionate care that makes a meaningful difference in people's lives.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <div class="mission-header" data-animate>
+                <h2>Our Mission</h2>
+                <p>
+                    At Butlers Med Pharmacy, our mission is to provide reliable medicines,
+                    professional guidance, and trusted healthcare support for every patient
+                    and family we serve.
+                </p>
+            </div>
+
+            <div class="mission-content" data-animate>
+                <div class="mission-grid">
+                    <div class="mission-image">
+                        <img
+                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=900&q=80"
+                            alt="Pharmacy services">
+                    </div>
+
+                    <div class="mission-text">
+                        <h3>Butlers Med Pharmacy</h3>
+                        <p>
+                            We provide safe prescription services, quality over the counter
+                            healthcare products, and clear advice from experienced pharmacy
+                            professionals.
+                        </p>
+                        <p>
+                            Every prescription is carefully reviewed to ensure accuracy,
+                            correct dosage, and patient understanding, helping people manage
+                            their health with confidence.
+                        </p>
+                        <p>
+                            Through modern systems and personal care, Butlers Med Pharmacy
+                            continues to support healthier communities with consistency,
+                            trust, and accessibility.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="ph-section">
+        <div class="ph-container">
+            <h2 class="ph-heading">Why Choose Butler's Med Pharmacy</h2>
+            <p class="ph-subtitle">At Butler's Med Pharmacy, your health is our priority. We go beyond just filling prescriptions—we build lasting relationships with our patients and provide care you can trust.</p>
+            
+            <div class="ph-tabs-container">
+                <div class="ph-tabs-sidebar">
+                    <button class="ph-tab-btn active" data-tab="butler-tab1">
+                        <i class="fas fa-user-md ph-tab-icon"></i> Personalized Care
+                    </button>
+                    <button class="ph-tab-btn" data-tab="butler-tab2">
+                        <i class="fas fa-bolt ph-tab-icon"></i> Fast & Accurate
+                    </button>
+                    <button class="ph-tab-btn" data-tab="butler-tab3">
+                        <i class="fas fa-smile ph-tab-icon"></i> Friendly Team
+                    </button>
+                    <button class="ph-tab-btn" data-tab="butler-tab4">
+                        <i class="fas fa-home ph-tab-icon"></i> Community Focused
+                    </button>
+                </div>
+                
+                <div class="ph-tabs-content">
+                    <div class="ph-tab-pane active" id="butler-tab1">
+                        <h3>Personalized Patient Care</h3>
+                        <p>We believe that every patient is unique, which is why we take the time to truly understand your individual healthcare needs. Our team sits down with you to discuss your medications, answer all your questions, and ensure you feel completely supported throughout your treatment journey. We provide comprehensive medication counseling and follow-up care to help you achieve the best possible health outcomes.</p>
+                    </div>
+                    <div class="ph-tab-pane" id="butler-tab2">
+                        <h3>Fast & Accurate Prescriptions</h3>
+                        <p>Your time is valuable, and your health cannot wait. That's why we prioritize efficiency without ever compromising on accuracy or safety. Our streamlined prescription process ensures your medications are prepared quickly while maintaining the highest standards of precision. We implement multiple verification checks at every step to guarantee that you receive exactly what your doctor prescribed, when you need it most.</p>
+                    </div>
+                    <div class="ph-tab-pane" id="butler-tab3">
+                        <h3>Friendly, Professional Team</h3>
+                        <p>Our experienced pharmacy staff combines professional expertise with genuine compassion. Each team member undergoes continuous training to stay current with the latest healthcare developments, ensuring you receive informed guidance for all your medication needs. We're always here to help with a warm smile, clear explanations, and patient-focused service that makes every visit to our pharmacy a positive experience.</p>
+                    </div>
+                    <div class="ph-tab-pane" id="butler-tab4">
+                        <h3>Community-Focused Service</h3>
+                        <p>As your neighborhood pharmacy, we're deeply committed to serving and supporting our local community. We treat every customer like family, building relationships that extend beyond medication dispensing. We actively participate in community health initiatives and offer programs designed to make healthcare more accessible and affordable for all our neighbors, ensuring everyone receives the care they deserve.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews-section">
+        <div class="ph-container">
+            <div class="reviews-header">
+                <h2>What Our Customers Say</h2>
+                <p>Hear from our valued customers about their experience with Butler's Med Pharmacy</p>
+            </div>
+            
+            <div class="reviews-container">
+                <div class="review-card white-card">
+                    <div class="review-content">
+                        <p class="review-text">The best pharmacy in the Bronx! Always stocked and well-organized. The staff is kind, professional, and very helpful. They fulfill prescriptions quickly and offer valuable pharmaceutical advice.</p>
+                        <div class="review-footer">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-name">Bayan Ahmed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card blue-card">
+                    <div class="review-content">
+                        <p class="review-text">Truly exceptional! The service is outstanding, and the staff is friendly and professional. The pharmacy runs efficiently, and the store is impeccably clean and well-organized.</p>
+                        <div class="review-footer">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="reviewer-name">John Walter</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="review-card white-card">
+                    <div class="review-content">
+                        <p class="review-text">I love this pharmacy! They always have my medications ready on time, and I never have to call for refills. The free delivery service is amazing and so convenient!</p>
+                        <div class="review-footer">
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="reviewer-name">Fiorelis Brito</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="ph-faq-section">
+        <div class="ph-container">
+            <div class="ph-faq-container">
+                
+                <div class="ph-faq-images">
+                    <div class="ph-image-wrapper">
+                        <img src="https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pharmacy interior with shelves of medicine" class="ph-faq-img-1">
+                        <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Pharmacist helping customer" class="ph-faq-img-2">
+                    </div>
+                </div>
+                
+                <div class="ph-faq-questions">
+                    <div class="ph-faq-header">
+                        <h2>Frequently Asked Questions</h2>
+                        <p class="ph-faq-subtitle">Find answers to common questions about Butler's Med Pharmacy in the Bronx</p>
+                    </div>
+                    
+                    <div class="ph-faq-list">
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">1</span>
+                                <h3>What are your opening hours?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>We are open from 10:00 AM to 5:00 PM.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">2</span>
+                                <h3>Do you accept Medicaid and Medicare?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>Yes, we accept Medicaid, Medicare, and many other insurance plans.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">3</span>
+                                <h3>Do you accept OTC cards?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>Yes, we accept OTC cards, including Medicare OTC and Medicaid OTC.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">4</span>
+                                <h3>Do you provide free home delivery?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>Yes, free delivery is available. Please contact us for details.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">5</span>
+                                <h3>What products do you sell besides prescriptions?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>We offer OTC medications, vitamins, surgical supplies, beauty products, food items, perfumes, and health essentials.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="ph-faq-item">
+                            <div class="ph-faq-question">
+                                <span class="ph-faq-number">6</span>
+                                <h3>Can I check medicine availability before visiting?</h3>
+                                <span class="ph-faq-toggle">
+                                    <svg class="ph-faq-icon" viewBox="0 0 24 24">
+                                        <path d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                    </svg>
+                                </span>
+                            </div>
+                            <div class="ph-faq-answer">
+                                <p>Yes, you can contact us through Facebook or phone to confirm availability.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for All Sections Starts Here -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // JavaScript for Hero Section
+            const title = document.querySelector('.about-title');
+            setInterval(() => {
+                title.style.transform = 'scale(1.03)';
+                setTimeout(() => {
+                    title.style.transform = 'scale(1)';
+                }, 800);
+            }, 3000);
+            
+            const plus = document.querySelector('.pharmacy-plus');
+            plus.addEventListener('mouseenter', () => {
+                plus.style.animation = 'rotate 5s linear infinite';
+            });
+            
+            plus.addEventListener('mouseleave', () => {
+                plus.style.animation = 'rotate 20s linear infinite';
+            });
+            
+            const bgElements = document.querySelectorAll('.bg-element');
+            document.addEventListener('mousemove', (e) => {
+                const mouseX = e.clientX / window.innerWidth;
+                const mouseY = e.clientY / window.innerHeight;
+                
+                bgElements.forEach((element, index) => {
+                    const speed = 0.3 + (index * 0.1);
+                    const x = (mouseX * speed * 30) - 15;
+                    const y = (mouseY * speed * 30) - 15;
+                    
+                    element.style.transform = `translate(${x}px, ${y}px)`;
+                });
+            });
+
+            // JavaScript for Mission Section
+            const missionItems = document.querySelectorAll(".mission-section [data-animate]");
+
+            function revealMission(){
+                missionItems.forEach(el=>{
+                    const r = el.getBoundingClientRect();
+                    if(r.top < window.innerHeight * 0.85){
+                        el.classList.add("show");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", revealMission);
+            window.addEventListener("load", revealMission);
+
+            // JavaScript for Why Choose Us Section
+            const phTabButtons = document.querySelectorAll('.ph-tab-btn');
+            const phTabPanes = document.querySelectorAll('.ph-tab-pane');
+            const phHeading = document.querySelector('.ph-heading');
+            const phSubtitle = document.querySelector('.ph-subtitle');
+            const phTabsContainer = document.querySelector('.ph-tabs-container');
+            
+            function phSwitchTab(tabId) {
+                phTabPanes.forEach(pane => {
+                    pane.classList.remove('active');
+                });
+                
+                phTabButtons.forEach(button => {
+                    button.classList.remove('active');
+                });
+                
+                const activePane = document.getElementById(tabId);
+                const activeButton = document.querySelector(`.ph-tab-btn[data-tab="${tabId}"]`);
+                
+                if (activePane) activePane.classList.add('active');
+                if (activeButton) activeButton.classList.add('active');
+            }
+            
+            phTabButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabId = this.getAttribute('data-tab');
+                    phSwitchTab(tabId);
+                });
+            });
+            
+            if (window.location.hash) {
+                const hash = window.location.hash.substring(1);
+                if (hash.startsWith('butler-tab')) {
+                    phSwitchTab(hash);
+                }
+            }
+            
+            function handleScrollAnimation() {
+                const section = document.querySelector('.ph-section');
+                const sectionPosition = section.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (sectionPosition < screenPosition) {
+                    phHeading.classList.add('animate');
+                    phSubtitle.classList.add('animate');
+                    phTabsContainer.classList.add('animate');
+                }
+            }
+            
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation();
+
+            // JavaScript for Reviews Section
+            const container = document.querySelector('.reviews-container');
+            const cards = document.querySelectorAll('.review-card');
+            
+            function checkScroll() {
+                const containerTop = container.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (containerTop < windowHeight * 0.85) {
+                    container.classList.add('visible');
+                    
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('visible');
+                        }, index * 200);
+                    });
+                    
+                    window.removeEventListener('scroll', checkScroll);
+                }
+            }
+            
+            window.addEventListener('scroll', checkScroll);
+            checkScroll();
+
+            // JavaScript for FAQ Section
+            const phFaqItems = document.querySelectorAll('.ph-faq-item');
+            
+            function phToggleFaqItem(item) {
+                const isActive = item.classList.contains('active');
+                
+                phFaqItems.forEach(i => {
+                    i.classList.remove('active');
+                });
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            }
+            
+            phFaqItems.forEach(item => {
+                const question = item.querySelector('.ph-faq-question');
+                question.addEventListener('click', () => {
+                    phToggleFaqItem(item);
+                });
+            });
+        });
+    </script>
+    <!-- JavaScript for All Sections Ends Here -->
+</body>
+</html>
