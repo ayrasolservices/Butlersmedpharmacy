@@ -1,244 +1,190 @@
-// ============================================
-// include.js - For loading reusable components
-// ============================================
-
+// include.js - Optimized for GitHub Pages
 (function() {
     'use strict';
     
     // Configuration
     const CONFIG = {
-        headerFile: 'header.html',
-        footerFile: 'footer.html',
-        headerContainerId: 'header-container',
-        footerContainerId: 'footer-container',
-        showDebug: true // Set to false in production
+        repoName: window.location.pathname.split('/')[1] || '', // Get repo name from URL
+        isGitHubPages: window.location.hostname.includes('github.io'),
+        debug: true
     };
     
-    // Get the directory where this script is located
-    function getScriptDirectory() {
-        const scripts = document.getElementsByTagName('script');
-        const currentScript = scripts[scripts.length - 1];
-        const scriptPath = currentScript.src;
-        
-        // Extract directory path
-        if (scriptPath) {
-            return scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
-        }
-        
-        // Fallback: Assume script is in same folder as HTML
-        return '';
-    }
+    // Log info
+    console.log('GitHub Pages Include.js loaded');
+    console.log('Repo name:', CONFIG.repoName);
+    console.log('Full path:', window.location.pathname);
     
-    // Get correct path for file
-    function getFilePath(filename) {
-        const scriptDir = getScriptDirectory();
-        
-        // Method 1: If script has a src attribute (external file)
-        if (scriptDir) {
-            return scriptDir + filename;
+    // Determine base path for GitHub Pages
+    function getBasePath() {
+        if (!CONFIG.isGitHubPages) {
+            // Local development - adjust as needed
+            const path = window.location.pathname;
+            const segments = path.split('/');
+            
+            // If we're in a subfolder (like /about/)
+            if (segments.length > 2 && segments[segments.length - 1] !== '') {
+                // We're in a file in a subfolder
+                return '../';
+            } else if (segments.length > 2) {
+                // We're in a subfolder directory
+                return './';
+            }
+            return './';
         }
         
-        // Method 2: If script is inline or path issues, try different approaches
-        const basePath = window.location.pathname;
-        const isRoot = basePath.endsWith('/') || basePath.endsWith('.html');
+        // GitHub Pages - includes repo name in path
+        if (CONFIG.repoName && CONFIG.repoName !== '') {
+            return '/' + CONFIG.repoName + '/';
+        }
         
-        if (isRoot) {
-            // We're in root or a file in root
-            return filename;
-        } else {
-            // We're in a subdirectory
-            return '../' + filename;
-        }
-    }
-    
-    // Show debug message
-    function debug(message) {
-        if (CONFIG.showDebug) {
-            console.log(`[Include.js] ${message}`);
-        }
-    }
-    
-    // Show error in container
-    function showError(containerId, message) {
-        const container = document.getElementById(containerId);
-        if (container) {
-            container.innerHTML = `
-                <div style="
-                    background: #fff3cd;
-                    border: 1px solid #ffeaa7;
-                    color: #856404;
-                    padding: 15px;
-                    margin: 10px 0;
-                    border-radius: 4px;
-                    font-family: Arial, sans-serif;
-                ">
-                    <strong>Component Loading Error</strong><br>
-                    ${message}<br>
-                    <small>Please check file paths and server configuration</small>
-                </div>
-            `;
-        }
+        // User/organization site (username.github.io)
+        return '/';
     }
     
     // Load a component
     async function loadComponent(containerId, filename) {
         const container = document.getElementById(containerId);
-        
         if (!container) {
-            debug(`Container #${containerId} not found, skipping ${filename}`);
-            return false;
+            console.warn(`Container #${containerId} not found`);
+            return;
         }
         
-        // Show loading state
+        // Show loading
+        container.innerHTML = '<div style="padding: 10px; background: #f5f5f5;">Loading...</div>';
+        
+        // Build paths to try (GitHub Pages needs absolute paths)
+        const basePath = getBasePath();
+        const pathsToTry = [
+            `${basePath}header and footer/${filename}`,  // With folder name
+            `${basePath}${filename}`,                    // In root
+            `./header and footer/${filename}`,           // Relative with folder
+            `./${filename}`,                             // Relative in same dir
+            `/${filename}`,                              // Absolute root
+            filename                                     // Just filename
+        ];
+        
+        if (CONFIG.debug) {
+            console.log('Trying paths for', filename, ':', pathsToTry);
+        }
+        
+        // Try each path
+        for (const path of pathsToTry) {
+            try {
+                console.log(`Trying: ${path}`);
+                const response = await fetch(path);
+                
+                if (response.ok) {
+                    const html = await response.text();
+                    container.innerHTML = html;
+                    console.log(`✓ Loaded ${filename} from: ${path}`);
+                    
+                    // Initialize
+                    if (containerId === 'header-container') initializeHeader();
+                    if (containerId === 'footer-container') initializeFooter();
+                    
+                    return;
+                }
+            } catch (error) {
+                // Continue to next path
+                continue;
+            }
+        }
+        
+        // If all paths fail
         container.innerHTML = `
             <div style="
-                text-align: center;
-                padding: 20px;
-                color: #6c757d;
-                font-style: italic;
+                background: #ffe6e6;
+                border: 1px solid #ff9999;
+                padding: 15px;
+                margin: 10px;
+                border-radius: 5px;
             ">
-                Loading ${filename.replace('.html', '')}...
+                <strong>Error loading ${filename}</strong><br>
+                Tried paths: ${pathsToTry.join(', ')}<br>
+                <small>Make sure "header and footer" folder exists in repository root</small>
             </div>
         `;
-        
-        try {
-            // Try multiple path strategies
-            const pathsToTry = [
-                filename,                          // Same directory
-                getFilePath(filename),            // Relative to script
-                `header and footer/${filename}`,  // Specific folder
-                `/${filename}`,                   // Root directory
-                `./${filename}`                   // Current directory
-            ];
-            
-            let response;
-            let triedPaths = [];
-            
-            for (const path of pathsToTry) {
-                triedPaths.push(path);
-                debug(`Trying to load from: ${path}`);
-                
-                try {
-                    response = await fetch(path);
-                    if (response.ok) {
-                        debug(`Successfully loaded from: ${path}`);
-                        break;
-                    }
-                } catch (e) {
-                    // Continue to next path
-                    continue;
-                }
-            }
-            
-            if (!response || !response.ok) {
-                throw new Error(`File not found. Tried: ${triedPaths.join(', ')}`);
-            }
-            
-            const html = await response.text();
-            container.innerHTML = html;
-            
-            // Initialize component
-            if (containerId === CONFIG.headerContainerId) {
-                initializeHeader();
-            } else if (containerId === CONFIG.footerContainerId) {
-                initializeFooter();
-            }
-            
-            return true;
-            
-        } catch (error) {
-            debug(`Error loading ${filename}: ${error.message}`);
-            showError(containerId, `Failed to load ${filename}: ${error.message}`);
-            return false;
-        }
     }
     
-    // ============================================
-    // Initialize Components
-    // ============================================
-    
+    // Initialize header
     function initializeHeader() {
-        debug('Initializing header...');
+        console.log('Initializing header...');
         
-        // Mobile menu toggle
+        // Mobile menu
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         
         if (hamburger && navMenu) {
-            hamburger.addEventListener('click', function() {
-                this.classList.toggle('active');
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
             });
             
-            // Close menu when clicking links
+            // Close menu on link click
             document.querySelectorAll('.nav-link').forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
                 });
             });
         }
         
-        // Highlight current page
-        highlightCurrentPage();
+        // Fix GitHub Pages links
+        fixLinks();
     }
     
+    // Initialize footer
     function initializeFooter() {
-        debug('Initializing footer...');
+        console.log('Initializing footer...');
         
-        // Update copyright year
-        document.querySelectorAll('[data-year]').forEach(element => {
-            element.textContent = new Date().getFullYear();
+        // Update year
+        const yearElements = document.querySelectorAll('[data-current-year]');
+        yearElements.forEach(el => {
+            el.textContent = new Date().getFullYear();
         });
     }
     
-    // Highlight current page in navigation
-    function highlightCurrentPage() {
-        const currentPath = window.location.pathname;
-        const currentPage = currentPath.split('/').pop() || 'index.html';
+    // Fix links for GitHub Pages
+    function fixLinks() {
+        const links = document.querySelectorAll('a');
+        const basePath = getBasePath();
         
-        document.querySelectorAll('.nav-link').forEach(link => {
-            const linkPath = link.getAttribute('href');
-            link.classList.remove('active');
+        links.forEach(link => {
+            const href = link.getAttribute('href');
             
-            if (linkPath === currentPage || 
-                (currentPage === 'index.html' && linkPath === '/') ||
-                (linkPath && currentPath.includes(linkPath))) {
-                link.classList.add('active');
+            // Skip external links, anchors, and empty hrefs
+            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) {
+                return;
+            }
+            
+            // If it's a relative link and we're on GitHub Pages
+            if (CONFIG.isGitHubPages && href.startsWith('./')) {
+                link.href = basePath + href.substring(2);
+            } else if (CONFIG.isGitHubPages && !href.startsWith('/') && !href.startsWith('.')) {
+                // Links like "about.html" -> "/repo/about.html"
+                link.href = basePath + href;
             }
         });
     }
     
-    // ============================================
-    // Main Execution
-    // ============================================
-    
-    // Wait for DOM to be ready
+    // Start loading when DOM is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
     
-    async function init() {
-        debug('Starting component loading...');
+    function init() {
+        console.log('DOM ready, loading components...');
         
-        // Load components
-        await Promise.all([
-            loadComponent(CONFIG.headerContainerId, CONFIG.headerFile),
-            loadComponent(CONFIG.footerContainerId, CONFIG.footerFile)
-        ]);
-        
-        debug('Component loading completed');
+        // Load both components
+        Promise.all([
+            loadComponent('header-container', 'header.html'),
+            loadComponent('footer-container', 'footer.html')
+        ]).then(() => {
+            console.log('All components loaded successfully');
+        }).catch(error => {
+            console.error('Error loading components:', error);
+        });
     }
-    
-    // Make reload functions available globally
-    window.reloadHeader = function() {
-        return loadComponent(CONFIG.headerContainerId, CONFIG.headerFile);
-    };
-    
-    window.reloadFooter = function() {
-        return loadComponent(CONFIG.footerContainerId, CONFIG.footerFile);
-    };
-    
 })();
