@@ -1,1 +1,537 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Butlers Med Pharmacy </title>
+  <meta name="description" content="Contact our pharmacy for prescription services, medication inquiries, and healthcare support. We're here to help with your pharmaceutical needs." />
+  <link rel="canonical" href="https://yourpharmacy.com/contact/" />
+  <link rel="icon" href="../assets/images/pharmacy-logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+  
+    .hero {
+      width: 100%;
+      height: 500px;
+      background-image: url('../../assets/images/pharmacy-contact.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(32, 32, 32, 0.8) 20%,
+        rgba(32, 63, 153, 0.4) 100%
+      );
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+    .heading {
+      color: white;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+      margin-bottom: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #FD0511;
+      transform: translateX(-100%);
+      animation: slideIn 1.5s ease-out forwards;
+      animation-delay: 0.5s;
+    }
+    
+    @keyframes slideIn {
+      to {
+        transform: translateX(0);
+      }
+    }
+    
+    .heading span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .heading span:nth-child(8) {
+      margin-right: 15px;
+    }
+    
+    .underline {
+      width: 100px;
+      height: 4px;
+      background-color: #FD0511;
+      border-radius: 2px;
+      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      transform: scaleX(0);
+      animation: growIn 0.8s ease forwards;
+      animation-delay: 1.2s;
+    }
+    
+    @keyframes growIn {
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+    }
+    
+    .contact-heading {
+      text-align: center;
+      margin: 70px 0 30px;
+      font-family: Arial, sans-serif;
+      color: #203F99;
+    }
+    
+    .contact-heading h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }
+    
+    .contact-heading h2 .highlight {
+      color: #FD0511;
+    }
+    
+    .contact-heading p {
+      font-size: 16px;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 600px;
+      color: #203F99;
+    }
+    
+    .contact-section {
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin: 75px auto 40px;
+      padding: 0 20px;
+      box-sizing: border-box;
+    }
+    
+    .contact-info {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+    }
+    
+    .contact-info h2 {
+      color: #203F99;
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .contact-details {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .contact-details li {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 20px;
+      padding: 12px;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-details li:hover {
+      background-color: rgba(32, 63, 153, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .contact-details i {
+      color: #FD0511;
+      font-size: 18px;
+      margin-right: 15px;
+      margin-top: 3px;
+      width: 20px;
+      text-align: center;
+    }
+    
+    .contact-details div {
+      flex: 1;
+    }
+    
+    .contact-details h3 {
+      font-size: 16px;
+      margin-bottom: 5px;
+      color: #203F99;
+      font-weight: 600;
+    }
+    
+    .contact-details p {
+      color: #555;
+      font-size: 15px;
+      margin: 0;
+      line-height: 1.4;
+    }
+    
+    .contact-form {
+      flex: 1;
+      min-width: 300px;
+      background-color: white;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+    }
+    
+    .contact-form h2 {
+      color: #203F99;
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 700;
+    }
+    
+    .form-row {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      flex: 1;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #203F99;
+      font-size: 14px;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: #FD0511;
+      box-shadow: 0 0 0 3px rgba(253, 5, 17, 0.2);
+    }
+    
+    .form-control:hover {
+      border-color: #c0c0c0;
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .submit-btn {
+      background-color: #203F99;
+      color: white;
+      border: none;
+      padding: 15px 25px;
+      font-size: 16px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      width: 100%;
+      margin-top: 10px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .submit-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background-color: #FD0511;
+      transition: all 0.4s ease;
+      z-index: -1;
+    }
+    
+    .submit-btn:hover::before {
+      left: 0;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(32, 63, 153, 0.3);
+    }
+    
+    .submit-btn:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .submit-btn:disabled::before {
+      display: none;
+    }
+    
+    @media (max-width: 1200px) {
+      .hero {
+        height: 450px;
+      }
+      .heading {
+        font-size: 3.5rem;
+      }
+    }
+    
+    @media (max-width: 992px) {
+      .hero {
+        height: 400px;
+      }
+      .heading {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        height: 350px;
+      }
+      .heading {
+        font-size: 2.5rem;
+      }
+      .underline {
+        width: 80px;
+        height: 3px;
+      }
+      .heading span:nth-child(8) {
+        margin-right: 10px;
+      }
+      .contact-section {
+        flex-direction: column;
+        margin: 20px auto;
+      }
+      .form-row {
+        flex-direction: column;
+        gap: 0;
+      }
+      .contact-info, .contact-form {
+        padding: 20px;
+      }
+      .contact-heading {
+        margin: 30px 0 20px;
+        padding: 0 15px;
+      }
+      .contact-heading h2 {
+        font-size: 24px;
+      }
+      .contact-heading p {
+        font-size: 15px;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .hero {
+        height: 300px;
+      }
+      .heading {
+        font-size: 2.2rem;
+      }
+      .underline {
+        width: 70px;
+        height: 3px;
+      }
+      .heading span:nth-child(8) {
+        margin-right: 8px;
+      }
+      .contact-section {
+        padding: 0 15px;
+      }
+      .contact-info, .contact-form {
+        padding: 15px;
+      }
+      .contact-info h2, .contact-form h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+      .form-control {
+        padding: 10px;
+      }
+      .submit-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+        height: 45px;
+      }
+    }
+    
+    @media (max-width: 400px) {
+      .hero {
+        height: 250px;
+      }
+      .heading {
+        font-size: 1.8rem;
+      }
+      .underline {
+        width: 60px;
+        height: 2px;
+      }
+      .heading span:nth-child(8) {
+        margin-right: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="header-container"></div>
+  
+  <section class="hero">
+    <div class="overlay">
+      <h1 class="heading" id="animated-heading">Contact Us</h1>
+      <div class="underline"></div>
+    </div>
+  </section>
+  
+  <div class="contact-heading">
+    <h2>Your Health is Our <span class="highlight">Top Priority</span></h2>
+    <p>
+      Our licensed pharmacists are ready to assist with prescription services, medication consultations, and healthcare advice. Reach out for personalized pharmaceutical care.
+    </p>
+  </div>
+  
+  <section id="my-contact" class="contact-section">
+    <div class="contact-info">
+      <h2>Pharmacy Information</h2>
+      <ul class="contact-details">
+        <li>
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h3>Phone Number</h3>
+            <p>+1 (555) 123-4567</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-fax"></i>
+          <div>
+            <h3>Fax</h3>
+            <p>+1 (555) 123-4568</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <p>contact@yourpharmacy.com</p>
+          </div>
+        </li>
+        <li>
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Pharmacy Address</h3>
+            <p>123 Healthcare Ave, Medical District, City, State 12345</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="contact-form">
+      <h2>Contact Our Pharmacy</h2>
+      <form id="contactForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name *</label>
+            <input type="text" id="firstName" name="firstName" class="form-control" placeholder="Enter your first name" required>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name *</label>
+            <input type="text" id="lastName" name="lastName" class="form-control" placeholder="Enter your last name" required>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email address" required>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" class="form-control" placeholder="Describe your inquiry, prescription needs, or questions..." required></textarea>
+        </div>
+        
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+  
+  <div id="footer-container"></div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const heading = document.getElementById('animated-heading');
+      const text = heading.textContent;
+      heading.textContent = '';
+      
+      for (let i = 0; i < text.length; i++) {
+        const span = document.createElement('span');
+        span.textContent = text[i];
+        span.style.animationDelay = `${0.1 * i}s`;
+        heading.appendChild(span);
+      }
+    });
+  </script>
+  
+  <script src="../header and footer/include.js"></script>
+</body>
+</html>
