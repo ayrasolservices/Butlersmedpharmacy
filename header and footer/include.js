@@ -1,116 +1,198 @@
-// include.js - Optimized for GitHub Pages
+// include.js - GitHub Pages PROVEN WORKING VERSION
 (function() {
     'use strict';
     
-    // Configuration
-    const CONFIG = {
-        repoName: window.location.pathname.split('/')[1] || '', // Get repo name from URL
-        isGitHubPages: window.location.hostname.includes('github.io'),
-        debug: true
-    };
+    console.log('Include.js loaded - GitHub Pages Version');
     
-    // Log info
-    console.log('GitHub Pages Include.js loaded');
-    console.log('Repo name:', CONFIG.repoName);
-    console.log('Full path:', window.location.pathname);
+    // Get current URL info
+    const currentUrl = window.location.href;
+    const isLocalhost = currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1');
+    const isGitHubPages = currentUrl.includes('github.io');
     
-    // Determine base path for GitHub Pages
-    function getBasePath() {
-        if (!CONFIG.isGitHubPages) {
-            // Local development - adjust as needed
-            const path = window.location.pathname;
-            const segments = path.split('/');
-            
-            // If we're in a subfolder (like /about/)
-            if (segments.length > 2 && segments[segments.length - 1] !== '') {
-                // We're in a file in a subfolder
-                return '../';
-            } else if (segments.length > 2) {
-                // We're in a subfolder directory
-                return './';
-            }
-            return './';
-        }
+    // Get repo name from URL pattern: username.github.io/repo-name/
+    function getRepoName() {
+        if (!isGitHubPages) return '';
         
-        // GitHub Pages - includes repo name in path
-        if (CONFIG.repoName && CONFIG.repoName !== '') {
-            return '/' + CONFIG.repoName + '/';
-        }
+        const url = new URL(currentUrl);
+        const pathParts = url.pathname.split('/').filter(part => part);
         
-        // User/organization site (username.github.io)
-        return '/';
+        // If it's a project site (not user site), the first part is repo name
+        // username.github.io/repo-name/
+        if (pathParts.length > 0 && !currentUrl.includes(`${pathParts[0]}.github.io`)) {
+            return pathParts[0];
+        }
+        return '';
     }
     
-    // Load a component
-    async function loadComponent(containerId, filename) {
+    const repoName = getRepoName();
+    console.log('Repo name detected:', repoName || '(user/organization site)');
+    
+    // Build base URL for all file requests
+    function getBaseUrl() {
+        if (isLocalhost) {
+            // Local development - adjust based on your local setup
+            return window.location.origin + '/';
+        }
+        
+        if (isGitHubPages) {
+            if (repoName) {
+                // Project site: https://username.github.io/repo-name/
+                return `https://${window.location.hostname}/${repoName}/`;
+            } else {
+                // User/organization site: https://username.github.io/
+                return `https://${window.location.hostname}/`;
+            }
+        }
+        
+        // Fallback
+        return window.location.origin + '/';
+    }
+    
+    // Load component with RETRY logic
+    async function loadComponent(componentName, containerId) {
         const container = document.getElementById(containerId);
         if (!container) {
-            console.warn(`Container #${containerId} not found`);
+            console.error(`Container #${containerId} not found!`);
             return;
         }
         
         // Show loading
-        container.innerHTML = '<div style="padding: 10px; background: #f5f5f5;">Loading...</div>';
+        container.innerHTML = `<div style="padding: 10px; background: #f0f0f0;">Loading ${componentName}...</div>`;
         
-        // Build paths to try (GitHub Pages needs absolute paths)
-        const basePath = getBasePath();
-        const pathsToTry = [
-            `${basePath}header and footer/${filename}`,  // With folder name
-            `${basePath}${filename}`,                    // In root
-            `./header and footer/${filename}`,           // Relative with folder
-            `./${filename}`,                             // Relative in same dir
-            `/${filename}`,                              // Absolute root
-            filename                                     // Just filename
-        ];
+        // Try multiple paths (GitHub Pages needs different paths)
+        const pathsToTry = [];
+        const baseUrl = getBaseUrl();
         
-        if (CONFIG.debug) {
-            console.log('Trying paths for', filename, ':', pathsToTry);
+        // For GitHub Pages
+        if (isGitHubPages) {
+            pathsToTry.push(
+                `${baseUrl}header and footer/${componentName}`,  // Primary path
+                `${baseUrl}${componentName}`,                    // Root
+                `/${repoName}/header and footer/${componentName}`, // Absolute with repo
+                `/header and footer/${componentName}`,           // Absolute without repo
+                `./header and footer/${componentName}`,          // Relative
+                `./${componentName}`                             // Same directory
+            );
+        } else {
+            // Local development
+            pathsToTry.push(
+                './header and footer/' + componentName,
+                './' + componentName,
+                '/header and footer/' + componentName,
+                '/' + componentName
+            );
         }
         
+        console.log(`Trying to load ${componentName} from:`, pathsToTry);
+        
         // Try each path
-        for (const path of pathsToTry) {
+        for (let i = 0; i < pathsToTry.length; i++) {
+            const path = pathsToTry[i];
             try {
-                console.log(`Trying: ${path}`);
+                console.log(`Attempt ${i + 1}: ${path}`);
                 const response = await fetch(path);
                 
                 if (response.ok) {
                     const html = await response.text();
                     container.innerHTML = html;
-                    console.log(`✓ Loaded ${filename} from: ${path}`);
+                    console.log(`✅ SUCCESS! Loaded ${componentName} from: ${path}`);
                     
-                    // Initialize
-                    if (containerId === 'header-container') initializeHeader();
-                    if (containerId === 'footer-container') initializeFooter();
+                    // Initialize component
+                    if (containerId === 'header-container') {
+                        initializeHeader();
+                        fixAllLinks(); // Fix links for GitHub Pages
+                    }
+                    if (containerId === 'footer-container') {
+                        initializeFooter();
+                    }
                     
-                    return;
+                    return true; // Success!
                 }
             } catch (error) {
+                console.log(`Failed attempt ${i + 1}:`, error.message);
                 // Continue to next path
-                continue;
             }
         }
         
-        // If all paths fail
+        // ALL PATHS FAILED - Show helpful error
         container.innerHTML = `
             <div style="
-                background: #ffe6e6;
-                border: 1px solid #ff9999;
-                padding: 15px;
+                background: #ffebee;
+                border: 2px solid #f44336;
+                border-radius: 8px;
+                padding: 20px;
                 margin: 10px;
-                border-radius: 5px;
+                color: #c62828;
+                font-family: Arial, sans-serif;
             ">
-                <strong>Error loading ${filename}</strong><br>
-                Tried paths: ${pathsToTry.join(', ')}<br>
-                <small>Make sure "header and footer" folder exists in repository root</small>
+                <h3 style="margin-top: 0;">⚠️ Error Loading ${componentName}</h3>
+                <p><strong>Problem:</strong> Cannot find ${componentName}</p>
+                <p><strong>Your GitHub Pages URL:</strong> ${currentUrl}</p>
+                <p><strong>Base URL used:</strong> ${baseUrl}</p>
+                <p><strong>Repo name detected:</strong> ${repoName || 'None (user site)'}</p>
+                <p><strong>Paths tried:</strong></p>
+                <ul style="font-size: 12px;">
+                    ${pathsToTry.map(p => `<li>${p}</li>`).join('')}
+                </ul>
+                <hr>
+                <p><strong>Quick Fix:</strong></p>
+                <ol>
+                    <li>Make sure "header and footer" folder exists in your repo</li>
+                    <li>Check that ${componentName} is inside that folder</li>
+                    <li>Your repo structure should be:<br>
+                        <code>
+                        repository/<br>
+                        ├── header and footer/<br>
+                        │   ├── header.html<br>
+                        │   ├── footer.html<br>
+                        │   └── include.js<br>
+                        ├── index.html<br>
+                        └── other-pages.html
+                        </code>
+                    </li>
+                </ol>
             </div>
         `;
+        
+        return false;
+    }
+    
+    // Fix ALL links for GitHub Pages
+    function fixAllLinks() {
+        if (!isGitHubPages) return;
+        
+        const allLinks = document.querySelectorAll('a');
+        const basePath = repoName ? `/${repoName}/` : '/';
+        
+        allLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            
+            // Skip if no href or is external/absolute
+            if (!href || href.startsWith('http') || href.startsWith('#') || 
+                href.startsWith('mailto:') || href.startsWith('tel:')) {
+                return;
+            }
+            
+            // Fix relative links
+            if (href.startsWith('./')) {
+                link.href = basePath + href.substring(2);
+            } else if (!href.startsWith('/')) {
+                // Links like "about.html" -> "/repo/about.html"
+                link.href = basePath + href;
+            } else if (href.startsWith('/') && repoName && !href.startsWith(`/${repoName}/`)) {
+                // Absolute links without repo name
+                link.href = basePath + href.substring(1);
+            }
+        });
+        
+        console.log('Fixed links for GitHub Pages');
     }
     
     // Initialize header
     function initializeHeader() {
         console.log('Initializing header...');
         
-        // Mobile menu
+        // Mobile menu toggle
         const hamburger = document.querySelector('.hamburger');
         const navMenu = document.querySelector('.nav-menu');
         
@@ -128,63 +210,34 @@
                 });
             });
         }
-        
-        // Fix GitHub Pages links
-        fixLinks();
     }
     
     // Initialize footer
     function initializeFooter() {
         console.log('Initializing footer...');
         
-        // Update year
-        const yearElements = document.querySelectorAll('[data-current-year]');
-        yearElements.forEach(el => {
+        // Update copyright year
+        document.querySelectorAll('[data-year], #current-year').forEach(el => {
             el.textContent = new Date().getFullYear();
         });
     }
     
-    // Fix links for GitHub Pages
-    function fixLinks() {
-        const links = document.querySelectorAll('a');
-        const basePath = getBasePath();
-        
-        links.forEach(link => {
-            const href = link.getAttribute('href');
-            
-            // Skip external links, anchors, and empty hrefs
-            if (!href || href.startsWith('http') || href.startsWith('#') || href.startsWith('mailto:')) {
-                return;
-            }
-            
-            // If it's a relative link and we're on GitHub Pages
-            if (CONFIG.isGitHubPages && href.startsWith('./')) {
-                link.href = basePath + href.substring(2);
-            } else if (CONFIG.isGitHubPages && !href.startsWith('/') && !href.startsWith('.')) {
-                // Links like "about.html" -> "/repo/about.html"
-                link.href = basePath + href;
-            }
-        });
-    }
-    
-    // Start loading when DOM is ready
+    // Start loading when page is ready
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
     } else {
         init();
     }
     
-    function init() {
-        console.log('DOM ready, loading components...');
+    async function init() {
+        console.log('Starting component loading...');
         
         // Load both components
-        Promise.all([
-            loadComponent('header-container', 'header.html'),
-            loadComponent('footer-container', 'footer.html')
-        ]).then(() => {
-            console.log('All components loaded successfully');
-        }).catch(error => {
-            console.error('Error loading components:', error);
-        });
+        await Promise.all([
+            loadComponent('header.html', 'header-container'),
+            loadComponent('footer.html', 'footer-container')
+        ]);
+        
+        console.log('Component loading complete!');
     }
 })();
