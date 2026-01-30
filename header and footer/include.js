@@ -1,290 +1,244 @@
 // ============================================
 // include.js - For loading reusable components
-// Place this in "header and footer" folder
 // ============================================
 
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('include.js: Loading header and footer components...');
+(function() {
+    'use strict';
     
-    // Load header from same folder
-    loadComponent('header.html', 'header-container', function() {
-        console.log('Header loaded successfully');
-        initializeHeader();
-    });
+    // Configuration
+    const CONFIG = {
+        headerFile: 'header.html',
+        footerFile: 'footer.html',
+        headerContainerId: 'header-container',
+        footerContainerId: 'footer-container',
+        showDebug: true // Set to false in production
+    };
     
-    // Load footer from same folder
-    loadComponent('footer.html', 'footer-container', function() {
-        console.log('Footer loaded successfully');
-        initializeFooter();
-    });
-});
-
-// ============================================
-// Main Loading Function
-// ============================================
-function loadComponent(fileName, containerId, onSuccess) {
-    // Check if container exists
-    const container = document.getElementById(containerId);
-    if (!container) {
-        console.warn(`Container #${containerId} not found on this page`);
-        return;
+    // Get the directory where this script is located
+    function getScriptDirectory() {
+        const scripts = document.getElementsByTagName('script');
+        const currentScript = scripts[scripts.length - 1];
+        const scriptPath = currentScript.src;
+        
+        // Extract directory path
+        if (scriptPath) {
+            return scriptPath.substring(0, scriptPath.lastIndexOf('/') + 1);
+        }
+        
+        // Fallback: Assume script is in same folder as HTML
+        return '';
     }
     
-    // Show loading indicator
-    container.innerHTML = `
-        <div style="
-            padding: 20px;
-            text-align: center;
-            color: #666;
-            background: #f5f5f5;
-            border-radius: 4px;
-            margin: 10px 0;
-        ">
-            Loading ${fileName.replace('.html', '')}...
-        </div>
-    `;
+    // Get correct path for file
+    function getFilePath(filename) {
+        const scriptDir = getScriptDirectory();
+        
+        // Method 1: If script has a src attribute (external file)
+        if (scriptDir) {
+            return scriptDir + filename;
+        }
+        
+        // Method 2: If script is inline or path issues, try different approaches
+        const basePath = window.location.pathname;
+        const isRoot = basePath.endsWith('/') || basePath.endsWith('.html');
+        
+        if (isRoot) {
+            // We're in root or a file in root
+            return filename;
+        } else {
+            // We're in a subdirectory
+            return '../' + filename;
+        }
+    }
     
-    // Fetch the component
-    fetch(fileName)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`Failed to load ${fileName}: ${response.status} ${response.statusText}`);
-            }
-            return response.text();
-        })
-        .then(html => {
-            // Insert the HTML
-            container.innerHTML = html;
-            
-            // Call success callback
-            if (onSuccess && typeof onSuccess === 'function') {
-                onSuccess();
-            }
-        })
-        .catch(error => {
-            console.error(`Error loading ${fileName}:`, error);
-            
-            // Show error message
+    // Show debug message
+    function debug(message) {
+        if (CONFIG.showDebug) {
+            console.log(`[Include.js] ${message}`);
+        }
+    }
+    
+    // Show error in container
+    function showError(containerId, message) {
+        const container = document.getElementById(containerId);
+        if (container) {
             container.innerHTML = `
                 <div style="
-                    background: #f8d7da;
-                    color: #721c24;
+                    background: #fff3cd;
+                    border: 1px solid #ffeaa7;
+                    color: #856404;
                     padding: 15px;
-                    border: 1px solid #f5c6cb;
-                    border-radius: 4px;
                     margin: 10px 0;
-                    text-align: center;
+                    border-radius: 4px;
+                    font-family: Arial, sans-serif;
                 ">
-                    <strong>Error Loading ${fileName.replace('.html', '')}:</strong><br>
-                    ${error.message}<br>
-                    <small>Check that ${fileName} exists in the same folder as include.js</small>
+                    <strong>Component Loading Error</strong><br>
+                    ${message}<br>
+                    <small>Please check file paths and server configuration</small>
                 </div>
             `;
-        });
-}
-
-// ============================================
-// Header Initialization Functions
-// ============================================
-function initializeHeader() {
-    console.log('Initializing header...');
+        }
+    }
     
-    // 1. Mobile menu toggle functionality
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+    // Load a component
+    async function loadComponent(containerId, filename) {
+        const container = document.getElementById(containerId);
+        
+        if (!container) {
+            debug(`Container #${containerId} not found, skipping ${filename}`);
+            return false;
+        }
+        
+        // Show loading state
+        container.innerHTML = `
+            <div style="
+                text-align: center;
+                padding: 20px;
+                color: #6c757d;
+                font-style: italic;
+            ">
+                Loading ${filename.replace('.html', '')}...
+            </div>
+        `;
+        
+        try {
+            // Try multiple path strategies
+            const pathsToTry = [
+                filename,                          // Same directory
+                getFilePath(filename),            // Relative to script
+                `header and footer/${filename}`,  // Specific folder
+                `/${filename}`,                   // Root directory
+                `./${filename}`                   // Current directory
+            ];
             
-            // Prevent body scroll when menu is open
-            if (navMenu.classList.contains('active')) {
-                document.body.style.overflow = 'hidden';
-            } else {
-                document.body.style.overflow = '';
-            }
-        });
-    }
-    
-    // 2. Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            if (hamburger && navMenu) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    });
-    
-    // 3. Highlight current page in navigation
-    highlightCurrentPage();
-    
-    // 4. Add dropdown functionality if present
-    initializeDropdowns();
-    
-    // 5. Add scroll effect if needed
-    window.addEventListener('scroll', handleHeaderScroll);
-}
-
-// ============================================
-// Footer Initialization Functions
-// ============================================
-function initializeFooter() {
-    console.log('Initializing footer...');
-    
-    // 1. Update current year in copyright
-    const yearElements = document.querySelectorAll('#current-year, .current-year, [data-current-year]');
-    yearElements.forEach(element => {
-        element.textContent = new Date().getFullYear();
-    });
-    
-    // 2. Initialize back to top button if present
-    const backToTopBtn = document.getElementById('back-to-top');
-    if (backToTopBtn) {
-        backToTopBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Show/hide button on scroll
-        window.addEventListener('scroll', function() {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = 'block';
-            } else {
-                backToTopBtn.style.display = 'none';
-            }
-        });
-    }
-    
-    // 3. Initialize newsletter form if present
-    const newsletterForm = document.getElementById('newsletter-form');
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const email = this.querySelector('input[type="email"]').value;
-            if (validateEmail(email)) {
-                alert('Thank you for subscribing!');
-                this.reset();
-            } else {
-                alert('Please enter a valid email address');
-            }
-        });
-    }
-}
-
-// ============================================
-// Helper Functions
-// ============================================
-
-// Highlight current page in navigation
-function highlightCurrentPage() {
-    const currentPath = window.location.pathname;
-    const currentPage = currentPath.split('/').pop() || 'index.html';
-    
-    document.querySelectorAll('.nav-link').forEach(link => {
-        const linkPath = link.getAttribute('href');
-        
-        // Remove any existing active class
-        link.classList.remove('active');
-        
-        // Check if this link matches current page
-        if (linkPath === currentPage) {
-            link.classList.add('active');
-        } else if (currentPage === '' && linkPath === 'index.html') {
-            link.classList.add('active');
-        } else if (linkPath && currentPath.includes(linkPath.replace('.html', ''))) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Initialize dropdown menus
-function initializeDropdowns() {
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
-        
-        if (toggle && menu) {
-            toggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                e.stopPropagation();
+            let response;
+            let triedPaths = [];
+            
+            for (const path of pathsToTry) {
+                triedPaths.push(path);
+                debug(`Trying to load from: ${path}`);
                 
-                // Close other dropdowns
-                dropdowns.forEach(other => {
-                    if (other !== dropdown) {
-                        other.classList.remove('open');
+                try {
+                    response = await fetch(path);
+                    if (response.ok) {
+                        debug(`Successfully loaded from: ${path}`);
+                        break;
                     }
+                } catch (e) {
+                    // Continue to next path
+                    continue;
+                }
+            }
+            
+            if (!response || !response.ok) {
+                throw new Error(`File not found. Tried: ${triedPaths.join(', ')}`);
+            }
+            
+            const html = await response.text();
+            container.innerHTML = html;
+            
+            // Initialize component
+            if (containerId === CONFIG.headerContainerId) {
+                initializeHeader();
+            } else if (containerId === CONFIG.footerContainerId) {
+                initializeFooter();
+            }
+            
+            return true;
+            
+        } catch (error) {
+            debug(`Error loading ${filename}: ${error.message}`);
+            showError(containerId, `Failed to load ${filename}: ${error.message}`);
+            return false;
+        }
+    }
+    
+    // ============================================
+    // Initialize Components
+    // ============================================
+    
+    function initializeHeader() {
+        debug('Initializing header...');
+        
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            
+            // Close menu when clicking links
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
                 });
-                
-                // Toggle this dropdown
-                dropdown.classList.toggle('open');
             });
         }
-    });
-    
-    // Close dropdowns when clicking outside
-    document.addEventListener('click', function() {
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('open');
-        });
-    });
-}
-
-// Handle header scroll effects
-function handleHeaderScroll() {
-    const header = document.querySelector('header');
-    if (!header) return;
-    
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
+        
+        // Highlight current page
+        highlightCurrentPage();
     }
-}
-
-// Email validation
-function validateEmail(email) {
-    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return re.test(email);
-}
-
-// ============================================
-// Public API - You can call these from other scripts
-// ============================================
-
-// Reload header (useful after login/logout)
-function reloadHeader() {
-    loadComponent('header.html', 'header-container', initializeHeader);
-}
-
-// Reload footer
-function reloadFooter() {
-    loadComponent('footer.html', 'footer-container', initializeFooter);
-}
-
-// Update navigation active state manually
-function updateNavActive(pageName) {
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === pageName) {
-            link.classList.add('active');
-        }
-    });
-}
-
-// Make functions available globally
-window.HeaderFooter = {
-    reloadHeader: reloadHeader,
-    reloadFooter: reloadFooter,
-    updateNavActive: updateNavActive,
-    highlightCurrentPage: highlightCurrentPage
-};
-
-console.log('include.js loaded successfully');
+    
+    function initializeFooter() {
+        debug('Initializing footer...');
+        
+        // Update copyright year
+        document.querySelectorAll('[data-year]').forEach(element => {
+            element.textContent = new Date().getFullYear();
+        });
+    }
+    
+    // Highlight current page in navigation
+    function highlightCurrentPage() {
+        const currentPath = window.location.pathname;
+        const currentPage = currentPath.split('/').pop() || 'index.html';
+        
+        document.querySelectorAll('.nav-link').forEach(link => {
+            const linkPath = link.getAttribute('href');
+            link.classList.remove('active');
+            
+            if (linkPath === currentPage || 
+                (currentPage === 'index.html' && linkPath === '/') ||
+                (linkPath && currentPath.includes(linkPath))) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    // ============================================
+    // Main Execution
+    // ============================================
+    
+    // Wait for DOM to be ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+    
+    async function init() {
+        debug('Starting component loading...');
+        
+        // Load components
+        await Promise.all([
+            loadComponent(CONFIG.headerContainerId, CONFIG.headerFile),
+            loadComponent(CONFIG.footerContainerId, CONFIG.footerFile)
+        ]);
+        
+        debug('Component loading completed');
+    }
+    
+    // Make reload functions available globally
+    window.reloadHeader = function() {
+        return loadComponent(CONFIG.headerContainerId, CONFIG.headerFile);
+    };
+    
+    window.reloadFooter = function() {
+        return loadComponent(CONFIG.footerContainerId, CONFIG.footerFile);
+    };
+    
+})();
