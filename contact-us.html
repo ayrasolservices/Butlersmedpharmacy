@@ -10,7 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
   <style>
-    .bt-hero {
+    /* Contact Page Specific Styles - All prefixed with contact- */
+    .contact-page-hero {
       width: 100%;
       height: 500px;
       background-image: url('../../assets/images/pharmacy-contact.jpg');
@@ -23,7 +24,7 @@
       align-items: center;
     }
     
-    .bt-overlay {
+    .contact-page-overlay {
       position: absolute;
       top: 0;
       left: 0;
@@ -40,7 +41,7 @@
       flex-direction: column;
     }
     
-    .bt-heading {
+    .contact-page-heading {
       color: white;
       font-size: 3rem;
       font-weight: 700;
@@ -51,7 +52,7 @@
       overflow: hidden;
     }
     
-    .bt-heading::after {
+    .contact-page-heading::after {
       content: '';
       position: absolute;
       bottom: 0;
@@ -60,35 +61,35 @@
       height: 3px;
       background-color: #FD0511;
       transform: translateX(-100%);
-      animation: bt-slideIn 1.5s ease-out forwards;
+      animation: contact-page-slideIn 1.5s ease-out forwards;
       animation-delay: 0.5s;
     }
     
-    @keyframes bt-slideIn {
+    @keyframes contact-page-slideIn {
       to {
         transform: translateX(0);
       }
     }
     
-    .bt-heading span {
+    .contact-page-heading span {
       display: inline-block;
       opacity: 0;
       transform: translateY(20px);
-      animation: bt-fadeUp 0.5s ease forwards;
+      animation: contact-page-fadeUp 0.5s ease forwards;
     }
     
-    @keyframes bt-fadeUp {
+    @keyframes contact-page-fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
     
-    .bt-heading span:nth-child(8) {
+    .contact-page-heading span:nth-child(8) {
       margin-right: 15px;
     }
     
-    .bt-underline {
+    .contact-page-underline {
       width: 100px;
       height: 4px;
       background-color: #FD0511;
@@ -96,35 +97,35 @@
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
       opacity: 0;
       transform: scaleX(0);
-      animation: bt-growIn 0.8s ease forwards;
+      animation: contact-page-growIn 0.8s ease forwards;
       animation-delay: 1.2s;
     }
     
-    @keyframes bt-growIn {
+    @keyframes contact-page-growIn {
       to {
         opacity: 1;
         transform: scaleX(1);
       }
     }
     
-    .bt-contact-heading {
+    .contact-page-heading-wrapper {
       text-align: center;
       margin: 70px 0 30px;
       font-family: Arial, sans-serif;
       color: #203F99;
     }
     
-    .bt-contact-heading h2 {
+    .contact-page-heading-wrapper h2 {
       font-size: 28px;
       margin-bottom: 15px;
       font-weight: bold;
     }
     
-    .bt-contact-heading h2 .bt-highlight {
+    .contact-page-heading-wrapper h2 .contact-page-highlight {
       color: #FD0511;
     }
     
-    .bt-contact-heading p {
+    .contact-page-heading-wrapper p {
       font-size: 16px;
       line-height: 1.6;
       margin: 0 auto;
@@ -132,7 +133,7 @@
       color: #203F99;
     }
     
-    .bt-contact-section {
+    .contact-page-section {
       max-width: 1100px;
       width: 100%;
       display: flex;
@@ -143,7 +144,7 @@
       box-sizing: border-box;
     }
     
-    .bt-contact-info {
+    .contact-page-info {
       flex: 1;
       min-width: 300px;
       background-color: white;
@@ -153,20 +154,20 @@
       height: fit-content;
     }
     
-    .bt-contact-info h2 {
+    .contact-page-info h2 {
       color: #203F99;
       font-size: 28px;
       margin-bottom: 25px;
       font-weight: 700;
     }
     
-    .bt-contact-details {
+    .contact-page-details {
       list-style: none;
       margin: 0;
       padding: 0;
     }
     
-    .bt-contact-details li {
+    .contact-page-details li {
       display: flex;
       align-items: flex-start;
       margin-bottom: 20px;
@@ -175,12 +176,12 @@
       transition: all 0.3s ease;
     }
     
-    .bt-contact-details li:hover {
+    .contact-page-details li:hover {
       background-color: rgba(32, 63, 153, 0.05);
       transform: translateY(-2px);
     }
     
-    .bt-contact-details i {
+    .contact-page-details i {
       color: #FD0511;
       font-size: 18px;
       margin-right: 15px;
@@ -189,25 +190,25 @@
       text-align: center;
     }
     
-    .bt-contact-details div {
+    .contact-page-details div {
       flex: 1;
     }
     
-    .bt-contact-details h3 {
+    .contact-page-details h3 {
       font-size: 16px;
       margin-bottom: 5px;
       color: #203F99;
       font-weight: 600;
     }
     
-    .bt-contact-details p {
+    .contact-page-details p {
       color: #555;
       font-size: 15px;
       margin: 0;
       line-height: 1.4;
     }
     
-    .bt-contact-form {
+    .contact-page-form {
       flex: 1;
       min-width: 300px;
       background-color: white;
@@ -217,24 +218,24 @@
       height: fit-content;
     }
     
-    .bt-contact-form h2 {
+    .contact-page-form h2 {
       color: #203F99;
       font-size: 28px;
       margin-bottom: 25px;
       font-weight: 700;
     }
     
-    .bt-form-row {
+    .contact-page-form-row {
       display: flex;
       gap: 15px;
       margin-bottom: 20px;
     }
     
-    .bt-form-group {
+    .contact-page-form-group {
       flex: 1;
     }
     
-    .bt-form-group label {
+    .contact-page-form-group label {
       display: block;
       margin-bottom: 8px;
       font-weight: 600;
@@ -242,7 +243,7 @@
       font-size: 14px;
     }
     
-    .bt-form-control {
+    .contact-page-form-control {
       width: 100%;
       padding: 12px;
       border: 1px solid #e0e0e0;
@@ -252,22 +253,22 @@
       box-sizing: border-box;
     }
     
-    .bt-form-control:focus {
+    .contact-page-form-control:focus {
       outline: none;
       border-color: #FD0511;
       box-shadow: 0 0 0 3px rgba(253, 5, 17, 0.2);
     }
     
-    .bt-form-control:hover {
+    .contact-page-form-control:hover {
       border-color: #c0c0c0;
     }
     
-    textarea.bt-form-control {
+    textarea.contact-page-form-control {
       min-height: 120px;
       resize: vertical;
     }
     
-    .bt-submit-btn {
+    .contact-page-submit-btn {
       background-color: #203F99;
       color: white;
       border: none;
@@ -288,7 +289,7 @@
       z-index: 1;
     }
     
-    .bt-submit-btn::before {
+    .contact-page-submit-btn::before {
       content: '';
       position: absolute;
       top: 0;
@@ -300,109 +301,109 @@
       z-index: -1;
     }
     
-    .bt-submit-btn:hover::before {
+    .contact-page-submit-btn:hover::before {
       left: 0;
     }
     
-    .bt-submit-btn:hover {
+    .contact-page-submit-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(32, 63, 153, 0.3);
     }
     
-    .bt-submit-btn:disabled {
+    .contact-page-submit-btn:disabled {
       background-color: #cccccc;
       cursor: not-allowed;
       transform: none;
       box-shadow: none;
     }
     
-    .bt-submit-btn:disabled::before {
+    .contact-page-submit-btn:disabled::before {
       display: none;
     }
     
     @media (max-width: 1200px) {
-      .bt-hero {
+      .contact-page-hero {
         height: 450px;
       }
-      .bt-heading {
+      .contact-page-heading {
         font-size: 3.5rem;
       }
     }
     
     @media (max-width: 992px) {
-      .bt-hero {
+      .contact-page-hero {
         height: 400px;
       }
-      .bt-heading {
+      .contact-page-heading {
         font-size: 3rem;
       }
     }
     
     @media (max-width: 768px) {
-      .bt-hero {
+      .contact-page-hero {
         height: 350px;
       }
-      .bt-heading {
+      .contact-page-heading {
         font-size: 2.5rem;
       }
-      .bt-underline {
+      .contact-page-underline {
         width: 80px;
         height: 3px;
       }
-      .bt-heading span:nth-child(8) {
+      .contact-page-heading span:nth-child(8) {
         margin-right: 10px;
       }
-      .bt-contact-section {
+      .contact-page-section {
         flex-direction: column;
         margin: 20px auto;
       }
-      .bt-form-row {
+      .contact-page-form-row {
         flex-direction: column;
         gap: 0;
       }
-      .bt-contact-info, .bt-contact-form {
+      .contact-page-info, .contact-page-form {
         padding: 20px;
       }
-      .bt-contact-heading {
+      .contact-page-heading-wrapper {
         margin: 30px 0 20px;
         padding: 0 15px;
       }
-      .bt-contact-heading h2 {
+      .contact-page-heading-wrapper h2 {
         font-size: 24px;
       }
-      .bt-contact-heading p {
+      .contact-page-heading-wrapper p {
         font-size: 15px;
       }
     }
     
     @media (max-width: 576px) {
-      .bt-hero {
+      .contact-page-hero {
         height: 300px;
       }
-      .bt-heading {
+      .contact-page-heading {
         font-size: 2.2rem;
       }
-      .bt-underline {
+      .contact-page-underline {
         width: 70px;
         height: 3px;
       }
-      .bt-heading span:nth-child(8) {
+      .contact-page-heading span:nth-child(8) {
         margin-right: 8px;
       }
-      .bt-contact-section {
+      .contact-page-section {
         padding: 0 15px;
       }
-      .bt-contact-info, .bt-contact-form {
+      .contact-page-info, .contact-page-form {
         padding: 15px;
       }
-      .bt-contact-info h2, .bt-contact-form h2 {
+      .contact-page-info h2, .contact-page-form h2 {
         font-size: 24px;
         margin-bottom: 20px;
       }
-      .bt-form-control {
+      .contact-page-form-control {
         padding: 10px;
       }
-      .bt-submit-btn {
+      .contact-page-submit-btn {
         padding: 12px 20px;
         font-size: 15px;
         height: 45px;
@@ -410,17 +411,17 @@
     }
     
     @media (max-width: 400px) {
-      .bt-hero {
+      .contact-page-hero {
         height: 250px;
       }
-      .bt-heading {
+      .contact-page-heading {
         font-size: 1.8rem;
       }
-      .bt-underline {
+      .contact-page-underline {
         width: 60px;
         height: 2px;
       }
-      .bt-heading span:nth-child(8) {
+      .contact-page-heading span:nth-child(8) {
         margin-right: 5px;
       }
     }
@@ -429,24 +430,24 @@
 <body>
     <div id="header-container"></div>
   
-  <section class="bt-hero">
-    <div class="bt-overlay">
-      <h1 class="bt-heading" id="bt-animated-heading">Contact Us</h1>
-      <div class="bt-underline"></div>
+  <section class="contact-page-hero">
+    <div class="contact-page-overlay">
+      <h1 class="contact-page-heading" id="contact-page-animated-heading">Contact Us</h1>
+      <div class="contact-page-underline"></div>
     </div>
   </section>
   
-  <div class="bt-contact-heading">
-    <h2>Your Health is Our <span class="bt-highlight">Top Priority</span></h2>
+  <div class="contact-page-heading-wrapper">
+    <h2>Your Health is Our <span class="contact-page-highlight">Top Priority</span></h2>
     <p>
       Our licensed pharmacists are ready to assist with prescription services, medication consultations, and healthcare advice. Reach out for personalized pharmaceutical care.
     </p>
   </div>
   
-  <section id="bt-my-contact" class="bt-contact-section">
-    <div class="bt-contact-info">
+  <section id="contact-page-main" class="contact-page-section">
+    <div class="contact-page-info">
       <h2>Pharmacy Information</h2>
-      <ul class="bt-contact-details">
+      <ul class="contact-page-details">
         <li>
           <i class="fas fa-phone-alt"></i>
           <div>
@@ -478,37 +479,37 @@
       </ul>
     </div>
     
-    <div class="bt-contact-form">
+    <div class="contact-page-form">
       <h2>Contact Our Pharmacy</h2>
-      <form id="bt-contactForm">
-        <div class="bt-form-row">
-          <div class="bt-form-group">
-            <label for="bt-firstName">First Name *</label>
-            <input type="text" id="bt-firstName" name="firstName" class="bt-form-control" placeholder="Enter your first name" required>
+      <form id="contact-page-form">
+        <div class="contact-page-form-row">
+          <div class="contact-page-form-group">
+            <label for="contact-page-firstName">First Name *</label>
+            <input type="text" id="contact-page-firstName" name="firstName" class="contact-page-form-control" placeholder="Enter your first name" required>
           </div>
-          <div class="bt-form-group">
-            <label for="bt-lastName">Last Name *</label>
-            <input type="text" id="bt-lastName" name="lastName" class="bt-form-control" placeholder="Enter your last name" required>
-          </div>
-        </div>
-        
-        <div class="bt-form-row">
-          <div class="bt-form-group">
-            <label for="bt-phone">Phone Number *</label>
-            <input type="tel" id="bt-phone" name="phone" class="bt-form-control" placeholder="Enter your phone number" required>
-          </div>
-          <div class="bt-form-group">
-            <label for="bt-email">Email Address *</label>
-            <input type="email" id="bt-email" name="email" class="bt-form-control" placeholder="Enter your email address" required>
+          <div class="contact-page-form-group">
+            <label for="contact-page-lastName">Last Name *</label>
+            <input type="text" id="contact-page-lastName" name="lastName" class="contact-page-form-control" placeholder="Enter your last name" required>
           </div>
         </div>
         
-        <div class="bt-form-group">
-          <label for="bt-message">Message *</label>
-          <textarea id="bt-message" name="message" class="bt-form-control" placeholder="Describe your inquiry, prescription needs, or questions..." required></textarea>
+        <div class="contact-page-form-row">
+          <div class="contact-page-form-group">
+            <label for="contact-page-phone">Phone Number *</label>
+            <input type="tel" id="contact-page-phone" name="phone" class="contact-page-form-control" placeholder="Enter your phone number" required>
+          </div>
+          <div class="contact-page-form-group">
+            <label for="contact-page-email">Email Address *</label>
+            <input type="email" id="contact-page-email" name="email" class="contact-page-form-control" placeholder="Enter your email address" required>
+          </div>
         </div>
         
-        <button type="submit" class="bt-submit-btn" id="bt-submitBtn">
+        <div class="contact-page-form-group">
+          <label for="contact-page-message">Message *</label>
+          <textarea id="contact-page-message" name="message" class="contact-page-form-control" placeholder="Describe your inquiry, prescription needs, or questions..." required></textarea>
+        </div>
+        
+        <button type="submit" class="contact-page-submit-btn" id="contact-page-submitBtn">
           Send Message
         </button>
       </form>
@@ -519,7 +520,7 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const heading = document.getElementById('bt-animated-heading');
+      const heading = document.getElementById('contact-page-animated-heading');
       const text = heading.textContent;
       heading.textContent = '';
       
@@ -528,6 +529,31 @@
         span.textContent = text[i];
         span.style.animationDelay = `${0.1 * i}s`;
         heading.appendChild(span);
+      }
+      
+      // Form submission handling
+      const contactForm = document.getElementById('contact-page-form');
+      const submitBtn = document.getElementById('contact-page-submitBtn');
+      
+      if (contactForm && submitBtn) {
+        contactForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+          
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+            submitBtn.style.backgroundColor = '#28a745';
+            
+            setTimeout(() => {
+              contactForm.reset();
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Send Message';
+              submitBtn.style.backgroundColor = '';
+            }, 2000);
+          }, 1500);
+        });
       }
     });
   </script>
