@@ -1,0 +1,918 @@
+<style>
+    /* Hero Section CSS Start */
+    .hero {
+        padding: 5rem 5% 4rem;
+        background: linear-gradient(rgba(232, 241, 255, 0.95), rgba(240, 247, 255, 0.98)), 
+                    url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+        overflow: hidden;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .hero-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .hero-content {
+        animation: fadeInUp 0.8s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        color: #203F99;
+    }
+
+    .hero h1 span {
+        color: #2a6ecc;
+        position: relative;
+    }
+
+    .hero h1 span::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 8px;
+        bottom: 5px;
+        left: 0;
+        background-color: rgba(32, 63, 153, 0.15);
+        z-index: -1;
+        border-radius: 4px;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        color: #6c757d;
+        margin-bottom: 2.5rem;
+        max-width: 90%;
+    }
+
+    .hero-visual {
+        position: relative;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    .pharmacy-img {
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transform: perspective(1000px) rotateY(-10deg);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .pharmacy-img:hover {
+        transform: perspective(1000px) rotateY(0deg);
+    }
+
+    .floating-elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    .floating-element {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        animation: floatElement 8s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) {
+        width: 70px;
+        height: 70px;
+        top: 10%;
+        left: -5%;
+        background-color: #e8f1ff;
+        animation-delay: 0s;
+    }
+
+    .floating-element:nth-child(2) {
+        width: 60px;
+        height: 60px;
+        bottom: 20%;
+        right: -5%;
+        background-color: rgba(0, 168, 150, 0.1);
+        animation-delay: 1s;
+    }
+
+    .floating-element:nth-child(3) {
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        left: -10%;
+        background-color: rgba(255, 107, 107, 0.1);
+        animation-delay: 2s;
+    }
+
+    @keyframes floatElement {
+        0%, 100% { transform: translateY(0) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(10deg); }
+    }
+    /* Hero Section CSS End */
+
+    /* Service Details CSS Start */
+    .service-details {
+        padding: 5rem 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2.2rem;
+        margin-bottom: 3rem;
+        color: #203F99;
+        position: relative;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #2a6ecc, #00a896);
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
+    }
+
+    .process-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    .process-step {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem 1.8rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        position: relative;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    .process-step.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .process-step:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    }
+
+    .step-number {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 3rem;
+        font-weight: 800;
+        color: rgba(32, 63, 153, 0.05);
+        line-height: 1;
+    }
+
+    .step-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #e8f1ff, white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+        color: #2a6ecc;
+    }
+
+    .step-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: #203F99;
+    }
+
+    .step-description {
+        color: #6c757d;
+        margin-bottom: 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .step-features {
+        list-style: none;
+    }
+
+    .step-features li {
+        padding: 0.5rem 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+    }
+
+    .step-features li i {
+        color: #00a896;
+        font-size: 0.9rem;
+    }
+    /* Service Details CSS End */
+
+    /* Final CTA CSS Start */
+    .final-cta {
+        padding: 4rem 5%;
+        background: linear-gradient(rgba(26, 61, 122, 0.9), rgba(26, 61, 122, 0.95)), 
+                    url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: white;
+        text-align: center;
+        border-radius: 0 0 12px 12px;
+        margin-top: 3rem;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .final-cta h2 {
+        font-size: 2rem;
+        margin-bottom: 1.2rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .final-cta p {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin: 0 auto 2.5rem;
+        opacity: 0.9;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cta-buttons button {
+        padding: 0.9rem 1.8rem;
+        border-radius: 50px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border: none;
+        min-width: 150px;
+    }
+
+    .visit-button {
+        background: white;
+        color: #1a3d7a;
+    }
+
+    .visit-button:hover {
+        background: #f0f0f0;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .call-button {
+        background: transparent;
+        color: white;
+        border: 2px solid rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .call-button:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateY(-3px);
+        border-color: white !important;
+    }
+
+    /* Custom Alert Modal */
+    .custom-alert {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .alert-content {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        max-width: 500px;
+        width: 90%;
+        text-align: center;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        animation: alertFadeIn 0.3s ease-out;
+    }
+
+    @keyframes alertFadeIn {
+        from { opacity: 0; transform: translateY(-30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .alert-content h3 {
+        color: #203F99;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    .alert-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .alert-btn {
+        padding: 1rem 1.5rem;
+        border-radius: 50px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+
+    .map-btn {
+        background: #203F99;
+        color: white;
+    }
+
+    .map-btn:hover {
+        background: #1a347d;
+        transform: translateY(-2px);
+    }
+
+    .phone-btn {
+        background: #00a896;
+        color: white;
+    }
+
+    .phone-btn:hover {
+        background: #009080;
+        transform: translateY(-2px);
+    }
+
+    .close-btn {
+        background: #f8f9fa;
+        color: #6c757d;
+        border: 1px solid #dee2e6;
+    }
+
+    .close-btn:hover {
+        background: #e9ecef;
+        transform: translateY(-2px);
+    }
+    /* Final CTA CSS End */
+
+    /* Responsive Styles Start */
+    @media (max-width: 1400px) {
+        .hero-container,
+        .service-details {
+            max-width: 1140px;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .hero-container,
+        .service-details {
+            max-width: 1040px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .hero-container,
+        .service-details {
+            max-width: 960px;
+        }
+        
+        .hero h1 {
+            font-size: 2.6rem;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .hero-container,
+        .service-details {
+            max-width: 900px;
+        }
+        
+        .hero {
+            min-height: 70vh;
+        }
+        
+        .process-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 992px) {
+        .hero-container {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 2.4rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 {
+            font-size: 2rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+        
+        .process-container {
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .final-cta h2 {
+            font-size: 1.8rem;
+        }
+        
+        .cta-buttons {
+            gap: 1rem;
+        }
+        
+        .cta-buttons button {
+            padding: 0.8rem 1.5rem;
+            font-size: 0.9rem;
+            min-width: 140px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .hero {
+            padding: 3rem 5% 2rem;
+            min-height: 60vh;
+        }
+        
+        .service-details {
+            padding: 3rem 5%;
+        }
+        
+        .final-cta {
+            padding: 3rem 5%;
+        }
+        
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+        
+        .section-title {
+            font-size: 1.6rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .hero h1 {
+            font-size: 1.6rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.95rem;
+            max-width: 100%;
+        }
+        
+        .process-step {
+            padding: 1.5rem 1.2rem;
+        }
+        
+        .step-title {
+            font-size: 1.2rem;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .cta-buttons button {
+            width: 100%;
+            max-width: 250px;
+        }
+        
+        .alert-content {
+            padding: 2rem 1.5rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero {
+            padding: 2.5rem 5% 1.5rem;
+        }
+        
+        .hero h1 {
+            font-size: 1.5rem;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+        }
+        
+        .final-cta h2 {
+            font-size: 1.5rem;
+        }
+        
+        .final-cta p {
+            font-size: 1rem;
+        }
+        
+        .floating-element {
+            display: none;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .hero h1 {
+            font-size: 1.3rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 0.9rem;
+        }
+        
+        .process-step {
+            padding: 1.2rem 1rem;
+        }
+        
+        .step-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+        }
+        
+        .step-title {
+            font-size: 1.1rem;
+        }
+        
+        .step-features li {
+            font-size: 0.85rem;
+        }
+    }
+    /* Responsive Styles End */
+</style>
+
+<!-- Custom Alert Modal HTML -->
+<div class="custom-alert" id="customAlert">
+    <div class="alert-content">
+        <h3 id="alertTitle">Choose an Option</h3>
+        <div class="alert-buttons" id="alertButtons">
+            <!-- Buttons will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+<!-- Hero Section HTML Start -->
+<section class="hero">
+    <div class="hero-container">
+        <div class="hero-content">
+            <h1>Prescriptions Managed with <span>Expert Care</span></h1>
+            <p class="hero-subtitle">Stress-free refills, seamless transfers, and pharmacist support from your neighborhood pharmacy.</p>
+        </div>
+        <div class="hero-visual">
+            <img src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Friendly pharmacy staff" class="pharmacy-img">
+            <div class="floating-elements">
+                <div class="floating-element">
+                    <i class="fas fa-pills" style="color: #2a6ecc; font-size: 1.5rem;"></i>
+                </div>
+                <div class="floating-element">
+                    <i class="fas fa-heartbeat" style="color: #00a896; font-size: 1.3rem;"></i>
+                </div>
+                <div class="floating-element">
+                    <i class="fas fa-user-md" style="color: #ff6b6b; font-size: 1.1rem;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section HTML End -->
+
+<!-- Service Details HTML Start -->
+<section class="service-details">
+    <h2 class="section-title">How Our Service Works</h2>
+    <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #6c757d; font-size: 1rem;">
+        We handle all the details so you don't have to. Your medications are managed accurately and ready when needed.
+    </p>
+    
+    <div class="process-container">
+        <div class="process-step" id="step1">
+            <div class="step-number">01</div>
+            <div class="step-icon">
+                <i class="fas fa-file-prescription"></i>
+            </div>
+            <h3 class="step-title">Easy Prescription Transfers</h3>
+            <p class="step-description">Switching to us is simple and hassle-free.</p>
+            <ul class="step-features">
+                <li><i class="fas fa-check-circle"></i> We coordinate with your previous pharmacy</li>
+                <li><i class="fas fa-check-circle"></i> Secure transfer of all your data</li>
+                <li><i class="fas fa-check-circle"></i> No need for you to make calls</li>
+            </ul>
+        </div>
+        
+        <div class="process-step" id="step2">
+            <div class="step-number">02</div>
+            <div class="step-icon">
+                <i class="fas fa-sync-alt"></i>
+            </div>
+            <h3 class="step-title">Automatic Refills & Alerts</h3>
+            <p class="step-description">Never run out of essential medication.</p>
+            <ul class="step-features">
+                <li><i class="fas fa-check-circle"></i> Free auto-refill program</li>
+                <li><i class="fas fa-check-circle"></i> Text or call alerts when ready</li>
+                <li><i class="fas fa-check-circle"></i> Pickup or delivery options</li>
+            </ul>
+        </div>
+        
+        <div class="process-step" id="step3">
+            <div class="step-number">03</div>
+            <div class="step-icon">
+                <i class="fas fa-clipboard-check"></i>
+            </div>
+            <h3 class="step-title">Medication Review</h3>
+            <p class="step-description">Our pharmacists are available for consultations.</p>
+            <ul class="step-features">
+                <li><i class="fas fa-check-circle"></i> Review all medications</li>
+                <li><i class="fas fa-check-circle"></i> Ensure safe interactions</li>
+                <li><i class="fas fa-check-circle"></i> Personalized health advice</li>
+            </ul>
+        </div>
+        
+        <div class="process-step" id="step4">
+            <div class="step-number">04</div>
+            <div class="step-icon">
+                <i class="fas fa-hand-holding-usd"></i>
+            </div>
+            <h3 class="step-title">Insurance & Savings</h3>
+            <p class="step-description">We help you navigate benefits and find savings.</p>
+            <ul class="step-features">
+                <li><i class="fas fa-check-circle"></i> Work with your insurance</li>
+                <li><i class="fas fa-check-circle"></i> Find savings programs</li>
+                <li><i class="fas fa-check-circle"></i> Keep costs affordable</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- Service Details HTML End -->
+
+<!-- Final CTA HTML Start -->
+<section class="final-cta">
+    <h2>Ready for Better Pharmacy Service?</h2>
+    <p>Your health management should be simple and reliable. Visit us in-store or call today.</p>
+    
+    <div class="cta-buttons">
+        <button class="visit-button" id="visitBtn">
+            <i class="fas fa-store"></i> Visit Us
+        </button>
+        <button class="call-button" id="finalCallBtn">
+            <i class="fas fa-phone-alt"></i> Call Now
+        </button>
+    </div>
+</section>
+<!-- Final CTA HTML End -->
+
+<script>
+    // JavaScript for animations and interactions
+    
+    // Store pharmacy information
+    const pharmacyInfo = {
+        address: "123 Health Street, Medical City, MC 12345",
+        phone: "(555) 123-4567",
+        mapLink: "https://www.google.com/maps/search/?api=1&query=Pharmacy+Medical+City",
+        phoneLink: "tel:5551234567"
+    };
+    
+    // Show custom alert with map and phone options
+    function showCustomAlert(type) {
+        const alertElement = document.getElementById('customAlert');
+        const alertTitle = document.getElementById('alertTitle');
+        const alertButtons = document.getElementById('alertButtons');
+        
+        // Set title based on type
+        if (type === 'visit') {
+            alertTitle.textContent = 'Visit Our Pharmacy';
+            alertButtons.innerHTML = `
+                <a href="${pharmacyInfo.mapLink}" target="_blank" class="alert-btn map-btn">
+                    <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                </a>
+                <a href="${pharmacyInfo.mapLink}" target="_blank" class="alert-btn map-btn">
+                    <i class="fas fa-directions"></i> Get Directions
+                </a>
+                <button class="alert-btn close-btn" onclick="closeAlert()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            `;
+        } else if (type === 'call') {
+            alertTitle.textContent = 'Contact Our Pharmacy';
+            alertButtons.innerHTML = `
+                <a href="${pharmacyInfo.phoneLink}" class="alert-btn phone-btn">
+                    <i class="fas fa-phone"></i> Call Now: ${pharmacyInfo.phone}
+                </a>
+                <button class="alert-btn close-btn" onclick="closeAlert()">
+                    <i class="fas fa-times"></i> Close
+                </button>
+            `;
+        }
+        
+        // Show the alert
+        alertElement.style.display = 'flex';
+        
+        // Prevent body scroll when alert is open
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Close custom alert
+    function closeAlert() {
+        const alertElement = document.getElementById('customAlert');
+        alertElement.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+    
+    // Close alert when clicking outside
+    document.getElementById('customAlert').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeAlert();
+        }
+    });
+    
+    // Initialize the page when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        const steps = document.querySelectorAll('.process-step');
+        
+        // Intersection Observer for step animations
+        const stepObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    const index = Array.from(steps).indexOf(entry.target);
+                    entry.target.style.transitionDelay = `${index * 0.1}s`;
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        // Observe each step
+        steps.forEach(step => {
+            stepObserver.observe(step);
+        });
+        
+        // Button interactions
+        const buttons = document.querySelectorAll('#visitBtn, #finalCallBtn');
+        
+        // Add click handlers for buttons
+        buttons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                // Ripple effect
+                createRippleEffect(e, this);
+                
+                // Show custom alert based on button type
+                if (this.id === 'visitBtn') {
+                    showCustomAlert('visit');
+                } else if (this.id === 'finalCallBtn') {
+                    showCustomAlert('call');
+                }
+            });
+        });
+        
+        // Interactive floating elements
+        const floatingElements = document.querySelectorAll('.floating-element');
+        floatingElements.forEach(el => {
+            el.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.1)';
+            });
+            
+            el.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+        
+        // Parallax effect for hero image
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const heroVisual = document.querySelector('.hero-visual');
+            
+            if (heroVisual && scrolled < 800) {
+                const rate = scrolled * -0.5;
+                heroVisual.style.transform = `translateY(${rate}px) rotateY(-10deg)`;
+            }
+        });
+    });
+    
+    // Create ripple effect on button click
+    function createRippleEffect(event, element) {
+        const ripple = document.createElement('span');
+        const rect = element.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = event.clientX - rect.left - size/2;
+        const y = event.clientY - rect.top - size/2;
+        
+        ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple 0.6s linear;
+            width: ${size}px;
+            height: ${size}px;
+            top: ${y}px;
+            left: ${x}px;
+            pointer-events: none;
+            z-index: 1;
+        `;
+        
+        element.style.position = 'relative';
+        element.style.overflow = 'hidden';
+        element.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    }
+    
+    // Add CSS for ripple animation if not already present
+    if (!document.querySelector('#ripple-styles')) {
+        const rippleStyle = document.createElement('style');
+        rippleStyle.id = 'ripple-styles';
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    }
+    
+    // Handle window resize for responsive adjustments
+    window.addEventListener('resize', function() {
+        const heroVisual = document.querySelector('.hero-visual');
+        if (window.innerWidth <= 480) {
+            heroVisual.style.transform = 'translateY(0) rotateY(-10deg)';
+        }
+    });
+</script>
