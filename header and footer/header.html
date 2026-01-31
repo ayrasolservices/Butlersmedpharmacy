@@ -42,7 +42,7 @@
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 999;
+      z-index: 9999;
       background: #fff;
       border-bottom: 1px solid #e6ebf2;
     }
@@ -296,6 +296,19 @@
       align-items: center;
       justify-content: center;
     }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 9998;
+    }
+    .mobile-overlay.active {
+      display: block;
+    }
     .mobile-panel {
       position: fixed;
       top: 0;
@@ -305,27 +318,13 @@
       height: 100vh;
       background: #fff;
       color: #000;
-      z-index: 1002;
+      z-index: 9999;
       transform: translateX(100%);
       transition: transform 0.3s ease;
-      box-shadow: -8px 0 24px rgba(11, 18, 32, 0.15);
       overflow-y: auto;
     }
-    .mobile-panel.show {
+    .mobile-panel.active {
       transform: translateX(0);
-    }
-    .mobile-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1001;
-      display: none;
-    }
-    .mobile-overlay.show {
-      display: block;
     }
     .mobile-inner {
       padding: 20px 16px;
@@ -390,11 +389,6 @@
       display: grid;
       grid-template-columns: 1fr;
       gap: 8px;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
     }
     .acc-item {
       display: flex;
@@ -694,7 +688,7 @@
             <span class="info-divider">|</span>
             <div class="info-item" aria-label="Hours">
               <i class="far fa-clock fa-icon"></i>
-              <span>Mon-Fri: 10AM-5PM | </span>
+              <span>Mon-Fri: 10AM-5PM</span>
             </div>
           </div>
         </div>
@@ -717,7 +711,7 @@
           <a href="/" role="menuitem">Home</a>
           <a href="/about-us.html" role="menuitem">About Us</a>
           <a href="/services/index.html" role="menuitem">Pharmacy</a>
-          <div class="dropdown" role="none">
+          <div class="dropdown">
             <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
               Services
               <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -728,43 +722,43 @@
               <div class="dropdown-grid">
                 <a class="dd-item" href="/services/prescription-services" role="menuitem">
                   <i class="fas fa-prescription-bottle-medical"></i>
-                  <span style="color: #203F99;">Prescription Services</span>
+                  <span>Prescription Services</span>
                 </a>
                 <a class="dd-item" href="/services/vitamins-supplements" role="menuitem">
                   <i class="fas fa-capsules"></i>
-                  <span style="color: #203F99;">Vitamins & Supplements</span>
+                  <span>Vitamins & Supplements</span>
                 </a>
                 <a class="dd-item" href="/services/otc-medications" role="menuitem">
                   <i class="fas fa-pills"></i>
-                  <span style="color: #203F99;">OTC Medications</span>
+                  <span>OTC Medications</span>
                 </a>
                 <a class="dd-item" href="/services/surgical-medical-supplies" role="menuitem">
                   <i class="fas fa-stethoscope"></i>
-                  <span style="color: #203F99;">Surgical & Medical Supplies</span>
+                  <span>Surgical & Medical Supplies</span>
                 </a>
                 <a class="dd-item" href="/services/hispanic-otc" role="menuitem">
                   <i class="fas fa-globe-americas"></i>
-                  <span style="color: #203F99;">Hispanic OTC Items</span>
+                  <span>Hispanic OTC Items</span>
                 </a>
                 <a class="dd-item" href="/services/household-supplies" role="menuitem">
                   <i class="fas fa-home"></i>
-                  <span style="color: #203F99;">Household Supplies</span>
+                  <span>Household Supplies</span>
                 </a>
                 <a class="dd-item" href="/services/food-grocery" role="menuitem">
                   <i class="fas fa-shopping-basket"></i>
-                  <span style="color: #203F99;">Food & Grocery Items</span>
+                  <span>Food & Grocery Items</span>
                 </a>
                 <a class="dd-item" href="/services/beauty-personal-care" role="menuitem">
                   <i class="fas fa-spa"></i>
-                  <span style="color: #203F99;">Beauty & Personal Care</span>
+                  <span>Beauty & Personal Care</span>
                 </a>
                 <a class="dd-item" href="/services/perfumes-fragrances" role="menuitem">
                   <i class="fas fa-wind"></i>
-                  <span style="color: #203F99;">Perfumes & Fragrances</span>
+                  <span>Perfumes & Fragrances</span>
                 </a>
                 <a class="dd-item" href="/services/electronic-appliances" role="menuitem">
                   <i class="fas fa-plug"></i>
-                  <span style="color: #203F99;">Electronic Appliances</span>
+                  <span>Electronic Appliances</span>
                 </a>
               </div>
             </div>
@@ -824,7 +818,7 @@
           </button>
         </div>
         <a class="m-link" href="/">Home</a>
-        <a class="m-link" href="/about">About Us</a>
+        <a class="m-link" href="/about-us.html">About Us</a>
         <details class="services-acc">
           <summary>
             Services
@@ -875,7 +869,7 @@
             </a>
           </div>
         </details>
-        <a class="m-link" href="/contact">Contact Us</a>
+        <a class="m-link" href="/contact-us.html">Contact Us</a>
         <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
           <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -885,7 +879,7 @@
           </a>
           <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
             <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
-            <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM <span style="color: #666;">|</span> Sat-Sun: Closed</span>
+            <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM</span>
           </div>
           <div style="display: flex; align-items: flex-start; gap: 10px;">
             <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
@@ -907,35 +901,37 @@
       const mobileOverlay = document.getElementById('mobileOverlay');
       const mobileCloseBtn = document.getElementById('mobileCloseBtn');
       
-      function openMobileMenu() {
-        mobileOverlay.classList.add('show');
-        mobilePanel.classList.add('show');
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeMobileMenu() {
-        mobileOverlay.classList.remove('show');
-        mobilePanel.classList.remove('show');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-      
-      hamburgerBtn.addEventListener('click', openMobileMenu);
-      mobileCloseBtn.addEventListener('click', closeMobileMenu);
-      mobileOverlay.addEventListener('click', closeMobileMenu);
-      
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 992) {
-          closeMobileMenu();
+      if (hamburgerBtn && mobilePanel) {
+        function openMobileMenu() {
+          mobileOverlay.classList.add('active');
+          mobilePanel.classList.add('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
+          document.body.style.overflow = 'hidden';
         }
-      });
-      
-      mobilePanel.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A') {
-          closeMobileMenu();
+        
+        function closeMobileMenu() {
+          mobileOverlay.classList.remove('active');
+          mobilePanel.classList.remove('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
         }
-      });
+        
+        hamburgerBtn.addEventListener('click', openMobileMenu);
+        mobileCloseBtn.addEventListener('click', closeMobileMenu);
+        mobileOverlay.addEventListener('click', closeMobileMenu);
+        
+        window.addEventListener('resize', function() {
+          if (window.innerWidth > 992) {
+            closeMobileMenu();
+          }
+        });
+        
+        mobilePanel.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') {
+            closeMobileMenu();
+          }
+        });
+      }
     });
   </script>
 </body>
