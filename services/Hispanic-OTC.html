@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://ayrasol.com/services/hispanic-otc-items/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hispanic OTC Items & Traditional Remedies | Ayrasol</title>
+    <meta name="description" content="Traditional and imported Hispanic medicines, herbal remedies, and cultural healthcare products for authentic wellness solutions.">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="../../header and footer/include.js"></script>
+    <style>
+        .service-top {
+            position: relative;
+            background: linear-gradient(rgba(32, 63, 153, 0.9), rgba(32, 63, 153, 0.85)), url('https://images.unsplash.com/photo-1559757175-0eb30cd8c063?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .service-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: transform 0.2s ease-out;
+            pointer-events: none;
+        }
+
+        .shape1 {
+            width: 180px;
+            height: 180px;
+            background: #FD0511;
+            top: -60px;
+            left: -60px;
+        }
+
+        .shape2 {
+            width: 250px;
+            height: 250px;
+            background: #ffffff;
+            bottom: -80px;
+            right: -80px;
+        }
+
+        .service-content {
+            position: relative;
+            z-index: 2;
+            padding: 0 20px;
+        }
+
+        .service-content h1 {
+            color: #ffffff;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-content h1 span {
+            color: #FD0511;
+            font-weight: 800;
+        }
+
+        .heading-line {
+            width: 120px;
+            height: 4px;
+            background: #FD0511;
+            margin: 0 auto;
+            border-radius: 2px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-hispanic {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .about-hispanic .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-hispanic h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #203F99;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .about-hispanic h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .about-hispanic h2 span {
+            color: #203F99;
+        }
+
+        .about-hispanic p {
+            color: #333333;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 20px auto 0;
+            opacity: 0.9;
+        }
+
+        #hispanic-services {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            gap: 60px;
+            flex-wrap: wrap;
+            background: #fff;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #203F99;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .text-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #203F99;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .text-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .text-content h2 span {
+            color: #203F99;
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .cards {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        .card {
+            padding: 40px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #203F99;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #203F99;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #333333;
+        }
+
+        .card:nth-child(1) {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+        }
+
+        .card:nth-child(2) {
+            background: #f8f9fa;
+        }
+
+        .card:nth-child(3) {
+            background: #ffffff;
+            border: 2px solid #f0f0f0;
+        }
+
+        .card:nth-child(4) {
+            background: #f8f9fa;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(32, 63, 153, 0.15);
+        }
+
+        .card:hover i {
+            color: #FD0511;
+        }
+
+        .traditional-remedies {
+            background: #ffffff;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .traditional-remedies h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .traditional-remedies h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .traditional-remedies h2 span {
+            color: #203F99;
+        }
+
+        .remedies-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .remedy-category {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .remedy-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(32, 63, 153, 0.1);
+        }
+
+        .remedy-category h3 {
+            font-size: 1.4rem;
+            color: #203F99;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #203F99;
+        }
+
+        .remedy-category ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .remedy-category li {
+            padding: 8px 0;
+            color: #333333;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .remedy-category li:before {
+            content: "•";
+            color: #203F99;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        .remedy-category li strong {
+            color: #203F99;
+        }
+
+        .imported-products {
+            background: #f8f9fa;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .imported-products h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .imported-products h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .imported-products h2 span {
+            color: #203F99;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .product-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(32, 63, 153, 0.1);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            color: #203F99;
+            margin-bottom: 20px;
+        }
+
+        .product-item h3 {
+            font-size: 1.3rem;
+            color: #203F99;
+            margin-bottom: 15px;
+        }
+
+        .product-item p {
+            font-size: 0.95rem;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .why-choose-us {
+            background: #ffffff;
+            padding: 90px 20px;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .why-choose-us h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .why-choose-us h2 span {
+            color: #203F99;
+        }
+
+        .choose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .choose-item {
+            position: relative;
+            padding-left: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .choose-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .choose-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .choose-item .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #203F99;
+            margin-right: 10px;
+        }
+
+        .choose-item .line {
+            flex: 1;
+            height: 2px;
+            background: #203F99;
+            opacity: 0.3;
+        }
+
+        .choose-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #203F99;
+        }
+
+        .choose-item p {
+            font-size: 0.95rem;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1200px) {
+            .service-content h1 { font-size: 2.2rem; }
+            .about-hispanic h2 { font-size: 2.4rem; }
+            #hispanic-services { padding: 70px 8%; }
+            .text-content h2 { font-size: 2.4rem; }
+            .traditional-remedies h2 { font-size: 2.4rem; }
+            .imported-products h2 { font-size: 2.4rem; }
+            .why-choose-us h2 { font-size: 2.4rem; }
+            .products-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .service-top { height: 40vh; }
+            .service-content h1 { font-size: 2rem; }
+            #hispanic-services {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .text-content {
+                max-width: 600px;
+                margin: 0 auto 40px;
+            }
+            .remedies-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .choose-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .products-grid { grid-template-columns: 1fr; }
+            .text-content h2 { font-size: 2.2rem; }
+            .about-hispanic h2 { font-size: 2.2rem; }
+            .traditional-remedies h2 { font-size: 2.2rem; }
+            .imported-products h2 { font-size: 2.2rem; }
+            .why-choose-us h2 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .service-top { height: 35vh; padding: 0 20px; }
+            .service-content h1 { font-size: 1.8rem; }
+            .about-hispanic { padding: 60px 15px; }
+            #hispanic-services { padding: 60px 8%; }
+            .cards { grid-template-columns: 1fr; }
+            .text-content h2 { font-size: 2rem; }
+            .choose-grid { grid-template-columns: 1fr; }
+            .text-content p { font-size: 1rem; }
+            .about-hispanic h2 { font-size: 2rem; }
+            .traditional-remedies h2 { font-size: 2rem; }
+            .imported-products h2 { font-size: 2rem; }
+            .why-choose-us h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 576px) {
+            .service-top { height: 30vh; }
+            .service-content h1 { font-size: 1.5rem; }
+            .about-hispanic h2 { font-size: 1.8rem; }
+            .about-hispanic p { font-size: 0.95rem; line-height: 1.7; }
+            #hispanic-services { padding: 50px 5%; }
+            .text-content p { font-size: 1rem; }
+            .text-content h2 { font-size: 1.8rem; }
+            .card { padding: 30px 20px; }
+            .card i { font-size: 1.6rem; }
+            .traditional-remedies h2 { font-size: 1.8rem; }
+            .imported-products h2 { font-size: 1.8rem; }
+            .why-choose-us h2 { font-size: 1.8rem; }
+            .product-icon { font-size: 2rem; }
+        }
+
+        @media (max-width: 400px) {
+            .service-top { height: 28vh; }
+            .service-content h1 { font-size: 1.3rem; }
+            .card { padding: 25px 15px; }
+            .card i { font-size: 1.4rem; }
+            .text-content h2 { font-size: 1.6rem; }
+            .about-hispanic h2 { font-size: 1.6rem; }
+            .about-hispanic p { font-size: 0.9rem; }
+            .traditional-remedies h2 { font-size: 1.6rem; }
+            .imported-products h2 { font-size: 1.6rem; }
+            .why-choose-us h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="service-top reveal">
+        <div class="service-shape shape1"></div>
+        <div class="service-shape shape2"></div>
+        <div class="service-content">
+            <h1>
+                Authentic<br>
+                <span>Hispanic OTC Items</span> & Remedies
+            </h1>
+            <div class="heading-line"></div>
+        </div>
+    </section>
+
+    <section class="about-hispanic reveal">
+        <div class="container">
+            <h2><span>What</span> Are Hispanic OTC Items?</h2>
+            <p>
+                Hispanic OTC items include traditional medicines, herbal remedies, and imported healthcare products rooted in Latin American culture and healing practices. These time-honored solutions offer natural alternatives and culturally familiar treatments for common ailments, passed down through generations and trusted by Hispanic communities worldwide.
+            </p>
+        </div>
+    </section>
+
+    <section id="hispanic-services" class="reveal">
+        <div class="text-content">
+            <span class="badge">Our Products</span>
+            <h2>Traditional <span>Hispanic Remedies</span> & Medicines</h2>
+            <p>Discover authentic Hispanic healthcare products that combine cultural wisdom with effective natural healing.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card reveal">
+                <i class="fa-solid fa-leaf"></i>
+                <h3>Herbal Remedies</h3>
+                <p>Traditional herbs like manzanilla, árnica, ruda, and boldo for digestive, respiratory, and muscular issues.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-mortar-pestle"></i>
+                <h3>Natural Preparations</h3>
+                <p>Tés, pomadas, ungüentos, and jarabes made from traditional recipes for holistic wellness.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-prescription-bottle-medical"></i>
+                <h3>Imported Medicines</h3>
+                <p>Popular OTC medications from Latin America for colds, pain, digestion, and seasonal allergies.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-heart-circle-plus"></i>
+                <h3>Cultural Wellness</h3>
+                <p>Products for susto, empacho, mal de ojo, and other culturally-specific health concerns.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="traditional-remedies reveal">
+        <div class="container">
+            <h2><span>Traditional</span> Remedies & Their Uses</h2>
+            <div class="remedies-grid">
+                <div class="remedy-category reveal">
+                    <h3>Digestive & Stomach Remedies</h3>
+                    <ul>
+                        <li><strong>Manzanilla (Chamomile):</strong> For upset stomach, indigestion, and colic</li>
+                        <li><strong>Boldo Leaf:</strong> Liver support and digestive aid</li>
+                        <li><strong>Hierbabuena (Mint):</strong> Relieves gas and nausea</li>
+                        <li><strong>Papaya Leaf:</strong> For parasites and digestion</li>
+                        <li><strong>Aloe Vera (Sábila):</strong> Soothes stomach ulcers and inflammation</li>
+                    </ul>
+                </div>
+
+                <div class="remedy-category reveal">
+                    <h3>Respiratory & Cold Care</h3>
+                    <ul>
+                        <li><strong>Eucalyptus:</strong> For coughs and congestion</li>
+                        <li><strong>Gordolobo:</strong> Expectorant for chest congestion</li>
+                        <li><strong>Oregano Oil:</strong> Natural antibiotic for infections</li>
+                        <li><strong>Canela (Cinnamon):</strong> Warm tea for colds and flu</li>
+                        <li><strong>Jengibre (Ginger):</strong> For sore throat and inflammation</li>
+                    </ul>
+                </div>
+
+                <div class="remedy-category reveal">
+                    <h3>Pain & Inflammation Relief</h3>
+                    <ul>
+                        <li><strong>Árnica:</strong> Creams and gels for bruises and muscle pain</li>
+                        <li><strong>Romero (Rosemary):</strong> Oil for joint and muscle pain</li>
+                        <li><strong>Albahaca (Basil):</strong> Headache and tension relief</li>
+                        <li><strong>Caléndula:</strong> Skin inflammation and wound healing</li>
+                        <li><strong>Menta (Peppermint):</strong> Topical pain relief</li>
+                    </ul>
+                </div>
+
+                <div class="remedy-category reveal">
+                    <h3>Cultural Health Traditions</h3>
+                    <ul>
+                        <li><strong>Susto (Fright) Remedies:</strong> Herbal blends for shock or trauma</li>
+                        <li><strong>Empacho Treatments:</strong> For digestive blockages in children</li>
+                        <li><strong>Mal de Ojo (Evil Eye):</strong> Protective rituals and remedies</li>
+                        <li><strong>Bilis (Bile) Treatments:</strong> For anger-related ailments</li>
+                        <li><strong>Nervios (Nerves):</strong> Calming herbs for anxiety</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="imported-products reveal">
+        <div class="container">
+            <h2><span>Imported</span> Hispanic Healthcare Products</h2>
+            <div class="products-grid">
+                <div class="product-item reveal">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-pills"></i>
+                    </div>
+                    <h3>Popular Medications</h3>
+                    <p>Trusted brands from Mexico, Central and South America for pain relief, cold symptoms, digestive issues, and vitamins.</p>
+                </div>
+
+                <div class="product-item reveal">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-bottle-droplet"></i>
+                    </div>
+                    <h3>Natural Oils & Extracts</h3>
+                    <p>Essential oils, tinctures, and extracts used in traditional healing practices and home remedies.</p>
+                </div>
+
+                <div class="product-item reveal">
+                    <div class="product-icon">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <h3>Herbal Teas & Blends</h3>
+                    <p>Authentic tea blends for specific health concerns, prepared according to traditional recipes.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us reveal">
+        <div class="container">
+            <h2><span>Why</span> Choose Our Hispanic Products</h2>
+            <div class="choose-grid">
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">01</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Cultural Authenticity</h3>
+                    <p>We source products directly from trusted suppliers in Latin America, ensuring authentic traditional remedies.</p>
+                </div>
+
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">02</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Bilingual Guidance</h3>
+                    <p>Our staff understands both the products and cultural context, providing appropriate recommendations in Spanish and English.</p>
+                </div>
+
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">03</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Quality Assurance</h3>
+                    <p>All imported products meet safety standards while preserving traditional preparation methods and ingredients.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+
+        const shapes = document.querySelectorAll('.service-shape');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = index === 0 ? 0.02 : 0.03;
+                const xOffset = (x - 0.5) * 50 * speed;
+                const yOffset = (y - 0.5) * 50 * speed;
+                shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            });
+        });
+    </script>
+</body>
+</html>
