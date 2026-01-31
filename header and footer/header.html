@@ -4,52 +4,41 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Butler's Med Pharmacy</title>
-
-  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background: #fff;
       color: #000;
     }
-
     a {
       color: inherit;
       text-decoration: none;
       transition: all 0.2s ease;
     }
-
-  
     a:hover {
       text-decoration: underline;
     }
-
     button {
       font-family: inherit;
       background: none;
       border: none;
       cursor: pointer;
     }
-
     .wrap {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 16px;
     }
-
     .site-header {
       position: sticky;
       top: 0;
@@ -57,63 +46,52 @@
       background: #fff;
       border-bottom: 1px solid #e6ebf2;
     }
-
     .topbar {
-      background: #fff; 
-      color: #203F99; 
+      background: #fff;
+      color: #203F99;
       font-size: 14px;
       border-bottom: 1px solid #e6ebf2;
     }
-
     .topbar .wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 16px;
     }
-
     .topbar-left {
       display: flex;
       align-items: center;
       gap: 12px;
       min-width: 220px;
     }
-
     .logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .logo-img {
       width: 85px;
       height: 85px;
       border-radius: 12px;
       object-fit: contain;
     }
-
     .brandtext {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
-
     .brandtext strong {
       font-size: 22px;
       font-weight: 600;
       letter-spacing: 0.2px;
-      color: #203F99; 
+      color: #203F99;
     }
-
-    
     .logo:hover {
       text-decoration: none;
     }
-    
     .logo:hover .brandtext strong {
       text-decoration: none;
     }
-
     .topbar-center {
       display: flex;
       align-items: center;
@@ -122,7 +100,6 @@
       justify-content: center;
       white-space: nowrap;
     }
-
     .topbar-right {
       display: flex;
       align-items: center;
@@ -130,57 +107,47 @@
       min-width: 220px;
       justify-content: flex-end;
     }
-
     .info-item {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       white-space: nowrap;
       font-weight: 500;
-      color: #203F99; 
+      color: #203F99;
     }
-
     .info-item svg {
       width: 18px;
       height: 18px;
       opacity: 0.95;
       flex: 0 0 auto;
-      color: #203F99; 
+      color: #203F99;
     }
-
     .info-item a {
       color: #203F99;
     }
-
     .info-item a:hover {
       color: #0d2e7a;
     }
-
     .phone-fax {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    
     .phone-fax a:hover .phone-text {
       text-decoration: underline;
     }
-    
     .phone-fax a:hover .fax-text {
       text-decoration: none;
     }
-
     .info-divider {
       margin: 0 8px;
-      color: #666; 
+      color: #666;
     }
-
     .navbar {
-      background: #203F99; 
-      color: #fff; 
+      background: #203F99;
+      color: #fff;
       border-bottom: 1px solid #1a347e;
     }
-
     .navbar .wrap {
       display: flex;
       justify-content: center;
@@ -188,14 +155,12 @@
       padding: 14px 16px;
       position: relative;
     }
-
     .navlinks {
       display: flex;
       align-items: center;
       gap: 6px;
       justify-content: center;
     }
-
     .navlinks a,
     .navlinks button.linklike {
       display: inline-flex;
@@ -205,37 +170,32 @@
       border-radius: 12px;
       font-size: 16px;
       font-weight: 500;
-      color: #fff; 
+      color: #fff;
       background: transparent;
       border: none;
       cursor: pointer;
       white-space: nowrap;
-      text-decoration: none !important; 
+      text-decoration: none !important;
     }
-
     .navlinks a:hover,
     .navlinks button.linklike:hover {
-      background: rgba(255, 255, 255, 0.15); 
-      text-decoration: none !important; 
+      background: rgba(255, 255, 255, 0.15);
+      text-decoration: none !important;
     }
-
     .dropdown {
       position: relative;
     }
-
     .chev {
       width: 14px;
       height: 14px;
       transition: transform 0.3s ease;
       opacity: 0.95;
-      color: #fff; 
+      color: #fff;
     }
-
     .dropdown:hover .chev,
     .dropdown[data-open="true"] .chev {
       transform: rotate(180deg);
     }
-
     .dropdown-panel {
       position: absolute;
       left: 50%;
@@ -253,20 +213,17 @@
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       z-index: 1000;
     }
-
     .dropdown:hover .dropdown-panel,
     .dropdown:focus-within .dropdown-panel {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
-
     .dropdown-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px 14px;
     }
-
     .dd-item {
       display: flex;
       align-items: flex-start;
@@ -275,27 +232,23 @@
       border-radius: 12px;
       border: 1px solid transparent;
       font-weight: 500;
-      color: #203F99 !important; 
-      text-decoration: none !important; /
+      color: #203F99 !important;
+      text-decoration: none !important;
     }
-
     .dd-item:hover {
       background: #f2f7ff;
       border-color: #d8e6ff;
-      text-decoration: none !important; 
+      text-decoration: none !important;
     }
-
     .dd-item i {
       width: 18px;
       height: 18px;
       margin-top: 1px;
-      color: #203F99 !important; 
+      color: #203F99 !important;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-
-  
     .fa-icon {
       font-size: 16px;
       width: 18px;
@@ -303,27 +256,23 @@
       align-items: center;
       justify-content: center;
     }
-
     .mobile-header {
       display: none;
-      background: #203F99; 
+      background: #203F99;
       padding: 12px 16px;
       position: relative;
       border-bottom: 1px solid #1a347e;
     }
-
     .mobile-header .wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
     .mobile-logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .hamburger {
       display: none;
       align-items: center;
@@ -337,11 +286,9 @@
       transition: all 0.2s ease;
       padding: 0;
     }
-
     .hamburger:hover {
       background: rgba(255, 255, 255, 0.1);
     }
-
     .hamburger-icon {
       width: 40px;
       height: 40px;
@@ -349,7 +296,6 @@
       align-items: center;
       justify-content: center;
     }
-
     .mobile-panel {
       display: none;
       background: #fff;
@@ -366,16 +312,13 @@
       box-shadow: -8px 0 24px rgba(11, 18, 32, 0.15);
       overflow-y: auto;
     }
-
-    .mobile-panel[data-visible="true"] {
+    .mobile-panel.active {
       transform: translateX(0);
     }
-
     .mobile-inner {
       padding: 20px 16px;
       height: 100%;
     }
-
     .m-link {
       display: flex;
       align-items: center;
@@ -385,17 +328,15 @@
       border-radius: 12px;
       font-size: 16px;
       font-weight: 500;
-      color: #203F99; 
+      color: #203F99;
       margin-bottom: 8px;
       transition: background 0.2s ease;
-      text-decoration: none !important; 
+      text-decoration: none !important;
     }
-
     .m-link:hover {
       background: #f6f8fc;
-      text-decoration: none !important; 
+      text-decoration: none !important;
     }
-
     details.services-acc {
       margin-top: 6px;
       border-radius: 14px;
@@ -403,7 +344,6 @@
       background: #fff;
       margin-bottom: 8px;
     }
-
     details.services-acc > summary {
       list-style: none;
       cursor: pointer;
@@ -413,31 +353,26 @@
       justify-content: space-between;
       font-size: 16px;
       font-weight: 600;
-      color: #203F99; /* Blue text for accordion summary */
+      color: #203F99;
       border-radius: 12px;
       transition: background 0.2s ease;
     }
-
     details.services-acc > summary:hover {
       background: #f6f8fc;
     }
-
     details.services-acc > summary::-webkit-details-marker {
       display: none;
     }
-
     .acc-chev {
       width: 16px;
       height: 16px;
       transition: transform 0.3s ease;
       opacity: 0.75;
-      color: #203F99; /* Blue chevron */
+      color: #203F99;
     }
-
     details[open] .acc-chev {
       transform: rotate(180deg);
     }
-
     .acc-grid {
       padding: 4px 6px 10px;
       display: grid;
@@ -445,12 +380,10 @@
       gap: 8px;
       animation: fadeIn 0.3s ease;
     }
-
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(-5px); }
       to { opacity: 1; transform: translateY(0); }
     }
-
     .acc-item {
       display: flex;
       align-items: center;
@@ -458,18 +391,16 @@
       padding: 12px;
       border-radius: 12px;
       font-weight: 500;
-      color: #203F99; /* Blue text for accordion items */
+      color: #203F99;
       background: #f8fafc;
       border: 1px solid transparent;
       transition: background 0.2s ease, border-color 0.2s ease;
-      text-decoration: none !important; /* Remove underline from accordion items */
+      text-decoration: none !important;
     }
-
     .acc-item:hover {
       background: #f2f7ff;
-      text-decoration: none !important; /* Remove underline on hover */
+      text-decoration: none !important;
     }
-
     .acc-item i {
       width: 18px;
       height: 18px;
@@ -478,26 +409,6 @@
       align-items: center;
       justify-content: center;
     }
-
-    /* Background overlay when mobile menu is open - REMOVED to fix visibility issue */
-    .mobile-menu-overlay {
-      display: none;
-    }
-
-    /* Contact info styles */
-    .contact-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .contact-info .info-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Close button for mobile menu */
     .mobile-close-btn {
       display: flex;
       align-items: center;
@@ -513,13 +424,10 @@
       margin-left: auto;
       border: 1px solid #e6ebf2;
     }
-
     .mobile-close-btn:hover {
       background: #f2f7ff;
       border-color: #d8e6ff;
     }
-
-    /* Mobile menu header with logo */
     .mobile-menu-header {
       display: flex;
       align-items: center;
@@ -528,63 +436,27 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #e6ebf2;
     }
-
     .mobile-menu-logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-
     .mobile-menu-logo-img {
       width: 60px;
       height: 60px;
       border-radius: 12px;
       object-fit: contain;
     }
-
     .mobile-menu-brand {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
-
     .mobile-menu-brand strong {
       font-size: 18px;
       font-weight: 600;
       color: #203F99;
     }
-
-    @media (max-width: 1400px) {
-      .wrap {
-        max-width: 1320px;
-      }
-    }
-
-    @media (max-width: 1280px) {
-      .wrap {
-        max-width: 1200px;
-      }
-      .brandtext strong {
-        font-size: 20px;
-      }
-    }
-
-    @media (max-width: 1200px) {
-      .wrap {
-        max-width: 1140px;
-      }
-      .topbar-center {
-        gap: 18px;
-      }
-      .topbar-right {
-        gap: 16px;
-      }
-      .logo-img {
-        width: 80px;
-        height: 80px;
-      }
-    }
-
     @media (max-width: 1024px) {
       .wrap {
         max-width: 960px;
@@ -614,7 +486,6 @@
         height: 75px;
       }
     }
-
     @media (max-width: 992px) {
       .wrap {
         max-width: 900px;
@@ -634,17 +505,16 @@
       .mobile-logo .logo-img {
         width: 65px;
         height: 65px;
-        border: none; /* Removed white border */
+        border: none;
       }
       .mobile-logo .brandtext {
-        display: none; /* Remove brand text on mobile */
+        display: none;
       }
       .hamburger-icon svg {
         width: 40px;
         height: 40px;
       }
     }
-
     @media (max-width: 768px) {
       .wrap {
         max-width: 720px;
@@ -665,7 +535,6 @@
         height: 36px;
       }
     }
-
     @media (max-width: 640px) {
       .wrap {
         max-width: 576px;
@@ -690,7 +559,6 @@
         height: 34px;
       }
     }
-
     @media (max-width: 576px) {
       .wrap {
         max-width: 540px;
@@ -715,7 +583,6 @@
         height: 32px;
       }
     }
-
     @media (max-width: 480px) {
       .wrap {
         padding: 0 12px;
@@ -758,7 +625,6 @@
         font-size: 16px;
       }
     }
-
     @media (max-width: 360px) {
       .wrap {
         padding: 0 8px;
@@ -796,7 +662,6 @@
   </style>
 </head>
 <body>
-  
   <header class="site-header">
     <div class="topbar" role="region" aria-label="Pharmacy contact info">
       <div class="wrap">
@@ -808,23 +673,19 @@
             </div>
           </a>
         </div>
-
         <div class="topbar-center">
           <div class="contact-info">
             <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="info-item" aria-label="Address">
               <i class="fas fa-map-marker-alt fa-icon"></i>
               <span>1393 Webster Ave, Bronx, NY 10456</span>
             </a>
-            
             <span class="info-divider">|</span>
-
             <div class="info-item" aria-label="Hours">
               <i class="far fa-clock fa-icon"></i>
               <span>Mon-Fri: 10AM-5PM | </span>
             </div>
           </div>
         </div>
-
         <div class="topbar-right">
           <div class="info-item">
             <div class="phone-fax">
@@ -838,105 +699,77 @@
         </div>
       </div>
     </div>
-
     <nav class="navbar" aria-label="Primary navigation">
       <div class="wrap">
         <div class="navlinks" role="menubar" aria-label="Main menu">
           <a href="/" role="menuitem">Home</a>
           <a href="/about-us.html" role="menuitem">About Us</a>
-                <a href="/services/index.html" role="menuitem">Pharmacy</a>
-
-
-        <div class="dropdown" role="none">
-  <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
-    Services
-    <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-  <div class="dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="servicesBtn">
-    <div class="dropdown-grid">
-      <!-- Prescription Services -->
-      <a class="dd-item" href="/services/prescription-services" role="menuitem">
-        <i class="fas fa-prescription-bottle-medical"></i>
-        <span style="color: #203F99;">Prescription Services</span>
-      </a>
-
-      <!-- Vitamins & Supplements -->
-      <a class="dd-item" href="/services/vitamins-supplements" role="menuitem">
-        <i class="fas fa-capsules"></i>
-        <span style="color: #203F99;">Vitamins & Supplements</span>
-      </a>
-
-      <!-- OTC Medications -->
-      <a class="dd-item" href="/services/otc-medications" role="menuitem">
-        <i class="fas fa-pills"></i>
-        <span style="color: #203F99;">OTC Medications</span>
-      </a>
-
-      <!-- Surgical & Medical Supplies -->
-      <a class="dd-item" href="/services/surgical-medical-supplies" role="menuitem">
-        <i class="fas fa-stethoscope"></i>
-        <span style="color: #203F99;">Surgical & Medical Supplies</span>
-      </a>
-
-      <!-- Hispanic OTC Items -->
-      <a class="dd-item" href="/services/hispanic-otc" role="menuitem">
-        <i class="fas fa-globe-americas"></i>
-        <span style="color: #203F99;">Hispanic OTC Items</span>
-      </a>
-
-      <!-- Household Supplies -->
-      <a class="dd-item" href="/services/household-supplies" role="menuitem">
-        <i class="fas fa-home"></i>
-        <span style="color: #203F99;">Household Supplies</span>
-      </a>
-
-      <!-- Food & Grocery Items -->
-      <a class="dd-item" href="/services/food-grocery" role="menuitem">
-        <i class="fas fa-shopping-basket"></i>
-        <span style="color: #203F99;">Food & Grocery Items</span>
-      </a>
-
-      <!-- Beauty & Personal Care -->
-      <a class="dd-item" href="/services/beauty-personal-care" role="menuitem">
-        <i class="fas fa-spa"></i>
-        <span style="color: #203F99;">Beauty & Personal Care</span>
-      </a>
-
-      <!-- Perfumes & Fragrances -->
-      <a class="dd-item" href="/services/perfumes-fragrances" role="menuitem">
-        <i class="fas fa-wind"></i>
-        <span style="color: #203F99;">Perfumes & Fragrances</span>
-      </a>
-
-      <!-- Electronic Appliances -->
-      <a class="dd-item" href="/services/electronic-appliances" role="menuitem">
-        <i class="fas fa-plug"></i>
-        <span style="color: #203F99;">Electronic Appliances</span>
-      </a>
-    </div>
-  </div>
-</div>
-
+          <a href="/services/index.html" role="menuitem">Pharmacy</a>
+          <div class="dropdown" role="none">
+            <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
+              Services
+              <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <div class="dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="servicesBtn">
+              <div class="dropdown-grid">
+                <a class="dd-item" href="/services/prescription-services" role="menuitem">
+                  <i class="fas fa-prescription-bottle-medical"></i>
+                  <span style="color: #203F99;">Prescription Services</span>
+                </a>
+                <a class="dd-item" href="/services/vitamins-supplements" role="menuitem">
+                  <i class="fas fa-capsules"></i>
+                  <span style="color: #203F99;">Vitamins & Supplements</span>
+                </a>
+                <a class="dd-item" href="/services/otc-medications" role="menuitem">
+                  <i class="fas fa-pills"></i>
+                  <span style="color: #203F99;">OTC Medications</span>
+                </a>
+                <a class="dd-item" href="/services/surgical-medical-supplies" role="menuitem">
+                  <i class="fas fa-stethoscope"></i>
+                  <span style="color: #203F99;">Surgical & Medical Supplies</span>
+                </a>
+                <a class="dd-item" href="/services/hispanic-otc" role="menuitem">
+                  <i class="fas fa-globe-americas"></i>
+                  <span style="color: #203F99;">Hispanic OTC Items</span>
+                </a>
+                <a class="dd-item" href="/services/household-supplies" role="menuitem">
+                  <i class="fas fa-home"></i>
+                  <span style="color: #203F99;">Household Supplies</span>
+                </a>
+                <a class="dd-item" href="/services/food-grocery" role="menuitem">
+                  <i class="fas fa-shopping-basket"></i>
+                  <span style="color: #203F99;">Food & Grocery Items</span>
+                </a>
+                <a class="dd-item" href="/services/beauty-personal-care" role="menuitem">
+                  <i class="fas fa-spa"></i>
+                  <span style="color: #203F99;">Beauty & Personal Care</span>
+                </a>
+                <a class="dd-item" href="/services/perfumes-fragrances" role="menuitem">
+                  <i class="fas fa-wind"></i>
+                  <span style="color: #203F99;">Perfumes & Fragrances</span>
+                </a>
+                <a class="dd-item" href="/services/electronic-appliances" role="menuitem">
+                  <i class="fas fa-plug"></i>
+                  <span style="color: #203F99;">Electronic Appliances</span>
+                </a>
+              </div>
+            </div>
+          </div>
           <a href="/contact-us.html" role="menuitem">Contact Us</a>
         </div>
       </div>
     </nav>
-
     <div class="mobile-header">
       <div class="wrap">
         <a class="mobile-logo" href="/" aria-label="Butler's Med Pharmacy home">
-          <img class="logo-img" src="butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+          <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
         </a>
-
         <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
           <div class="hamburger-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
               <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
-              
-              <!-- Handle - White for blue background -->
               <path d="
                 M96 64
                 v-14
@@ -953,25 +786,17 @@
                 z"
                 fill="#FFFFFF"
               />
-              
-              <!-- Feet - White for blue background -->
               <rect x="48" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
               <rect x="160" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
-              
-              <!-- CLEAN MEDICAL PLUS - Red plus sign -->
-              <!-- Vertical bar -->
               <rect x="118" y="96" width="20" height="64" rx="6" fill="#FD0510"/>
-              <!-- Horizontal bar -->
               <rect x="96" y="118" width="64" height="20" rx="6" fill="#FD0510"/>
             </svg>
           </div>
         </button>
       </div>
-
       <div class="mobile-panel" id="mobilePanel">
         <div class="wrap">
           <div class="mobile-inner">
-            <!-- Mobile menu header with logo -->
             <div class="mobile-menu-header">
               <a href="/" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
                 <img class="mobile-menu-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
@@ -985,84 +810,59 @@
                 </svg>
               </button>
             </div>
-
-            <!-- Mobile menu content without background -->
             <a class="m-link" href="/">Home</a>
             <a class="m-link" href="/about">About Us</a>
-
-         <details class="services-acc">
-  <summary>
-    Services
-    <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </summary>
-
-  <div class="acc-grid" role="group" aria-label="Services">
-    <!-- Prescription Services -->
-    <a class="acc-item" href="/services/prescription-services">
-      <i class="fas fa-prescription-bottle-medical"></i>
-      Prescription Services
-    </a>
-
-    <!-- Vitamins & Supplements -->
-    <a class="acc-item" href="/services/vitamins-supplements">
-      <i class="fas fa-capsules"></i>
-      Vitamins & Supplements
-    </a>
-
-    <!-- OTC Medications -->
-    <a class="acc-item" href="/services/otc-medications">
-      <i class="fas fa-pills"></i>
-      OTC Medications
-    </a>
-
-    <!-- Surgical & Medical Supplies -->
-    <a class="acc-item" href="/services/surgical-medical-supplies">
-      <i class="fas fa-stethoscope"></i>
-      Surgical & Medical Supplies
-    </a>
-
-    <!-- Hispanic OTC Items -->
-    <a class="acc-item" href="/services/hispanic-otc">
-      <i class="fas fa-globe-americas"></i>
-      Hispanic OTC Items
-    </a>
-
-    <!-- Household Supplies -->
-    <a class="acc-item" href="/services/household-supplies">
-      <i class="fas fa-home"></i>
-      Household Supplies
-    </a>
-
-    <!-- Food & Grocery Items -->
-    <a class="acc-item" href="/services/food-grocery">
-      <i class="fas fa-shopping-basket"></i>
-      Food & Grocery Items
-    </a>
-
-    <!-- Beauty & Personal Care -->
-    <a class="acc-item" href="/services/beauty-personal-care">
-      <i class="fas fa-spa"></i>
-      Beauty & Personal Care
-    </a>
-
-    <!-- Perfumes & Fragrances -->
-    <a class="acc-item" href="/services/perfumes-fragrances">
-      <i class="fas fa-wind"></i>
-      Perfumes & Fragrances
-    </a>
-
-    <!-- Electronic Appliances -->
-    <a class="acc-item" href="/services/electronic-appliances">
-      <i class="fas fa-plug"></i>
-      Electronic Appliances
-    </a>
-  </div>
-</details>
-
+            <details class="services-acc">
+              <summary>
+                Services
+                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </summary>
+              <div class="acc-grid" role="group" aria-label="Services">
+                <a class="acc-item" href="/services/prescription-services">
+                  <i class="fas fa-prescription-bottle-medical"></i>
+                  Prescription Services
+                </a>
+                <a class="acc-item" href="/services/vitamins-supplements">
+                  <i class="fas fa-capsules"></i>
+                  Vitamins & Supplements
+                </a>
+                <a class="acc-item" href="/services/otc-medications">
+                  <i class="fas fa-pills"></i>
+                  OTC Medications
+                </a>
+                <a class="acc-item" href="/services/surgical-medical-supplies">
+                  <i class="fas fa-stethoscope"></i>
+                  Surgical & Medical Supplies
+                </a>
+                <a class="acc-item" href="/services/hispanic-otc">
+                  <i class="fas fa-globe-americas"></i>
+                  Hispanic OTC Items
+                </a>
+                <a class="acc-item" href="/services/household-supplies">
+                  <i class="fas fa-home"></i>
+                  Household Supplies
+                </a>
+                <a class="acc-item" href="/services/food-grocery">
+                  <i class="fas fa-shopping-basket"></i>
+                  Food & Grocery Items
+                </a>
+                <a class="acc-item" href="/services/beauty-personal-care">
+                  <i class="fas fa-spa"></i>
+                  Beauty & Personal Care
+                </a>
+                <a class="acc-item" href="/services/perfumes-fragrances">
+                  <i class="fas fa-wind"></i>
+                  Perfumes & Fragrances
+                </a>
+                <a class="acc-item" href="/services/electronic-appliances">
+                  <i class="fas fa-plug"></i>
+                  Electronic Appliances
+                </a>
+              </div>
+            </details>
             <a class="m-link" href="/contact">Contact Us</a>
-            
             <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
               <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
                 <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
@@ -1070,12 +870,10 @@
                   <span style="font-weight: 500; color: #203F99;">1393 Webster Ave, Bronx, NY 10456</span>
                 </div>
               </a>
-              
               <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
                 <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
                 <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM <span style="color: #666;">|</span> Sat-Sun: Closed</span>
               </div>
-              
               <div style="display: flex; align-items: flex-start; gap: 10px;">
                 <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
                 <div style="display: flex; flex-direction: column; gap: 4px;">
@@ -1091,122 +889,53 @@
       </div>
     </div>
   </header>
-
   <script>
-    const btn = document.getElementById('hamburgerBtn');
-    const panel = document.getElementById('mobilePanel');
-    const closeBtn = document.getElementById('mobileCloseBtn');
-
-    function openMobileMenu() {
-      btn.setAttribute('aria-expanded', 'true');
-      panel.style.display = 'block';
-      setTimeout(() => {
-        panel.setAttribute('data-visible', 'true');
-      }, 10);
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeMobileMenu() {
-      panel.setAttribute('data-visible', 'false');
-      setTimeout(() => {
-        panel.style.display = 'none';
-      }, 300);
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    btn.addEventListener('click', openMobileMenu);
-    closeBtn.addEventListener('click', closeMobileMenu);
-
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (panel.style.display === 'block' && 
-          !panel.contains(e.target) && 
-          e.target !== btn && 
-          !btn.contains(e.target)) {
-        closeMobileMenu();
-      }
-    });
-
-    const servicesBtn = document.getElementById('servicesBtn');
-    const dropdown = servicesBtn?.closest('.dropdown');
-    const dropdownPanel = dropdown?.querySelector('.dropdown-panel');
-
-    if (dropdown) {
-      dropdown.addEventListener('mouseenter', () => {
-        servicesBtn.setAttribute('aria-expanded', 'true');
-        dropdown.dataset.open = 'true';
-        dropdownPanel.style.display = 'block';
+    document.addEventListener('DOMContentLoaded', function() {
+      const hamburgerBtn = document.getElementById('hamburgerBtn');
+      const mobilePanel = document.getElementById('mobilePanel');
+      const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+      
+      function openMobileMenu() {
+        mobilePanel.style.display = 'block';
         setTimeout(() => {
-          dropdownPanel.style.opacity = '1';
-          dropdownPanel.style.visibility = 'visible';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(0)';
+          mobilePanel.classList.add('active');
+          hamburgerBtn.setAttribute('aria-expanded', 'true');
         }, 10);
-      });
+        document.body.style.overflow = 'hidden';
+      }
       
-      dropdown.addEventListener('mouseleave', (e) => {
-        if (!dropdown.contains(e.relatedTarget)) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            if (!dropdown.matches(':hover') && !dropdown.matches(':focus-within')) {
-              dropdownPanel.style.display = 'none';
-            }
-          }, 300);
-        }
-      });
+      function closeMobileMenu() {
+        mobilePanel.classList.remove('active');
+        setTimeout(() => {
+          mobilePanel.style.display = 'none';
+          hamburgerBtn.setAttribute('aria-expanded', 'false');
+        }, 300);
+        document.body.style.overflow = '';
+      }
       
-      servicesBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = servicesBtn.getAttribute('aria-expanded') === 'true';
-        if (isOpen) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            dropdownPanel.style.display = 'none';
-          }, 300);
-        } else {
-          servicesBtn.setAttribute('aria-expanded', 'true');
-          dropdown.dataset.open = 'true';
-          dropdownPanel.style.display = 'block';
-          setTimeout(() => {
-            dropdownPanel.style.opacity = '1';
-            dropdownPanel.style.visibility = 'visible';
-            dropdownPanel.style.transform = 'translateX(-50%) translateY(0)';
-          }, 10);
-        }
-      });
-
+      hamburgerBtn.addEventListener('click', openMobileMenu);
+      mobileCloseBtn.addEventListener('click', closeMobileMenu);
+      
       document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            dropdownPanel.style.display = 'none';
-          }, 300);
+        if (mobilePanel.style.display === 'block' && 
+            !mobilePanel.contains(e.target) && 
+            e.target !== hamburgerBtn && 
+            !hamburgerBtn.contains(e.target)) {
+          closeMobileMenu();
         }
       });
-    }
-
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992) {
-        closeMobileMenu();
-      }
-    });
-
-    panel.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        closeMobileMenu();
-      }
+      
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 992) {
+          closeMobileMenu();
+        }
+      });
+      
+      mobilePanel.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A') {
+          closeMobileMenu();
+        }
+      });
     });
   </script>
 </body>
