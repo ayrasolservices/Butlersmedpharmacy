@@ -1,1 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Butlers Med Pharmacy - Our Services</title>
+  
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="/assets/images/Randall Favicon.png" type="image/x-icon">
 
+
+    <style>
+
+
+.bt-hero-section {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 40px 20px;
+    margin-top: 0;
+    overflow: hidden;
+}
+
+.bt-hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.bt-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(32, 63, 153, 0.15);
+    z-index: 2;
+}
+
+.bt-hero-content {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    max-width: 800px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: bt-fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes bt-fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.bt-hero-title {
+    color: #203F99;
+    font-size: 3.2rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+    animation: bt-slideInFromLeft 1s ease-out 0.3s forwards;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+@keyframes bt-slideInFromLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.bt-hero-description {
+    color: #495057;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    animation: bt-fadeIn 1s ease-out 0.6s forwards;
+    opacity: 0;
+}
+
+@keyframes bt-fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.bt-hero-highlight {
+    color: #203F99;
+    font-weight: 600;
+    display: block;
+    margin-top: 10px;
+    animation: bt-fadeIn 1s ease-out 0.8s forwards;
+    opacity: 0;
+}
+
+@media (max-width: 768px) {
+    .bt-hero-section {
+        min-height: 50vh;
+        padding: 20px;
+    }
+    
+    .bt-hero-content {
+        padding: 30px 20px;
+    }
+    
+    .bt-hero-title {
+        font-size: 2.2rem;
+    }
+    
+    .bt-hero-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .bt-hero-section {
+        min-height: 45vh;
+        padding: 15px;
+    }
+    
+    .bt-hero-content {
+        padding: 25px 15px;
+    }
+    
+    .bt-hero-title {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .bt-hero-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .bt-hero-title {
+        font-size: 1.6rem;
+    }
+    
+    .bt-hero-description {
+        font-size: 0.8rem;
+    }
+}
+
+/* hero sectiopn ends here */
+
+        /*pharmacy services section css starts here*/
+        .pharmacy-services {
+            max-width: 1200px;
+            width: 100%;
+            padding: 60px 40px;
+            margin: 40px auto 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h1 {
+            color: #FD0511;
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .section-header p {
+            color: #495057;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px 40px;
+        }
+
+        .service-item {
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-visual-section {
+            position: relative;
+            border-radius: 16px;
+            height: 240px;
+            margin-bottom: 0;
+            overflow: visible;
+        }
+
+        .service-image-container {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+        }
+
+        .service-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+        }
+
+        .icon-wrapper {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            z-index: 30;
+            width: 70px;
+            height: 70px;
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: #f8f9fa;
+            border-radius: 50%; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: #FD0511; /* Updated to #FD0511 */
+            border: 4px solid white; /* Changed from 20px to 4px to fix dragging issue */
+            transition: all 0.4s ease;
+            box-sizing: border-box;
+        }
+
+        .service-item:hover .service-icon {
+            color: #203F99; /* Updated to #203F99 */
+            transform: scale(1.05);
+        }
+
+        /* Text Section with Background - No border radius */
+        .service-text-section {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            padding: 50px 25px 25px 25px;
+            margin-top: 0;
+            border-radius: 0;
+            position: relative;
+            z-index: 20;
+            margin-top: 20px;
+        }
+
+        /* Add alternating background colors for text sections of 1st, 3rd, 5th, 7th items */
+        .service-item:nth-child(odd) .service-text-section {
+            background-color: rgba(32, 63, 153, 0.05); /* Updated to #203F99 with lower opacity */
+        }
+
+        /* White background for text sections of even items */
+        .service-item:nth-child(even) .service-text-section {
+            background-color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-text-section h3 {
+            color: #FD0511; /* Updated to #FD0511 */
+            font-size: 1.6rem;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .service-item:hover .service-text-section h3 {
+            color: #203F99; /* Updated to #203F99 */
+        }
+
+        .service-text-section p {
+            color: #495057;
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            min-height: 90px;
+        }
+
+        .learn-more-link {
+            display: inline-block;
+            color: #203F99; /* Updated to #203F99 */
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .learn-more-link:hover {
+            color: #FD0511;
+        }
+
+        .learn-more-link i {
+            margin-left: 8px;
+            font-size: 0.9rem;
+            transition: transform 0.3s ease;
+        }
+
+        .learn-more-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Animation for items */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-item {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+
+        .service-item:nth-child(1) { animation-delay: 0.1s; }
+        .service-item:nth-child(2) { animation-delay: 0.2s; }
+        .service-item:nth-child(3) { animation-delay: 0.3s; }
+        .service-item:nth-child(4) { animation-delay: 0.4s; }
+        .service-item:nth-child(5) { animation-delay: 0.5s; }
+        .service-item:nth-child(6) { animation-delay: 0.6s; }
+        .service-item:nth-child(7) { animation-delay: 0.7s; }
+        .service-item:nth-child(8) { animation-delay: 0.8s; }
+        .service-item:nth-child(9) { animation-delay: 0.9s; }
+        .service-item:nth-child(10) { animation-delay: 1.0s; }
+
+        /* Scroll effect */
+        .service-item {
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .service-item.scrolled {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1100px) {
+            .services-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 50px 30px;
+            }
+            
+            .pharmacy-services {
+                padding: 50px 30px;
+            }
+            
+            
+            .service-item:nth-child(4n+1) .service-text-section,
+            .service-item:nth-child(4n+4) .service-text-section {
+                background-color: rgba(32, 63, 153, 0.05); 
+                box-shadow: none;
+            }
+            
+            .service-item:nth-child(4n+2) .service-text-section,
+            .service-item:nth-child(4n+3) .service-text-section {
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-container {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+                gap: 40px;
+            }
+            
+            .section-header {
+                margin-bottom: 60px;
+            }
+            
+            .section-header h1 {
+                font-size: 2.3rem;
+                margin-bottom: 20px;
+            }
+            
+            .section-header p {
+                font-size: 1.1rem;
+            }
+            
+            .service-visual-section {
+                height: 220px;
+            }
+            
+            .service-text-section {
+                padding: 50px 20px 20px 20px;
+                margin-top: 15px;
+            }
+            
+            .service-text-section p {
+                min-height: auto;
+                margin-bottom: 20px;
+            }
+            
+            .service-text-section h3 {
+                margin-top: 8px;
+            }
+            
+            .icon-wrapper {
+                width: 65px;
+                height: 65px;
+                bottom: -30px;
+            }
+            
+            .service-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 26px;
+                border: 4px solid white;
+                border-radius: 50%; /* Perfect circle */
+            }
+            
+            .service-item:nth-child(odd) .service-text-section {
+                background-color: rgba(32, 63, 153, 0.05); 
+                box-shadow: none;
+            }
+            
+            .service-item:nth-child(even) .service-text-section {
+                background-color: white;
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .pharmacy-services {
+                padding: 40px 20px;
+            }
+            
+            .section-header h1 {
+                font-size: 2rem;
+            }
+            
+            .section-header p {
+                font-size: 1rem;
+            }
+            
+            .service-text-section h3 {
+                font-size: 1.4rem;
+                margin-top: 5px;
+            }
+            
+            .service-visual-section {
+                height: 200px;
+            }
+            
+            .service-text-section {
+                padding: 50px 15px 15px 15px;
+                margin-top: 12px;
+            }
+            
+            .icon-wrapper {
+                width: 60px;
+                height: 60px;
+                bottom: -25px;
+            }
+            
+            .service-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 24px;
+                border: 4px solid white;
+                border-radius: 50%; /* Perfect circle */
+            }
+            
+            .learn-more-link {
+                font-size: 0.95rem;
+            }
+        }
+        /*pharmacy services section css ends here*/
+
+        /*the css of additional services css starts here*/
+           
+    .banner-card-section{
+        padding:60px 5%;
+        width:100%;
+        max-width:1200px;
+        margin:0 auto;
+    }
+
+    .section-heading {
+        text-align: center;
+        margin-bottom: 50px;
+        padding: 0 20px;
+    }
+
+    .section-heading h2 {
+        font-size: 36px;
+        font-weight: 800;
+        color: #1a365d;
+        margin-bottom: 15px;
+        letter-spacing: -0.5px;
+    }
+
+    .heading-line {
+        width: 60px;
+        height: 4px;
+        background-color: #FD0511; /* Updated to #FD0511 */
+        margin: 0 auto;
+        border-radius: 2px;
+    }
+
+    .banner-card-row{
+        display:flex;
+        gap:30px;
+    }
+
+    .banner-card{
+        flex:1;
+        min-height:280px;
+        border-radius:24px;
+        padding:45px;
+        position:relative;
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+    }
+
+    .banner-content{
+        max-width:420px;
+        z-index:2;
+        position:relative;
+    }
+
+    .icon-container {
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:56px;
+        height:56px;
+        border-radius:16px;
+        margin-bottom:20px;
+    }
+
+    .label{
+        font-size:13px;
+        letter-spacing:1px;
+        text-transform:uppercase;
+        margin-bottom:12px;
+        opacity:0.85;
+        font-weight:600;
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .label i {
+        font-size:14px;
+    }
+
+    .title{
+        font-size:20px;
+        font-weight:600;
+        line-height:1.25;
+        margin-bottom:14px;
+        color:#0f2b46;
+    }
+
+    .text{
+        font-size:15px;
+        line-height:1.6;
+        opacity:0.9;
+        margin-bottom:5px;
+    }
+
+    .bg-image{
+        position:absolute;
+        inset:0;
+        background-size:cover;
+        background-position:center;
+        opacity:0.12;
+    }
+
+    .insurance{
+        background:linear-gradient(135deg, #F0F8FF, #ffffff);
+        border:1px solid rgba(32, 63, 153, 0.1); /* Updated to #203F99 */
+    }
+
+    .insurance .label{
+        color:#203F99; /* Updated to #203F99 */
+    }
+
+    .insurance .bg-image{
+        background-image:url("https://images.unsplash.com/photo-1554224155-8d04cb21cd6c");
+    }
+
+    .insurance .icon-container {
+        background-color:rgba(32, 63, 153, 0.1); /* Updated to #203F99 */
+        color:#203F99; /* Updated to #203F99 */
+    }
+
+   
+    .delivery{
+        background:linear-gradient(135deg, #FFF0F0, #ffffff); /* Lighter red tint */
+        border:1px solid rgba(253, 5, 17, 0.08); /* Updated to #FD0511 */
+    }
+
+    .delivery .label{
+        color:#FD0511; /* Updated to #FD0511 */
+    }
+
+    .delivery .bg-image{
+        background-image:url("https://images.unsplash.com/photo-1589923188900-85dae523342b");
+    }
+
+    .delivery .icon-container {
+        background-color:rgba(253, 5, 17, 0.1); /* Updated to #FD0511 */
+        color:#FD0511; /* Updated to #FD0511 */
+    }
+
+    .banner-card{
+        transition:box-shadow 0.35s ease;
+    }
+
+   
+    .cta-button {
+        display:inline-block;
+        margin-top:18px;
+        font-size:14px;
+        font-weight:600;
+        color:inherit;
+        text-decoration:none;
+        padding:6px 0;
+        border-bottom:2px solid transparent;
+        transition:border-color 0.3s ease;
+    }
+
+    .insurance .cta-button {
+        color:#203F99; /* Updated to #203F99 */
+    }
+
+    .insurance .cta-button:hover {
+        border-bottom-color:#203F99; /* Updated to #203F99 */
+    }
+
+    .delivery .cta-button {
+        color:#FD0511; /* Updated to #FD0511 */
+    }
+
+    .delivery .cta-button:hover {
+        border-bottom-color:#FD0511; /* Updated to #FD0511 */
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1400px) {
+        .banner-card-section {
+            max-width: 1100px;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .banner-card-section {
+            max-width: 1000px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .banner-card-section {
+            max-width: 950px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .banner-card-section {
+            max-width: 900px;
+            padding: 50px 4%;
+        }
+        
+        .section-heading h2 {
+            font-size: 32px;
+        }
+        
+        .banner-card {
+            padding: 40px;
+            min-height: 260px;
+        }
+        
+        .title {
+            font-size: 26px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .banner-card-row {
+            gap: 25px;
+        }
+        
+        .section-heading {
+            margin-bottom: 40px;
+        }
+        
+        .section-heading h2 {
+            font-size: 30px;
+        }
+        
+        .banner-card {
+            padding: 35px;
+        }
+        
+        .title {
+            font-size: 24px;
+        }
+        
+        .text {
+            font-size: 14.5px;
+        }
+    }
+
+    @media (max-width: 900px) {
+        .banner-card-row {
+            flex-direction: column;
+        }
+        
+        .banner-card {
+            min-height: 240px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .banner-card-section {
+            padding: 40px 4%;
+        }
+        
+        .section-heading h2 {
+            font-size: 28px;
+        }
+        
+        .banner-card {
+            padding: 32px;
+            min-height: 220px;
+        }
+        
+        .icon-container {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            margin-bottom: 18px;
+        }
+        
+        .title {
+            font-size: 23px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .banner-card {
+            padding: 28px;
+            min-height: 200px;
+        }
+        
+        .section-heading h2 {
+            font-size: 26px;
+        }
+        
+        .title {
+            font-size: 22px;
+        }
+        
+        .label {
+            font-size: 12.5px;
+        }
+        
+        .text {
+            font-size: 14px;
+        }
+        
+        .icon-container {
+            width: 48px;
+            height: 48px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .banner-card-section {
+            padding: 30px 4%;
+        }
+        
+        .section-heading {
+            margin-bottom: 35px;
+        }
+        
+        .section-heading h2 {
+            font-size: 24px;
+        }
+        
+        .heading-line {
+            width: 50px;
+            height: 3px;
+        }
+        
+        .banner-card {
+            padding: 26px;
+            min-height: 190px;
+        }
+        
+        .title {
+            font-size: 21px;
+        }
+        
+        .cta-button {
+            margin-top: 15px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .banner-card {
+            padding: 24px;
+            min-height: 180px;
+        }
+        
+        .section-heading h2 {
+            font-size: 22px;
+        }
+        
+        .title {
+            font-size: 20px;
+        }
+        
+        .label {
+            font-size: 12px;
+        }
+        
+        .text {
+            font-size: 13.5px;
+        }
+        
+        .icon-container {
+            width: 44px;
+            height: 44px;
+            margin-bottom: 16px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .banner-card {
+            padding: 22px;
+            min-height: 170px;
+            border-radius: 20px;
+        }
+        
+        .section-heading h2 {
+            font-size: 20px;
+        }
+        
+        .title {
+            font-size: 19px;
+        }
+        
+        .text {
+            font-size: 13px;
+        }
+        
+        .icon-container {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+        }
+        
+        .cta-button {
+            font-size: 13px;
+        }
+    }
+         
+    /*the css of additional services css ends here*/
+        
+    </style>
+</head>
+<body>
+    
+    <div id="header-container"></div>
+    
+    <section class="bt-hero-section">
+    <div class="bt-hero-background"></div>
+    <div class="bt-hero-overlay"></div>
+    <div class="bt-hero-content">
+        <h1 class="bt-hero-title">Our Pharmacy Services</h1>
+        <p class="bt-hero-description">Comprehensive healthcare solutions with personalized care from our expert team.</p>
+        <span class="bt-hero-highlight">Supporting your health journey every step of the way.</span>
+    </div>
+</section>
+
+
+    <!--pharmacy services section-->
+    <section class="pharmacy-services">
+        <div class="section-header">
+            <h1>Butlers Med Pharmacy Services</h1>
+            <p>At Butlers Med Pharmacy, we provide comprehensive healthcare solutions to meet all your needs. From prescription management to everyday wellness products, our dedicated team is here to support your health journey.</p>
+        </div>
+
+        <div class="services-container">
+            <!-- Service 1: Prescription Services -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-prescription.jpg" alt="Prescription Services" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-prescription-bottle-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Prescription Services</h3>
+                    <p>Fill, transfer, and manage your prescriptions with expert support and personalized care from our pharmacy team.</p>
+                    <a href="/services/prescription-services.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2: Vitamins & Supplements -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-vitamins.jpg" alt="Vitamins & Supplements" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-capsules"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Vitamins & Supplements</h3>
+                    <p>Fish oil, multivitamins, hair/skin/nails, B12, immune and wellness products for optimal health.</p>
+                    <a href="/services/vitamins-supplements.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 3: OTC Medications -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-otc.jpg" alt="OTC Medications" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-tablets"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>OTC Medications</h3>
+                    <p>Pain relief, cold & flu, digestive, muscle & joint relief, and daily health medicines available without prescription.</p>
+                    <a href="/services/otc-medications.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 4: Surgical & Medical Supplies -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-medical-supplies.jpg" alt="Surgical & Medical Supplies" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-stethoscope"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Surgical & Medical Supplies</h3>
+                    <p>Canes, walkers, crutches, supports, and basic medical equipment for recovery and daily assistance.</p>
+                    <a href="/services/medical-supplies.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 5: Hispanic OTC Items -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-hispanic.jpg" alt="Hispanic OTC Items" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-globe-americas"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Hispanic OTC Items</h3>
+                    <p>Traditional and imported Hispanic medicines and remedies for culturally specific healthcare needs.</p>
+                    <a href="/services/hispanic-otc.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 6: Household Supplies -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-household.jpg" alt="Household Supplies" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Household Supplies</h3>
+                    <p>Cleaning products, paper goods, and daily home essentials to keep your living spaces clean and comfortable.</p>
+                    <a href="/services/household-supplies.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 7: Food & Grocery Items -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-grocery.jpg" alt="Food & Grocery Items" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Food & Grocery Items</h3>
+                    <p>Snacks, packaged food, drinks, and convenience groceries for your everyday needs.</p>
+                    <a href="/services/grocery-items.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 8: Beauty & Personal Care -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-beauty.jpg" alt="Beauty & Personal Care" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Beauty & Personal Care</h3>
+                    <p>Hair products, skincare, cosmetics, and grooming items for your personal care routine.</p>
+                    <a href="/services/beauty-care.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 9: Perfumes & Fragrances -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-perfume.jpg" alt="Perfumes & Fragrances" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-wind"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Perfumes & Fragrances</h3>
+                    <p>Popular perfumes, body sprays, and scented products to suit your personal style and preferences.</p>
+                    <a href="/services/perfumes-fragrances.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 10: Electronic Appliances -->
+            <div class="service-item">
+                <div class="service-visual-section">
+                    <div class="service-image-container">
+                        <img src="./images/service-electronics.jpg" alt="Electronic Appliances" class="service-image">
+                    </div>
+                    <div class="icon-wrapper">
+                        <div class="service-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-text-section">
+                    <h3>Electronic Appliances</h3>
+                    <p>Small household electronics and kitchen gadgets to make your daily life more convenient.</p>
+                    <a href="/services/electronic-appliances.html" class="learn-more-link">
+                        Learn more <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    <!--this is section of additional services-->
+    <section class="banner-card-section">
+        <!-- Additional Services Heading -->
+        <div class="section-heading">
+            <h2>Additional Services</h2>
+            <div class="heading-line"></div>
+        </div>
+
+        <div class="banner-card-row">
+            <!-- CARD 1: OTC Card & Insurance Support -->
+            <div class="banner-card insurance">
+                <div class="banner-content">
+                    <div class="icon-container">
+                        <i class="fas fa-credit-card fa-xl"></i>
+                    </div>
+                    <div class="label">
+                        <i class="fas fa-shield-alt"></i>
+                        Insurance & Payment
+                    </div>
+                    <div class="title">
+                        OTC Card & Insurance Support<br>
+                        Easy Payment Solutions
+                    </div>
+                    <div class="text">
+                        Pay using Medicaid, Medicare, OTC Network, and major insurance plans. We accept most insurance providers and offer flexible payment options.
+                    </div>
+                    <a href="/services/insurance-support.html" class="cta-button">
+                        Learn about insurance options <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="bg-image"></div>
+            </div>
+
+            <!-- CARD 2: Free Delivery Service -->
+            <div class="banner-card delivery">
+                <div class="banner-content">
+                    <div class="icon-container">
+                        <i class="fas fa-truck fa-xl"></i>
+                    </div>
+                    <div class="label">
+                        <i class="fas fa-home"></i>
+                        Convenience Service
+                    </div>
+                    <div class="title">
+                        Free Delivery Service<br>
+                        Medicines Delivered to Your Door
+                    </div>
+                    <div class="text">
+                        Get your medicines and healthcare products delivered to your home at no extra cost. Fast, reliable, and contactless delivery available.
+                    </div>
+                    <a href="/services/free-delivery.html" class="cta-button">
+                        Schedule a delivery <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="bg-image"></div>
+            </div>
+        </div>
+    </section>
+    
+    <div id="footer-container"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll animation effect for service items
+            const serviceItems = document.querySelectorAll('.service-item');
+            
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('scrolled');
+                    }
+                });
+            }, observerOptions);
+            
+            serviceItems.forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+    
+   
+</body>
+</html>
