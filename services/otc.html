@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://ayrasol.com/services/otc-medications/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OTC Medications | Butlers Med Pharmacy</title>
+    <meta name="description" content="Over-the-counter medications for cold, flu, pain relief, and digestive health. Quality OTC remedies available at our pharmacy.">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="../../header and footer/include.js"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(32, 63, 153, 0.9), rgba(32, 63, 153, 0.8)), 
+                        url('https://images.unsplash.com/photo-1587854692152-cbe660dbde88?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: #FD0511;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-section {
+            padding: 70px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #203F99;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #FD0511;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
+        .categories-section {
+            padding: 70px 20px;
+            background: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e9ecef;
+        }
+
+        .category-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-image.cold {
+            background-image: url('https://images.unsplash.com/photo-1584017911766-d451b3d0e843?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-image.pain {
+            background-image: url('https://images.unsplash.com/photo-1584308666741-bb8e47c4c935?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-image.digestive {
+            background-image: url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(32, 63, 153, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: #203F99;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-content li {
+            padding: 6px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card-content li:before {
+            content: "•";
+            color: #FD0511;
+            position: absolute;
+            left: 0;
+        }
+
+        .products-section {
+            padding: 70px 20px;
+            background: #f8f9fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            color: #203F99;
+            height: 70px;
+            width: 70px;
+            background: rgba(32, 63, 153, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .product-card:nth-child(2) .product-icon {
+            color: #FD0511;
+            background: rgba(253, 5, 17, 0.1);
+        }
+
+        .product-card:nth-child(3) .product-icon {
+            color: #FF9800;
+            background: rgba(255, 152, 0, 0.1);
+        }
+
+        .product-card:nth-child(4) .product-icon {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .product-card h3 {
+            color: #203F99;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .final-cta {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #203F99, #1a357f);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .final-cta p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-link {
+            display: inline-block;
+            background: white;
+            color: #203F99;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-section { height: 40vh; }
+            .intro-section, 
+            .categories-section, 
+            .products-section { 
+                padding: 50px 20px; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .hero-section { height: 35vh; }
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="hero-section reveal">
+        <div class="hero-content">
+            <h1>OTC <span>Medications</span></h1>
+            <p>Relief for cold, flu, pain, and digestive issues</p>
+        </div>
+    </section>
+
+    <section class="intro-section reveal">
+        <div class="container">
+            <h2 class="section-title">Over-the-Counter <span>Relief</span></h2>
+            <p class="intro-text">
+                Find quality OTC medications for common ailments. Our pharmacy offers trusted remedies for cold, flu, pain, allergies, and digestive health.
+            </p>
+        </div>
+    </section>
+
+    <section class="categories-section reveal">
+        <div class="container">
+            <h2 class="section-title">Medication <span>Categories</span></h2>
+            <div class="categories-grid">
+                <div class="category-card reveal">
+                    <div class="category-image cold">
+                        <div class="category-overlay">
+                            <i class="fas fa-temperature-low"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cold & Flu</h3>
+                        <ul>
+                            <li>Decongestants</li>
+                            <li>Cough syrups</li>
+                            <li>Fever reducers</li>
+                            <li>Throat lozenges</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="category-image pain">
+                        <div class="category-overlay">
+                            <i class="fas fa-pills"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Pain Relief</h3>
+                        <ul>
+                            <li>Pain relievers</li>
+                            <li>Anti-inflammatories</li>
+                            <li>Headache medicine</li>
+                            <li>Topical analgesics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="category-image digestive">
+                        <div class="category-overlay">
+                            <i class="fas fa-stomach"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Digestive Health</h3>
+                        <ul>
+                            <li>Antacids</li>
+                            <li>Anti-diarrheals</li>
+                            <li>Laxatives</li>
+                            <li>Digestive enzymes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section reveal">
+        <div class="container">
+            <h2 class="section-title">Common <span>OTC Products</span></h2>
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-head-side-cough"></i>
+                    </div>
+                    <h3>Cold & Flu</h3>
+                    <p>Relief from congestion, cough, fever, and sore throat symptoms.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-band-aid"></i>
+                    </div>
+                    <h3>Pain Management</h3>
+                    <p>For headaches, muscle aches, joint pain, and minor injuries.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h3>Allergy Relief</h3>
+                    <p>Antihistamines and allergy medications for seasonal symptoms.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>Digestive Care</h3>
+                    <p>For heartburn, indigestion, nausea, and digestive discomfort.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta reveal">
+        <div class="container">
+            <h2>Get Relief Today</h2>
+            <p>Visit our pharmacy for trusted OTC medications and professional health advice.</p>
+            <a href="tel:+1234567890" class="phone-link">Call to Inquire</a>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+    </script>
+</body>
+</html>
