@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Butlers Med Pharmacy - Footer</title>
+<title>Butlers Med Pharmacy</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 .pharmacy-footer {
@@ -28,7 +28,7 @@
 }
 .pharmacy-logo-link {
     display: inline-block;
-    width: 180px;
+    width: 150px;
     margin-bottom: 20px;
 }
 .pharmacy-footer-logo {
@@ -76,6 +76,7 @@
     position: relative;
     color: #fff;
     padding-bottom: 10px;
+    text-align: left;
 }
 .pharmacy-footer h3::after {
     content: "";
@@ -273,16 +274,28 @@
     .pharmacy-footer-container {
         grid-template-columns: 1fr;
         gap: 35px;
+        text-align: center;
     }
     .pharmacy-hours {
         grid-column: span 1;
     }
     .pharmacy-footer h3 {
-        text-align: left;
+        text-align: center;
     }
     .pharmacy-footer h3::after {
-        left: 0;
-        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .pharmacy-footer-services li {
+        justify-content: center;
+    }
+    .pharmacy-footer-links ul li a {
+        justify-content: center;
+        text-align: center;
+        padding-left: 0;
+    }
+    .pharmacy-footer-links ul li a::before {
+        display: none;
     }
     .facebook-btn {
         width: 100%;
@@ -292,6 +305,10 @@
         width: 100%;
         justify-content: center;
     }
+    .pharmacy-logo-link {
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 @media (max-width: 480px) {
     .pharmacy-footer-container {
@@ -299,7 +316,7 @@
         gap: 30px;
     }
     .pharmacy-logo-link {
-        width: 160px;
+        width: 130px;
     }
     .pharmacy-footer-desc {
         font-size: 13px;
@@ -330,7 +347,7 @@
         gap: 25px;
     }
     .pharmacy-logo-link {
-        width: 140px;
+        width: 120px;
     }
     .pharmacy-footer-desc {
         font-size: 12px;
