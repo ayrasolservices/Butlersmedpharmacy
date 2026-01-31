@@ -3,57 +3,28 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Butler's Med Pharmacy</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
-        * {
+        /* RESET STYLES - Important to prevent conflicts */
+        .header-container * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-
-        body {
+        
+        .header-container {
             font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
             background: #fff;
-            color: #000;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        button {
-            font-family: inherit;
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .wrap {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 16px;
-        }
-
-        .site-header {
             position: sticky;
             top: 0;
             z-index: 9999;
-            background: #fff;
-            border-bottom: 1px solid #e6ebf2;
+            width: 100%;
         }
 
-        /* Topbar */
+        /* DESKTOP HEADER */
+        .desktop-header {
+            display: block;
+        }
+
         .topbar {
             background: #fff;
             color: #203F99;
@@ -62,6 +33,9 @@
         }
 
         .topbar .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,6 +53,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
 
         .logo-img {
@@ -127,16 +102,13 @@
             color: #203F99;
         }
 
-        .info-item svg {
-            width: 18px;
-            height: 18px;
-            opacity: 0.95;
-            flex: 0 0 auto;
-            color: #203F99;
-        }
-
         .info-item a {
             color: #203F99;
+            text-decoration: none;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
         }
 
         .phone-fax {
@@ -150,19 +122,20 @@
             color: #666;
         }
 
-        /* Navbar */
+        /* NAVBAR */
         .navbar {
             background: #203F99;
             color: #fff;
-            border-bottom: 1px solid #1a347e;
         }
 
         .navbar .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 14px 16px;
-            position: relative;
         }
 
         .navlinks {
@@ -186,16 +159,15 @@
             border: none;
             cursor: pointer;
             white-space: nowrap;
-            text-decoration: none !important;
+            text-decoration: none;
         }
 
         .navlinks a:hover,
         .navlinks button.linklike:hover {
             background: rgba(255, 255, 255, 0.15);
-            text-decoration: none !important;
         }
 
-        /* Dropdown */
+        /* DROPDOWN */
         .dropdown {
             position: relative;
         }
@@ -208,8 +180,7 @@
             color: #fff;
         }
 
-        .dropdown:hover .chev,
-        .dropdown[data-open="true"] .chev {
+        .dropdown:hover .chev {
             transform: rotate(180deg);
         }
 
@@ -227,12 +198,11 @@
             padding: 14px;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+            transition: all 0.3s ease;
             z-index: 1000;
         }
 
-        .dropdown:hover .dropdown-panel,
-        .dropdown:focus-within .dropdown-panel {
+        .dropdown:hover .dropdown-panel {
             opacity: 1;
             visibility: visible;
             transform: translateX(-50%) translateY(0);
@@ -252,44 +222,35 @@
             border-radius: 12px;
             border: 1px solid transparent;
             font-weight: 500;
-            color: #203F99 !important;
-            text-decoration: none !important;
+            color: #203F99;
+            text-decoration: none;
         }
 
         .dd-item:hover {
             background: #f2f7ff;
             border-color: #d8e6ff;
-            text-decoration: none !important;
         }
 
         .dd-item i {
             width: 18px;
             height: 18px;
-            margin-top: 1px;
-            color: #203F99 !important;
+            color: #203F99;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .fa-icon {
-            font-size: 16px;
-            width: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Mobile Header */
+        /* MOBILE HEADER */
         .mobile-header {
             display: none;
             background: #203F99;
             padding: 12px 16px;
-            position: relative;
-            border-bottom: 1px solid #1a347e;
         }
 
         .mobile-header .wrap {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -301,18 +262,24 @@
             gap: 12px;
         }
 
+        .mobile-logo-img {
+            width: 65px;
+            height: 65px;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
         .hamburger {
-            display: none;
-            align-items: center;
-            justify-content: center;
+            background: none;
+            border: none;
             width: 56px;
             height: 56px;
-            border-radius: 12px;
-            background: transparent;
-            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            transition: all 0.2s ease;
-            padding: 0;
+            border-radius: 12px;
+            transition: background 0.2s ease;
         }
 
         .hamburger:hover {
@@ -327,7 +294,7 @@
             justify-content: center;
         }
 
-        /* Mobile Overlay */
+        /* MOBILE MENU */
         .mobile-overlay {
             display: none;
             position: fixed;
@@ -343,7 +310,6 @@
             display: block;
         }
 
-        /* Mobile Panel */
         .mobile-panel {
             position: fixed;
             top: 0;
@@ -352,7 +318,6 @@
             max-width: 320px;
             height: 100vh;
             background: #fff;
-            color: #000;
             z-index: 9999;
             transform: translateX(100%);
             transition: transform 0.3s ease;
@@ -368,126 +333,6 @@
             height: 100%;
         }
 
-        .m-link {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            padding: 14px 12px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 500;
-            color: #203F99;
-            margin-bottom: 8px;
-            transition: background 0.2s ease;
-            text-decoration: none !important;
-        }
-
-        .m-link:hover {
-            background: #f6f8fc;
-            text-decoration: none !important;
-        }
-
-        /* Mobile Accordion */
-        details.services-acc {
-            margin-top: 6px;
-            border-radius: 14px;
-            padding: 4px 6px;
-            background: #fff;
-            margin-bottom: 8px;
-        }
-
-        details.services-acc > summary {
-            list-style: none;
-            cursor: pointer;
-            padding: 14px 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 16px;
-            font-weight: 600;
-            color: #203F99;
-            border-radius: 12px;
-            transition: background 0.2s ease;
-        }
-
-        details.services-acc > summary:hover {
-            background: #f6f8fc;
-        }
-
-        details.services-acc > summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .acc-chev {
-            width: 16px;
-            height: 16px;
-            transition: transform 0.3s ease;
-            opacity: 0.75;
-            color: #203F99;
-        }
-
-        details[open] .acc-chev {
-            transform: rotate(180deg);
-        }
-
-        .acc-grid {
-            padding: 4px 6px 10px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 8px;
-        }
-
-        .acc-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 12px;
-            border-radius: 12px;
-            font-weight: 500;
-            color: #203F99;
-            background: #f8fafc;
-            border: 1px solid transparent;
-            transition: background 0.2s ease, border-color 0.2s ease;
-            text-decoration: none !important;
-        }
-
-        .acc-item:hover {
-            background: #f2f7ff;
-            text-decoration: none !important;
-        }
-
-        .acc-item i {
-            width: 18px;
-            height: 18px;
-            color: #203F99;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Close Button */
-        .mobile-close-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            background: #fff;
-            color: #203F99;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            margin-bottom: 20px;
-            margin-left: auto;
-            border: 1px solid #e6ebf2;
-        }
-
-        .mobile-close-btn:hover {
-            background: #f2f7ff;
-            border-color: #d8e6ff;
-        }
-
         .mobile-menu-header {
             display: flex;
             align-items: center;
@@ -501,6 +346,7 @@
             display: flex;
             align-items: center;
             gap: 12px;
+            text-decoration: none;
         }
 
         .mobile-menu-logo-img {
@@ -522,159 +368,157 @@
             color: #203F99;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .wrap {
-                max-width: 960px;
-            }
-            .topbar .wrap {
-                flex-wrap: wrap;
-                row-gap: 12px;
-            }
-            .topbar-center {
-                order: 3;
-                width: 100%;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 12px;
-            }
-            .topbar-right {
-                order: 2;
-            }
-            .info-item {
-                font-size: 13px;
-            }
-            .brandtext strong {
-                font-size: 18px;
-            }
-            .logo-img {
-                width: 75px;
-                height: 75px;
-            }
+        .mobile-close-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #fff;
+            color: #203F99;
+            cursor: pointer;
+            border: 1px solid #e6ebf2;
+            transition: all 0.2s ease;
         }
 
+        .mobile-close-btn:hover {
+            background: #f2f7ff;
+        }
+
+        .m-link {
+            display: block;
+            width: 100%;
+            padding: 14px 12px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #203F99;
+            margin-bottom: 8px;
+            text-decoration: none;
+            border: none;
+            background: none;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .m-link:hover {
+            background: #f6f8fc;
+        }
+
+        /* MOBILE ACCORDION */
+        .services-acc {
+            margin-bottom: 8px;
+        }
+
+        .services-acc summary {
+            list-style: none;
+            padding: 14px 12px;
+            border-radius: 12px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            font-weight: 600;
+            color: #203F99;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .services-acc summary:hover {
+            background: #f6f8fc;
+        }
+
+        .acc-chev {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+            color: #203F99;
+        }
+
+        .services-acc[open] .acc-chev {
+            transform: rotate(180deg);
+        }
+
+        .acc-grid {
+            padding: 8px 0;
+        }
+
+        .acc-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 500;
+            color: #203F99;
+            background: #f8fafc;
+            text-decoration: none;
+            margin-bottom: 8px;
+        }
+
+        .acc-item:hover {
+            background: #f2f7ff;
+        }
+
+        .acc-item i {
+            width: 18px;
+            height: 18px;
+            color: #203F99;
+        }
+
+        .mobile-contact-info {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 12px;
+            border: 1px solid #edf2f8;
+        }
+
+        /* RESPONSIVE */
         @media (max-width: 992px) {
-            .wrap {
-                max-width: 900px;
+            .desktop-header {
+                display: none !important;
             }
-            .topbar {
-                display: none;
-            }
-            .navbar {
-                display: none;
-            }
+            
             .mobile-header {
                 display: block;
-            }
-            .hamburger {
-                display: inline-flex;
-            }
-            .mobile-logo .logo-img {
-                width: 65px;
-                height: 65px;
-                border: none;
-            }
-            .mobile-logo .brandtext {
-                display: none;
-            }
-            .hamburger-icon svg {
-                width: 40px;
-                height: 40px;
             }
         }
 
         @media (max-width: 768px) {
-            .mobile-logo .logo-img {
+            .mobile-panel {
+                max-width: 100%;
+            }
+            
+            .mobile-logo-img {
                 width: 60px;
                 height: 60px;
             }
-            .mobile-panel {
-                max-width: 300px;
-            }
+            
             .hamburger {
                 width: 52px;
                 height: 52px;
             }
-            .hamburger-icon {
-                width: 36px;
-                height: 36px;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .mobile-panel {
-                max-width: 280px;
-            }
-            .hamburger {
-                width: 50px;
-                height: 50px;
-            }
-            .hamburger-icon {
-                width: 34px;
-                height: 34px;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .logo-img {
-                width: 70px;
-                height: 70px;
-            }
-            .mobile-logo .logo-img {
-                width: 55px;
-                height: 55px;
-            }
-            .mobile-panel {
-                max-width: 100%;
-            }
-            .hamburger {
-                width: 48px;
-                height: 48px;
-            }
-            .hamburger-icon {
-                width: 32px;
-                height: 32px;
-            }
         }
 
         @media (max-width: 480px) {
-            .wrap {
-                padding: 0 12px;
-            }
-            .mobile-header {
-                padding: 10px 12px;
-            }
-            .mobile-inner {
-                padding: 16px 12px;
-            }
-            .m-link {
-                padding: 12px 10px;
-                font-size: 15px;
-            }
-            details.services-acc > summary {
-                padding: 12px 10px;
-                font-size: 15px;
-            }
-            .acc-item {
-                padding: 10px;
-                font-size: 14px;
-            }
-            .mobile-logo .logo-img {
+            .mobile-logo-img {
                 width: 50px;
                 height: 50px;
             }
+            
             .hamburger {
                 width: 46px;
                 height: 46px;
             }
-            .hamburger-icon {
-                width: 30px;
-                height: 30px;
-            }
+            
             .mobile-menu-logo-img {
                 width: 50px;
                 height: 50px;
             }
+            
             .mobile-menu-brand strong {
                 font-size: 16px;
             }
@@ -682,126 +526,125 @@
     </style>
 </head>
 <body>
-    <header class="site-header">
-        <!-- Desktop Topbar -->
-        <div class="topbar" role="region" aria-label="Pharmacy contact info">
-            <div class="wrap">
-                <div class="topbar-left">
-                    <a class="logo" href="/" aria-label="Butler's Med Pharmacy home">
-                        <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-                        <div class="brandtext">
-                            <strong>Butler's Med Pharmacy</strong>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="topbar-center">
-                    <div class="contact-info">
-                        <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="info-item" aria-label="Address">
-                            <i class="fas fa-map-marker-alt fa-icon"></i>
-                            <span>1393 Webster Ave, Bronx, NY 10456</span>
+    <div class="header-container">
+        <!-- Desktop Header -->
+        <div class="desktop-header">
+            <div class="topbar">
+                <div class="wrap">
+                    <div class="topbar-left">
+                        <a class="logo" href="/">
+                            <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy">
+                            <div class="brandtext">
+                                <strong>Butler's Med Pharmacy</strong>
+                            </div>
                         </a>
-                        
-                        <span class="info-divider">|</span>
-
-                        <div class="info-item" aria-label="Hours">
-                            <i class="far fa-clock fa-icon"></i>
-                            <span>Mon-Fri: 10AM-5PM</span>
-                        </div>
                     </div>
-                </div>
-
-                <div class="topbar-right">
-                    <div class="info-item">
-                        <div class="phone-fax">
-                            <a href="tel:+17187660222" aria-label="Phone number">
-                                <span class="phone-text">Phone: +1 614-477-2686</span>
+                    
+                    <div class="topbar-center">
+                        <div class="contact-info">
+                            <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>1393 Webster Ave, Bronx, NY 10456</span>
                             </a>
                             <span class="info-divider">|</span>
-                            <span class="fax-text">Fax: 718-766-0226</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Desktop Navbar -->
-        <nav class="navbar" aria-label="Primary navigation">
-            <div class="wrap">
-                <div class="navlinks" role="menubar" aria-label="Main menu">
-                    <a href="/" role="menuitem">Home</a>
-                    <a href="/about-us.html" role="menuitem">About Us</a>
-                    <a href="/services/index.html" role="menuitem">Pharmacy</a>
-
-                    <div class="dropdown" role="none">
-                        <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
-                            Services
-                            <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            </svg>
-                        </button>
-
-                        <div class="dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="servicesBtn">
-                            <div class="dropdown-grid">
-                                <a class="dd-item" href="/services/prescription-services" role="menuitem">
-                                    <i class="fas fa-prescription-bottle-medical"></i>
-                                    <span>Prescription Services</span>
-                                </a>
-                                <a class="dd-item" href="/services/vitamins-supplements" role="menuitem">
-                                    <i class="fas fa-capsules"></i>
-                                    <span>Vitamins & Supplements</span>
-                                </a>
-                                <a class="dd-item" href="/services/otc-medications" role="menuitem">
-                                    <i class="fas fa-pills"></i>
-                                    <span>OTC Medications</span>
-                                </a>
-                                <a class="dd-item" href="/services/surgical-medical-supplies" role="menuitem">
-                                    <i class="fas fa-stethoscope"></i>
-                                    <span>Surgical & Medical Supplies</span>
-                                </a>
-                                <a class="dd-item" href="/services/hispanic-otc" role="menuitem">
-                                    <i class="fas fa-globe-americas"></i>
-                                    <span>Hispanic OTC Items</span>
-                                </a>
-                                <a class="dd-item" href="/services/household-supplies" role="menuitem">
-                                    <i class="fas fa-home"></i>
-                                    <span>Household Supplies</span>
-                                </a>
-                                <a class="dd-item" href="/services/food-grocery" role="menuitem">
-                                    <i class="fas fa-shopping-basket"></i>
-                                    <span>Food & Grocery Items</span>
-                                </a>
-                                <a class="dd-item" href="/services/beauty-personal-care" role="menuitem">
-                                    <i class="fas fa-spa"></i>
-                                    <span>Beauty & Personal Care</span>
-                                </a>
-                                <a class="dd-item" href="/services/perfumes-fragrances" role="menuitem">
-                                    <i class="fas fa-wind"></i>
-                                    <span>Perfumes & Fragrances</span>
-                                </a>
-                                <a class="dd-item" href="/services/electronic-appliances" role="menuitem">
-                                    <i class="fas fa-plug"></i>
-                                    <span>Electronic Appliances</span>
-                                </a>
+                            <div class="info-item">
+                                <i class="far fa-clock"></i>
+                                <span>Mon-Fri: 10AM-5PM</span>
                             </div>
                         </div>
                     </div>
-
-                    <a href="/contact-us.html" role="menuitem">Contact Us</a>
+                    
+                    <div class="topbar-right">
+                        <div class="info-item">
+                            <div class="phone-fax">
+                                <a href="tel:+17187660222">
+                                    <span>Phone: +1 614-477-2686</span>
+                                </a>
+                                <span class="info-divider">|</span>
+                                <span>Fax: 718-766-0226</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-
+            
+            <nav class="navbar">
+                <div class="wrap">
+                    <div class="navlinks">
+                        <a href="/">Home</a>
+                        <a href="/about-us.html">About Us</a>
+                        <a href="/services/index.html">Pharmacy</a>
+                        
+                        <div class="dropdown">
+                            <button class="linklike">
+                                Services
+                                <svg class="chev" viewBox="0 0 24 24" fill="none">
+                                    <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                            </button>
+                            
+                            <div class="dropdown-panel">
+                                <div class="dropdown-grid">
+                                    <a class="dd-item" href="/services/prescription-services">
+                                        <i class="fas fa-prescription-bottle-medical"></i>
+                                        <span>Prescription Services</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/vitamins-supplements">
+                                        <i class="fas fa-capsules"></i>
+                                        <span>Vitamins & Supplements</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/otc-medications">
+                                        <i class="fas fa-pills"></i>
+                                        <span>OTC Medications</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/surgical-medical-supplies">
+                                        <i class="fas fa-stethoscope"></i>
+                                        <span>Surgical & Medical Supplies</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/hispanic-otc">
+                                        <i class="fas fa-globe-americas"></i>
+                                        <span>Hispanic OTC Items</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/household-supplies">
+                                        <i class="fas fa-home"></i>
+                                        <span>Household Supplies</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/food-grocery">
+                                        <i class="fas fa-shopping-basket"></i>
+                                        <span>Food & Grocery Items</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/beauty-personal-care">
+                                        <i class="fas fa-spa"></i>
+                                        <span>Beauty & Personal Care</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/perfumes-fragrances">
+                                        <i class="fas fa-wind"></i>
+                                        <span>Perfumes & Fragrances</span>
+                                    </a>
+                                    <a class="dd-item" href="/services/electronic-appliances">
+                                        <i class="fas fa-plug"></i>
+                                        <span>Electronic Appliances</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <a href="/contact-us.html">Contact Us</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        
         <!-- Mobile Header -->
         <div class="mobile-header">
             <div class="wrap">
-                <a class="mobile-logo" href="/" aria-label="Butler's Med Pharmacy home">
-                    <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+                <a class="mobile-logo" href="/">
+                    <img class="mobile-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy">
                 </a>
-
-                <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+                
+                <button class="hamburger" id="hamburgerBtn">
                     <div class="hamburger-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
                             <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
                             <path d="M96 64 v-14 c0-14 10-24 24-24 h16 c14 0 24 10 24 24 v14 h-18 v-12 c0-6-4-10-10-10 h-8 c-6 0-10 4-10 10 v12 z" fill="#FFFFFF"/>
                             <rect x="48" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
@@ -813,39 +656,38 @@
                 </button>
             </div>
         </div>
-
-        <!-- Mobile Overlay -->
+        
+        <!-- Mobile Menu Overlay -->
         <div class="mobile-overlay" id="mobileOverlay"></div>
-
+        
         <!-- Mobile Menu Panel -->
         <div class="mobile-panel" id="mobilePanel">
             <div class="mobile-inner">
                 <div class="mobile-menu-header">
-                    <a href="/" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
-                        <img class="mobile-menu-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+                    <a href="/" class="mobile-menu-logo">
+                        <img class="mobile-menu-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy">
                         <div class="mobile-menu-brand">
                             <strong>Butler's Med Pharmacy</strong>
                         </div>
                     </a>
-                    <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
-                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+                    <button class="mobile-close-btn" id="mobileCloseBtn">
+                        <svg viewBox="0 0 24 24" fill="none" width="20" height="20">
                             <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </button>
                 </div>
-
+                
                 <a class="m-link" href="/">Home</a>
                 <a class="m-link" href="/about-us.html">About Us</a>
-
+                
                 <details class="services-acc">
                     <summary>
                         Services
-                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <svg class="acc-chev" viewBox="0 0 24 24" fill="none">
                             <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                         </svg>
                     </summary>
-
-                    <div class="acc-grid" role="group" aria-label="Services">
+                    <div class="acc-grid">
                         <a class="acc-item" href="/services/prescription-services">
                             <i class="fas fa-prescription-bottle-medical"></i>
                             Prescription Services
@@ -888,24 +730,24 @@
                         </a>
                     </div>
                 </details>
-
+                
                 <a class="m-link" href="/contact-us.html">Contact Us</a>
                 
-                <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8;">
+                <div class="mobile-contact-info">
                     <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
                         <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                            <i class="fas fa-map-marker-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
+                            <i class="fas fa-map-marker-alt" style="color: #203F99;"></i>
                             <span style="font-weight: 500; color: #203F99;">1393 Webster Ave, Bronx, NY 10456</span>
                         </div>
                     </a>
                     
                     <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                        <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
+                        <i class="far fa-clock" style="color: #203F99;"></i>
                         <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM</span>
                     </div>
                     
                     <div style="display: flex; align-items: flex-start; gap: 10px;">
-                        <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
+                        <i class="fas fa-phone-alt" style="color: #203F99;"></i>
                         <div style="display: flex; flex-direction: column; gap: 4px;">
                             <a href="tel:+17187660222" style="text-decoration: none; color: #203F99; font-weight: 500;">
                                 Phone: +1 614-477-2686
@@ -916,9 +758,10 @@
                 </div>
             </div>
         </div>
-    </header>
+    </div>
 
     <script>
+        // Simple mobile menu functionality
         document.addEventListener('DOMContentLoaded', function() {
             const hamburgerBtn = document.getElementById('hamburgerBtn');
             const mobilePanel = document.getElementById('mobilePanel');
@@ -927,35 +770,52 @@
             
             // Open mobile menu
             function openMobileMenu() {
+                console.log('Opening mobile menu'); // Debug log
                 mobileOverlay.classList.add('active');
                 mobilePanel.classList.add('active');
-                hamburgerBtn.setAttribute('aria-expanded', 'true');
                 document.body.style.overflow = 'hidden';
             }
             
             // Close mobile menu
             function closeMobileMenu() {
+                console.log('Closing mobile menu'); // Debug log
                 mobileOverlay.classList.remove('active');
                 mobilePanel.classList.remove('active');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
                 document.body.style.overflow = '';
             }
             
             // Event listeners
-            hamburgerBtn.addEventListener('click', openMobileMenu);
-            mobileCloseBtn.addEventListener('click', closeMobileMenu);
-            mobileOverlay.addEventListener('click', closeMobileMenu);
+            if (hamburgerBtn) {
+                hamburgerBtn.addEventListener('click', openMobileMenu);
+            }
             
-            // Close menu on resize to desktop
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 992) {
+            if (mobileCloseBtn) {
+                mobileCloseBtn.addEventListener('click', closeMobileMenu);
+            }
+            
+            if (mobileOverlay) {
+                mobileOverlay.addEventListener('click', closeMobileMenu);
+            }
+            
+            // Close menu when clicking links
+            if (mobilePanel) {
+                mobilePanel.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        closeMobileMenu();
+                    }
+                });
+            }
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobilePanel.classList.contains('active')) {
                     closeMobileMenu();
                 }
             });
             
-            // Close menu when clicking links
-            mobilePanel.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
+            // Close on window resize to desktop
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992 && mobilePanel.classList.contains('active')) {
                     closeMobileMenu();
                 }
             });
