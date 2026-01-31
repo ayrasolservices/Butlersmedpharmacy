@@ -297,23 +297,35 @@
       justify-content: center;
     }
     .mobile-panel {
-      display: none;
-      background: #fff;
-      color: #000;
       position: fixed;
       top: 0;
       right: 0;
-      bottom: 0;
       width: 100%;
       max-width: 320px;
-      z-index: 1001;
+      height: 100vh;
+      background: #fff;
+      color: #000;
+      z-index: 1002;
       transform: translateX(100%);
       transition: transform 0.3s ease;
       box-shadow: -8px 0 24px rgba(11, 18, 32, 0.15);
       overflow-y: auto;
     }
-    .mobile-panel.active {
+    .mobile-panel.show {
       transform: translateX(0);
+    }
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1001;
+      display: none;
+    }
+    .mobile-overlay.show {
+      display: block;
     }
     .mobile-inner {
       padding: 20px 16px;
@@ -766,7 +778,7 @@
         <a class="mobile-logo" href="/" aria-label="Butler's Med Pharmacy home">
           <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
         </a>
-        <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
+        <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
           <div class="hamburger-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
               <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
@@ -794,95 +806,94 @@
           </div>
         </button>
       </div>
-      <div class="mobile-panel" id="mobilePanel">
-        <div class="wrap">
-          <div class="mobile-inner">
-            <div class="mobile-menu-header">
-              <a href="/" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
-                <img class="mobile-menu-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-                <div class="mobile-menu-brand">
-                  <strong>Butler's Med Pharmacy</strong>
-                </div>
-              </a>
-              <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
-                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+    <div class="mobile-panel" id="mobilePanel">
+      <div class="mobile-inner">
+        <div class="mobile-menu-header">
+          <a href="/" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
+            <img class="mobile-menu-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+            <div class="mobile-menu-brand">
+              <strong>Butler's Med Pharmacy</strong>
             </div>
-            <a class="m-link" href="/">Home</a>
-            <a class="m-link" href="/about">About Us</a>
-            <details class="services-acc">
-              <summary>
-                Services
-                <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </summary>
-              <div class="acc-grid" role="group" aria-label="Services">
-                <a class="acc-item" href="/services/prescription-services">
-                  <i class="fas fa-prescription-bottle-medical"></i>
-                  Prescription Services
-                </a>
-                <a class="acc-item" href="/services/vitamins-supplements">
-                  <i class="fas fa-capsules"></i>
-                  Vitamins & Supplements
-                </a>
-                <a class="acc-item" href="/services/otc-medications">
-                  <i class="fas fa-pills"></i>
-                  OTC Medications
-                </a>
-                <a class="acc-item" href="/services/surgical-medical-supplies">
-                  <i class="fas fa-stethoscope"></i>
-                  Surgical & Medical Supplies
-                </a>
-                <a class="acc-item" href="/services/hispanic-otc">
-                  <i class="fas fa-globe-americas"></i>
-                  Hispanic OTC Items
-                </a>
-                <a class="acc-item" href="/services/household-supplies">
-                  <i class="fas fa-home"></i>
-                  Household Supplies
-                </a>
-                <a class="acc-item" href="/services/food-grocery">
-                  <i class="fas fa-shopping-basket"></i>
-                  Food & Grocery Items
-                </a>
-                <a class="acc-item" href="/services/beauty-personal-care">
-                  <i class="fas fa-spa"></i>
-                  Beauty & Personal Care
-                </a>
-                <a class="acc-item" href="/services/perfumes-fragrances">
-                  <i class="fas fa-wind"></i>
-                  Perfumes & Fragrances
-                </a>
-                <a class="acc-item" href="/services/electronic-appliances">
-                  <i class="fas fa-plug"></i>
-                  Electronic Appliances
-                </a>
-              </div>
-            </details>
-            <a class="m-link" href="/contact">Contact Us</a>
-            <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
-              <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                  <i class="fas fa-map-marker-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
-                  <span style="font-weight: 500; color: #203F99;">1393 Webster Ave, Bronx, NY 10456</span>
-                </div>
+          </a>
+          <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <a class="m-link" href="/">Home</a>
+        <a class="m-link" href="/about">About Us</a>
+        <details class="services-acc">
+          <summary>
+            Services
+            <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="acc-grid" role="group" aria-label="Services">
+            <a class="acc-item" href="/services/prescription-services">
+              <i class="fas fa-prescription-bottle-medical"></i>
+              Prescription Services
+            </a>
+            <a class="acc-item" href="/services/vitamins-supplements">
+              <i class="fas fa-capsules"></i>
+              Vitamins & Supplements
+            </a>
+            <a class="acc-item" href="/services/otc-medications">
+              <i class="fas fa-pills"></i>
+              OTC Medications
+            </a>
+            <a class="acc-item" href="/services/surgical-medical-supplies">
+              <i class="fas fa-stethoscope"></i>
+              Surgical & Medical Supplies
+            </a>
+            <a class="acc-item" href="/services/hispanic-otc">
+              <i class="fas fa-globe-americas"></i>
+              Hispanic OTC Items
+            </a>
+            <a class="acc-item" href="/services/household-supplies">
+              <i class="fas fa-home"></i>
+              Household Supplies
+            </a>
+            <a class="acc-item" href="/services/food-grocery">
+              <i class="fas fa-shopping-basket"></i>
+              Food & Grocery Items
+            </a>
+            <a class="acc-item" href="/services/beauty-personal-care">
+              <i class="fas fa-spa"></i>
+              Beauty & Personal Care
+            </a>
+            <a class="acc-item" href="/services/perfumes-fragrances">
+              <i class="fas fa-wind"></i>
+              Perfumes & Fragrances
+            </a>
+            <a class="acc-item" href="/services/electronic-appliances">
+              <i class="fas fa-plug"></i>
+              Electronic Appliances
+            </a>
+          </div>
+        </details>
+        <a class="m-link" href="/contact">Contact Us</a>
+        <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
+          <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+              <i class="fas fa-map-marker-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
+              <span style="font-weight: 500; color: #203F99;">1393 Webster Ave, Bronx, NY 10456</span>
+            </div>
+          </a>
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+            <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
+            <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM <span style="color: #666;">|</span> Sat-Sun: Closed</span>
+          </div>
+          <div style="display: flex; align-items: flex-start; gap: 10px;">
+            <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
+            <div style="display: flex; flex-direction: column; gap: 4px;">
+              <a href="tel:+17187660222" style="text-decoration: none; color: #203F99; font-weight: 500;">
+                Phone: +1 614-477-2686
               </a>
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
-                <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM <span style="color: #666;">|</span> Sat-Sun: Closed</span>
-              </div>
-              <div style="display: flex; align-items: flex-start; gap: 10px;">
-                <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <a href="tel:+17187660222" style="text-decoration: none; color: #203F99; font-weight: 500;">
-                    Phone: +1 614-477-2686
-                  </a>
-                  <span style="font-weight: 500; color: #203F99;">Fax: 718-766-0226</span>
-                </div>
-              </div>
+              <span style="font-weight: 500; color: #203F99;">Fax: 718-766-0226</span>
             </div>
           </div>
         </div>
@@ -893,45 +904,34 @@
     document.addEventListener('DOMContentLoaded', function() {
       const hamburgerBtn = document.getElementById('hamburgerBtn');
       const mobilePanel = document.getElementById('mobilePanel');
+      const mobileOverlay = document.getElementById('mobileOverlay');
       const mobileCloseBtn = document.getElementById('mobileCloseBtn');
       
       function openMobileMenu() {
-        mobilePanel.style.display = 'block';
-        setTimeout(() => {
-          mobilePanel.classList.add('active');
-          hamburgerBtn.setAttribute('aria-expanded', 'true');
-        }, 10);
+        mobileOverlay.classList.add('show');
+        mobilePanel.classList.add('show');
+        hamburgerBtn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
       }
       
       function closeMobileMenu() {
-        mobilePanel.classList.remove('active');
-        setTimeout(() => {
-          mobilePanel.style.display = 'none';
-          hamburgerBtn.setAttribute('aria-expanded', 'false');
-        }, 300);
+        mobileOverlay.classList.remove('show');
+        mobilePanel.classList.remove('show');
+        hamburgerBtn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
       }
       
       hamburgerBtn.addEventListener('click', openMobileMenu);
       mobileCloseBtn.addEventListener('click', closeMobileMenu);
+      mobileOverlay.addEventListener('click', closeMobileMenu);
       
-      document.addEventListener('click', (e) => {
-        if (mobilePanel.style.display === 'block' && 
-            !mobilePanel.contains(e.target) && 
-            e.target !== hamburgerBtn && 
-            !hamburgerBtn.contains(e.target)) {
-          closeMobileMenu();
-        }
-      });
-      
-      window.addEventListener('resize', () => {
+      window.addEventListener('resize', function() {
         if (window.innerWidth > 992) {
           closeMobileMenu();
         }
       });
       
-      mobilePanel.addEventListener('click', (e) => {
+      mobilePanel.addEventListener('click', function(e) {
         if (e.target.tagName === 'A') {
           closeMobileMenu();
         }
