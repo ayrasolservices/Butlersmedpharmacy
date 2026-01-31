@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Initialize mobile menu AFTER header is loaded
-            initializeMobileMenu();
+            initMobileMenu();
         })
         .catch(error => {
             console.error('Header error:', error);
@@ -76,74 +76,117 @@ document.addEventListener('DOMContentLoaded', function() {
                 </footer>
             `;
         });
+});
+
+// Mobile menu function - must be outside DOMContentLoaded
+function initMobileMenu() {
+    console.log('Initializing mobile menu...');
     
-    // Mobile menu initialization function
-    function initializeMobileMenu() {
-        // Wait a bit for DOM to be fully rendered
-        setTimeout(function() {
-            const hamburgerBtn = document.getElementById('hamburgerBtn');
-            const mobilePanel = document.getElementById('mobilePanel');
-            const mobileOverlay = document.getElementById('mobileOverlay');
-            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
-            
-            // Check if mobile menu elements exist
-            if (!hamburgerBtn || !mobilePanel) {
-                console.log('Mobile menu elements not found');
-                return;
+    // Try multiple times as header might load slowly
+    let attempts = 0;
+    const maxAttempts = 10;
+    
+    function tryInit() {
+        attempts++;
+        
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const mobilePanel = document.getElementById('mobilePanel');
+        const mobileOverlay = document.getElementById('mobileOverlay');
+        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        
+        if (!hamburgerBtn || !mobilePanel) {
+            if (attempts < maxAttempts) {
+                console.log(`Mobile menu elements not found, retrying... (${attempts}/${maxAttempts})`);
+                setTimeout(tryInit, 200);
+            } else {
+                console.log('❌ Mobile menu elements not found after maximum attempts');
+                // Try to find by class as fallback
+                const hamburgerByClass = document.querySelector('.hamburger');
+                const mobilePanelByClass = document.querySelector('.mobile-panel');
+                if (hamburgerByClass && mobilePanelByClass) {
+                    console.log('Found elements by class, initializing...');
+                    initWithElements(hamburgerByClass, mobilePanelByClass, 
+                                   document.querySelector('.mobile-overlay'),
+                                   document.querySelector('.mobile-close-btn'));
+                }
             }
-            
-            console.log('Initializing mobile menu...');
-            
-            function openMobileMenu() {
-                if (mobileOverlay) mobileOverlay.classList.add('show');
-                if (mobilePanel) mobilePanel.classList.add('show');
-                hamburgerBtn.setAttribute('aria-expanded', 'true');
-                document.body.style.overflow = 'hidden';
+            return;
+        }
+        
+        console.log('✓ Found mobile menu elements by ID');
+        initWithElements(hamburgerBtn, mobilePanel, mobileOverlay, mobileCloseBtn);
+    }
+    
+    function initWithElements(hamburgerBtn, mobilePanel, mobileOverlay, mobileCloseBtn) {
+        console.log('Initializing mobile menu with elements...');
+        
+        function openMobileMenu() {
+            console.log('Opening mobile menu');
+            if (mobileOverlay) mobileOverlay.classList.add('show');
+            if (mobilePanel) mobilePanel.classList.add('show');
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeMobileMenu() {
+            console.log('Closing mobile menu');
+            if (mobileOverlay) mobileOverlay.classList.remove('show');
+            if (mobilePanel) mobilePanel.classList.remove('show');
+            if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        
+        // Clear any existing event listeners
+        const newHamburgerBtn = hamburgerBtn.cloneNode(true);
+        hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
+        
+        // Add click event to the button AND all children (including SVG)
+        newHamburgerBtn.addEventListener('click', openMobileMenu);
+        
+        // Also add pointer-events style to ensure SVG is clickable
+        const hamburgerIcon = newHamburgerBtn.querySelector('.hamburger-icon');
+        if (hamburgerIcon) {
+            hamburgerIcon.style.pointerEvents = 'auto';
+        }
+        
+        // Add events for close button and overlay
+        if (mobileCloseBtn) {
+            const newCloseBtn = mobileCloseBtn.cloneNode(true);
+            mobileCloseBtn.parentNode.replaceChild(newCloseBtn, mobileCloseBtn);
+            newCloseBtn.addEventListener('click', closeMobileMenu);
+        }
+        
+        if (mobileOverlay) {
+            const newOverlay = mobileOverlay.cloneNode(true);
+            mobileOverlay.parentNode.replaceChild(newOverlay, mobileOverlay);
+            newOverlay.addEventListener('click', closeMobileMenu);
+        }
+        
+        // Close on window resize
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 992) {
+                closeMobileMenu();
             }
-            
-            function closeMobileMenu() {
-                if (mobileOverlay) mobileOverlay.classList.remove('show');
-                if (mobilePanel) mobilePanel.classList.remove('show');
-                hamburgerBtn.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
-            }
-            
-            // Remove any existing event listeners by cloning elements
-            if (hamburgerBtn && hamburgerBtn.parentNode) {
-                const newHamburgerBtn = hamburgerBtn.cloneNode(true);
-                hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
-                newHamburgerBtn.addEventListener('click', openMobileMenu);
-            }
-            
-            if (mobileCloseBtn && mobileCloseBtn.parentNode) {
-                const newMobileCloseBtn = mobileCloseBtn.cloneNode(true);
-                mobileCloseBtn.parentNode.replaceChild(newMobileCloseBtn, mobileCloseBtn);
-                newMobileCloseBtn.addEventListener('click', closeMobileMenu);
-            }
-            
-            if (mobileOverlay && mobileOverlay.parentNode) {
-                const newMobileOverlay = mobileOverlay.cloneNode(true);
-                mobileOverlay.parentNode.replaceChild(newMobileOverlay, mobileOverlay);
-                newMobileOverlay.addEventListener('click', closeMobileMenu);
-            }
-            
-            // Close menu on window resize
-            window.addEventListener('resize', function() {
-                if (window.innerWidth > 992) {
+        });
+        
+        // Close when clicking links in mobile panel
+        if (mobilePanel) {
+            mobilePanel.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
                     closeMobileMenu();
                 }
             });
-            
-            // Close menu when clicking links
-            if (mobilePanel) {
-                mobilePanel.addEventListener('click', function(e) {
-                    if (e.target.tagName === 'A') {
-                        closeMobileMenu();
-                    }
-                });
-            }
-            
-            console.log('Mobile menu initialized successfully');
-        }, 100); // Small delay to ensure DOM is ready
+        }
+        
+        console.log('✅ Mobile menu fully initialized');
+        
+        // Test: Add a temporary style to show it's working
+        newHamburgerBtn.style.border = '2px solid #FD0510';
+        setTimeout(() => {
+            newHamburgerBtn.style.border = '';
+        }, 2000);
     }
-});
+    
+    // Start initialization
+    tryInit();
+}
