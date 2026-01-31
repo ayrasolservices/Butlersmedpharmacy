@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://ayrasol.com/services/household-supplies/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Household Supplies & Home Essentials | Butlers Med Pharmacy</title>
+    <meta name="description" content="Complete range of household supplies including cleaning products, paper goods, and daily home essentials for your convenience.">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="../../header and footer/include.js"></script>
+    <style>
+        .hero-section {
+            position: relative;
+            background: linear-gradient(rgba(32, 63, 153, 0.9), rgba(32, 63, 153, 0.8)), 
+                        url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 3.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .intro-section {
+            padding: 100px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            color: #203F99;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title span {
+            color: #203F99;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: #203F99;
+            border-radius: 2px;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 40px auto 0;
+            font-size: 1.1rem;
+            color: #6c757d;
+            line-height: 1.8;
+        }
+
+        .categories-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+
+        .card-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(32, 63, 153, 0.85);
+            z-index: 1;
+        }
+
+        .card-icon i {
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 30px;
+        }
+
+        .card-content h3 {
+            color: #203F99;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-content li {
+            padding: 8px 0;
+            color: #6c757d;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .card-content li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #203F99;
+            font-weight: bold;
+        }
+
+        .products-section {
+            padding: 100px 20px;
+            background: #f8f9fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-icon {
+            font-size: 3rem;
+            color: #203F99;
+            margin-bottom: 20px;
+            height: 80px;
+            width: 80px;
+            background: rgba(32, 63, 153, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+        }
+
+        .product-card h3 {
+            color: #203F99;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .product-card p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .benefits-section {
+            padding: 100px 20px;
+            background: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 30px;
+            border-radius: 12px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: #203F99;
+            transform: translateY(-5px);
+        }
+
+        .benefit-item:hover h3,
+        .benefit-item:hover p {
+            color: white;
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #203F99;
+            margin-bottom: 20px;
+            height: 70px;
+            width: 70px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover .benefit-icon {
+            background: white;
+            color: #203F99;
+        }
+
+        .benefit-item h3 {
+            color: #203F99;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .benefit-item p {
+            color: #6c757d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            transition: color 0.3s ease;
+        }
+
+        .final-cta {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #203F99, #1a357f);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .final-cta p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-link {
+            display: inline-block;
+            background: white;
+            color: #203F99;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .phone-link:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(255, 255, 255, 0.3);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2.3rem; }
+            .hero-section { height: 50vh; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .hero-content p { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+            .hero-section { height: 45vh; }
+            .intro-section, 
+            .categories-section, 
+            .products-section, 
+            .benefits-section { 
+                padding: 70px 20px; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-section { height: 40vh; }
+            .categories-grid,
+            .products-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero-content h1 { font-size: 1.6rem; }
+            .section-title { font-size: 1.6rem; }
+            .hero-section { height: 35vh; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="hero-section reveal">
+        <div class="hero-content">
+            <h1>Complete <span>Household Supplies</span> For Your Home</h1>
+            <p>Everything you need for a clean, organized, and comfortable home – from daily essentials to specialized cleaning products.</p>
+        </div>
+    </section>
+
+    <section class="intro-section reveal">
+        <div class="container">
+            <h2 class="section-title">Your One-Stop <span>Home Supply</span> Solution</h2>
+            <p class="intro-text">
+                We provide comprehensive household supplies that make daily living easier and more efficient. From premium cleaning products that keep your home spotless to essential paper goods and daily necessities, we've got everything covered. Our carefully curated selection ensures quality, value, and convenience for every household need.
+            </p>
+        </div>
+    </section>
+
+    <section class="categories-section reveal">
+        <div class="container">
+            <h2 class="section-title">Our <span>Main Categories</span></h2>
+            <div class="categories-grid">
+                <div class="category-card reveal">
+                    <div class="card-icon" style="background-image: url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cleaning Products</h3>
+                        <ul>
+                            <li>All-purpose cleaners & disinfectants</li>
+                            <li>Floor care (hardwood, tile, laminate)</li>
+                            <li>Bathroom & kitchen specialty cleaners</li>
+                            <li>Glass & surface cleaners</li>
+                            <li>Laundry detergents & fabric softeners</li>
+                            <li>Dish soaps & dishwasher detergents</li>
+                            <li>Degreasers & stain removers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="card-icon" style="background-image: url('https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <i class="fas fa-toilet-paper"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Paper Goods</h3>
+                        <ul>
+                            <li>Bath tissue & facial tissue</li>
+                            <li>Paper towels & napkins</li>
+                            <li>Paper plates & disposable cutlery</li>
+                            <li>Aluminum foil & parchment paper</li>
+                            <li>Plastic wrap & storage bags</li>
+                            <li>Greeting cards & stationery</li>
+                            <li>Gift wrap & party supplies</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="card-icon" style="background-image: url('https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Daily Home Essentials</h3>
+                        <ul>
+                            <li>Light bulbs & batteries</li>
+                            <li>Trash bags & recycling supplies</li>
+                            <li>Air fresheners & deodorizers</li>
+                            <li>Pest control products</li>
+                            <li>Basic tools & hardware</li>
+                            <li>Storage containers & organization</li>
+                            <li>Kitchen utensils & cookware</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section reveal">
+        <div class="container">
+            <h2 class="section-title">Featured <span>Household Products</span></h2>
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-spray-can"></i>
+                    </div>
+                    <h3>Eco-Friendly Cleaners</h3>
+                    <p>Biodegradable, non-toxic cleaning solutions that are tough on dirt but gentle on the environment and your family.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-soap"></i>
+                    </div>
+                    <h3>Premium Laundry Care</h3>
+                    <p>Specialized detergents, stain removers, and fabric conditioners for all types of fabrics and washing needs.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-recycle"></i>
+                    </div>
+                    <h3>Sustainable Alternatives</h3>
+                    <p>Reusable, compostable, and recycled paper products that reduce environmental impact without compromising quality.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-box-tissue"></i>
+                    </div>
+                    <h3>Bulk Value Packs</h3>
+                    <p>Economical family-sized packages of paper towels, toilet paper, and cleaning supplies for maximum savings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="benefits-section reveal">
+        <div class="container">
+            <h2 class="section-title">Why <span>Choose Us</span></h2>
+            <div class="benefits-grid">
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-tags"></i>
+                    </div>
+                    <h3>Competitive Pricing</h3>
+                    <p>Get the best value with our everyday low prices and regular promotions on household essentials.</p>
+                </div>
+
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Quality Assured</h3>
+                    <p>We carry trusted brands and premium products that deliver reliable performance and results.</p>
+                </div>
+
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Convenient Delivery</h3>
+                    <p>Get your household supplies delivered to your doorstep with our fast and reliable service.</p>
+                </div>
+
+                <div class="benefit-item reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Eco-Friendly Options</h3>
+                    <p>Choose from a wide range of environmentally conscious products for a greener home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta reveal">
+        <div class="container">
+            <h2>Stock Up On Home Essentials Today</h2>
+            <p>Simplify your shopping and keep your home well-stocked with all the household supplies you need in one convenient place.</p>
+            <a href="tel:+1234567890" class="phone-link">Call to Order Now</a>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
