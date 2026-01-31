@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://ayrasol.com/services/surgical-medical-supplies/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Surgical & Medical Supplies | Ayrasol</title>
+    <meta name="description" content="Professional surgical equipment and medical supplies for healthcare facilities, clinics, and home care. Quality guaranteed.">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="../../header and footer/include.js"></script>
+    <style>
+        .service-top {
+            position: relative;
+            background: linear-gradient(135deg, #f8f8f8, #e8ecfa);
+            height: 45vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .service-shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            transition: transform 0.2s ease-out;
+            pointer-events: none;
+        }
+
+        .shape1 {
+            width: 180px;
+            height: 180px;
+            background: #2a6ecc;
+            top: -60px;
+            left: -60px;
+        }
+
+        .shape2 {
+            width: 250px;
+            height: 250px;
+            background: #203F99;
+            bottom: -80px;
+            right: -80px;
+        }
+
+        .service-content h1 {
+            color: #203F99;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            z-index: 2;
+            position: relative;
+            margin: 0;
+        }
+
+        .service-content h1 span {
+            color: #2a6ecc;
+        }
+
+        .about-surgical {
+            background: #f8f9fa;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .about-surgical .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-surgical h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #203F99;
+        }
+
+        .about-surgical h2 span {
+            color: #2a6ecc;
+        }
+
+        .about-surgical p {
+            color: #203F99;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        #surgical-services {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px 10%;
+            gap: 60px;
+            flex-wrap: wrap;
+            background: #fff;
+        }
+
+        .text-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #2a6ecc;
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .text-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #203F99;
+        }
+
+        .text-content h2 span {
+            color: #2a6ecc;
+        }
+
+        .text-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        .cards {
+            flex: 1;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            min-width: 300px;
+        }
+
+        .card {
+            padding: 40px 25px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        .card:nth-child(1) {
+            background: linear-gradient(135deg, #2a6ecc, #1a5cb3);
+            color: #fff;
+        }
+
+        .card:nth-child(2) {
+            background: #e8ecfa;
+            color: #203F99;
+        }
+
+        .card:nth-child(3) {
+            background: #ffffff;
+            color: #203F99;
+            border: 2px solid #e8ecfa;
+        }
+
+        .card:nth-child(4) {
+            background: linear-gradient(135deg, #203F99, #1a357f);
+            color: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .supplies-categories {
+            background: #ffffff;
+            padding: 90px 20px;
+            color: #203F99;
+            text-align: center;
+        }
+
+        .supplies-categories h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+        }
+
+        .supplies-categories h2 span {
+            color: #2a6ecc;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .category-box {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .category-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(32, 63, 153, 0.1);
+        }
+
+        .category-box h3 {
+            font-size: 1.4rem;
+            color: #203F99;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8ecfa;
+        }
+
+        .category-box ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .category-box li {
+            padding: 8px 0;
+            color: #4f5a5d;
+            font-size: 1rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .category-box li:before {
+            content: "•";
+            color: #2a6ecc;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: 6px;
+        }
+
+        .professional-equipment {
+            background: #f8f9fa;
+            padding: 90px 20px;
+            color: #203F99;
+            text-align: center;
+        }
+
+        .professional-equipment h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+        }
+
+        .professional-equipment h2 span {
+            color: #2a6ecc;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .equipment-item {
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .equipment-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(32, 63, 153, 0.1);
+        }
+
+        .equipment-icon {
+            font-size: 2.5rem;
+            color: #2a6ecc;
+            margin-bottom: 20px;
+        }
+
+        .equipment-item h3 {
+            font-size: 1.3rem;
+            color: #203F99;
+            margin-bottom: 15px;
+        }
+
+        .equipment-item p {
+            font-size: 0.95rem;
+            color: #4f5a5d;
+            line-height: 1.6;
+        }
+
+        .why-choose-us {
+            background: #ffffff;
+            padding: 90px 20px;
+            color: #203F99;
+            text-align: center;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 70px;
+            color: #203F99;
+        }
+
+        .why-choose-us h2 span {
+            color: #2a6ecc;
+        }
+
+        .choose-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .choose-item {
+            position: relative;
+            padding-left: 10px;
+            transition: all 0.4s ease;
+        }
+
+        .choose-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .choose-top {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .choose-item .number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #2a6ecc;
+            margin-right: 10px;
+        }
+
+        .choose-item .line {
+            flex: 1;
+            height: 2px;
+            background: #203F99;
+            opacity: 0.3;
+        }
+
+        .choose-item h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #203F99;
+        }
+
+        .choose-item p {
+            font-size: 0.95rem;
+            color: #4f5a5d;
+            line-height: 1.6;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1200px) {
+            .service-content h1 { font-size: 2.2rem; }
+            .about-surgical h2 { font-size: 2.4rem; }
+            #surgical-services { padding: 70px 8%; }
+            .text-content h2 { font-size: 2.4rem; }
+            .supplies-categories h2 { font-size: 2.4rem; }
+            .professional-equipment h2 { font-size: 2.4rem; }
+            .why-choose-us h2 { font-size: 2.4rem; }
+            .equipment-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 992px) {
+            .service-top { height: 40vh; }
+            .service-content h1 { font-size: 2rem; }
+            #surgical-services {
+                flex-direction: column;
+                text-align: center;
+            }
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .text-content {
+                max-width: 600px;
+                margin: 0 auto 40px;
+            }
+            .categories-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .choose-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+            }
+            .equipment-grid { grid-template-columns: 1fr; }
+            .text-content h2 { font-size: 2.2rem; }
+            .about-surgical h2 { font-size: 2.2rem; }
+            .supplies-categories h2 { font-size: 2.2rem; }
+            .professional-equipment h2 { font-size: 2.2rem; }
+            .why-choose-us h2 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .service-top { height: 35vh; padding: 0 20px; }
+            .service-content h1 { font-size: 1.8rem; }
+            .about-surgical { padding: 60px 15px; }
+            #surgical-services { padding: 60px 8%; }
+            .cards { grid-template-columns: 1fr; }
+            .text-content h2 { font-size: 2rem; }
+            .choose-grid { grid-template-columns: 1fr; }
+            .text-content p { font-size: 1rem; }
+            .about-surgical h2 { font-size: 2rem; }
+            .supplies-categories h2 { font-size: 2rem; }
+            .professional-equipment h2 { font-size: 2rem; }
+            .why-choose-us h2 { font-size: 2rem; }
+        }
+
+        @media (max-width: 576px) {
+            .service-top { height: 30vh; }
+            .service-content h1 { font-size: 1.5rem; }
+            .about-surgical h2 { font-size: 1.8rem; }
+            .about-surgical p { font-size: 0.95rem; line-height: 1.7; }
+            #surgical-services { padding: 50px 5%; }
+            .text-content p { font-size: 1rem; }
+            .text-content h2 { font-size: 1.8rem; }
+            .card { padding: 30px 20px; }
+            .card i { font-size: 1.6rem; }
+            .supplies-categories h2 { font-size: 1.8rem; }
+            .professional-equipment h2 { font-size: 1.8rem; }
+            .why-choose-us h2 { font-size: 1.8rem; }
+            .equipment-icon { font-size: 2rem; }
+        }
+
+        @media (max-width: 400px) {
+            .service-top { height: 28vh; }
+            .service-content h1 { font-size: 1.3rem; }
+            .card { padding: 25px 15px; }
+            .card i { font-size: 1.4rem; }
+            .text-content h2 { font-size: 1.6rem; }
+            .about-surgical h2 { font-size: 1.6rem; }
+            .about-surgical p { font-size: 0.9rem; }
+            .supplies-categories h2 { font-size: 1.6rem; }
+            .professional-equipment h2 { font-size: 1.6rem; }
+            .why-choose-us h2 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="service-top reveal">
+        <div class="service-shape shape1"></div>
+        <div class="service-shape shape2"></div>
+        <div class="service-content">
+            <h1>
+                Professional<br>
+                <span>Surgical & Medical</span> Supplies
+            </h1>
+        </div>
+    </section>
+
+    <section class="about-surgical reveal">
+        <div class="container">
+            <h2><span>What</span> Are Surgical & Medical Supplies?</h2>
+            <p>
+                Surgical and medical supplies encompass a wide range of equipment, instruments, and devices used in healthcare settings for patient care, surgical procedures, diagnostics, and treatment. From basic examination tools to advanced surgical instruments, we provide quality supplies for hospitals, clinics, and home healthcare needs.
+            </p>
+        </div>
+    </section>
+
+    <section id="surgical-services" class="reveal">
+        <div class="text-content">
+            <span class="badge">Our Products</span>
+            <h2>Essential <span>Medical Equipment</span> for Healthcare</h2>
+            <p>We supply reliable surgical instruments and medical devices that meet healthcare standards for safety and performance.</p>
+        </div>
+
+        <div class="cards">
+            <div class="card reveal">
+                <i class="fa-solid fa-user-injured"></i>
+                <h3>Mobility & Support</h3>
+                <p>Walkers, canes, crutches, wheelchairs, and patient transfer equipment for rehabilitation and daily mobility.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-stethoscope"></i>
+                <h3>Diagnostic Equipment</h3>
+                <p>Stethoscopes, blood pressure monitors, thermometers, otoscopes, and diagnostic kits for accurate patient assessment.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-kit-medical"></i>
+                <h3>First Aid & Wound Care</h3>
+                <p>Comprehensive first aid kits, wound dressings, bandages, antiseptics, and infection control supplies.</p>
+            </div>
+            <div class="card reveal">
+                <i class="fa-solid fa-bed-pulse"></i>
+                <h3>Patient Care Essentials</h3>
+                <p>Hospital beds, examination tables, patient monitors, IV stands, and personal protective equipment (PPE).</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="supplies-categories reveal">
+        <div class="container">
+            <h2><span>Surgical</span> Supplies Categories</h2>
+            <div class="categories-grid">
+                <div class="category-box reveal">
+                    <h3>Basic Surgical Instruments</h3>
+                    <ul>
+                        <li>Scalpels & surgical blades</li>
+                        <li>Forceps & clamps</li>
+                        <li>Surgical scissors</li>
+                        <li>Needle holders</li>
+                        <li>Retractors</li>
+                        <li>Suture materials</li>
+                    </ul>
+                </div>
+
+                <div class="category-box reveal">
+                    <h3>Disposable Medical Supplies</h3>
+                    <ul>
+                        <li>Syringes & needles</li>
+                        <li>Gloves (latex, nitrile, vinyl)</li>
+                        <li>Surgical masks & face shields</li>
+                        <li>Sterile drapes & gowns</li>
+                        <li>Catheters & tubing</li>
+                        <li>IV sets & infusion kits</li>
+                    </ul>
+                </div>
+
+                <div class="category-box reveal">
+                    <h3>Orthopedic Supplies</h3>
+                    <ul>
+                        <li>Braces & supports</li>
+                        <li>Casts & splinting materials</li>
+                        <li>Crutches & walking aids</li>
+                        <li>Traction equipment</li>
+                        <li>Compression garments</li>
+                        <li>Orthotic devices</li>
+                    </ul>
+                </div>
+
+                <div class="category-box reveal">
+                    <h3>Emergency & Trauma</h3>
+                    <ul>
+                        <li>Emergency response kits</li>
+                        <li>Tourniquets & hemostats</li>
+                        <li>Airway management devices</li>
+                        <li>Cervical collars</li>
+                        <li>Spine boards</li>
+                        <li>Burn care supplies</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="professional-equipment reveal">
+        <div class="container">
+            <h2><span>Professional</span> Medical Equipment</h2>
+            <div class="equipment-grid">
+                <div class="equipment-item reveal">
+                    <div class="equipment-icon">
+                        <i class="fa-solid fa-heart-pulse"></i>
+                    </div>
+                    <h3>Patient Monitoring</h3>
+                    <p>ECG machines, pulse oximeters, blood pressure monitors, and multi-parameter monitors for continuous patient observation.</p>
+                </div>
+
+                <div class="equipment-item reveal">
+                    <div class="equipment-icon">
+                        <i class="fa-solid fa-vials"></i>
+                    </div>
+                    <h3>Laboratory Equipment</h3>
+                    <p>Centrifuges, microscopes, hematology analyzers, and diagnostic test kits for accurate medical testing.</p>
+                </div>
+
+                <div class="equipment-item reveal">
+                    <div class="equipment-icon">
+                        <i class="fa-solid fa-breath"></i>
+                    </div>
+                    <h3>Respiratory Care</h3>
+                    <p>Oxygen concentrators, nebulizers, ventilators, CPAP machines, and spirometers for respiratory treatment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-us reveal">
+        <div class="container">
+            <h2><span>Why</span> Choose Our Medical Supplies</h2>
+            <div class="choose-grid">
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">01</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Certified Quality</h3>
+                    <p>All our surgical instruments and medical supplies meet international quality standards and regulatory requirements.</p>
+                </div>
+
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">02</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Healthcare Expertise</h3>
+                    <p>Our team includes medical professionals who understand clinical needs and can recommend appropriate equipment.</p>
+                </div>
+
+                <div class="choose-item reveal">
+                    <div class="choose-top">
+                        <span class="number">03</span>
+                        <span class="line"></span>
+                    </div>
+                    <h3>Reliable Supply Chain</h3>
+                    <p>We maintain consistent stock of essential medical supplies with timely delivery to healthcare facilities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        reveals.forEach(reveal => observer.observe(reveal));
+    </script>
+</body>
+</html>
