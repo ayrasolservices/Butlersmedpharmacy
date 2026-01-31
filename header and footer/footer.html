@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,667 +5,443 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Butlers Med Pharmacy - Footer</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
 <style>
-    .pharmacy-footer {
-        background: #203F99;
-        padding: 40px 0 20px;
-        font-family: Arial, sans-serif;
-        color: #fff;
-        border-top: 3px solid #FD0511;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .pharmacy-footer::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 100%;
-        background: linear-gradient(135deg, rgba(253, 5, 17, 0.1) 0%, rgba(32, 63, 153, 0.1) 100%);
-        z-index: 0;
-    }
-
+.pharmacy-footer {
+    background: #203F99;
+    padding: 40px 0 20px;
+    font-family: Arial, sans-serif;
+    color: #fff;
+    border-top: 3px solid #FD0511;
+}
+.pharmacy-footer-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 30px;
+    align-items: flex-start;
+}
+.pharmacy-footer-about {
+    display: flex;
+    flex-direction: column;
+}
+.pharmacy-logo-link {
+    display: inline-block;
+    width: 180px;
+    margin-bottom: 20px;
+}
+.pharmacy-footer-logo {
+    width: 100%;
+    height: auto;
+}
+.pharmacy-footer-desc {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #f1f1f1;
+}
+.facebook-simple {
+    margin-top: auto;
+}
+.facebook-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #3b5998;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+.facebook-btn:hover {
+    background: #4c70ba;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.facebook-btn i {
+    font-size: 18px;
+}
+.pharmacy-footer h3 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    color: #fff;
+    padding-bottom: 10px;
+}
+.pharmacy-footer h3::after {
+    content: "";
+    width: 40px;
+    height: 3px;
+    background: #FD0511;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+.pharmacy-footer-services {
+    padding: 10px 15px;
+}
+.pharmacy-footer-services ul,
+.pharmacy-footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+.pharmacy-footer-services li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-left: 5px;
+}
+.pharmacy-footer-services li a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    width: 100%;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+.pharmacy-footer-services li i {
+    font-size: 22px;
+    margin-right: 12px;
+    color: #FD0511;
+    transition: transform 0.3s ease;
+    width: 28px;
+    text-align: center;
+}
+.pharmacy-footer-services li span {
+    font-size: 14px;
+    color: #eee;
+    transition: color 0.3s ease;
+}
+.pharmacy-footer-services li:hover i {
+    transform: scale(1.1);
+}
+.pharmacy-footer-services li:hover span {
+    color: #FD0511;
+}
+.pharmacy-footer-links {
+    padding: 10px 15px;
+}
+.pharmacy-footer-links ul li {
+    margin-bottom: 12px;
+}
+.pharmacy-footer-links ul li a {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    display: block;
+    padding: 6px 0;
+    position: relative;
+    padding-left: 15px;
+}
+.pharmacy-footer-links ul li a::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: #FD0511;
+    transition: transform 0.3s ease;
+}
+.pharmacy-footer-links ul li a:hover {
+    color: #FD0511;
+}
+.pharmacy-footer-links ul li a:hover::before {
+    transform: translateX(5px);
+}
+.pharmacy-hours {
+    position: relative;
+}
+.pharmacy-hours-info {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    border: 1px solid rgba(253, 5, 17, 0.3);
+}
+.hours-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+}
+.hours-row:last-child {
+    border-bottom: none;
+}
+.hours-day {
+    color: #fff;
+}
+.hours-time {
+    color: #FD0511;
+    font-weight: 600;
+}
+.pharmacy-phone {
+    background: #FD0511;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    width: fit-content;
+}
+.pharmacy-phone:hover {
+    background: #ff1a2e;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(253, 5, 17, 0.3);
+}
+.pharmacy-phone i {
+    font-size: 20px;
+}
+.pharmacy-footer-bottom {
+    max-width: 1300px;
+    margin: 40px auto 0;
+    padding: 25px 20px 0;
+    border-top: 1px solid rgba(253, 5, 17, 0.4);
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+}
+.pharmacy-footer-bottom p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+.pharmacy-footer-bottom a {
+    color: #FD0511;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 600;
+}
+.pharmacy-footer-bottom a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+.presented-by {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 13px;
+    color: #ccc;
+}
+.presented-by a {
+    color: #FD0511;
+    text-decoration: none;
+    font-weight: 600;
+}
+.presented-by a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+@media (max-width: 1100px) {
     .pharmacy-footer-container {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 20px;
-        display: grid;
-        grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
-        gap: 30px;
-        align-items: flex-start;
-        position: relative;
-        z-index: 1;
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
     }
-
-    .pharmacy-footer-about {
-        display: flex;
-        flex-direction: column;
-    }
-    
-    .pharmacy-logo-link {
-        display: inline-block;
-        width: 180px;
-        margin-bottom: 20px;
-        transition: transform 0.3s ease;
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    
-    .pharmacy-logo-link.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .pharmacy-logo-link:hover {
-        transform: scale(1.05);
-    }
-    
-    .pharmacy-footer-logo {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-    }
-
-    .pharmacy-footer-desc {
-        font-size: 14px;
-        line-height: 1.6;
-        margin-bottom: 25px;
-        color: #f1f1f1;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease 0.2s;
-    }
-    
-    .pharmacy-footer-desc.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .facebook-simple {
-        margin-top: auto;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease 0.3s;
-    }
-    
-    .facebook-simple.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .facebook-btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        background: #3b5998;
-        color: white;
-        text-decoration: none;
-        padding: 12px 20px;
-        border-radius: 8px;
-        font-weight: 600;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        border: none;
-        cursor: pointer;
-        width: fit-content;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-    
-    .facebook-btn:hover {
-        background: #4c70ba;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    
-    .facebook-btn i {
-        font-size: 18px;
-    }
-
-    .pharmacy-footer h3 {
-        font-size: 18px;
-        margin-bottom: 20px;
-        position: relative;
-        color: #fff;
-        padding-bottom: 10px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease;
-    }
-    
-    .pharmacy-footer h3.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-
-    .pharmacy-footer h3::after {
-        content: "";
-        width: 40px;
-        height: 3px;
-        background: #FD0511;
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        border-radius: 5px;
-    }
-
-    .pharmacy-footer-services {
-        padding: 10px 15px;
-    }
-    
-    .pharmacy-footer-services ul,
-    .pharmacy-footer-links ul {
-        list-style: none;
-        padding: 0;
-        margin-top: 10px;
-    }
-
-    .pharmacy-footer-services li {
-        display: flex;
-        align-items: center;
-        margin-bottom: 15px;
-        padding-left: 5px;
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: all 0.5s ease;
-    }
-    
-    .pharmacy-footer-services li:nth-child(1) {
-        transition-delay: 0.2s;
-    }
-    
-    .pharmacy-footer-services li:nth-child(2) {
-        transition-delay: 0.3s;
-    }
-    
-    .pharmacy-footer-services li:nth-child(3) {
-        transition-delay: 0.4s;
-    }
-    
-    .pharmacy-footer-services li:nth-child(4) {
-        transition-delay: 0.5s;
-    }
-    
-    .pharmacy-footer-services li.pharmacy-animate {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .pharmacy-footer-services li a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: inherit;
-        width: 100%;
-        transition: all 0.3s ease;
-        padding: 5px 0;
-    }
-
-    .pharmacy-footer-services li i {
-        font-size: 22px;
-        margin-right: 12px;
-        color: #FD0511;
-        transition: transform 0.3s ease;
-        width: 28px;
-        text-align: center;
-    }
-
-    .pharmacy-footer-services li span {
-        font-size: 14px;
-        color: #eee;
-        transition: color 0.3s ease;
-    }
-    
-    .pharmacy-footer-services li:hover i {
-        transform: scale(1.1);
-    }
-    
-    .pharmacy-footer-services li:hover span {
-        color: #FD0511;
-    }
-
-    .pharmacy-footer-links {
-        padding: 10px 15px;
-    }
-    
-    .pharmacy-footer-links ul li {
-        margin-bottom: 12px;
-        opacity: 0;
-        transform: translateX(-20px);
-        transition: all 0.5s ease;
-    }
-    
-    .pharmacy-footer-links ul li:nth-child(1) {
-        transition-delay: 0.2s;
-    }
-    
-    .pharmacy-footer-links ul li:nth-child(2) {
-        transition-delay: 0.3s;
-    }
-    
-    .pharmacy-footer-links ul li:nth-child(3) {
-        transition-delay: 0.4s;
-    }
-    
-    .pharmacy-footer-links ul li:nth-child(4) {
-        transition-delay: 0.5s;
-    }
-    
-    .pharmacy-footer-links ul li:nth-child(5) {
-        transition-delay: 0.6s;
-    }
-    
-    .pharmacy-footer-links ul li.pharmacy-animate {
-        opacity: 1;
-        transform: translateX(0);
-    }
-
-    .pharmacy-footer-links ul li a {
-        color: #ddd;
-        text-decoration: none;
-        font-size: 14px;
-        transition: all 0.3s ease;
-        display: block;
-        padding: 6px 0;
-        position: relative;
-        padding-left: 15px;
-    }
-
-    .pharmacy-footer-links ul li a::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: #FD0511;
-        transition: transform 0.3s ease;
-    }
-
-    .pharmacy-footer-links ul li a:hover {
-        color: #FD0511;
-    }
-
-    .pharmacy-footer-links ul li a:hover::before {
-        transform: translateX(5px);
-    }
-
     .pharmacy-hours {
-        position: relative;
+        grid-column: span 2;
     }
-    
-    .pharmacy-hours-info {
-        background: rgba(255, 255, 255, 0.08);
-        padding: 15px;
-        border-radius: 8px;
-        margin-top: 10px;
-        border: 1px solid rgba(253, 5, 17, 0.3);
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease 0.4s;
+    .facebook-btn {
+        width: 100%;
+        justify-content: center;
     }
-    
-    .pharmacy-hours-info.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .hours-row {
-        display: flex;
-        justify-content: space-between;
-        padding: 8px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        font-size: 14px;
-    }
-    
-    .hours-row:last-child {
-        border-bottom: none;
-    }
-    
-    .hours-day {
-        color: #fff;
-    }
-    
-    .hours-time {
-        color: #FD0511;
-        font-weight: 600;
-    }
-    
     .pharmacy-phone {
-        background: #FD0511;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 5px;
-        margin-top: 15px;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: bold;
-        font-size: 16px;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease 0.3s;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        width: fit-content;
-    }
-    
-    .pharmacy-phone.pharmacy-animate {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    
-    .pharmacy-phone:hover {
-        background: #ff1a2e;
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(253, 5, 17, 0.3);
-    }
-    
-    .pharmacy-phone i {
-        font-size: 20px;
-    }
-    
-    .pharmacy-footer-bottom {
-        max-width: 1300px;
-        margin: 40px auto 0;
-        padding: 25px 20px 0;
-        border-top: 1px solid rgba(253, 5, 17, 0.4);
+        width: 100%;
+        justify-content: center;
         text-align: center;
-        font-size: 14px;
-        color: #aaa;
-        position: relative;
-        z-index: 1;
     }
-    
-    .pharmacy-footer-bottom p {
-        margin-bottom: 10px;
-        line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .pharmacy-footer {
+        padding: 35px 0 15px;
     }
-    
-    .pharmacy-footer-bottom a {
-        color: #FD0511;
-        text-decoration: none;
-        transition: 0.3s;
-        font-weight: 600;
+    .pharmacy-footer-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
     }
-    
-    .pharmacy-footer-bottom a:hover {
-        text-decoration: underline;
-        color: #fff;
+    .pharmacy-hours {
+        grid-column: span 1;
     }
-    
-    .presented-by {
-        margin-top: 15px;
-        padding-top: 15px;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    .pharmacy-footer h3 {
+        text-align: left;
+    }
+    .pharmacy-footer h3::after {
+        left: 0;
+        transform: none;
+    }
+    .facebook-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    .pharmacy-phone {
+        width: 100%;
+        justify-content: center;
+    }
+}
+@media (max-width: 480px) {
+    .pharmacy-footer-container {
+        padding: 0 15px;
+        gap: 30px;
+    }
+    .pharmacy-logo-link {
+        width: 160px;
+    }
+    .pharmacy-footer-desc {
         font-size: 13px;
-        color: #ccc;
     }
-    
-    .presented-by a {
-        color: #FD0511;
-        text-decoration: none;
-        font-weight: 600;
+    .pharmacy-footer h3 {
+        font-size: 16px;
     }
-    
-    .presented-by a:hover {
-        color: #fff;
-        text-decoration: underline;
+    .pharmacy-footer-services li span,
+    .pharmacy-footer-links ul li a {
+        font-size: 13px;
     }
-
-    @media (max-width: 1100px) {
-        .pharmacy-footer-container {
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-        }
-        
-        .pharmacy-hours {
-            grid-column: span 2;
-        }
-        
-        .facebook-btn {
-            width: 100%;
-            justify-content: center;
-        }
-        
-        .pharmacy-phone {
-            width: 100%;
-            justify-content: center;
-            text-align: center;
-        }
+    .pharmacy-phone {
+        font-size: 14px;
+        padding: 10px 15px;
     }
-
-    @media (max-width: 768px) {
-        .pharmacy-footer {
-            padding: 35px 0 15px;
-        }
-        
-        .pharmacy-footer-container {
-            grid-template-columns: 1fr;
-            gap: 35px;
-        }
-        
-        .pharmacy-hours {
-            grid-column: span 1;
-        }
-        
-        .pharmacy-footer h3 {
-            text-align: left;
-        }
-        
-        .pharmacy-footer h3::after {
-            left: 0;
-            transform: none;
-        }
-        
-        .facebook-btn {
-            width: 100%;
-            justify-content: center;
-        }
-        
-        .pharmacy-phone {
-            width: 100%;
-            justify-content: center;
-        }
+    .pharmacy-footer-bottom {
+        font-size: 12px;
+        padding: 20px 15px 0;
     }
-
-    @media (max-width: 480px) {
-        .pharmacy-footer-container {
-            padding: 0 15px;
-            gap: 30px;
-        }
-        
-        .pharmacy-logo-link {
-            width: 160px;
-        }
-        
-        .pharmacy-footer-desc {
-            font-size: 13px;
-        }
-        
-        .pharmacy-footer h3 {
-            font-size: 16px;
-        }
-        
-        .pharmacy-footer-services li span,
-        .pharmacy-footer-links ul li a {
-            font-size: 13px;
-        }
-        
-        .pharmacy-phone {
-            font-size: 14px;
-            padding: 10px 15px;
-        }
-        
-        .pharmacy-footer-bottom {
-            font-size: 12px;
-            padding: 20px 15px 0;
-        }
-        
-        .facebook-btn {
-            font-size: 13px;
-            padding: 10px 15px;
-        }
+    .facebook-btn {
+        font-size: 13px;
+        padding: 10px 15px;
     }
-
-    @media (max-width: 360px) {
-        .pharmacy-footer-container {
-            padding: 0 10px;
-            gap: 25px;
-        }
-        
-        .pharmacy-logo-link {
-            width: 140px;
-        }
-        
-        .pharmacy-footer-desc {
-            font-size: 12px;
-        }
-        
-        .pharmacy-footer h3 {
-            font-size: 15px;
-        }
-        
-        .pharmacy-footer-services li {
-            margin-bottom: 12px;
-        }
-        
-        .pharmacy-footer-services li i {
-            font-size: 18px;
-            margin-right: 10px;
-        }
-        
-        .pharmacy-footer-services li span,
-        .pharmacy-footer-links ul li a {
-            font-size: 12px;
-        }
-        
-        .pharmacy-phone {
-            font-size: 13px;
-            padding: 8px 12px;
-        }
-        
-        .hours-row {
-            font-size: 12px;
-        }
+}
+@media (max-width: 360px) {
+    .pharmacy-footer-container {
+        padding: 0 10px;
+        gap: 25px;
     }
+    .pharmacy-logo-link {
+        width: 140px;
+    }
+    .pharmacy-footer-desc {
+        font-size: 12px;
+    }
+    .pharmacy-footer h3 {
+        font-size: 15px;
+    }
+    .pharmacy-footer-services li {
+        margin-bottom: 12px;
+    }
+    .pharmacy-footer-services li i {
+        font-size: 18px;
+        margin-right: 10px;
+    }
+    .pharmacy-footer-services li span,
+    .pharmacy-footer-links ul li a {
+        font-size: 12px;
+    }
+    .pharmacy-phone {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+    .hours-row {
+        font-size: 12px;
+    }
+}
 </style>
 </head>
-
 <body>
-    <footer class="pharmacy-footer">
-        <div class="pharmacy-footer-container">
-
-            <div class="pharmacy-footer-column pharmacy-footer-about">
-                <a href="/" class="pharmacy-logo-link">
-                    <img src="./assets/butlers-pharmacy-logo.png" class="pharmacy-footer-logo" alt="Butlers Med Pharmacy Logo">
-                </a>
-
-                <p class="pharmacy-footer-desc">
-                    Your trusted neighborhood pharmacy providing quality medications, healthcare products, and professional consultation services. We're committed to your health and wellness with personalized care.
-                </p>
-
-                <div class="facebook-simple">
-                    <a href="https://facebook.com/yourpharmacypage" class="facebook-btn" target="_blank" rel="noopener">
-                        <i class="fab fa-facebook-f"></i>
-                        Follow on Facebook
-                    </a>
-                </div>
-            </div>
-
-            <div class="pharmacy-footer-column pharmacy-footer-services">
-                <h3>Our Services</h3>
-
-                <ul>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-capsules"></i>
-                            <span>Vitamins & Supplements</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-pills"></i>
-                            <span>OTC Medications</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-first-aid"></i>
-                            <span>Medical Supplies</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fas fa-spa"></i>
-                            <span>Beauty & Personal Care</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="pharmacy-footer-column pharmacy-footer-links">
-                <h3>Quick Links</h3>
-
-                <ul>
-                    <li><a href="../">Home</a></li>
-                    <li><a href="/about-s.html">About Us</a></li>
-                    <li><a href="/contact-us.html">Contact Us</a></li>
-                    <li><a href="/services/">Our Services</a></li>
-                </ul>
-            </div>
-
-            <div class="pharmacy-footer-column pharmacy-hours">
-                <h3>Pharmacy Hours</h3>
-                
-                <div class="pharmacy-hours-info">
-                    <div class="hours-row">
-                        <span class="hours-day">Monday - Friday</span>
-                        <span class="hours-time">8:00 AM - 9:00 PM</span>
-                    </div>
-                    <div class="hours-row">
-                        <span class="hours-day">Saturday</span>
-                        <span class="hours-time">Closed</span>
-                    </div>
-                    <div class="hours-row">
-                        <span class="hours-day">Sunday</span>
-                        <span class="hours-time">Closed</span>
-                    </div>
-                </div>
-                
-                <a href="tel:+16144772686" class="pharmacy-phone">
-                    <i class="fas fa-phone"></i>
-                    Call: +1 614-477-2686
-                </a>
-            </div>
-
-        </div>
-        
-        <div class="pharmacy-footer-bottom">
-            <p>© 2024 Butlers Med Pharmacy. All Rights Reserved.</p>
-            
-            <div class="presented-by">
-                Presented by <a href="https://ayrasol.com" target="_blank">Ayrasol Services</a>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        function animateOnScroll() {
-            const elements = document.querySelectorAll('.pharmacy-logo-link, .pharmacy-footer-desc, .facebook-simple, .pharmacy-footer h3, .pharmacy-footer-services li, .pharmacy-footer-links ul li, .pharmacy-hours-info, .pharmacy-phone');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('pharmacy-animate');
-                }
-            });
-        }
-        
-        window.addEventListener('load', animateOnScroll);
-        window.addEventListener('scroll', animateOnScroll);
-    </script>
+<footer class="pharmacy-footer">
+<div class="pharmacy-footer-container">
+<div class="pharmacy-footer-column pharmacy-footer-about">
+<a href="/" class="pharmacy-logo-link">
+<img src="./assets/butlers-pharmacy-logo.png" class="pharmacy-footer-logo" alt="Butlers Med Pharmacy Logo">
+</a>
+<p class="pharmacy-footer-desc">
+Your trusted neighborhood pharmacy providing quality medications, healthcare products, and professional consultation services. We're committed to your health and wellness with personalized care.
+</p>
+<div class="facebook-simple">
+<a href="https://facebook.com/yourpharmacypage" class="facebook-btn" target="_blank" rel="noopener">
+<i class="fab fa-facebook-f"></i>
+Follow on Facebook
+</a>
+</div>
+</div>
+<div class="pharmacy-footer-column pharmacy-footer-services">
+<h3>Our Services</h3>
+<ul>
+<li>
+<a href="#">
+<i class="fas fa-capsules"></i>
+<span>Vitamins & Supplements</span>
+</a>
+</li>
+<li>
+<a href="#">
+<i class="fas fa-pills"></i>
+<span>OTC Medications</span>
+</a>
+</li>
+<li>
+<a href="#">
+<i class="fas fa-first-aid"></i>
+<span>Medical Supplies</span>
+</a>
+</li>
+<li>
+<a href="#">
+<i class="fas fa-spa"></i>
+<span>Beauty & Personal Care</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="pharmacy-footer-column pharmacy-footer-links">
+<h3>Quick Links</h3>
+<ul>
+<li><a href="../">Home</a></li>
+<li><a href="/about-s.html">About Us</a></li>
+<li><a href="/contact-us.html">Contact Us</a></li>
+<li><a href="/services/">Our Services</a></li>
+</ul>
+</div>
+<div class="pharmacy-footer-column pharmacy-hours">
+<h3>Pharmacy Hours</h3>
+<div class="pharmacy-hours-info">
+<div class="hours-row">
+<span class="hours-day">Monday - Friday</span>
+<span class="hours-time">8:00 AM - 9:00 PM</span>
+</div>
+<div class="hours-row">
+<span class="hours-day">Saturday</span>
+<span class="hours-time">Closed</span>
+</div>
+<div class="hours-row">
+<span class="hours-day">Sunday</span>
+<span class="hours-time">Closed</span>
+</div>
+</div>
+<a href="tel:+16144772686" class="pharmacy-phone">
+<i class="fas fa-phone"></i>
+Call: +1 614-477-2686
+</a>
+</div>
+</div>
+<div class="pharmacy-footer-bottom">
+<p>© 2026 Butlers Med Pharmacy. All Rights Reserved.</p>
+<div class="presented-by">
+Presented by <a href="https://ayrasol.com" target="_blank">Ayrasol Services</a>
+</div>
+</div>
+</footer>
 </body>
 </html>
