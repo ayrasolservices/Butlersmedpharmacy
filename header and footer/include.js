@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 });
             }
+            
+            // Initialize mobile menu AFTER header is loaded
+            initializeMobileMenu();
         })
         .catch(error => {
             console.error('Header error:', error);
@@ -73,4 +76,74 @@ document.addEventListener('DOMContentLoaded', function() {
                 </footer>
             `;
         });
+    
+    // Mobile menu initialization function
+    function initializeMobileMenu() {
+        // Wait a bit for DOM to be fully rendered
+        setTimeout(function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobilePanel = document.getElementById('mobilePanel');
+            const mobileOverlay = document.getElementById('mobileOverlay');
+            const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+            
+            // Check if mobile menu elements exist
+            if (!hamburgerBtn || !mobilePanel) {
+                console.log('Mobile menu elements not found');
+                return;
+            }
+            
+            console.log('Initializing mobile menu...');
+            
+            function openMobileMenu() {
+                if (mobileOverlay) mobileOverlay.classList.add('show');
+                if (mobilePanel) mobilePanel.classList.add('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'true');
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeMobileMenu() {
+                if (mobileOverlay) mobileOverlay.classList.remove('show');
+                if (mobilePanel) mobilePanel.classList.remove('show');
+                hamburgerBtn.setAttribute('aria-expanded', 'false');
+                document.body.style.overflow = '';
+            }
+            
+            // Remove any existing event listeners by cloning elements
+            if (hamburgerBtn && hamburgerBtn.parentNode) {
+                const newHamburgerBtn = hamburgerBtn.cloneNode(true);
+                hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
+                newHamburgerBtn.addEventListener('click', openMobileMenu);
+            }
+            
+            if (mobileCloseBtn && mobileCloseBtn.parentNode) {
+                const newMobileCloseBtn = mobileCloseBtn.cloneNode(true);
+                mobileCloseBtn.parentNode.replaceChild(newMobileCloseBtn, mobileCloseBtn);
+                newMobileCloseBtn.addEventListener('click', closeMobileMenu);
+            }
+            
+            if (mobileOverlay && mobileOverlay.parentNode) {
+                const newMobileOverlay = mobileOverlay.cloneNode(true);
+                mobileOverlay.parentNode.replaceChild(newMobileOverlay, mobileOverlay);
+                newMobileOverlay.addEventListener('click', closeMobileMenu);
+            }
+            
+            // Close menu on window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 992) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Close menu when clicking links
+            if (mobilePanel) {
+                mobilePanel.addEventListener('click', function(e) {
+                    if (e.target.tagName === 'A') {
+                        closeMobileMenu();
+                    }
+                });
+            }
+            
+            console.log('Mobile menu initialized successfully');
+        }, 100); // Small delay to ensure DOM is ready
+    }
 });
