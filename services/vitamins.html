@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Vitamins & Supplements</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .vitamin-hero {
+            padding: 5rem 5% 4rem;
+            background: linear-gradient(rgba(32, 63, 153, 0.03), rgba(32, 63, 153, 0.05)), 
+                        url('https://images.unsplash.com/photo-1592492159418-2f1b6d4e223f?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .vitamin-hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .vitamin-hero-content {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .vitamin-hero h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #203F99;
+        }
+
+        .vitamin-hero h1 span {
+            color: #2a6ecc;
+            position: relative;
+        }
+
+        .vitamin-hero h1 span::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 8px;
+            bottom: 5px;
+            left: 0;
+            background-color: rgba(32, 63, 153, 0.15);
+            z-index: -1;
+            border-radius: 4px;
+        }
+
+        .vitamin-hero-subtitle {
+            font-size: 1.3rem;
+            color: #6c757d;
+            margin-bottom: 2.5rem;
+            max-width: 90%;
+        }
+
+        .vitamin-hero-visual {
+            position: relative;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .vitamin-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transform: perspective(1000px) rotateY(-10deg);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .vitamin-img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+
+        .vitamin-floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .vitamin-floating-element {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            animation: floatElement 8s ease-in-out infinite;
+        }
+
+        .vitamin-floating-element:nth-child(1) {
+            width: 70px;
+            height: 70px;
+            top: 10%;
+            left: -5%;
+            background-color: rgba(32, 63, 153, 0.05);
+            animation-delay: 0s;
+        }
+
+        .vitamin-floating-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            bottom: 20%;
+            right: -5%;
+            background-color: rgba(0, 168, 150, 0.05);
+            animation-delay: 1s;
+        }
+
+        .vitamin-floating-element:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            top: 50%;
+            left: -10%;
+            background-color: rgba(255, 107, 107, 0.05);
+            animation-delay: 2s;
+        }
+
+        @keyframes floatElement {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+
+        .vitamin-categories {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vitamin-section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #203F99;
+            position: relative;
+        }
+
+        .vitamin-section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, #2a6ecc, #00a896);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .categories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            /* Border-top removed as requested */
+        }
+
+        .category-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        /* Removed hover lift-up effect */
+        .category-card:hover {
+            /* transform: translateY(-10px); Removed */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12); /* Slightly stronger shadow on hover */
+        }
+
+        .category-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(32, 63, 153, 0.05), white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: #2a6ecc;
+        }
+
+        .category-card:nth-child(2) .category-icon {
+            background: linear-gradient(135deg, rgba(0, 168, 150, 0.05), white);
+            color: #00a896;
+        }
+
+        .category-card:nth-child(3) .category-icon {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.05), white);
+            color: #ffd700;
+        }
+
+        .category-card:nth-child(4) .category-icon {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.05), white);
+            color: #ff6b6b;
+        }
+
+        .category-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: #203F99;
+        }
+
+        .category-description {
+            color: #6c757d;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .category-benefits {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .category-benefits li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .category-benefits li i {
+            color: #00a896;
+            font-size: 0.9rem;
+        }
+
+        .vitamin-final-cta {
+            padding: 4rem 5%;
+            background: linear-gradient(rgba(26, 61, 122, 0.9), rgba(26, 61, 122, 0.95)), 
+                        url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 12px 12px;
+            margin-top: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vitamin-final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vitamin-final-cta p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vitamin-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
+        }
+
+        .vitamin-cta-buttons a {
+            padding: 0.9rem 1.8rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: none;
+            min-width: 150px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .vitamin-visit-button {
+            background: white;
+            color: #1a3d7a;
+        }
+
+        .vitamin-visit-button:hover {
+            background: #f0f0f0;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .vitamin-call-button {
+            background: white;
+            color: #203F99;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+     
+
+        @media (max-width: 1400px) {
+            .vitamin-hero-container,
+            .vitamin-categories {
+                max-width: 1140px;
+            }
+        }
+
+        @media (max-width: 1280px) {
+            .vitamin-hero-container,
+            .vitamin-categories {
+                max-width: 1040px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .vitamin-hero-container,
+            .vitamin-categories {
+                max-width: 960px;
+            }
+            
+            .vitamin-hero h1 {
+                font-size: 2.6rem;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .vitamin-hero-container,
+            .vitamin-categories {
+                max-width: 900px;
+            }
+            
+            .vitamin-hero {
+                min-height: 70vh;
+            }
+            
+            .categories-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .vitamin-hero-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            
+            .vitamin-hero h1 {
+                font-size: 2.4rem;
+            }
+            
+            .vitamin-hero-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .vitamin-section-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .vitamin-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .vitamin-hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .categories-container {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .vitamin-section-title {
+                font-size: 1.8rem;
+            }
+            
+            .vitamin-final-cta h2 {
+                font-size: 1.8rem;
+            }
+            
+            .vitamin-cta-buttons {
+                gap: 1rem;
+            }
+            
+            .vitamin-cta-buttons a {
+                padding: 0.8rem 1.5rem;
+                font-size: 0.9rem;
+                min-width: 140px;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .vitamin-hero {
+                padding: 3rem 5% 2rem;
+                min-height: 60vh;
+            }
+            
+            .vitamin-categories {
+                padding: 3rem 5%;
+            }
+            
+            .vitamin-final-cta {
+                padding: 3rem 5%;
+            }
+            
+            .vitamin-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .vitamin-section-title {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .vitamin-hero h1 {
+                font-size: 1.6rem;
+            }
+            
+            .vitamin-hero-subtitle {
+                font-size: 0.95rem;
+                max-width: 100%;
+            }
+            
+            .category-card {
+                padding: 1.5rem 1.2rem;
+            }
+            
+            .category-title {
+                font-size: 1.2rem;
+            }
+            
+            .vitamin-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.8rem;
+            }
+            
+            .vitamin-cta-buttons a {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vitamin-hero {
+                padding: 2.5rem 5% 1.5rem;
+            }
+            
+            .vitamin-hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .vitamin-section-title {
+                font-size: 1.4rem;
+            }
+            
+            .vitamin-final-cta h2 {
+                font-size: 1.5rem;
+            }
+            
+            .vitamin-final-cta p {
+                font-size: 1rem;
+            }
+            
+            .vitamin-floating-element {
+                display: none;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .vitamin-hero h1 {
+                font-size: 1.3rem;
+            }
+            
+            .vitamin-hero-subtitle {
+                font-size: 0.9rem;
+            }
+            
+            .category-card {
+                padding: 1.2rem 1rem;
+            }
+            
+            .category-icon {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.1rem;
+            }
+            
+            .category-benefits li {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="vitamin-hero">
+        <div class="vitamin-hero-container">
+            <div class="vitamin-hero-content">
+                <h1>Premium Vitamins & <span>Supplements</span></h1>
+                <p class="vitamin-hero-subtitle">From immune support to daily nutrition, find trusted, high-quality brands and get personalized advice for your wellness goals.</p>
+            </div>
+            <div class="vitamin-hero-visual">
+                <img src="https://images.unsplash.com/photo-1623854381772-fd6c06a09eef?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vitamins and supplements display" class="vitamin-img">
+                <div class="vitamin-floating-elements">
+                    <div class="vitamin-floating-element">
+                        <i class="fas fa-capsules" style="color: #2a6ecc; font-size: 1.5rem;"></i>
+                    </div>
+                    <div class="vitamin-floating-element">
+                        <i class="fas fa-heart" style="color: #00a896; font-size: 1.3rem;"></i>
+                    </div>
+                    <div class="vitamin-floating-element">
+                        <i class="fas fa-leaf" style="color: #ff6b6b; font-size: 1.1rem;"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vitamin-categories">
+        <h2 class="vitamin-section-title">Find the Right Support</h2>
+        <p style="text-align: center; max-width: 700px; margin: 0 auto 3rem; color: #6c757d; font-size: 1rem;">
+            We carry a curated selection of reputable brands and our knowledgeable staff is here to guide you toward the right choices for your individual needs.
+        </p>
+        
+        <div class="categories-container">
+            <div class="category-card" id="category1">
+                <div class="category-icon">
+                    <i class="fas fa-shield-virus"></i>
+                </div>
+                <h3 class="category-title">Immune & Wellness Support</h3>
+                <p class="category-description">Boost your body's natural defenses with our selection of essential supplements for year-round protection.</p>
+                <ul class="category-benefits">
+                    <li><i class="fas fa-check-circle"></i> Vitamin C & Zinc formulations</li>
+                    <li><i class="fas fa-check-circle"></i> Elderberry & Echinacea extracts</li>
+                    <li><i class="fas fa-check-circle"></i> Probiotics for gut health</li>
+                    <li><i class="fas fa-check-circle"></i> Seasonal wellness blends</li>
+                </ul>
+            </div>
+            
+            <div class="category-card" id="category2">
+                <div class="category-icon">
+                    <i class="fas fa-calendar-day"></i>
+                </div>
+                <h3 class="category-title">Daily Essentials</h3>
+                <p class="category-description">Complete nutritional support with tailored multivitamins and essential single supplements.</p>
+                <ul class="category-benefits">
+                    <li><i class="fas fa-check-circle"></i> Men's & Women's multivitamins</li>
+                    <li><i class="fas fa-check-circle"></i> Senior formulations</li>
+                    <li><i class="fas fa-check-circle"></i> Children's vitamins</li>
+                    <li><i class="fas fa-check-circle"></i> Vitamin D3 & B-Complex</li>
+                </ul>
+            </div>
+            
+            <div class="category-card" id="category3">
+                <div class="category-icon">
+                    <i class="fas fa-heartbeat"></i>
+                </div>
+                <h3 class="category-title">Specialty Formulas</h3>
+                <p class="category-description">Targeted solutions for specific health concerns and overall vitality.</p>
+                <ul class="category-benefits">
+                    <li><i class="fas fa-check-circle"></i> Fish Oil & Omega-3s</li>
+                    <li><i class="fas fa-check-circle"></i> Joint & muscle support</li>
+                    <li><i class="fas fa-check-circle"></i> Hair, skin & nail formulas</li>
+                    <li><i class="fas fa-check-circle"></i> Sleep & stress support</li>
+                </ul>
+            </div>
+            
+            <div class="category-card" id="category4">
+                <div class="category-icon">
+                    <i class="fas fa-user-md"></i>
+                </div>
+                <h3 class="category-title">Expert Guidance</h3>
+                <p class="category-description">Personalized advice to ensure you choose the right supplements for your needs.</p>
+                <ul class="category-benefits">
+                    <li><i class="fas fa-check-circle"></i> Dosage recommendations</li>
+                    <li><i class="fas fa-check-circle"></i> Ingredient explanations</li>
+                    <li><i class="fas fa-check-circle"></i> Interaction checks</li>
+                    <li><i class="fas fa-check-circle"></i> Personalized regimens</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="vitamin-final-cta">
+        <h2>Boost Your Health with Confidence</h2>
+        <p>Discover the difference quality supplements and professional guidance can make for your wellness journey.</p>
+        
+        <div class="vitamin-cta-buttons">
+            <a href="https://www.google.com/maps/search/?api=1&query=Pharmacy+Medical+City" target="_blank" class="vitamin-visit-button">
+                <i class="fas fa-store"></i> Visit Us
+            </a>
+            <a href="tel:5551234567" class="vitamin-call-button">
+                <i class="fas fa-phone-alt"></i> Call for Advice
+            </a>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryCards = document.querySelectorAll('.category-card');
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        const index = Array.from(categoryCards).indexOf(entry.target);
+                        entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            categoryCards.forEach(card => {
+                cardObserver.observe(card);
+            });
+            
+            const floatingElements = document.querySelectorAll('.vitamin-floating-element');
+            floatingElements.forEach(el => {
+                el.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.1)';
+                });
+                
+                el.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroVisual = document.querySelector('.vitamin-hero-visual');
+                
+                if (heroVisual && scrolled < 800) {
+                    const rate = scrolled * -0.5;
+                    heroVisual.style.transform = `translateY(${rate}px) rotateY(-10deg)`;
+                }
+            });
+            
+            categoryCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    const icon = this.querySelector('.category-icon');
+                    icon.style.transform = 'scale(1.1) rotate(5deg)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    const icon = this.querySelector('.category-icon');
+                    icon.style.transform = 'scale(1) rotate(0deg)';
+                });
+            });
+            
+            const buttons = document.querySelectorAll('.vitamin-visit-button, .vitamin-call-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size/2;
+                    const y = e.clientY - rect.top - size/2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                        z-index: 1;
+                    `;
+                    
+                    this.style.position = 'relative';
+                    this.style.overflow = 'hidden';
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+        
+        window.addEventListener('resize', function() {
+            const heroVisual = document.querySelector('.vitamin-hero-visual');
+            if (window.innerWidth <= 480) {
+                heroVisual.style.transform = 'translateY(0) rotateY(-10deg)';
+            }
+        });
+    </script>
+</body>
+</html>
