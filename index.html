@@ -1,1211 +1,3676 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Butler's Med Pharmacy</title>
-
-  <!-- Font Awesome for icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Butler's Med Pharmacy - Complete Website</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: "Space Grotesk", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: #fff;
-      color: #000;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-  
-    a:hover {
-      text-decoration: underline;
-    }
-
-    button {
-      font-family: inherit;
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-
-    .wrap {
+ 
+    /* ========== SECTION 1: Hero Slider (From First Code) ========== */
+    .hero-section {
+      position: relative;
       width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 16px;
+      overflow: hidden;
     }
 
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      background: #fff;
-      border-bottom: 1px solid #e6ebf2;
-    }
-
-    .topbar {
-      background: #fff; 
-      color: #203F99; 
-      font-size: 14px;
-      border-bottom: 1px solid #e6ebf2;
-    }
-
-    .topbar .wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 16px;
-    }
-
-    .topbar-left {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      min-width: 220px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .logo-img {
-      width: 85px;
-      height: 85px;
-      border-radius: 12px;
-      object-fit: contain;
-    }
-
-    .brandtext {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.05;
-    }
-
-    .brandtext strong {
-      font-size: 22px;
-      font-weight: 600;
-      letter-spacing: 0.2px;
-      color: #203F99; 
-    }
-
-    
-    .logo:hover {
-      text-decoration: none;
-    }
-    
-    .logo:hover .brandtext strong {
-      text-decoration: none;
-    }
-
-    .topbar-center {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      flex: 1;
-      justify-content: center;
-      white-space: nowrap;
-    }
-
-    .topbar-right {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      min-width: 220px;
-      justify-content: flex-end;
-    }
-
-    .info-item {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      white-space: nowrap;
-      font-weight: 500;
-      color: #203F99; 
-    }
-
-    .info-item svg {
-      width: 18px;
-      height: 18px;
-      opacity: 0.95;
-      flex: 0 0 auto;
-      color: #203F99; 
-    }
-
-    .info-item a {
-      color: #203F99;
-    }
-
-    .info-item a:hover {
-      color: #0d2e7a;
-    }
-
-    .phone-fax {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    
-    .phone-fax a:hover .phone-text {
-      text-decoration: underline;
-    }
-    
-    .phone-fax a:hover .fax-text {
-      text-decoration: none;
-    }
-
-    .info-divider {
-      margin: 0 8px;
-      color: #666; 
-    }
-
-    .navbar {
-      background: #203F99; 
-      color: #fff; 
-      border-bottom: 1px solid #1a347e;
-    }
-
-    .navbar .wrap {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 14px 16px;
+    .hero {
       position: relative;
+      height: 100vh;
+      min-height: 600px;
+      width: 100%;
+      overflow: hidden;
+      background-color: #000;
+      transition: background-image 1.2s ease-in-out;
+      isolation: isolate; 
     }
 
-    .navlinks {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      justify-content: center;
+    .hero.desktop-bg-1 {
+      background: #000 url('hero-1.png') center/cover no-repeat;
+    }
+    .hero.desktop-bg-2 {
+      background: #000 url('hero-2.png') center/cover no-repeat;
+    }
+    .hero.desktop-bg-3 {
+      background: #000 url('hero-3.png') center/cover no-repeat;
+    }
+    .hero.desktop-bg-4 {
+      background: #000 url('hero-4.png') center/cover no-repeat;
     }
 
-    .navlinks a,
-    .navlinks button.linklike {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #fff; 
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      white-space: nowrap;
-      text-decoration: none !important; 
+    .mobile-bg-1 {
+      background: linear-gradient(rgba(32, 63, 153, 0.5), rgba(32, 63, 153, 0.5)), #000 url('hero-mob-1.png') center/cover no-repeat !important;
+    }
+    .mobile-bg-2 {
+      background: linear-gradient(rgba(32, 63, 153, 0.5), rgba(32, 63, 153, 0.5)), #000 url('hero-mob-2.png') center/cover no-repeat !important;
+    }
+    .mobile-bg-3 {
+      background: linear-gradient(rgba(32, 63, 153, 0.5), rgba(32, 63, 153, 0.5)), #000 url('hero-mob-3.png') center/cover no-repeat !important;
+    }
+    .mobile-bg-4 {
+      background: linear-gradient(rgba(32, 63, 153, 0.5), rgba(32, 63, 153, 0.5)), #000 url('hero-mob-4.png') center/cover no-repeat !important;
     }
 
-    .navlinks a:hover,
-    .navlinks button.linklike:hover {
-      background: rgba(255, 255, 255, 0.15); 
-      text-decoration: none !important; 
-    }
-
-    .dropdown {
-      position: relative;
-    }
-
-    .chev {
-      width: 14px;
-      height: 14px;
-      transition: transform 0.3s ease;
-      opacity: 0.95;
-      color: #fff; 
-    }
-
-    .dropdown:hover .chev,
-    .dropdown[data-open="true"] .chev {
-      transform: rotate(180deg);
-    }
-
-    .dropdown-panel {
+    .text-container {
       position: absolute;
-      left: 50%;
-      transform: translateX(-50%) translateY(-10px);
-      top: calc(100% + 10px);
-      width: min(560px, 92vw);
-      background: #fff;
-      color: #000;
-      border: 1px solid #e6ebf2;
-      border-radius: 16px;
-      box-shadow: 0 18px 40px rgba(11, 18, 32, 0.15);
-      padding: 14px;
+      z-index: 50;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      pointer-events: none;
+    }
+
+    .text-container.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    .main-title {
+    
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
+      color: #203F99;
+      text-transform: none;
+      max-width: 700px;
+    }
+
+    .main-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 3px;
+      background: currentColor;
+      animation: titleLineDesktop 0.8s ease forwards 0.5s;
+    }
+
+    @keyframes titleLineDesktop {
+      to { width: 80px; }
+    }
+
+    @keyframes titleLineMobile {
+      to { 
+        width: 80px; 
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    .description {
+      
+      font-size: 1.1rem;
+      line-height: 1.6;
+      font-weight: 700;
+      margin-bottom: 1.8rem;
+      max-width: 600px;
+      letter-spacing: 0.2px;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: slideUpFadeIn 0.8s ease 0.3s forwards;
+      color: #000;
+    }
+
+    @keyframes slideUpFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: slideUpFadeIn 0.8s ease 0.6s forwards;
+      background: #203F99;
+      color: white;
+      border: 2px solid #203F99;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #FD0511;
+      transition: width 0.4s ease;
+      z-index: -1;
+    }
+
+    .btn:hover::after {
+      width: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      color: white;
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-red {
+      background: #FD0511;
+      color: white;
+      border: 2px solid #FD0511;
+    }
+
+    .btn-red::after {
+      background: #203F99;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: #000;
+      border: 2px solid #fff;
+    }
+
+    .btn-white::after {
+      background: #203F99;
+    }
+
+    .btn-white:hover {
+      color: white;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(90deg, #FD0511 0%, #203F99 100%);
+      color: white;
+      border: none;
+    }
+
+    .btn-gradient::after {
+      background: linear-gradient(90deg, #203F99 0%, #FD0511 100%);
+    }
+
+    .slide-1 {
+      top: 50%;
+      left: 120px;
+      transform: translateY(-50%) translateX(-30px);
+      max-width: 750px;
+      text-align: left;
+    }
+
+    .slide-1.active {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .slide-2 {
+      top: 50%;
+      left: 120px;
+      transform: translateY(-50%) translateX(-30px);
+      max-width: 750px;
+      text-align: left;
+    }
+
+    .slide-2.active {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .slide-3 {
+      top: 50%;
+      left: 120px;
+      transform: translateY(-50%) translateX(-30px);
+      max-width: 750px;
+      text-align: left;
+    }
+
+    .slide-3.active {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .slide-4 {
+      top: 50%;
+      left: 120px;
+      transform: translateY(-50%) translateX(-30px);
+      max-width: 750px;
+      text-align: left;
+    }
+
+    .slide-4.active {
+      transform: translateY(-50%) translateX(0);
+    }
+
+    .nav-dots {
+      position: absolute; /* Changed from fixed to absolute */
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
       z-index: 1000;
     }
 
-    .dropdown:hover .dropdown-panel,
-    .dropdown:focus-within .dropdown-panel {
-      opacity: 1;
-      visibility: visible;
-      transform: translateX(-50%) translateY(0);
-    }
-
-    .dropdown-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px 14px;
-    }
-
-    .dd-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 12px;
-      border: 1px solid transparent;
-      font-weight: 500;
-      color: #203F99 !important; 
-      text-decoration: none !important; /
-    }
-
-    .dd-item:hover {
-      background: #f2f7ff;
-      border-color: #d8e6ff;
-      text-decoration: none !important; 
-    }
-
-    .dd-item i {
-      width: 18px;
-      height: 18px;
-      margin-top: 1px;
-      color: #203F99 !important; 
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-  
-    .fa-icon {
-      font-size: 16px;
-      width: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mobile-header {
-      display: none;
-      background: #203F99; 
-      padding: 12px 16px;
-      position: relative;
-      border-bottom: 1px solid #1a347e;
-    }
-
-    .mobile-header .wrap {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .mobile-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hamburger {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 12px;
-      background: transparent;
-      color: #fff;
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #203F99;
       cursor: pointer;
-      transition: all 0.2s ease;
-      padding: 0;
+      transition: all 0.3s ease;
     }
 
-    .hamburger:hover {
-      background: rgba(255, 255, 255, 0.1);
+    .dot:hover {
+      background: #203F99;
+      transform: scale(1.2);
     }
 
-    .hamburger-icon {
+    .dot.active {
+      background: #FD0511;
+      transform: scale(1.3);
+      box-shadow: 0 0 10px rgba(253, 5, 17, 0.5);
+    }
+
+    /* Hero-specific sparkles, pills and crosses */
+    .hero-sparkle {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      pointer-events: none;
+      z-index: 10;
+      opacity: 0;
+      background: #FD0511;
+      border-radius: 50%;
+      filter: blur(1px);
+    }
+
+    .hero-pill {
+      position: absolute;
       width: 40px;
-      height: 40px;
+      height: 20px;
+      background: linear-gradient(90deg, #203F99, #FD0511);
+      border-radius: 20px;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+    }
+
+    .hero-cross {
+      position: absolute;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 10;
+      text-shadow: 0 0 10px rgba(253, 5, 17, 0.8);
+    }
+
+    .slide-transition {
+      position: absolute; /* Changed from fixed to absolute */
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(32, 63, 153, 0.8);
+      z-index: 100;
+      pointer-events: none;
+      opacity: 0;
       display: flex;
       align-items: center;
       justify-content: center;
     }
 
-    .mobile-panel {
-      display: none;
-      background: #fff;
-      color: #000;
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      max-width: 320px;
-      z-index: 1001;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      box-shadow: -8px 0 24px rgba(11, 18, 32, 0.15);
-      overflow-y: auto;
+    .transition-icon {
+      font-size: 80px;
+      color: white;
+      transform: scale(0);
     }
 
-    .mobile-panel[data-visible="true"] {
+    /* ========== SECTION 2: About Section (From First Code) ========== */
+    .about-pharmacy{
+      background: #ffffff;
+      padding: 56px 16px;
+      overflow: hidden;
+    }
+
+    .ap-wrap{
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .ap-head{
+      text-align:center;
+      margin-bottom: 28px;
+    }
+
+    .ap-head h2{
+      margin: 0;
+      font-size: clamp(26px, 3vw, 34px);
+      font-weight: 800;
+      color: #203F99;
+      letter-spacing: .2px;
+    }
+
+    .ap-underline{
+      display:inline-block;
+      width: 92px;
+      height: 3px;
+      background: #FD0511;
+      border-radius: 999px;
+      margin-top: 10px;
+    }
+
+    .ap-grid{
+      display:flex;
+      gap: 28px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap: wrap;
+    }
+
+    .ap-content{
+      flex: 1 1 420px;
+      max-width: 520px;
+    }
+
+    .ap-content p{
+      margin: 0 0 18px;
+      color: #1f2937;
+      font-size: 15.5px;
+      line-height: 1.75;
+    }
+
+    .ap-btn{
+      display:inline-flex;
+      align-items:center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      background: #203F99;
+      color: #fff;
+      text-decoration:none;
+      font-weight: 700;
+      font-size: 14.5px;
+      box-shadow: 0 10px 22px rgba(32,63,153,.18);
+      transition: all .18s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .ap-btn-text, .ap-btn-icon {
+      position: relative;
+      z-index: 2;
+    }
+
+    .ap-btn-icon{
+      opacity: 0;
+      transform: translateX(-6px);
+      transition: opacity .18s ease, transform .18s ease;
+    }
+
+    .ap-btn-fill{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+      background: #FD0511;
+      border-radius: 999px;
+      transition: width .4s cubic-bezier(0.65, 0, 0.35, 1);
+      z-index: 1;
+    }
+
+    .ap-btn:hover{
+      transform: translateY(-1px);
+      box-shadow: 0 12px 26px rgba(253,5,17,.18);
+    }
+
+    .ap-btn:hover .ap-btn-fill{
+      width: 100%;
+    }
+
+    .ap-btn:hover .ap-btn-icon{
+      opacity: 1;
       transform: translateX(0);
     }
 
-    .mobile-inner {
-      padding: 20px 16px;
-      height: 100%;
+    .ap-images{
+      flex: 1 1 420px;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      gap: 14px;
+      position: relative;
+      min-height: 260px;
     }
 
-    .m-link {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 100%;
-      padding: 14px 12px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 500;
-      color: #203F99; 
-      margin-bottom: 8px;
-      transition: background 0.2s ease;
-      text-decoration: none !important; 
-    }
-
-    .m-link:hover {
-      background: #f6f8fc;
-      text-decoration: none !important; 
-    }
-
-    details.services-acc {
-      margin-top: 6px;
-      border-radius: 14px;
-      padding: 4px 6px;
+    .ap-img{
+      width: 155px;
+      height: 260px;
+      object-fit: cover;
+      border-radius: 22px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.12);
+      border: none;
       background: #fff;
-      margin-bottom: 8px;
     }
 
-    details.services-acc > summary {
-      list-style: none;
-      cursor: pointer;
-      padding: 14px 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 16px;
-      font-weight: 600;
-      color: #203F99; /* Blue text for accordion summary */
-      border-radius: 12px;
-      transition: background 0.2s ease;
+    .ap-img--center{
+      width: 175px;
+      height: 290px;
+      z-index: 2;
     }
 
-    details.services-acc > summary:hover {
-      background: #f6f8fc;
+    .ap-img--left{ z-index: 1; }
+    .ap-img--right{ z-index: 1; }
+
+    .ap-reveal-item{
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity .7s ease, transform .7s ease;
+      will-change: opacity, transform;
     }
 
-    details.services-acc > summary::-webkit-details-marker {
-      display: none;
+    .ap-reveal-item.is-visible{
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .acc-chev {
-      width: 16px;
-      height: 16px;
-      transition: transform 0.3s ease;
-      opacity: 0.75;
-      color: #203F99; /* Blue chevron */
+    /* ========== SECTION 3: Keywords Slider (From Second Code) ========== */
+    .BTslider-container {
+        width: 100%;
+        overflow: hidden;
+        cursor: pointer;
+        margin-bottom: 40px;
     }
 
-    details[open] .acc-chev {
-      transform: rotate(180deg);
+    .BTslider-track {
+        display: flex;
+        width: max-content;
+        animation: BTscroll 25s linear infinite;
     }
 
-    .acc-grid {
-      padding: 4px 6px 10px;
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 8px;
-      animation: fadeIn 0.3s ease;
+    .BTslider-track:hover {
+        animation-play-state: paused;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-5px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes BTscroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
     }
 
-    .acc-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px;
-      border-radius: 12px;
-      font-weight: 500;
-      color: #203F99; /* Blue text for accordion items */
-      background: #f8fafc;
-      border: 1px solid transparent;
-      transition: background 0.2s ease, border-color 0.2s ease;
-      text-decoration: none !important; /* Remove underline from accordion items */
+    .BTkeyword {
+        font-size: 8rem;
+        font-weight: 900;
+        white-space: nowrap;
+        margin: 0 40px;
+        color: #b0b0b0;
+        transition: color 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        -webkit-text-stroke: 1px rgba(176, 176, 176, 0.3);
     }
 
-    .acc-item:hover {
-      background: #f2f7ff;
-      text-decoration: none !important; /* Remove underline on hover */
+    .BTkeyword:hover {
+        color: #203F99;
+        -webkit-text-stroke: 1px #203F99;
     }
 
-    .acc-item i {
-      width: 18px;
-      height: 18px;
+    .BTkeyword::after {
+        content: '•';
+        color: #b0b0b0;
+        font-size: 3rem;
+        margin-left: 40px;
+        transition: color 0.3s ease;
+    }
+
+    .BTkeyword:hover::after {
+        color: #203F99;
+    }
+
+    /* ========== SECTION 4: Health Products (From Second Code) ========== */
+    .clean-section-4steps {
+      padding: 70px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background-image: linear-gradient(0deg, rgba(255,255,255,.93), rgba(255,255,255,.93)), url("https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=2000&q=70");
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 60px;
+    }
+
+    .clean-wrap { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      position: relative;
+      z-index: 2;
+    }
+
+    .clean-title {
+      font-size: 44px;
+      font-weight: 800;
+      margin-bottom: 60px;
       color: #203F99;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 15px;
+    }
+
+    .clean-title::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: #FD0511;
+      border-radius: 2px;
+    }
+
+    .steps {
       display: flex;
-      align-items: center;
       justify-content: center;
+      gap: 26px;
+      flex-wrap: wrap;
+      align-items: flex-start;
     }
 
-    /* Background overlay when mobile menu is open - REMOVED to fix visibility issue */
-    .mobile-menu-overlay {
-      display: none;
-    }
-
-    /* Contact info styles */
-    .contact-info {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-
-    .contact-info .info-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    /* Close button for mobile menu */
-    .mobile-close-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
+    .step-card {
+      width: 220px;
+      min-height: 320px;
       background: #fff;
-      color: #203F99;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      margin-bottom: 20px;
-      margin-left: auto;
-      border: 1px solid #e6ebf2;
-    }
-
-    .mobile-close-btn:hover {
-      background: #f2f7ff;
-      border-color: #d8e6ff;
-    }
-
-    /* Mobile menu header with logo */
-    .mobile-menu-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid #e6ebf2;
-    }
-
-    .mobile-menu-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .mobile-menu-logo-img {
-      width: 60px;
-      height: 60px;
-      border-radius: 12px;
-      object-fit: contain;
-    }
-
-    .mobile-menu-brand {
+      border-radius: 20px;
+      padding: 16px 16px 18px;
+      text-align: left;
+      box-shadow: 0 12px 34px rgba(0,0,0,0.1);
+      position: relative;
+      text-decoration: none;
+      color: inherit;
       display: flex;
       flex-direction: column;
-      line-height: 1.05;
+      transition: all .3s ease;
     }
 
-    .mobile-menu-brand strong {
-      font-size: 18px;
-      font-weight: 600;
+    .step-card:nth-child(1) { margin-top: 0px; }
+    .step-card:nth-child(2) { margin-top: 24px; }
+    .step-card:nth-child(3) { margin-top: 48px; }
+    .step-card:nth-child(4) { margin-top: 72px; }
+
+    .step-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 48px rgba(32, 63, 153, 0.2);
+    }
+
+    .step-img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform .5s ease;
+    }
+
+    .step-card:hover .step-img {
+      transform: scale(1.05);
+    }
+
+    .step-number {
+      position: absolute;
+      top: 138px;
+      right: 16px;
+      width: 38px;
+      height: 38px;
+      background: #FD0511;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 13px;
+      border: 4px solid #fff;
+      z-index: 2;
+      transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      overflow: hidden;
+    }
+
+    .step-number span {
+      display: block;
+      transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    }
+
+    .step-number i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(0deg) scale(0);
+      transition: all .4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      font-size: 16px;
+      opacity: 0;
+    }
+
+    .step-card:hover .step-number {
+      background: #203F99;
+      transform: rotate(0deg) scale(1.1);
+    }
+
+    .step-card:hover .step-number span {
+      transform: translateY(-40px) scale(0.5);
+      opacity: 0;
+    }
+
+    .step-card:hover .step-number i {
+      transform: translate(-50%, -50%) rotate(0deg) scale(1);
+      opacity: 1;
+    }
+
+    .step-card h3 {
+      margin: 14px 0 8px;
+      font-size: 17px;
+      font-weight: 800;
       color: #203F99;
     }
 
-    @media (max-width: 1400px) {
-      .wrap {
-        max-width: 1320px;
-      }
+    .step-card p {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: #555;
+      margin: 0;
+      flex-grow: 1;
     }
 
-    @media (max-width: 1280px) {
-      .wrap {
-        max-width: 1200px;
+    .particle {
+      position: absolute;
+      z-index: 1;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    
+    .delay-1 { transition-delay: .1s; }
+    .delay-2 { transition-delay: .2s; }
+    .delay-3 { transition-delay: .3s; }
+    .delay-4 { transition-delay: .4s; }
+
+    /* ========== SECTION 5: Why Choose Us (From Second Code) ========== */
+    .bt-main-heading {
+        max-width: 1600px;
+        margin: 0 auto 25px;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(-20px);
+        animation: btFadeInDown 0.8s ease-out forwards;
+    }
+    
+    .bt-main-heading h1 {
+        font-size: 42px;
+        color: #203F99;
+        margin-bottom: 15px;
+        line-height: 1.2;
+        position: relative;
+        display: inline-block;
+        padding-top: 15px;
+    }
+    
+    .bt-main-heading h1::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: linear-gradient(90deg, #FD0511 0%, #FF6B6B 100%);
+        border-radius: 2px;
+    }
+    
+    .bt-main-heading .bt-heading-desc {
+        font-size: 18px;
+        color: #475569;
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 25px auto 0;
+        font-weight: 500;
+    }
+    
+    .bt-main-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        display: flex;
+        gap: 24px;
+        height: 75vh;
+        min-height: 600px;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: btFadeInUp 0.8s ease-out 0.3s forwards;
+        margin-bottom: 60px;
+    }
+    
+    .bt-menu-section {
+        width: 260px;
+        background: transparent;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        justify-content: flex-start;
+        padding-top: 20px;
+        margin-top: 0;
+    }
+    
+    .bt-tab-menu {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        overflow: hidden;
+        height: auto;
+        margin-top: 0;
+    }
+    
+    .bt-tab-btn {
+        padding: 14px 24px;
+        background: none;
+        border: none;
+        border-left: 4px solid transparent;
+        text-align: left;
+        font-size: 15px;
+        color: #64748b;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+        min-height: 60px;
+        display: flex;
+        align-items: center;
+    }
+    
+    .bt-tab-btn:hover {
+        background: #f8fafc;
+        color: #203F99;
+        padding-left: 28px;
+        transform: translateX(5px);
+    }
+    
+    .bt-tab-btn.bt-active {
+        background: linear-gradient(90deg, rgba(253, 5, 17, 0.1) 0%, rgba(32, 63, 153, 0.1) 100%);
+        border-left-color: #FD0511;
+        color: #203F99;
+        font-weight: 600;
+        transform: translateX(8px);
+        font-size: 16px;
+    }
+    
+    .bt-tab-btn::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: #FD0511;
+        border-radius: 50%;
+        transform: translateY(-50%);
+        transition: all 0.3s ease;
+    }
+    
+    .bt-tab-btn.bt-active::before {
+        width: 8px;
+        height: 8px;
+        left: 10px;
+    }
+    
+    .bt-tab-btn::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, #e2e8f0, transparent);
+    }
+    
+    .bt-tab-btn:last-child::after {
+        display: none;
+    }
+    
+    .bt-text-section {
+        flex: 1;
+        border-radius: 12px;
+        padding: 40px;
+        overflow-y: auto;
+        scroll-behavior: smooth;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+        background: transparent;
+    }
+    
+    .bt-text-section.bt-active-content {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    
+    .bt-tab-content {
+        display: none;
+        animation: btFadeIn 0.6s ease-out;
+    }
+    
+    .bt-tab-content.bt-active {
+        display: block;
+    }
+    
+    .bt-tab-content h2 {
+        font-size: 32px;
+        margin-bottom: 24px;
+        color: #203F99;
+        line-height: 1.2;
+        position: relative;
+        padding-bottom: 15px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: btSlideDown 0.6s ease-out 0.2s forwards;
+    }
+    
+    .bt-tab-content h2::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(90deg, #FD0511 0%, #FF6B6B 100%);
+        border-radius: 2px;
+        animation: btUnderlineExpand 0.8s ease-out 0.4s forwards;
+        transform-origin: left;
+        transform: scaleX(0);
+    }
+    
+    .bt-tab-content p {
+        font-size: 17px;
+        line-height: 1.7;
+        color: #475569;
+        margin-bottom: 20px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: btSlideDown 0.6s ease-out forwards;
+    }
+    
+    .bt-tab-content p:nth-child(2) { animation-delay: 0.3s; }
+    .bt-tab-content p:nth-child(3) { animation-delay: 0.4s; }
+    .bt-tab-content p:nth-child(4) { animation-delay: 0.5s; }
+    .bt-tab-content p:nth-child(5) { animation-delay: 0.6s; }
+    
+    .bt-image-section {
+        width: 420px;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        overflow: hidden;
+    }
+    
+    .bt-image-container {
+        height: 100%;
+        width: 100%;
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: transparent;
+    }
+    
+    .bt-tab-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: none;
+        opacity: 0;
+        transform: scale(0.95);
+        animation: btScaleIn 0.6s ease-out forwards;
+    }
+    
+    .bt-tab-image.bt-active {
+        display: block;
+    }
+
+    /* ========== SECTION 6: Contact Banner (From Second Code) ========== */
+    .rd-pharmacy-section {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        margin-top: 20px;
+        margin-bottom: 60px;
+        border-radius: 12px;
+    }
+
+    .rd-background-container {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+    }
+
+    .rd-background-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: brightness(1.05);
+    }
+
+    .rd-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(173, 216, 230, 0.9) 0%, rgba(176, 224, 230, 0.85) 100%);
+        z-index: 2;
+    }
+
+    .rd-floating-icons {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+    }
+
+    .rd-medical-icon {
+        position: absolute;
+        color: #FD0511;
+        font-size: 1.8rem;
+        opacity: 0;
+        animation: rd-floatUp 15s linear infinite;
+        filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1));
+    }
+
+    .rd-medical-icon:nth-child(1){left:5%;animation-delay:0s}
+    .rd-medical-icon:nth-child(2){left:15%;animation-delay:2s}
+    .rd-medical-icon:nth-child(3){left:25%;animation-delay:4s}
+    .rd-medical-icon:nth-child(4){left:35%;animation-delay:6s}
+    .rd-medical-icon:nth-child(5){left:45%;animation-delay:8s}
+    .rd-medical-icon:nth-child(6){left:55%;animation-delay:10s}
+    .rd-medical-icon:nth-child(7){left:65%;animation-delay:12s}
+    .rd-medical-icon:nth-child(8){left:75%;animation-delay:14s}
+    .rd-medical-icon:nth-child(9){left:85%;animation-delay:1s}
+    .rd-medical-icon:nth-child(10){left:95%;animation-delay:3s}
+
+    @keyframes rd-floatUp {
+        0% {transform: translateY(400px) scale(0.8) rotate(0deg); opacity:0;}
+        10% {opacity:0.25; transform: translateY(350px) scale(1) rotate(5deg);}
+        90% {opacity:0.25; transform: translateY(50px) scale(1) rotate(-5deg);}
+        100% {transform: translateY(-120px) scale(0.8) rotate(0deg); opacity:0;}
+    }
+
+    .rd-content-container {
+        position: relative;
+        z-index: 4;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+        padding: 0 80px;
+        color: #333;
+    }
+
+    .rd-text-content {
+        max-width: 600px;
+    }
+
+    .rd-text-content h2 {
+        font-size: 42px;
+        font-weight: 700;
+        margin-bottom: 15px;
+        color: #203F99;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        transform: translateY(30px);
+        animation: rd-titleAppear 0.8s ease-out forwards 0.2s;
+    }
+
+    .rd-text-content p {
+        font-size: 18px;
+        opacity: 0.85;
+        max-width: 500px;
+        color: #2c3e50;
+        line-height: 1.6;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: rd-textAppear 0.8s ease-out forwards 0.5s;
+    }
+
+    @keyframes rd-titleAppear {
+        0% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+        70% {
+            transform: translateY(-5px) scale(1.02);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    @keyframes rd-textAppear {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+            letter-spacing: -0.5px;
+        }
+        100% {
+            opacity: 0.85;
+            transform: translateY(0);
+            letter-spacing: normal;
+        }
+    }
+
+    .rd-button-container {
+        opacity: 0;
+        transform: translateX(30px);
+        animation: rd-slideInRight 0.8s ease-out forwards 0.8s;
+    }
+
+    .rd-contact-btn {
+        background: #203F99;
+        color: #fff;
+        padding: 18px 45px;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 17px;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(32, 63, 153, 0.3);
+        letter-spacing: 0.5px;
+        z-index: 1;
+    }
+
+    .rd-contact-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #FD0511;
+        transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: -1;
+    }
+
+    .rd-contact-btn:hover::before {
+        width: 100%;
+    }
+
+    .rd-contact-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(253, 5, 17, 0.4);
+    }
+
+    .rd-contact-btn:active {
+        transform: translateY(-1px);
+    }
+
+    .rd-contact-btn i {
+        margin-right: 10px;
+        font-size: 18px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .rd-contact-btn span {
+        position: relative;
+        z-index: 1;
+    }
+
+    @keyframes rd-pulse {
+        0% { box-shadow: 0 8px 20px rgba(32, 63, 153, 0.3); }
+        50% { box-shadow: 0 8px 25px rgba(32, 63, 153, 0.5); }
+        100% { box-shadow: 0 8px 20px rgba(32, 63, 153, 0.3); }
+    }
+
+    .rd-contact-btn {
+        animation: rd-pulse 3s infinite;
+    }
+
+    @keyframes rd-icon-shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-3px); }
+        75% { transform: translateX(3px); }
+        100% { transform: translateX(0); }
+    }
+
+    .rd-contact-btn:hover i {
+        animation: rd-icon-shake 0.5s ease;
+    }
+
+    @keyframes rd-slideInRight {
+        from {opacity:0; transform:translateX(30px);}
+        to {opacity:1; transform:translateX(0);}
+    }
+
+    .rd-corner-decoration {
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        z-index: 3;
+        opacity: 0.1;
+    }
+
+    .rd-corner-top-left {
+        top: -40px;
+        left: -40px;
+        background: radial-gradient(circle, #203F99 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    .rd-corner-bottom-right {
+        bottom: -40px;
+        right: -40px;
+        background: radial-gradient(circle, #FD0511 0%, transparent 70%);
+        border-radius: 50%;
+    }
+
+    /* ========== SECTION 7: FAQ (From Second Code) ========== */
+    .faq-section{
+      min-height:500px;
+      display:flex;
+      align-items:center;
+      padding:40px;
+      background-image:url("faq-home.png");
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      position:relative;
+      overflow:hidden;
+      margin-bottom: 60px;
+    }
+    .floating-shapes {
+      position:absolute;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      pointer-events:none;
+    }
+    .shape {
+      position:absolute;
+      opacity:0.3;
+      border-radius:50%;
+      background:#203F99;
+      animation:float 20s infinite linear;
+    }
+    .shape:nth-child(1) {
+      width:15px;
+      height:15px;
+      top:20%;
+      left:10%;
+      animation-delay:0s;
+    }
+    .shape:nth-child(2) {
+      width:25px;
+      height:25px;
+      top:60%;
+      left:15%;
+      animation-delay:-5s;
+      animation-duration:25s;
+    }
+    .shape:nth-child(3) {
+      width:12px;
+      height:12px;
+      top:40%;
+      left:85%;
+      animation-delay:-10s;
+      animation-duration:18s;
+    }
+    .shape:nth-child(4) {
+      width:20px;
+      height:20px;
+      top:80%;
+      left:80%;
+      animation-delay:-15s;
+      animation-duration:30s;
+    }
+    .shape:nth-child(5) {
+      width:18px;
+      height:18px;
+      top:10%;
+      left:70%;
+      animation-delay:-7s;
+      animation-duration:22s;
+    }
+    .shape:nth-child(6) {
+      width:10px;
+      height:10px;
+      top:50%;
+      left:30%;
+      animation-delay:-3s;
+      animation-duration:15s;
+    }
+    .shape:nth-child(7) {
+      width:22px;
+      height:22px;
+      top:75%;
+      left:40%;
+      animation-delay:-12s;
+      animation-duration:28s;
+    }
+    .shape:nth-child(8) {
+      width:14px;
+      height:14px;
+      top:25%;
+      left:55%;
+      animation-delay:-8s;
+      animation-duration:20s;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform:translate(0,0) rotate(0deg);
       }
-      .brandtext strong {
-        font-size: 20px;
+      25% {
+        transform:translate(30px,-25px) rotate(90deg);
+      }
+      50% {
+        transform:translate(10px,-45px) rotate(180deg);
+      }
+      75% {
+        transform:translate(-25px,-25px) rotate(270deg);
+      }
+    }
+    .faq-sparkle {
+      position:absolute;
+      width:6px;
+      height:6px;
+      background:#4A6FDC;
+      border-radius:50%;
+      box-shadow:0 0 10px #4A6FDC;
+      animation:faq-sparkle 3s infinite;
+    }
+    .faq-sparkle:nth-child(9) {
+      top:30%;
+      left:30%;
+      animation-delay:0.5s;
+    }
+    .faq-sparkle:nth-child(10) {
+      top:50%;
+      left:50%;
+      animation-delay:1s;
+    }
+    .faq-sparkle:nth-child(11) {
+      top:70%;
+      left:20%;
+      animation-delay:1.5s;
+    }
+    .faq-sparkle:nth-child(12) {
+      top:20%;
+      left:60%;
+      animation-delay:2s;
+    }
+    .faq-sparkle:nth-child(13) {
+      top:80%;
+      left:70%;
+      animation-delay:2.5s;
+    }
+    @keyframes faq-sparkle {
+      0%, 100% {
+        opacity:0;
+        transform:scale(0.3);
+      }
+      50% {
+        opacity:1;
+        transform:scale(1.2);
+      }
+    }
+    .faq-wrapper{
+      position:relative;
+      max-width:1200px;
+      width:100%;
+      margin-left:auto;
+      display:flex;
+      justify-content:flex-end;
+      z-index:2;
+    }
+    .faq-card{
+      width:420px;
+      background:#fff;
+      color:#203F99;
+      padding:30px;
+      border-radius:12px;
+      box-shadow:0 20px 40px rgba(0,0,0,0.25);
+      position:relative;
+      z-index:3;
+    }
+    .faq-card h2{
+      margin:0 0 5px;
+      font-size:26px;
+    }
+    .faq-card p{
+      margin:0 0 20px;
+      font-size:14px;
+      color:#666;
+    }
+    .faq-item{
+      background:#f5f8ff;
+      border-radius:8px;
+      margin-bottom:12px;
+      overflow:hidden;
+      border:1px solid #e1e8ff;
+    }
+    .faq-question{
+      width:100%;
+      padding:14px 16px;
+      background:none;
+      border:none;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      cursor:pointer;
+      font-weight:600;
+      color:#203F99;
+      text-align:left;
+    }
+    .faq-icon{
+      font-size:20px;
+      transition:transform 0.3s ease;
+      color:#203F99;
+      min-width:20px;
+      margin-left:10px;
+    }
+    .faq-answer{
+      height:0;
+      overflow:hidden;
+      transition:height 0.35s ease;
+    }
+    .faq-answer p{
+      padding:0 16px 14px;
+      margin:0;
+      font-size:14px;
+      color:#444;
+    }
+    .faq-item.active .faq-icon{
+      transform:rotate(45deg);
+    }
+
+    /* ========== COMMON ANIMATIONS ========== */
+    @keyframes btFadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes btFadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes btFadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    @keyframes btSlideDown {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    @keyframes btScaleIn {
+        from {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    @keyframes btUnderlineExpand {
+        from {
+            transform: scaleX(0);
+        }
+        to {
+            transform: scaleX(1);
+        }
+    }
+    
+    @keyframes btTabPulse {
+        0% {
+            box-shadow: 0 0 0 0 rgba(253, 5, 17, 0.4);
+        }
+        70% {
+            box-shadow: 0 0 0 10px rgba(253, 5, 17, 0);
+        }
+        100% {
+            box-shadow: 0 0 0 0 rgba(253, 5, 17, 0);
+        }
+    }
+
+    /* ========== RESPONSIVE STYLES ========== */
+    
+    /* Hero Section Responsive */
+    @media (max-width: 768px) {
+      .main-title {
+        color: white;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        font-size: 2rem;
+        text-align: center;
+      }
+      
+      .main-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+        animation-name: titleLineMobile;
+      }
+      
+      .description {
+        color: white;
+        font-weight: 600;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        font-size: 1rem;
+        text-align: center;
+        max-width: 100%;
+      }
+      
+      .hero {
+        min-height: 700px;
+      }
+      
+      .slide-1,
+      .slide-2,
+      .slide-3,
+      .slide-4 {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+        text-align: center;
+        transform: translateY(-50%) translateX(0) !important;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .slide-1.active,
+      .slide-2.active,
+      .slide-3.active,
+      .slide-4.active {
+        transform: translateY(-50%) translateX(0) !important;
+      }
+      
+      .btn {
+        padding: 0.65rem 1.6rem;
+        font-size: 0.8rem;
+        text-align: center;
+      }
+      
+      .nav-dots {
+        bottom: 30px;
+        gap: 12px;
+      }
+      
+      .dot {
+        width: 10px;
+        height: 10px;
+        background: #203F99;
+      }
+      
+      .dot.active {
+        background: #FD0511;
+        transform: scale(1.3);
+        box-shadow: 0 0 10px rgba(253, 5, 17, 0.5);
       }
     }
 
     @media (max-width: 1200px) {
-      .wrap {
-        max-width: 1140px;
+      .main-title {
+        font-size: 2.6rem;
       }
-      .topbar-center {
-        gap: 18px;
+      
+      .description {
+        font-size: 1rem;
       }
-      .topbar-right {
-        gap: 16px;
-      }
-      .logo-img {
-        width: 80px;
-        height: 80px;
-      }
-    }
-
-    @media (max-width: 1024px) {
-      .wrap {
-        max-width: 960px;
-      }
-      .topbar .wrap {
-        flex-wrap: wrap;
-        row-gap: 12px;
-      }
-      .topbar-center {
-        order: 3;
-        width: 100%;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 12px;
-      }
-      .topbar-right {
-        order: 2;
-      }
-      .info-item {
-        font-size: 13px;
-      }
-      .brandtext strong {
-        font-size: 18px;
-      }
-      .logo-img {
-        width: 75px;
-        height: 75px;
+      
+      .slide-1,
+      .slide-2,
+      .slide-3,
+      .slide-4 {
+        left: 100px;
       }
     }
 
     @media (max-width: 992px) {
-      .wrap {
-        max-width: 900px;
+      .main-title {
+        font-size: 2.2rem;
       }
-      .topbar {
-        display: none;
+      
+      .description {
+        font-size: 0.95rem;
       }
-      .navbar {
-        display: none;
+      
+      .slide-1,
+      .slide-2,
+      .slide-3,
+      .slide-4 {
+        left: 80px;
       }
-      .mobile-header {
-        display: block;
-      }
-      .hamburger {
-        display: inline-flex;
-      }
-      .mobile-logo .logo-img {
-        width: 65px;
-        height: 65px;
-        border: none; /* Removed white border */
-      }
-      .mobile-logo .brandtext {
-        display: none; /* Remove brand text on mobile */
-      }
-      .hamburger-icon svg {
-        width: 40px;
-        height: 40px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .wrap {
-        max-width: 720px;
-      }
-      .mobile-logo .logo-img {
-        width: 60px;
-        height: 60px;
-      }
-      .mobile-panel {
-        max-width: 300px;
-      }
-      .hamburger {
-        width: 52px;
-        height: 52px;
-      }
-      .hamburger-icon {
-        width: 36px;
-        height: 36px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .wrap {
-        max-width: 576px;
-      }
-      .mobile-header .wrap {
-        justify-content: space-between;
-      }
-      .phone-fax {
-        flex-direction: row;
-        align-items: center;
-        flex-wrap: wrap;
-      }
-      .mobile-panel {
-        max-width: 280px;
-      }
-      .hamburger {
-        width: 50px;
-        height: 50px;
-      }
-      .hamburger-icon {
-        width: 34px;
-        height: 34px;
+      
+      .btn {
+        padding: 0.7rem 1.8rem;
+        font-size: 0.85rem;
       }
     }
 
     @media (max-width: 576px) {
-      .wrap {
-        max-width: 540px;
+      .main-title {
+        font-size: 1.6rem;
       }
-      .logo-img {
-        width: 70px;
-        height: 70px;
+      
+      .description {
+        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
       }
-      .mobile-logo .logo-img {
-        width: 55px;
-        height: 55px;
+      
+      .slide-1,
+      .slide-2,
+      .slide-3,
+      .slide-4 {
+        left: 15px;
+        right: 15px;
       }
-      .mobile-panel {
+      
+      .nav-dots {
+        bottom: 25px;
+        gap: 10px;
+      }
+      
+      .dot {
+        width: 8px;
+        height: 8px;
+      }
+      
+      .btn {
+        padding: 0.6rem 1.4rem;
+        font-size: 0.75rem;
+        border-radius: 25px;
+      }
+    }
+
+    /* About Section Responsive */
+    @media (max-width: 1400px) {
+      .ap-wrap {
+        max-width: 1200px;
+      }
+    }
+
+    @media (max-width: 1280px) {
+      .ap-wrap {
+        max-width: 1100px;
+        padding: 0 24px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .ap-wrap {
+        max-width: 1000px;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      .ap-wrap {
+        max-width: 900px;
+        padding: 0 20px;
+      }
+      
+      .ap-grid {
+        gap: 24px;
+      }
+      
+      .ap-content {
+        flex: 1 1 400px;
+      }
+      
+      .ap-images {
+        flex: 1 1 400px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .about-pharmacy {
+        padding: 48px 16px;
+      }
+      
+      .ap-wrap {
+        max-width: 800px;
+      }
+      
+      .ap-content {
+        max-width: 100%;
+        text-align: center;
+      }
+      
+      .ap-head {
+        margin-bottom: 24px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-pharmacy {
+        padding: 40px 16px;
+      }
+      
+      .ap-grid {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 32px;
+      }
+      
+      .ap-content, .ap-images {
+        flex: 1 1 auto;
+        width: 100%;
         max-width: 100%;
       }
-      .hamburger {
-        width: 48px;
-        height: 48px;
+      
+      .ap-images {
+        margin-top: 10px;
+        min-height: 240px;
       }
-      .hamburger-icon {
-        width: 32px;
-        height: 32px;
+      
+      .ap-btn {
+        padding: 11px 17px;
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .about-pharmacy {
+        padding: 36px 16px;
+      }
+      
+      .ap-head h2 {
+        font-size: 28px;
+      }
+      
+      .ap-content p {
+        font-size: 15px;
+        line-height: 1.7;
+      }
+      
+      .ap-images {
+        gap: 12px;
+        min-height: 220px;
+      }
+      
+      .ap-img {
+        width: 130px;
+        height: 220px;
+        border-radius: 20px;
+      }
+      
+      .ap-img--center {
+        width: 145px;
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .about-pharmacy {
+        padding: 32px 16px;
+      }
+      
+      .ap-head {
+        margin-bottom: 20px;
+      }
+      
+      .ap-underline {
+        width: 80px;
+        margin-top: 8px;
+      }
+      
+      .ap-content p {
+        margin: 0 0 16px;
+        font-size: 14.5px;
+      }
+      
+      .ap-btn {
+        padding: 10px 16px;
+        font-size: 13.5px;
+      }
+      
+      .ap-images {
+        gap: 10px;
+        min-height: 200px;
       }
     }
 
     @media (max-width: 480px) {
-      .wrap {
-        padding: 0 12px;
+      .ap-head h2 {
+        font-size: 26px;
       }
-      .mobile-header {
-        padding: 10px 12px;
-      }
-      .mobile-inner {
-        padding: 16px 12px;
-      }
-      .m-link {
-        padding: 12px 10px;
-        font-size: 15px;
-      }
-      details.services-acc > summary {
-        padding: 12px 10px;
-        font-size: 15px;
-      }
-      .acc-item {
-        padding: 10px;
+      
+      .ap-content p {
         font-size: 14px;
+        line-height: 1.65;
       }
-      .mobile-logo .logo-img {
-        width: 50px;
-        height: 50px;
+      
+      .ap-images {
+        min-height: 190px;
       }
-      .hamburger {
-        width: 46px;
-        height: 46px;
+      
+      .ap-img {
+        width: 118px;
+        height: 190px;
+        border-radius: 18px;
       }
-      .hamburger-icon {
-        width: 30px;
-        height: 30px;
+      
+      .ap-img--center {
+        width: 130px;
+        height: 210px;
       }
-      .mobile-menu-logo-img {
-        width: 50px;
-        height: 50px;
-      }
-      .mobile-menu-brand strong {
-        font-size: 16px;
+      
+      .ap-btn {
+        padding: 9px 15px;
+        font-size: 13px;
+        gap: 8px;
       }
     }
 
     @media (max-width: 360px) {
-      .wrap {
-        padding: 0 8px;
+      .about-pharmacy {
+        padding: 28px 12px;
       }
-      .mobile-header {
-        padding: 8px;
+      
+      .ap-head h2 {
+        font-size: 24px;
       }
-      .mobile-inner {
-        padding: 12px 8px;
+      
+      .ap-underline {
+        width: 70px;
+        height: 2.5px;
       }
-      .logo-img {
-        width: 65px;
-        height: 65px;
+      
+      .ap-content p {
+        font-size: 13.5px;
+        line-height: 1.6;
       }
-      .mobile-logo .logo-img {
-        width: 45px;
-        height: 45px;
+      
+      .ap-images {
+        gap: 8px;
+        min-height: 170px;
       }
-      .hamburger {
-        width: 44px;
-        height: 44px;
+      
+      .ap-img {
+        width: 100px;
+        height: 170px;
+        border-radius: 16px;
       }
-      .hamburger-icon {
-        width: 28px;
-        height: 28px;
+      
+      .ap-img--center {
+        width: 112px;
+        height: 185px;
       }
-      .mobile-menu-logo-img {
-        width: 45px;
-        height: 45px;
+      
+      .ap-btn {
+        padding: 8px 14px;
+        font-size: 12.5px;
       }
-      .mobile-menu-brand strong {
-        font-size: 15px;
-      }
+    }
+
+    /* Keywords Slider Responsive */
+    @media (max-width: 1200px) {
+        .BTkeyword {
+            font-size: 6rem;
+            margin: 0 30px;
+        }
+        
+        .BTkeyword::after {
+            margin-left: 30px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .BTkeyword {
+            font-size: 4rem;
+            margin: 0 20px;
+        }
+        
+        .BTkeyword::after {
+            margin-left: 20px;
+            font-size: 2rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .BTkeyword {
+            font-size: 3rem;
+            margin: 0 15px;
+        }
+    }
+
+    /* Health Products Section Responsive */
+    @media (max-width: 1400px) {
+        .clean-wrap {
+            max-width: 1100px;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .clean-wrap {
+            max-width: 1000px;
+        }
+        .step-card {
+            width: 210px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .clean-wrap {
+            max-width: 900px;
+        }
+        .steps {
+            gap: 20px;
+        }
+        .step-card {
+            width: 200px;
+            min-height: 310px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .clean-section-4steps {
+            padding: 60px 30px;
+        }
+        .clean-title {
+            font-size: 38px;
+            margin-bottom: 50px;
+        }
+        .steps {
+            gap: 18px;
+        }
+        .step-card {
+            width: 190px;
+            min-height: 300px;
+        }
+        .step-img {
+            height: 140px;
+        }
+        .step-number {
+            top: 128px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .clean-title {
+            font-size: 34px;
+        }
+        .steps {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .step-card {
+            width: 48%;
+            min-height: 290px;
+            margin-top: 0 !important;
+        }
+        .step-card:nth-child(3),
+        .step-card:nth-child(4) {
+            margin-top: 30px !important;
+        }
+        .step-img {
+            height: 160px;
+        }
+        .step-number {
+            top: 138px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .clean-section-4steps {
+            padding: 50px 25px;
+        }
+        .clean-title {
+            font-size: 32px;
+            margin-bottom: 40px;
+            padding-bottom: 12px;
+        }
+        .clean-title::after {
+            width: 80px;
+            height: 3px;
+        }
+        .steps {
+            gap: 20px;
+        }
+        .step-card {
+            width: 48%;
+            min-height: 280px;
+        }
+        .step-img {
+            height: 150px;
+        }
+        .step-number {
+            top: 128px;
+            width: 36px;
+            height: 36px;
+            font-size: 12px;
+        }
+        .particle {
+            display: none;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .clean-title {
+            font-size: 28px;
+        }
+        .steps {
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+        }
+        .step-card {
+            width: 100%;
+            max-width: 400px;
+            min-height: auto;
+            margin-top: 0 !important;
+        }
+        .step-card:nth-child(3),
+        .step-card:nth-child(4) {
+            margin-top: 0 !important;
+        }
+        .step-img {
+            height: 180px;
+        }
+        .step-number {
+            top: 158px;
+        }
+        .step-card h3 {
+            font-size: 18px;
+        }
+        .step-card p {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .clean-section-4steps {
+            padding: 40px 20px;
+        }
+        .clean-title {
+            font-size: 26px;
+            margin-bottom: 35px;
+        }
+        .step-img {
+            height: 170px;
+        }
+        .step-number {
+            top: 148px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .clean-title {
+            font-size: 24px;
+        }
+        .step-card {
+            padding: 14px;
+        }
+        .step-img {
+            height: 160px;
+        }
+        .step-number {
+            top: 138px;
+            right: 14px;
+            width: 34px;
+            height: 34px;
+            border-width: 3px;
+        }
+        .step-card h3 {
+            font-size: 17px;
+            margin: 12px 0 6px;
+        }
+        .step-card p {
+            font-size: 13.5px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .clean-section-4steps {
+            padding: 30px 15px;
+        }
+        .clean-title {
+            font-size: 22px;
+            margin-bottom: 30px;
+        }
+        .step-card {
+            padding: 12px;
+        }
+        .step-img {
+            height: 150px;
+        }
+        .step-number {
+            top: 128px;
+            width: 32px;
+            height: 32px;
+            font-size: 11px;
+        }
+        .step-card h3 {
+            font-size: 16px;
+        }
+        .step-card p {
+            font-size: 13px;
+        }
+    }
+
+    /* Why Choose Us Responsive */
+    @media (max-width: 1400px) {
+        .bt-main-heading,
+        .bt-main-container {
+            max-width: 1300px;
+        }
+        
+        .bt-main-heading h1 {
+            font-size: 38px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 17px;
+        }
+        
+        .bt-main-container {
+            height: 70vh;
+        }
+        
+        .bt-menu-section {
+            width: 240px;
+        }
+        
+        .bt-image-section {
+            width: 380px;
+        }
+    }
+    
+    @media (max-width: 1280px) {
+        .bt-main-heading,
+        .bt-main-container {
+            max-width: 1200px;
+        }
+        
+        .bt-main-heading h1 {
+            font-size: 36px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 16.5px;
+            max-width: 700px;
+        }
+        
+        .bt-main-container {
+            gap: 20px;
+        }
+        
+        .bt-menu-section {
+            width: 220px;
+        }
+        
+        .bt-tab-btn {
+            padding: 12px 20px;
+        }
+        
+        .bt-image-section {
+            width: 350px;
+        }
+        
+        .bt-text-section {
+            padding: 35px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 30px;
+        }
+    }
+    
+    @media (max-width: 1200px) {
+        .bt-main-heading,
+        .bt-main-container {
+            max-width: 100%;
+        }
+        
+        .bt-main-container {
+            height: auto;
+            min-height: 500px;
+        }
+        
+        .bt-image-section {
+            width: 320px;
+        }
+    }
+    
+    @media (max-width: 1024px) {
+        .bt-main-heading {
+            margin-bottom: 25px;
+        }
+        
+        .bt-main-heading h1 {
+            font-size: 34px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 16px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+        }
+        
+        .bt-main-container {
+            flex-wrap: wrap;
+            height: auto;
+            gap: 20px;
+        }
+        
+        .bt-menu-section {
+            width: 100%;
+            order: 1;
+            height: auto;
+            padding-top: 0;
+        }
+        
+        .bt-tab-menu {
+            flex-direction: row;
+            overflow-x: auto;
+            padding: 0;
+            border-radius: 10px;
+            height: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            scroll-behavior: smooth;
+            touch-action: pan-x;
+        }
+        
+        .bt-tab-menu::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .bt-tab-btn {
+            padding: 12px 20px;
+            border-left: none;
+            border-bottom: 4px solid transparent;
+            min-width: 160px;
+            white-space: nowrap;
+            min-height: 55px;
+            flex: 0 0 auto;
+        }
+        
+        .bt-tab-btn.bt-active {
+            border-left-color: transparent;
+            border-bottom-color: #FD0511;
+            transform: translateY(-3px);
+        }
+        
+        .bt-tab-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .bt-text-section {
+            width: 100%;
+            order: 3;
+            margin-top: 20px;
+            min-height: 350px;
+            padding: 30px;
+        }
+        
+        .bt-image-section {
+            width: 100%;
+            order: 2;
+            min-height: 320px;
+            height: 320px;
+        }
+        
+        .bt-image-container {
+            height: 320px;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        .bt-main-heading h1 {
+            font-size: 32px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 15.5px;
+            padding: 0 15px;
+        }
+        
+        .bt-text-section {
+            padding: 30px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 28px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 16px;
+        }
+        
+        .bt-image-section {
+            min-height: 300px;
+            height: 300px;
+        }
+        
+        .bt-image-container {
+            height: 300px;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        .bt-main-heading {
+            margin-bottom: 20px;
+        }
+        
+        .bt-main-heading h1 {
+            font-size: 30px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 15px;
+            padding: 0 10px;
+        }
+        
+        .bt-main-container {
+            gap: 16px;
+        }
+        
+        .bt-text-section {
+            padding: 25px;
+        }
+        
+        .bt-tab-btn {
+            padding: 10px 16px;
+            min-width: 140px;
+            font-size: 14px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 26px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 15.5px;
+        }
+        
+        .bt-image-section {
+            min-height: 280px;
+            height: 280px;
+        }
+        
+        .bt-image-container {
+            height: 280px;
+        }
+    }
+    
+    @media (max-width: 640px) {
+        .bt-main-heading h1 {
+            font-size: 28px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 14.5px;
+            margin: 15px auto 0;
+        }
+        
+        .bt-text-section {
+            padding: 22px;
+        }
+        
+        .bt-tab-btn {
+            padding: 10px 14px;
+            min-width: 120px;
+            font-size: 13.5px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .bt-image-section {
+            min-height: 260px;
+            height: 260px;
+        }
+        
+        .bt-image-container {
+            height: 260px;
+        }
+    }
+    
+    @media (max-width: 576px) {
+        .bt-main-heading h1 {
+            font-size: 26px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 14px;
+        }
+        
+        .bt-main-container {
+            gap: 14px;
+        }
+        
+        .bt-text-section {
+            padding: 20px;
+        }
+        
+        .bt-tab-btn {
+            padding: 9px 12px;
+            min-width: 110px;
+            font-size: 13px;
+            min-height: 50px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 22px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+        
+        .bt-image-section {
+            min-height: 240px;
+            height: 240px;
+        }
+        
+        .bt-image-container {
+            height: 240px;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .bt-main-heading h1 {
+            font-size: 24px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        
+        .bt-main-container {
+            gap: 12px;
+        }
+        
+        .bt-text-section {
+            padding: 18px;
+        }
+        
+        .bt-tab-btn {
+            padding: 8px 10px;
+            min-width: 100px;
+            font-size: 12.5px;
+            min-height: 48px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 14px;
+            margin-bottom: 14px;
+        }
+        
+        .bt-image-section {
+            min-height: 220px;
+            height: 220px;
+        }
+        
+        .bt-image-container {
+            height: 220px;
+        }
+    }
+    
+    @media (max-width: 360px) {
+        .bt-main-heading h1 {
+            font-size: 22px;
+        }
+        
+        .bt-main-heading .bt-heading-desc {
+            font-size: 13px;
+        }
+        
+        .bt-text-section {
+            padding: 16px;
+        }
+        
+        .bt-tab-btn {
+            padding: 7px 9px;
+            min-width: 95px;
+            font-size: 12px;
+            min-height: 45px;
+        }
+        
+        .bt-tab-content h2 {
+            font-size: 19px;
+        }
+        
+        .bt-tab-content p {
+            font-size: 13.5px;
+            line-height: 1.5;
+        }
+        
+        .bt-image-section {
+            min-height: 200px;
+            height: 200px;
+        }
+        
+        .bt-image-container {
+            height: 200px;
+        }
+    }
+    
+    .bt-text-section::-webkit-scrollbar {
+        width: 8px;
+    }
+    
+    .bt-text-section::-webkit-scrollbar-track {
+        background: #f1f5f9;
+        border-radius: 10px;
+    }
+    
+    .bt-text-section::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #FD0511 0%, #203F99 100%);
+        border-radius: 10px;
+    }
+    
+    .bt-text-section::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #203F99 0%, #FD0511 100%);
+    }
+
+    /* Contact Banner Responsive */
+    @media (max-width: 1400px) {
+        .rd-content-container {
+            padding: 0 70px;
+        }
+    }
+
+    @media (max-width: 1280px) {
+        .rd-text-content h2 {
+            font-size: 38px;
+        }
+    }
+
+    @media (max-width: 1200px) {
+        .rd-content-container {
+            padding: 0 60px;
+        }
+        .rd-contact-btn {
+            padding: 16px 40px;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .rd-text-content h2 {
+            font-size: 34px;
+        }
+        .rd-text-content p {
+            font-size: 17px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .rd-content-container {
+            padding: 0 50px;
+        }
+        .rd-text-content {
+            max-width: 520px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .rd-pharmacy-section {
+            height: auto;
+            padding: 70px 0;
+            border-radius: 8px;
+        }
+        .rd-content-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 35px;
+            padding: 0 35px;
+        }
+        .rd-text-content {
+            max-width: 100%;
+        }
+        .rd-text-content h2 {
+            font-size: 32px;
+        }
+        .rd-text-content p {
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .rd-text-content h2 {
+            font-size: 30px;
+        }
+        .rd-contact-btn {
+            width: 100%;
+            max-width: 320px;
+            font-size: 16px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .rd-text-content h2 {
+            font-size: 28px;
+        }
+        .rd-contact-btn {
+            padding: 16px 30px;
+        }
+        .rd-medical-icon {
+            font-size: 1.5rem;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .rd-text-content h2 {
+            font-size: 26px;
+        }
+        .rd-text-content p {
+            font-size: 15px;
+        }
+        .rd-contact-btn {
+            padding: 14px 25px;
+            font-size: 15px;
+        }
+    }
+
+    /* FAQ Responsive */
+    @media (max-width: 1400px) {
+        .faq-wrapper{
+            max-width:1100px;
+        }
+    }
+    @media (max-width: 1280px) {
+        .faq-wrapper{
+            max-width:1000px;
+        }
+    }
+    @media (max-width: 1200px) {
+        .faq-wrapper{
+            max-width:900px;
+        }
+    }
+    @media (max-width: 1024px) {
+        .faq-wrapper{
+            max-width:800px;
+        }
+    }
+    @media (max-width: 992px) {
+        .faq-wrapper{
+            max-width:700px;
+        }
+    }
+    @media (max-width: 768px) {
+        .faq-section{
+            padding:30px 20px;
+            min-height:350px;
+        }
+        .faq-wrapper{
+            justify-content:center;
+            max-width:100%;
+        }
+        .faq-card{
+            width:100%;
+            max-width:480px;
+        }
+        .shape {
+            opacity:0.2;
+        }
+    }
+    @media (max-width: 640px) {
+        .faq-section{
+            min-height:300px;
+            padding:25px 15px;
+        }
+        .faq-card{
+            padding:25px;
+        }
+        .faq-card h2{
+            font-size:24px;
+        }
+        .shape {
+            display:none;
+        }
+        .faq-sparkle {
+            display:none;
+        }
+    }
+    @media (max-width: 576px) {
+        .faq-card{
+            padding:20px;
+        }
+        .faq-card h2{
+            font-size:22px;
+        }
+        .faq-question{
+            font-size:15px;
+        }
+    }
+    @media (max-width: 480px) {
+        .faq-section{
+            min-height:280px;
+            padding:20px 10px;
+        }
+        .faq-card{
+            padding:18px;
+        }
+        .faq-card h2{
+            font-size:20px;
+        }
+        .faq-question{
+            padding:12px 14px;
+            font-size:14px;
+        }
+        .faq-answer p{
+            padding:0 14px 12px;
+            font-size:13px;
+        }
+    }
+    @media (max-width: 360px) {
+        .faq-section{
+            min-height:250px;
+        }
+        .faq-card{
+            padding:15px;
+        }
+        .faq-card h2{
+            font-size:18px;
+        }
+        .faq-card p{
+            font-size:13px;
+        }
+        .faq-question{
+            padding:10px 12px;
+            font-size:13px;
+        }
+        .faq-icon{
+            font-size:18px;
+        }
     }
   </style>
 </head>
 <body>
-  
-  <header class="site-header">
-    <div class="topbar" role="region" aria-label="Pharmacy contact info">
-      <div class="wrap">
-        <div class="topbar-left">
-          <a class="logo" href="/" aria-label="Butler's Med Pharmacy home">
-            <img class="logo-img" src="butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-            <div class="brandtext">
-              <strong>Butler's Med Pharmacy</strong>
+    <!-- SECTION 1: Hero Slider -->
+    <section class="hero-section">
+        <div class="hero" id="hero">
+            <div class="slide-transition" id="slideTransition">
+              <div class="transition-icon">+</div>
             </div>
-          </a>
-        </div>
-
-        <div class="topbar-center">
-          <div class="contact-info">
-            <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="info-item" aria-label="Address">
-              <i class="fas fa-map-marker-alt fa-icon"></i>
-              <span>1393 Webster Ave, Bronx, NY 10456</span>
-            </a>
             
-            <span class="info-divider">|</span>
-
-            <div class="info-item" aria-label="Hours">
-              <i class="far fa-clock fa-icon"></i>
-              <span>Mon-Fri: 10AM-5PM | </span>
+            <div class="nav-dots">
+              <div class="dot active" data-index="0"></div>
+              <div class="dot" data-index="1"></div>
+              <div class="dot" data-index="2"></div>
+              <div class="dot" data-index="3"></div>
             </div>
-          </div>
+        
+            <div class="text-container slide-1 active" id="slide1-text">
+              <h1 class="main-title">Putting Your Health and Wellbeing at the Heart of Everything We Do</h1>
+              <p class="description">We are dedicated to providing reliable medicines, expert guidance, and compassionate care to support your health every step of the way.</p>
+              <a href="#contact" class="btn btn-red">GET FREE ESTIMATE</a>
+            </div>
+        
+            <div class="text-container slide-2" id="slide2-text">
+              <h1 class="main-title">Ensuring Every Medicine You Receive Meets the Highest Standards of Safety and Quality</h1>
+              <p class="description">Our carefully sourced products are stored and handled with precision, so you can trust their effectiveness and reliability.</p>
+              <a href="#services" class="btn">EXPLORE SERVICES</a>
+            </div>
+        
+            <div class="text-container slide-3" id="slide3-text">
+              <h1 class="main-title">Guided by Knowledge, Delivered with Care to Support Your Everyday Health Needs</h1>
+              <p class="description">Our professional team is always ready to answer your questions and help you understand your prescriptions clearly.</p>
+              <a href="#team" class="btn">MEET OUR EXPERTS</a>
+            </div>
+        
+            <div class="text-container slide-4" id="slide4-text">
+              <h1 class="main-title">Making Pharmacy Services Simple, Fast, and Stress-Free for Your Convenience</h1>
+              <p class="description">From accurate dispensing to timely support, we focus on providing a smooth and dependable experience every visit.</p>
+              <a href="#emergency" class="btn btn-gradient">EMERGENCY CALL</a>
+            </div>
         </div>
+    </section>
 
-        <div class="topbar-right">
-          <div class="info-item">
-            <div class="phone-fax">
-              <a href="tel:+17187660222" aria-label="Phone number">
-                <span class="phone-text">Phone: +1 614-477-2686</span>
+    <!-- SECTION 2: About Section -->
+    <section class="about-pharmacy ap-reveal" id="about">
+        <div class="ap-wrap">
+          <div class="ap-head ap-reveal-item">
+            <h2>About Us</h2>
+            <span class="ap-underline"></span>
+          </div>
+    
+          <div class="ap-grid">
+            <div class="ap-content ap-reveal-item">
+              <p>
+                "At our pharmacy, your health comes first. We provide trusted medicines, pharmacist guidance,
+                and wellness essentials with clear information and responsible care. From everyday prescriptions
+                to personal health advice, we focus on safe dispensing, quality products, and friendly support
+                that helps you feel confident in every step of your treatment."
+              </p>
+    
+              <a class="ap-btn" href="#about">
+                <span class="ap-btn-text">Learn more about us</span>
+                <i class="fa-solid fa-arrow-right ap-btn-icon" aria-hidden="true"></i>
+                <span class="ap-btn-fill"></span>
               </a>
-              <span class="info-divider">|</span>
-              <span class="fax-text">Fax: 718-766-0226</span>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <nav class="navbar" aria-label="Primary navigation">
-      <div class="wrap">
-        <div class="navlinks" role="menubar" aria-label="Main menu">
-          <a href="/" role="menuitem">Home</a>
-          <a href="/about" role="menuitem">About Us</a>
-
-        <div class="dropdown" role="none">
-  <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
-    Services
-    <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </button>
-
-  <div class="dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="servicesBtn">
-    <div class="dropdown-grid">
-      <!-- Prescription Services -->
-      <a class="dd-item" href="/services/prescription-services" role="menuitem">
-        <i class="fas fa-prescription-bottle-medical"></i>
-        <span style="color: #203F99;">Prescription Services</span>
-      </a>
-
-      <!-- Vitamins & Supplements -->
-      <a class="dd-item" href="/services/vitamins-supplements" role="menuitem">
-        <i class="fas fa-capsules"></i>
-        <span style="color: #203F99;">Vitamins & Supplements</span>
-      </a>
-
-      <!-- OTC Medications -->
-      <a class="dd-item" href="/services/otc-medications" role="menuitem">
-        <i class="fas fa-pills"></i>
-        <span style="color: #203F99;">OTC Medications</span>
-      </a>
-
-      <!-- Surgical & Medical Supplies -->
-      <a class="dd-item" href="/services/surgical-medical-supplies" role="menuitem">
-        <i class="fas fa-stethoscope"></i>
-        <span style="color: #203F99;">Surgical & Medical Supplies</span>
-      </a>
-
-      <!-- Hispanic OTC Items -->
-      <a class="dd-item" href="/services/hispanic-otc" role="menuitem">
-        <i class="fas fa-globe-americas"></i>
-        <span style="color: #203F99;">Hispanic OTC Items</span>
-      </a>
-
-      <!-- Household Supplies -->
-      <a class="dd-item" href="/services/household-supplies" role="menuitem">
-        <i class="fas fa-home"></i>
-        <span style="color: #203F99;">Household Supplies</span>
-      </a>
-
-      <!-- Food & Grocery Items -->
-      <a class="dd-item" href="/services/food-grocery" role="menuitem">
-        <i class="fas fa-shopping-basket"></i>
-        <span style="color: #203F99;">Food & Grocery Items</span>
-      </a>
-
-      <!-- Beauty & Personal Care -->
-      <a class="dd-item" href="/services/beauty-personal-care" role="menuitem">
-        <i class="fas fa-spa"></i>
-        <span style="color: #203F99;">Beauty & Personal Care</span>
-      </a>
-
-      <!-- Perfumes & Fragrances -->
-      <a class="dd-item" href="/services/perfumes-fragrances" role="menuitem">
-        <i class="fas fa-wind"></i>
-        <span style="color: #203F99;">Perfumes & Fragrances</span>
-      </a>
-
-      <!-- Electronic Appliances -->
-      <a class="dd-item" href="/services/electronic-appliances" role="menuitem">
-        <i class="fas fa-plug"></i>
-        <span style="color: #203F99;">Electronic Appliances</span>
-      </a>
-    </div>
-  </div>
-</div>
-
-          <a href="/contact" role="menuitem">Contact Us</a>
-        </div>
-      </div>
-    </nav>
-
-    <div class="mobile-header">
-      <div class="wrap">
-        <a class="mobile-logo" href="/" aria-label="Butler's Med Pharmacy home">
-          <img class="logo-img" src="butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-        </a>
-
-        <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
-          <div class="hamburger-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
-              <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
-              
-              <!-- Handle - White for blue background -->
-              <path d="
-                M96 64
-                v-14
-                c0-14 10-24 24-24
-                h16
-                c14 0 24 10 24 24
-                v14
-                h-18
-                v-12
-                c0-6-4-10-10-10
-                h-8
-                c-6 0-10 4-10 10
-                v12
-                z"
-                fill="#FFFFFF"
+    
+            <div class="ap-images" aria-label="Pharmacy images">
+              <img
+                class="ap-img ap-img--left ap-reveal-item"
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=700&q=70"
+                alt="Pharmacist holding medicine"
               />
-              
-              <!-- Feet - White for blue background -->
-              <rect x="48" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
-              <rect x="160" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
-              
-              <!-- CLEAN MEDICAL PLUS - Red plus sign -->
-              <!-- Vertical bar -->
-              <rect x="118" y="96" width="20" height="64" rx="6" fill="#FD0510"/>
-              <!-- Horizontal bar -->
-              <rect x="96" y="118" width="64" height="20" rx="6" fill="#FD0510"/>
-            </svg>
-          </div>
-        </button>
-      </div>
-
-      <div class="mobile-panel" id="mobilePanel">
-        <div class="wrap">
-          <div class="mobile-inner">
-            <!-- Mobile menu header with logo -->
-            <div class="mobile-menu-header">
-              <a href="/" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
-                <img class="mobile-menu-logo-img" src="butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-                <div class="mobile-menu-brand">
-                  <strong>Butler's Med Pharmacy</strong>
-                </div>
-              </a>
-              <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
-                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
-                  <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                </svg>
-              </button>
-            </div>
-
-            <!-- Mobile menu content without background -->
-            <a class="m-link" href="/">Home</a>
-            <a class="m-link" href="/about">About Us</a>
-
-         <details class="services-acc">
-  <summary>
-    Services
-    <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-    </svg>
-  </summary>
-
-  <div class="acc-grid" role="group" aria-label="Services">
-    <!-- Prescription Services -->
-    <a class="acc-item" href="/services/prescription-services">
-      <i class="fas fa-prescription-bottle-medical"></i>
-      Prescription Services
-    </a>
-
-    <!-- Vitamins & Supplements -->
-    <a class="acc-item" href="/services/vitamins-supplements">
-      <i class="fas fa-capsules"></i>
-      Vitamins & Supplements
-    </a>
-
-    <!-- OTC Medications -->
-    <a class="acc-item" href="/services/otc-medications">
-      <i class="fas fa-pills"></i>
-      OTC Medications
-    </a>
-
-    <!-- Surgical & Medical Supplies -->
-    <a class="acc-item" href="/services/surgical-medical-supplies">
-      <i class="fas fa-stethoscope"></i>
-      Surgical & Medical Supplies
-    </a>
-
-    <!-- Hispanic OTC Items -->
-    <a class="acc-item" href="/services/hispanic-otc">
-      <i class="fas fa-globe-americas"></i>
-      Hispanic OTC Items
-    </a>
-
-    <!-- Household Supplies -->
-    <a class="acc-item" href="/services/household-supplies">
-      <i class="fas fa-home"></i>
-      Household Supplies
-    </a>
-
-    <!-- Food & Grocery Items -->
-    <a class="acc-item" href="/services/food-grocery">
-      <i class="fas fa-shopping-basket"></i>
-      Food & Grocery Items
-    </a>
-
-    <!-- Beauty & Personal Care -->
-    <a class="acc-item" href="/services/beauty-personal-care">
-      <i class="fas fa-spa"></i>
-      Beauty & Personal Care
-    </a>
-
-    <!-- Perfumes & Fragrances -->
-    <a class="acc-item" href="/services/perfumes-fragrances">
-      <i class="fas fa-wind"></i>
-      Perfumes & Fragrances
-    </a>
-
-    <!-- Electronic Appliances -->
-    <a class="acc-item" href="/services/electronic-appliances">
-      <i class="fas fa-plug"></i>
-      Electronic Appliances
-    </a>
-  </div>
-</details>
-
-            <a class="m-link" href="/contact">Contact Us</a>
-            
-            <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
-              <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
-                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                  <i class="fas fa-map-marker-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
-                  <span style="font-weight: 500; color: #203F99;">1393 Webster Ave, Bronx, NY 10456</span>
-                </div>
-              </a>
-              
-              <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
-                <i class="far fa-clock" style="color: #203F99; width: 20px; height: 20px;"></i>
-                <span style="font-weight: 500; color: #203F99;">Mon-Fri: 10AM-5PM <span style="color: #666;">|</span> Sat-Sun: Closed</span>
-              </div>
-              
-              <div style="display: flex; align-items: flex-start; gap: 10px;">
-                <i class="fas fa-phone-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
-                <div style="display: flex; flex-direction: column; gap: 4px;">
-                  <a href="tel:+17187660222" style="text-decoration: none; color: #203F99; font-weight: 500;">
-                    Phone: +1 614-477-2686
-                  </a>
-                  <span style="font-weight: 500; color: #203F99;">Fax: 718-766-0226</span>
-                </div>
-              </div>
+              <img
+                class="ap-img ap-img--center ap-reveal-item"
+                src="https://images.unsplash.com/photo-1587854692152-cbe660dbde88?auto=format&fit=crop&w=900&q=70"
+                alt="Pharmacy counter and care"
+              />
+              <img
+                class="ap-img ap-img--right ap-reveal-item"
+                src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&w=700&q=70"
+                alt="Medicine and health products"
+              />
             </div>
           </div>
         </div>
-      </div>
+    </section>
+
+    <!-- SECTION 3: Keywords Slider -->
+    <div class="BTslider-container">
+        <div class="BTslider-track" id="BTsliderTrack">
+            <!-- Keywords will be added by JavaScript -->
+        </div>
     </div>
-  </header>
 
-  <script>
-    const btn = document.getElementById('hamburgerBtn');
-    const panel = document.getElementById('mobilePanel');
-    const closeBtn = document.getElementById('mobileCloseBtn');
+    <!-- SECTION 4: Health Products (Services) -->
+    <section class="clean-section-4steps" aria-label="Our Pharmacy Products & Services">
+        <div class="clean-wrap">
+            <h2 class="clean-title reveal delay-1">
+                Our Health & Wellness Products
+            </h2>
 
-    function openMobileMenu() {
-      btn.setAttribute('aria-expanded', 'true');
-      panel.style.display = 'block';
-      setTimeout(() => {
-        panel.setAttribute('data-visible', 'true');
-      }, 10);
-      document.body.style.overflow = 'hidden';
-    }
+            <div class="steps">
+                <a href="#vitamins-supplements" class="step-card reveal delay-1">
+                    <img class="step-img" src="https://images.unsplash.com/photo-1595433707802-6b2626ef1c91?auto=format&fit=crop&w=1200&q=80" alt="Vitamins and supplements">
+                    <div class="step-number">
+                        <span>01</span>
+                        <i class="fas fa-capsules"></i>
+                    </div>
+                    <h3>Vitamins & Supplements</h3>
+                    <p>Fish oil, multivitamins, hair/skin/nails, B12, immune support, and comprehensive wellness products.</p>
+                </a>
 
-    function closeMobileMenu() {
-      panel.setAttribute('data-visible', 'false');
-      setTimeout(() => {
-        panel.style.display = 'none';
-      }, 300);
-      btn.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
+                <a href="#otc-medications" class="step-card reveal delay-2">
+                    <img class="step-img" src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=1200&q=80" alt="Over-the-counter medications">
+                    <div class="step-number">
+                        <span>02</span>
+                        <i class="fas fa-tablets"></i>
+                    </div>
+                    <h3>OTC Medications</h3>
+                    <p>Pain relief, cold & flu, digestive health, muscle & joint relief, and daily health medicines available.</p>
+                </a>
 
-    btn.addEventListener('click', openMobileMenu);
-    closeBtn.addEventListener('click', closeMobileMenu);
+                <a href="#surgical-supplies" class="step-card reveal delay-3">
+                    <img class="step-img" src="https://images.unsplash.com/photo-1516549655669-df7758120b7b?auto=format&fit=crop&w=1200&q=80" alt="Medical equipment and supplies">
+                    <div class="step-number">
+                        <span>03</span>
+                        <i class="fas fa-wheelchair"></i>
+                    </div>
+                    <h3>Surgical & Medical Supplies</h3>
+                    <p>Canes, walkers, crutches, supports, and basic medical equipment for mobility and recovery needs.</p>
+                </a>
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (panel.style.display === 'block' && 
-          !panel.contains(e.target) && 
-          e.target !== btn && 
-          !btn.contains(e.target)) {
-        closeMobileMenu();
-      }
-    });
+                <a href="#beauty-care" class="step-card reveal delay-4">
+                    <img class="step-img" src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80" alt="Beauty and personal care products">
+                    <div class="step-number">
+                        <span>04</span>
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3>Beauty & Personal Care</h3>
+                    <p>Hair products, skincare, cosmetics, and grooming items for your daily beauty and personal care routine.</p>
+                </a>
+            </div>
+        </div>
+    </section>
 
-    const servicesBtn = document.getElementById('servicesBtn');
-    const dropdown = servicesBtn?.closest('.dropdown');
-    const dropdownPanel = dropdown?.querySelector('.dropdown-panel');
+    <!-- SECTION 5: Why Choose Us -->
+    <div class="bt-main-heading">
+        <h1>Why Choose Butler's Med Pharmacy</h1>
+        <p class="bt-heading-desc">We go beyond just filling prescriptions and build lasting relationships with our patients and provide care you can trust.</p>
+    </div>
 
-    if (dropdown) {
-      dropdown.addEventListener('mouseenter', () => {
-        servicesBtn.setAttribute('aria-expanded', 'true');
-        dropdown.dataset.open = 'true';
-        dropdownPanel.style.display = 'block';
-        setTimeout(() => {
-          dropdownPanel.style.opacity = '1';
-          dropdownPanel.style.visibility = 'visible';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(0)';
-        }, 10);
-      });
-      
-      dropdown.addEventListener('mouseleave', (e) => {
-        if (!dropdown.contains(e.relatedTarget)) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            if (!dropdown.matches(':hover') && !dropdown.matches(':focus-within')) {
-              dropdownPanel.style.display = 'none';
+    <div class="bt-main-container">
+        <div class="bt-menu-section">
+            <div class="bt-tab-menu">
+                <button class="bt-tab-btn bt-active" data-tab="tab1">Personalized Care</button>
+                <button class="bt-tab-btn" data-tab="tab2">Fast & Accurate</button>
+                <button class="bt-tab-btn" data-tab="tab3">Professional Team</button>
+                <button class="bt-tab-btn" data-tab="tab4">Community Focused</button>
+            </div>
+        </div>
+        
+        <div class="bt-text-section bt-active-content">
+            <div class="bt-tab-content bt-active" id="tab1">
+                <h2>Personalized Patient Care</h2>
+                <p>We take time to understand your needs and answer your questions, so you always feel supported and confident in your treatment.</p>
+                <p>Our pharmacists conduct one-on-one consultations to ensure you understand your medications and treatment plans.</p>
+                <p>We create customized medication schedules and provide reminders to help you stay on track with your health goals.</p>
+                <p>Regular follow-ups ensure your treatment is effective and we can make adjustments as needed.</p>
+            </div>
+            
+            <div class="bt-tab-content" id="tab2">
+                <h2>Fast & Accurate Prescriptions</h2>
+                <p>Your medications are prepared quickly and carefully, with strict attention to safety and accuracy.</p>
+                <p>Our state-of-the-art systems ensure error-free dispensing and efficient processing of all prescriptions.</p>
+                <p>We offer same-day prescription filling and convenient pickup options to save you time.</p>
+                <p>Advanced verification systems guarantee that you receive exactly what your doctor prescribed.</p>
+            </div>
+            
+            <div class="bt-tab-content" id="tab3">
+                <h2>Friendly, Professional Team</h2>
+                <p>Our experienced staff is always ready to help you with a smile and clear guidance.</p>
+                <p>All team members undergo continuous training to stay updated with the latest pharmaceutical knowledge.</p>
+                <p>We maintain a welcoming environment where you feel comfortable discussing your health concerns.</p>
+                <p>Our team speaks multiple languages to serve our diverse community effectively.</p>
+            </div>
+            
+            <div class="bt-tab-content" id="tab4">
+                <h2>Community-Focused Service</h2>
+                <p>We are proud to serve our local neighborhood and treat every customer like family.</p>
+                <p>We participate in community health fairs and wellness programs to promote public health.</p>
+                <p>Local partnerships allow us to provide comprehensive care that addresses all your health needs.</p>
+                <p>We support local initiatives and organizations that improve community wellbeing.</p>
+            </div>
+        </div>
+        
+        <div class="bt-image-section">
+            <div class="bt-image-container">
+                <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Personalized Pharmacy Care" class="bt-tab-image bt-active" id="img1">
+                <img src="https://images.unsplash.com/photo-1551601651-2a8555f1a136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Fast Prescription Service" class="bt-tab-image" id="img2">
+                <img src="https://images.unsplash.com/photo-1586773860418-dc22f8b874bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Professional Pharmacy Team" class="bt-tab-image" id="img3">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80" alt="Community Pharmacy Service" class="bt-tab-image" id="img4">
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION 6: Contact Banner -->
+    <section class="rd-pharmacy-section">
+        <div class="rd-corner-decoration rd-corner-top-left"></div>
+        <div class="rd-corner-decoration rd-corner-bottom-right"></div>
+
+        <div class="rd-background-container">
+            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                 alt="Pharmacy Background" 
+                 class="rd-background-image">
+            <div class="rd-overlay"></div>
+        </div>
+
+        <div class="rd-floating-icons">
+            <i class="fas fa-pills rd-medical-icon"></i>
+            <i class="fas fa-heartbeat rd-medical-icon"></i>
+            <i class="fas fa-prescription-bottle-alt rd-medical-icon"></i>
+            <i class="fas fa-stethoscope rd-medical-icon"></i>
+            <i class="fas fa-syringe rd-medical-icon"></i>
+            <i class="fas fa-ambulance rd-medical-icon"></i>
+            <i class="fas fa-heart rd-medical-icon"></i>
+            <i class="fas fa-user-md rd-medical-icon"></i>
+            <i class="fas fa-capsules rd-medical-icon"></i>
+            <i class="fas fa-notes-medical rd-medical-icon"></i>
+        </div>
+
+        <div class="rd-content-container">
+            <div class="rd-text-content">
+                <h2>Need Help with Medications?</h2>
+                <p>Our pharmacists are here to answer all your questions and provide expert guidance.</p>
+            </div>
+
+            <div class="rd-button-container">
+                <a href="contact.html" style="text-decoration:none;">
+                    <button class="rd-contact-btn">
+                        <i class="fas fa-comment-medical"></i>
+                        <span>Contact Us Now</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: FAQ -->
+    <section class="faq-section">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="faq-sparkle"></div>
+            <div class="faq-sparkle"></div>
+            <div class="faq-sparkle"></div>
+            <div class="faq-sparkle"></div>
+            <div class="faq-sparkle"></div>
+        </div>
+        <div class="faq-wrapper">
+            <div class="faq-card">
+                <h2>Frequently Asked Questions</h2>
+                <p>Looking for Something Else? Contact Us</p>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I transfer my prescription to Butlers Med Pharmacy?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, prescription transfers are easy. Just share your current pharmacy details and we will handle the rest.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you dispense doctor prescriptions?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we dispense valid doctor prescriptions and provide proper guidance for safe use.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Do you offer Dispill or multi-dose packaging?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, we provide Dispill Packaging to help manage daily medications more easily.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Can I consult the pharmacist about my medicines?
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes, our pharmacist is available to guide you about dosage, side effects, and usage.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ========== SECTION 1: Hero Slider JavaScript ==========
+        const slides = [
+            { 
+                desktopImage: 'hero-1.png', 
+                mobileImage: 'hero-mob-1.png',
+                textId: 'slide1-text'
+            },
+            { 
+                desktopImage: 'hero-2.png', 
+                mobileImage: 'hero-mob-2.png',
+                textId: 'slide2-text'
+            },
+            { 
+                desktopImage: 'hero-3.png', 
+                mobileImage: 'hero-mob-3.png',
+                textId: 'slide3-text'
+            },
+            { 
+                desktopImage: 'hero-4.png', 
+                mobileImage: 'hero-mob-4.png',
+                textId: 'slide4-text'
             }
-          }, 300);
-        }
-      });
-      
-      servicesBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const isOpen = servicesBtn.getAttribute('aria-expanded') === 'true';
-        if (isOpen) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            dropdownPanel.style.display = 'none';
-          }, 300);
-        } else {
-          servicesBtn.setAttribute('aria-expanded', 'true');
-          dropdown.dataset.open = 'true';
-          dropdownPanel.style.display = 'block';
-          setTimeout(() => {
-            dropdownPanel.style.opacity = '1';
-            dropdownPanel.style.visibility = 'visible';
-            dropdownPanel.style.transform = 'translateX(-50%) translateY(0)';
-          }, 10);
-        }
-      });
+        ];
 
-      document.addEventListener('click', (e) => {
-        if (!dropdown.contains(e.target)) {
-          servicesBtn.setAttribute('aria-expanded', 'false');
-          dropdown.dataset.open = 'false';
-          dropdownPanel.style.opacity = '0';
-          dropdownPanel.style.visibility = 'hidden';
-          dropdownPanel.style.transform = 'translateX(-50%) translateY(-10px)';
-          setTimeout(() => {
-            dropdownPanel.style.display = 'none';
-          }, 300);
+        const hero = document.getElementById('hero');
+        const dots = document.querySelectorAll('.dot');
+        const textContainers = document.querySelectorAll('.text-container');
+        const slideTransition = document.getElementById('slideTransition');
+        const transitionIcon = document.querySelector('.transition-icon');
+        
+        let currentSlide = 0;
+        let slideTimer = null;
+        let isMobile = window.innerWidth <= 768;
+
+        function init() {
+            dots[currentSlide].classList.add('active');
+            
+            showCurrentSlideText();
+            updateHeroImage();
+            startAutoAdvance();
+            createSparkles();
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', (e) => {
+                    goToSlide(index);
+                    e.stopPropagation();
+                });
+            });
+            
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevSlide();
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === ' ' || e.key === 'Spacebar') {
+                    e.preventDefault();
+                    clearTimeout(slideTimer);
+                    startAutoAdvance();
+                }
+            });
+
+            window.addEventListener('resize', handleResize);
+            
+            setInterval(() => createPill(hero), 1500);
+            setInterval(() => createCross(hero), 1200);
         }
-      });
-    }
 
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 992) {
-        closeMobileMenu();
-      }
-    });
+        function handleResize() {
+            const mobile = window.innerWidth <= 768;
+            if (mobile !== isMobile) {
+                isMobile = mobile;
+                updateHeroImage();
+            }
+        }
 
-    panel.addEventListener('click', (e) => {
-      if (e.target.tagName === 'A') {
-        closeMobileMenu();
-      }
-    });
-  </script>
+        function showCurrentSlideText() {
+            textContainers.forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            const currentText = document.getElementById(slides[currentSlide].textId);
+            if (currentText) {
+                currentText.classList.add('active');
+            }
+        }
+
+        function updateHeroImage() {
+            hero.classList.remove('desktop-bg-1', 'desktop-bg-2', 'desktop-bg-3', 'desktop-bg-4');
+            hero.classList.remove('mobile-bg-1', 'mobile-bg-2', 'mobile-bg-3', 'mobile-bg-4');
+            
+            if (isMobile) {
+                hero.classList.add(`mobile-bg-${currentSlide + 1}`);
+            } else {
+                hero.classList.add(`desktop-bg-${currentSlide + 1}`);
+            }
+        }
+
+        function playSlideAnimation() {
+            slideTransition.style.opacity = '1';
+            transitionIcon.style.transform = 'scale(0)';
+            
+            setTimeout(() => {
+                transitionIcon.style.transition = 'transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+                transitionIcon.style.transform = 'scale(1.5) rotate(180deg)';
+            }, 50);
+            
+            setTimeout(() => {
+                transitionIcon.style.transform = 'scale(1) rotate(360deg)';
+            }, 300);
+            
+            setTimeout(() => {
+                slideTransition.style.opacity = '0';
+                transitionIcon.style.transform = 'scale(0) rotate(0deg)';
+            }, 800);
+        }
+
+        function createSparkles() {
+            const colors = ['#FD0511', '#203F99', '#FFFFFF', '#FFD700'];
+            const heroRect = hero.getBoundingClientRect();
+            
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'hero-sparkle';
+                sparkle.style.left = Math.random() * heroRect.width + 'px';
+                sparkle.style.top = Math.random() * heroRect.height + 'px';
+                sparkle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                sparkle.style.boxShadow = `0 0 10px ${sparkle.style.background}`;
+                hero.appendChild(sparkle);
+                
+                animateSparkle(sparkle);
+            }
+        }
+
+        function animateSparkle(element) {
+            element.style.transition = 'opacity 1s, transform 1s';
+            element.style.opacity = '1';
+            element.style.transform = 'scale(1)';
+            
+            setTimeout(() => {
+                element.style.opacity = '0';
+                element.style.transform = 'scale(0)';
+            }, 800);
+            
+            setTimeout(() => {
+                const heroRect = hero.getBoundingClientRect();
+                element.style.left = Math.random() * heroRect.width + 'px';
+                element.style.top = Math.random() * heroRect.height + 'px';
+                setTimeout(() => animateSparkle(element), 500);
+            }, 1000);
+        }
+
+        function createPill(container) {
+            const pill = document.createElement('div');
+            pill.className = 'hero-pill';
+            const heroRect = hero.getBoundingClientRect();
+            pill.style.left = Math.random() * heroRect.width + 'px';
+            pill.style.top = heroRect.height + 'px';
+            hero.appendChild(pill);
+            
+            pill.style.transition = 'opacity 0.5s, transform 2s linear';
+            pill.style.opacity = '0.8';
+            
+            setTimeout(() => {
+                pill.style.transform = `translateY(-${heroRect.height + 100}px) rotate(${Math.random() * 360}deg)`;
+            }, 10);
+            
+            setTimeout(() => {
+                pill.style.opacity = '0';
+            }, 1800);
+            
+            setTimeout(() => {
+                if (pill.parentNode === hero) {
+                    hero.removeChild(pill);
+                }
+            }, 2000);
+        }
+
+        function createCross(container) {
+            const cross = document.createElement('div');
+            cross.className = 'hero-cross';
+            cross.textContent = '+';
+            const heroRect = hero.getBoundingClientRect();
+            cross.style.left = Math.random() * heroRect.width + 'px';
+            cross.style.top = Math.random() * heroRect.height + 'px';
+            hero.appendChild(cross);
+            
+            cross.style.transition = 'opacity 1s, transform 1s';
+            cross.style.opacity = '0.7';
+            cross.style.transform = 'scale(1)';
+            
+            setTimeout(() => {
+                cross.style.opacity = '0';
+                cross.style.transform = 'scale(2)';
+            }, 800);
+            
+            setTimeout(() => {
+                if (cross.parentNode === hero) {
+                    hero.removeChild(cross);
+                }
+            }, 1000);
+        }
+
+        function goToSlide(index) {
+            if (index === currentSlide) return;
+            
+            clearTimeout(slideTimer);
+            
+            playSlideAnimation();
+            
+            dots[currentSlide].classList.remove('active');
+            currentSlide = index;
+            dots[currentSlide].classList.add('active');
+            
+            updateHeroImage();
+            showCurrentSlideText();
+            
+            startAutoAdvance();
+        }
+
+        function startAutoAdvance() {
+            if (slideTimer) {
+                clearTimeout(slideTimer);
+            }
+            
+            slideTimer = setTimeout(() => {
+                nextSlide();
+            }, 10000);
+        }
+
+        function nextSlide() {
+            const nextIndex = (currentSlide + 1) % slides.length;
+            goToSlide(nextIndex);
+        }
+
+        function prevSlide() {
+            const prevIndex = (currentSlide - 1 + slides.length) % slides.length;
+            goToSlide(prevIndex);
+        }
+
+        window.addEventListener('load', init);
+
+        // About Section Reveal Animation
+        (function () {
+            const items = document.querySelectorAll(".ap-reveal-item");
+            if (!("IntersectionObserver" in window) || items.length === 0) {
+                items.forEach(el => el.classList.add("is-visible"));
+                return;
+            }
+
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.18 });
+
+            items.forEach((el, i) => {
+                el.style.transitionDelay = (i * 90) + "ms";
+                io.observe(el);
+            });
+        })();
+
+        // ========== SECTION 3: Keywords Slider JavaScript ==========
+        const pharmacyKeywords = [
+            "WELLNESS",
+            "SELF-CARE", 
+            "PREVENTION",
+            "CONVENIENCE",
+            "TRUST",
+            "GUIDANCE",
+            "RELIEF",
+            "ESSENTIALS",
+            "SUPPORT",
+            "HEALTH"
+        ];
+
+        const BTsliderTrack = document.getElementById('BTsliderTrack');
+
+        // Function to create duplicate keywords for seamless scrolling
+        function createKeywords() {
+            // Create two sets for continuous scrolling
+            for (let i = 0; i < 2; i++) {
+                pharmacyKeywords.forEach(keyword => {
+                    const keywordElement = document.createElement('div');
+                    keywordElement.className = 'BTkeyword';
+                    keywordElement.textContent = keyword;
+                    BTsliderTrack.appendChild(keywordElement);
+                });
+            }
+        }
+
+        // Initialize Keywords Slider
+        createKeywords();
+
+        // ========== SECTION 4: Health Products JavaScript ==========
+        (function(){
+            const root = document.querySelector(".clean-section-4steps");
+            if (!root) return;
+            
+            const items = root.querySelectorAll(".reveal");
+            
+            const colors = ['#FD0511', '#203F99', '#4CAF50', '#FF9800'];
+            
+            for(let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                const size = Math.random() * 8 + 4;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const opacity = Math.random() * 0.3 + 0.1;
+                
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.backgroundColor = color;
+                particle.style.opacity = opacity;
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                
+                root.appendChild(particle);
+                
+                animateParticle(particle);
+            }
+            
+            function animateParticle(particle) {
+                let x = parseFloat(particle.style.left);
+                let y = parseFloat(particle.style.top);
+                let xSpeed = (Math.random() - 0.5) * 0.3;
+                let ySpeed = (Math.random() - 0.5) * 0.3;
+                
+                function move() {
+                    x += xSpeed;
+                    y += ySpeed;
+                    
+                    if(x > 100) x = 0;
+                    if(x < 0) x = 100;
+                    if(y > 100) y = 0;
+                    if(y < 0) y = 100;
+                    
+                    particle.style.left = x + '%';
+                    particle.style.top = y + '%';
+                    
+                    requestAnimationFrame(move);
+                }
+                
+                move();
+            }
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('is-visible');
+                        }, 100);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            items.forEach(item => {
+                observer.observe(item);
+            });
+            
+            const stepCards = root.querySelectorAll('.step-card');
+            stepCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if(href && href !== '#') {
+                        e.preventDefault();
+                        const target = document.querySelector(href);
+                        if(target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+                
+                const arrow = card.querySelector('.step-number i');
+                if(arrow) {
+                    arrow.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const href = card.getAttribute('href');
+                        if(href && href !== '#') {
+                            const target = document.querySelector(href);
+                            if(target) {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }
+                        }
+                    });
+                }
+            });
+        })();
+
+        // ========== SECTION 5: Why Choose Us JavaScript ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabBtns = document.querySelectorAll('.bt-tab-btn');
+            const tabContents = document.querySelectorAll('.bt-tab-content');
+            const tabImages = document.querySelectorAll('.bt-tab-image');
+            const textSection = document.querySelector('.bt-text-section');
+            const tabMenu = document.querySelector('.bt-tab-menu');
+            
+            setTimeout(() => {
+                textSection.classList.add('bt-active-content');
+            }, 300);
+            
+            tabBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    const tabNumber = tabId.charAt(tabId.length-1);
+                    
+                    textSection.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                    
+                    this.style.animation = 'btTabPulse 0.5s ease';
+                    setTimeout(() => {
+                        this.style.animation = '';
+                    }, 500);
+                    
+                    textSection.classList.remove('bt-active-content');
+                    
+                    setTimeout(() => {
+                        tabBtns.forEach(b => b.classList.remove('bt-active'));
+                        tabContents.forEach(c => c.classList.remove('bt-active'));
+                        tabImages.forEach(i => i.classList.remove('bt-active'));
+                        
+                        this.classList.add('bt-active');
+                        
+                        document.getElementById(tabId).classList.add('bt-active');
+                        document.getElementById('img' + tabNumber).classList.add('bt-active');
+                        
+                        if (window.innerWidth <= 1024) {
+                            this.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'nearest',
+                                inline: 'center'
+                            });
+                        }
+                        
+                        setTimeout(() => {
+                            textSection.classList.add('bt-active-content');
+                        }, 50);
+                        
+                    }, 300);
+                });
+            });
+            
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            
+            if (tabMenu) {
+                tabMenu.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    tabMenu.classList.add('active');
+                    startX = e.pageX - tabMenu.offsetLeft;
+                    scrollLeft = tabMenu.scrollLeft;
+                });
+                
+                tabMenu.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    tabMenu.classList.remove('active');
+                });
+                
+                tabMenu.addEventListener('mouseup', () => {
+                    isDown = false;
+                    tabMenu.classList.remove('active');
+                });
+                
+                tabMenu.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - tabMenu.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    tabMenu.scrollLeft = scrollLeft - walk;
+                });
+                
+                tabMenu.addEventListener('touchstart', (e) => {
+                    isDown = true;
+                    startX = e.touches[0].pageX - tabMenu.offsetLeft;
+                    scrollLeft = tabMenu.scrollLeft;
+                });
+                
+                tabMenu.addEventListener('touchend', () => {
+                    isDown = false;
+                });
+                
+                tabMenu.addEventListener('touchmove', (e) => {
+                    if (!isDown) return;
+                    const x = e.touches[0].pageX - tabMenu.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    tabMenu.scrollLeft = scrollLeft - walk;
+                });
+            }
+        });
+
+        // ========== SECTION 6: Contact Banner JavaScript ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            const medicalIcons = document.querySelectorAll('.rd-medical-icon');
+            
+            medicalIcons.forEach(icon => {
+                icon.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.3)';
+                    this.style.color = '#203F99';
+                    this.style.filter = 'drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2))';
+                });
+                
+                icon.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.color = '#FD0511';
+                    this.style.filter = 'drop-shadow(0 2px 3px rgba(0, 0, 0, 0.1))';
+                });
+            });
+            
+            const contactBtn = document.querySelector('.rd-contact-btn');
+            if(contactBtn) {
+                contactBtn.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = e.clientX - rect.left - size/2;
+                    const y = e.clientY - rect.top - size/2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple-animation 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                        pointer-events: none;
+                        z-index: 0;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    this.style.transform = 'translateY(-1px) scale(0.98)';
+                    
+                    setTimeout(() => {
+                        if (ripple.parentNode === this) {
+                            this.removeChild(ripple);
+                        }
+                        this.style.transform = '';
+                    }, 200);
+                });
+                
+                const style = document.createElement('style');
+                style.textContent = `
+                    @keyframes ripple-animation {
+                        to {
+                            transform: scale(4);
+                            opacity: 0;
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+            
+            const buttonLink = document.querySelector('.rd-button-container a');
+            if(buttonLink) {
+                buttonLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const href = this.getAttribute('href');
+                    
+                    const button = this.querySelector('.rd-contact-btn');
+                    button.style.transform = 'scale(0.95)';
+                    
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 300);
+                });
+            }
+        });
+
+        // ========== SECTION 7: FAQ JavaScript ==========
+        const items = document.querySelectorAll('.faq-item');
+        items.forEach(item=>{
+            const btn = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+            btn.addEventListener('click', ()=>{
+                const open = item.classList.contains('active');
+                items.forEach(i=>{
+                    i.classList.remove('active');
+                    i.querySelector('.faq-answer').style.height = '0px';
+                });
+                if(!open){
+                    item.classList.add('active');
+                    answer.style.height = answer.scrollHeight + 'px';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
