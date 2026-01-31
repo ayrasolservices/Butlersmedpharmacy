@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="canonical" href="https://ayrasol.com/services/beauty-personal-care/">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beauty & Personal Care | Ayrasol</title>
+    <meta name="description" content="Quality hair products, skincare, cosmetics, and grooming items for your daily personal care routine.">
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="../../header and footer/include.js"></script>
+    <style>
+        .hero-section {
+            background: linear-gradient(rgba(32, 63, 153, 0.9), rgba(32, 63, 153, 0.8)), 
+                        url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero-content h1 {
+            color: white;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .hero-content h1 span {
+            color: #FD0511;
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .intro-section {
+            padding: 70px 20px;
+            background: #f8f9fa;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: #203F99;
+            margin-bottom: 15px;
+        }
+
+        .section-title span {
+            color: #FD0511;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 20px auto 0;
+            font-size: 1rem;
+            color: #6c757d;
+            line-height: 1.7;
+        }
+
+        .categories-section {
+            padding: 70px 20px;
+            background: white;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e9ecef;
+        }
+
+        .category-image {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .category-image.hair {
+            background-image: url('https://images.unsplash.com/photo-1560066984-138dadb4c035?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-image.skincare {
+            background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-image.cosmetics {
+            background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-image.grooming {
+            background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+        }
+
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(32, 63, 153, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.5rem;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            color: #203F99;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .card-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .card-content li {
+            padding: 6px 0;
+            color: #6c757d;
+            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .card-content li:before {
+            content: "•";
+            color: #FD0511;
+            position: absolute;
+            left: 0;
+        }
+
+        .products-section {
+            padding: 70px 20px;
+            background: #f8f9fa;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .product-icon {
+            font-size: 2.5rem;
+            color: #203F99;
+            height: 70px;
+            width: 70px;
+            background: rgba(32, 63, 153, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .product-card:nth-child(2) .product-icon {
+            color: #FD0511;
+            background: rgba(253, 5, 17, 0.1);
+        }
+
+        .product-card:nth-child(3) .product-icon {
+            color: #FF9800;
+            background: rgba(255, 152, 0, 0.1);
+        }
+
+        .product-card:nth-child(4) .product-icon {
+            color: #4CAF50;
+            background: rgba(76, 175, 80, 0.1);
+        }
+
+        .product-card h3 {
+            color: #203F99;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #6c757d;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .final-cta {
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #203F99, #1a357f);
+            text-align: center;
+            color: white;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .final-cta p {
+            font-size: 1rem;
+            opacity: 0.9;
+            margin-bottom: 25px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .phone-link {
+            display: inline-block;
+            background: white;
+            color: #203F99;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-section { height: 40vh; }
+            .intro-section, 
+            .categories-section, 
+            .products-section { 
+                padding: 50px 20px; 
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .hero-section { height: 35vh; }
+            .categories-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <section class="hero-section reveal">
+        <div class="hero-content">
+            <h1>Beauty & <span>Personal Care</span></h1>
+            <p>Quality hair products, skincare, cosmetics, and grooming essentials</p>
+        </div>
+    </section>
+
+    <section class="intro-section reveal">
+        <div class="container">
+            <h2 class="section-title">Personal Care <span>Essentials</span></h2>
+            <p class="intro-text">
+                We offer a wide range of beauty and personal care products for your daily routine. From hair care to skincare and grooming essentials.
+            </p>
+        </div>
+    </section>
+
+    <section class="categories-section reveal">
+        <div class="container">
+            <h2 class="section-title">Our <span>Categories</span></h2>
+            <div class="categories-grid">
+                <div class="category-card reveal">
+                    <div class="category-image hair">
+                        <div class="category-overlay">
+                            <i class="fas fa-air-freshener"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Hair Products</h3>
+                        <ul>
+                            <li>Shampoos & conditioners</li>
+                            <li>Hair styling products</li>
+                            <li>Hair color & treatments</li>
+                            <li>Hair accessories</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="category-image skincare">
+                        <div class="category-overlay">
+                            <i class="fas fa-spa"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Skincare</h3>
+                        <ul>
+                            <li>Face creams & lotions</li>
+                            <li>Cleansers & toners</li>
+                            <li>Sunscreens</li>
+                            <li>Body care products</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="category-image cosmetics">
+                        <div class="category-overlay">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Cosmetics</h3>
+                        <ul>
+                            <li>Makeup foundations</li>
+                            <li>Lipsticks & lip care</li>
+                            <li>Eye makeup</li>
+                            <li>Makeup brushes</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="category-card reveal">
+                    <div class="category-image grooming">
+                        <div class="category-overlay">
+                            <i class="fas fa-cut"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Grooming Items</h3>
+                        <ul>
+                            <li>Shaving products</li>
+                            <li>Deodorants</li>
+                            <li>Oral care</li>
+                            <li>Nail care</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="products-section reveal">
+        <div class="container">
+            <h2 class="section-title">Popular <span>Products</span></h2>
+            <div class="products-grid">
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-pump-soap"></i>
+                    </div>
+                    <h3>Hair Care</h3>
+                    <p>Shampoos, conditioners, and styling products for all hair types.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-hand-sparkles"></i>
+                    </div>
+                    <h3>Skincare</h3>
+                    <p>Moisturizers, cleansers, and treatments for healthy skin.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-lipstick"></i>
+                    </div>
+                    <h3>Makeup</h3>
+                    <p>Cosmetics and beauty products for everyday looks.</p>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="product-icon">
+                        <i class="fas fa-toothbrush"></i>
+                    </div>
+                    <h3>Grooming</h3>
+                    <p>Personal care items for daily grooming routines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta reveal">
+        <div class="container">
+            <h2>Find Your Beauty Essentials</h2>
+            <p>Visit us for quality beauty and personal care products for your daily needs.</p>
+            <a href="tel:+1234567890" class="phone-link">Call to Order Now</a>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        reveals.forEach(reveal => {
+            observer.observe(reveal);
+        });
+    </script>
+</body>
+</html>
