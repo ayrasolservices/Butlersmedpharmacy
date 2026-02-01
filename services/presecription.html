@@ -325,93 +325,6 @@
             border-color: white !important;
         }
 
-        .custom-alert {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .alert-content {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: alertFadeIn 0.3s ease-out;
-        }
-
-        @keyframes alertFadeIn {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .alert-content h3 {
-            color: #203F99;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-        }
-
-        .alert-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .alert-btn {
-            padding: 1rem 1.5rem;
-            border-radius: 50px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .map-btn {
-            background: #203F99;
-            color: white;
-        }
-
-        .map-btn:hover {
-            background: #1a347d;
-            transform: translateY(-2px);
-        }
-
-        .phone-btn {
-            background: #00a896;
-            color: white;
-        }
-
-        .phone-btn:hover {
-            background: #009080;
-            transform: translateY(-2px);
-        }
-
-        .close-btn {
-            background: #f8f9fa;
-            color: #6c757d;
-            border: 1px solid #dee2e6;
-        }
-
-        .close-btn:hover {
-            background: #e9ecef;
-            transform: translateY(-2px);
-        }
-
         @media (max-width: 1400px) {
             .hero-container,
             .service-details {
@@ -555,10 +468,6 @@
                 width: 100%;
                 max-width: 250px;
             }
-            
-            .alert-content {
-                padding: 2rem 1.5rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -618,14 +527,6 @@
 </head>
 <body>
     <div id="header-container"></div>
-
-    <div class="custom-alert" id="customAlert">
-        <div class="alert-content">
-            <h3 id="alertTitle">Choose an Option</h3>
-            <div class="alert-buttons" id="alertButtons">
-            </div>
-        </div>
-    </div>
 
     <section class="hero">
         <div class="hero-container">
@@ -720,71 +621,18 @@
         <p>Your health management should be simple and reliable. Visit us in-store or call today.</p>
         
         <div class="cta-buttons">
-            <button class="visit-button" id="visitBtn">
+            <a href="https://maps.app.goo.gl/KtkLugoJ7FHyg5yt5" target="_blank" class="visit-button" id="visitBtn">
                 <i class="fas fa-store"></i> Visit Us
-            </button>
-            <button class="call-button" id="finalCallBtn">
+            </a>
+            <a href="tel:+16144772686" class="call-button" id="finalCallBtn">
                 <i class="fas fa-phone-alt"></i> Call Now
-            </button>
+            </a>
         </div>
     </section>
 
     <div id="footer-container"></div>
 
     <script>
-        const pharmacyInfo = {
-            address: "123 Health Street, Medical City, MC 12345",
-            phone: "(555) 123-4567",
-            mapLink: "https://www.google.com/maps/search/?api=1&query=Pharmacy+Medical+City",
-            phoneLink: "tel:5551234567"
-        };
-        
-        function showCustomAlert(type) {
-            const alertElement = document.getElementById('customAlert');
-            const alertTitle = document.getElementById('alertTitle');
-            const alertButtons = document.getElementById('alertButtons');
-            
-            if (type === 'visit') {
-                alertTitle.textContent = 'Visit Our Pharmacy';
-                alertButtons.innerHTML = `
-                    <a href="${pharmacyInfo.mapLink}" target="_blank" class="alert-btn map-btn">
-                        <i class="fas fa-map-marker-alt"></i> Open in Google Maps
-                    </a>
-                    <a href="${pharmacyInfo.mapLink}" target="_blank" class="alert-btn map-btn">
-                        <i class="fas fa-directions"></i> Get Directions
-                    </a>
-                    <button class="alert-btn close-btn" onclick="closeAlert()">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                `;
-            } else if (type === 'call') {
-                alertTitle.textContent = 'Contact Our Pharmacy';
-                alertButtons.innerHTML = `
-                    <a href="${pharmacyInfo.phoneLink}" class="alert-btn phone-btn">
-                        <i class="fas fa-phone"></i> Call Now: ${pharmacyInfo.phone}
-                    </a>
-                    <button class="alert-btn close-btn" onclick="closeAlert()">
-                        <i class="fas fa-times"></i> Close
-                    </button>
-                `;
-            }
-            
-            alertElement.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function closeAlert() {
-            const alertElement = document.getElementById('customAlert');
-            alertElement.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-        
-        document.getElementById('customAlert').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeAlert();
-            }
-        });
-        
         document.addEventListener('DOMContentLoaded', function() {
             const steps = document.querySelectorAll('.process-step');
             
@@ -807,12 +655,6 @@
             buttons.forEach(button => {
                 button.addEventListener('click', function(e) {
                     createRippleEffect(e, this);
-                    
-                    if (this.id === 'visitBtn') {
-                        showCustomAlert('visit');
-                    } else if (this.id === 'finalCallBtn') {
-                        showCustomAlert('call');
-                    }
                 });
             });
             
