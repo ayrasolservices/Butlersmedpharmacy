@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="./assets/butlers-pharmacy-logo.png">
+  <link rel="icon" type="image/png" href="./assets/butlers-pharmacy-logo.png">
 
   <style>
     * {
@@ -298,6 +298,16 @@
       align-items: center;
       justify-content: center;
     }
+    .mobile-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
     .mobile-panel {
       position: fixed;
       top: 0;
@@ -315,16 +325,6 @@
     }
     .mobile-panel.show {
       transform: translateX(0);
-    }
-    .mobile-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.5);
-      z-index: 1001;
-      display: none;
     }
     .mobile-overlay.show {
       display: block;
@@ -680,8 +680,8 @@
     <div class="topbar" role="region" aria-label="Pharmacy contact info">
       <div class="wrap">
         <div class="topbar-left">
-          <a class="logo" href="/" aria-label="Butler's Med Pharmacy home">
-            <img class="logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+          <a class="logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
+            <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
             <div class="brandtext">
               <strong>Butler's Med Pharmacy</strong>
             </div>
@@ -783,9 +783,23 @@
     <a href="/Butlersmedpharmacy/contact-us.html" role="menuitem">Contact Us</a>
   </div>
 </div>
-
-
     </nav>
+
+    <div class="mobile-header">
+      <div class="wrap">
+        <a class="mobile-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
+          <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+        </a>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
+          <div class="hamburger-icon">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+
 <div class="mobile-overlay" id="mobileOverlay"></div>
 
 <div class="mobile-panel" id="mobilePanel">
@@ -873,10 +887,6 @@
     </details>
 
     <a class="m-link" href="/Butlersmedpharmacy/contact-us.html">Contact Us</a>
-
-  </div>
-</div>
-
 
         <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
           <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
