@@ -41,7 +41,6 @@
       text-decoration: none !important;
     }
     
-    /* Only allow underline on specific text content */
     .bt-phone-fax a:hover .bt-phone-text,
     .bt-topbar-center a:hover span:not(.bt-fa-icon) {
       text-decoration: underline !important;
@@ -908,7 +907,7 @@
               v14
               h-18
               v-12
-              c0-6-4-10-10-10
+              c0-6 4-10 10-10
               h-8
               c-6 0-10 4-10 10
               v12
@@ -924,44 +923,5 @@
       </button>
     </div>
   </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const hamburgerBtn = document.getElementById('bt-hamburgerBtn');
-      const mobilePanel = document.getElementById('bt-mobilePanel');
-      const mobileOverlay = document.getElementById('bt-mobileOverlay');
-      const mobileCloseBtn = document.getElementById('bt-mobileCloseBtn');
-      
-      function openMobileMenu() {
-        mobileOverlay.classList.add('show');
-        mobilePanel.classList.add('show');
-        hamburgerBtn.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-      }
-      
-      function closeMobileMenu() {
-        mobileOverlay.classList.remove('show');
-        mobilePanel.classList.remove('show');
-        hamburgerBtn.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-      }
-      
-      hamburgerBtn.addEventListener('click', openMobileMenu);
-      mobileCloseBtn.addEventListener('click', closeMobileMenu);
-      mobileOverlay.addEventListener('click', closeMobileMenu);
-      
-      window.addEventListener('resize', function() {
-        if (window.innerWidth > 992) {
-          closeMobileMenu();
-        }
-      });
-      
-      mobilePanel.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A') {
-          closeMobileMenu();
-        }
-      });
-    });
-  </script>
 </body>
 </html>
