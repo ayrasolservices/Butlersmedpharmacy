@@ -24,11 +24,29 @@
     a {
       color: inherit;
       text-decoration: none;
-      transition: all 0.2s ease;
     }
-    a:hover {
-      text-decoration: underline;
+    .bt-navlinks a,
+    .bt-navlinks button,
+    .bt-dropdown-panel a,
+    .bt-dd-item,
+    .bt-m-link,
+    .bt-acc-item,
+    .bt-info-item a,
+    .bt-logo,
+    .bt-mobile-logo,
+    .bt-mobile-menu-logo,
+    .bt-hamburger,
+    .bt-mobile-close-btn,
+    .bt-linklike {
+      text-decoration: none !important;
     }
+    
+    /* Only allow underline on specific text content */
+    .bt-phone-fax a:hover .bt-phone-text,
+    .bt-topbar-center a:hover span:not(.bt-fa-icon) {
+      text-decoration: underline !important;
+    }
+    
     button {
       font-family: inherit;
       background: none;
@@ -70,6 +88,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      transition: opacity 0.2s ease;
+    }
+    .bt-logo:hover {
+      opacity: 0.9;
     }
     .bt-logo-img {
       width: 85px;
@@ -88,11 +110,8 @@
       letter-spacing: 0.2px;
       color: #203F99;
     }
-    .bt-logo:hover {
-      text-decoration: none;
-    }
     .bt-logo:hover .bt-brandtext strong {
-      text-decoration: none;
+      text-decoration: none !important;
     }
     .bt-topbar-center {
       display: flex;
@@ -136,10 +155,10 @@
       gap: 8px;
     }
     .bt-phone-fax a:hover .bt-phone-text {
-      text-decoration: underline;
+      color: #0d2e7a;
     }
     .bt-phone-fax a:hover .bt-fax-text {
-      text-decoration: none;
+      text-decoration: none !important;
     }
     .bt-info-divider {
       margin: 0 8px;
@@ -177,12 +196,11 @@
       border: none;
       cursor: pointer;
       white-space: nowrap;
-      text-decoration: none !important;
+      transition: background 0.2s ease;
     }
     .bt-navlinks a:hover,
     .bt-navlinks button.bt-linklike:hover {
       background: rgba(255, 255, 255, 0.15);
-      text-decoration: none !important;
     }
     .bt-dropdown {
       position: relative;
@@ -235,12 +253,11 @@
       border: 1px solid transparent;
       font-weight: 500;
       color: #203F99 !important;
-      text-decoration: none !important;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
     .bt-dd-item:hover {
       background: #f2f7ff;
       border-color: #d8e6ff;
-      text-decoration: none !important;
     }
     .bt-dd-item i {
       width: 18px;
@@ -274,6 +291,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      transition: opacity 0.2s ease;
+    }
+    .bt-mobile-logo:hover {
+      opacity: 0.9;
     }
     .bt-hamburger {
       display: none;
@@ -345,11 +366,9 @@
       color: #203F99;
       margin-bottom: 8px;
       transition: background 0.2s ease;
-      text-decoration: none !important;
     }
     .bt-m-link:hover {
       background: #f6f8fc;
-      text-decoration: none !important;
     }
     details.bt-services-acc {
       margin-top: 6px;
@@ -409,11 +428,9 @@
       background: #f8fafc;
       border: 1px solid transparent;
       transition: background 0.2s ease, border-color 0.2s ease;
-      text-decoration: none !important;
     }
     .bt-acc-item:hover {
       background: #f2f7ff;
-      text-decoration: none !important;
     }
     .bt-acc-item i {
       width: 18px;
@@ -454,6 +471,10 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      transition: opacity 0.2s ease;
+    }
+    .bt-mobile-menu-logo:hover {
+      opacity: 0.9;
     }
     .bt-mobile-menu-logo-img {
       width: 60px;
@@ -714,155 +735,136 @@
       </div>
     </div>
     <nav class="bt-navbar" aria-label="Primary navigation">
-<div class="bt-wrap">
-  <div class="bt-navlinks" role="menubar" aria-label="Main menu">
-    <a href="/Butlersmedpharmacy/index.html" role="menuitem">Home</a>
-    <a href="/Butlersmedpharmacy/about-us.html" role="menuitem">About Us</a>
-    <a href="/Butlersmedpharmacy/services/index.html" role="menuitem">Pharmacy</a>
-    <div class="bt-dropdown" role="none">
-      <button class="bt-linklike" type="button" id="bt-servicesBtn" aria-haspopup="true" aria-expanded="false">
-        Services
-        <svg class="bt-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <div class="bt-dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="bt-servicesBtn">
-        <div class="bt-dropdown-grid">
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/presecription.html" role="menuitem">
-            <i class="fas fa-prescription-bottle-medical"></i>
-            <span style="color: #203F99;">Prescription Services</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/vitamins.html" role="menuitem">
-            <i class="fas fa-capsules"></i>
-            <span style="color: #203F99;">Vitamins & Supplements</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/otc.html" role="menuitem">
-            <i class="fas fa-pills"></i>
-            <span style="color: #203F99;">OTC Medications</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/surgical.html" role="menuitem">
-            <i class="fas fa-stethoscope"></i>
-            <span style="color: #203F99;">Surgical & Medical Supplies</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html" role="menuitem">
-            <i class="fas fa-globe-americas"></i>
-            <span style="color: #203F99;">Hispanic OTC Items</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Household-Supplies.html" role="menuitem">
-            <i class="fas fa-home"></i>
-            <span style="color: #203F99;">Household Supplies</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html" role="menuitem">
-            <i class="fas fa-shopping-basket"></i>
-            <span style="color: #203F99;">Food & Grocery Items</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html" role="menuitem">
-            <i class="fas fa-spa"></i>
-            <span style="color: #203F99;">Beauty & Personal Care</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html" role="menuitem">
-            <i class="fas fa-wind"></i>
-            <span style="color: #203F99;">Perfumes & Fragrances</span>
-          </a>
-          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html" role="menuitem">
-            <i class="fas fa-plug"></i>
-            <span style="color: #203F99;">Electronic Appliances</span>
-          </a>
+      <div class="bt-wrap">
+        <div class="bt-navlinks" role="menubar" aria-label="Main menu">
+          <a href="/Butlersmedpharmacy/index.html" role="menuitem">Home</a>
+          <a href="/Butlersmedpharmacy/about-us.html" role="menuitem">About Us</a>
+          <a href="/Butlersmedpharmacy/services/index.html" role="menuitem">Pharmacy</a>
+          <div class="bt-dropdown" role="none">
+            <button class="bt-linklike" type="button" id="bt-servicesBtn" aria-haspopup="true" aria-expanded="false">
+              Services
+              <svg class="bt-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </button>
+            <div class="bt-dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="bt-servicesBtn">
+              <div class="bt-dropdown-grid">
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/presecription.html" role="menuitem">
+                  <i class="fas fa-prescription-bottle-medical"></i>
+                  <span>Prescription Services</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/vitamins.html" role="menuitem">
+                  <i class="fas fa-capsules"></i>
+                  <span>Vitamins & Supplements</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/otc.html" role="menuitem">
+                  <i class="fas fa-pills"></i>
+                  <span>OTC Medications</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/surgical.html" role="menuitem">
+                  <i class="fas fa-stethoscope"></i>
+                  <span>Surgical & Medical Supplies</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html" role="menuitem">
+                  <i class="fas fa-globe-americas"></i>
+                  <span>Hispanic OTC Items</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Household-Supplies.html" role="menuitem">
+                  <i class="fas fa-home"></i>
+                  <span>Household Supplies</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html" role="menuitem">
+                  <i class="fas fa-shopping-basket"></i>
+                  <span>Food & Grocery Items</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html" role="menuitem">
+                  <i class="fas fa-spa"></i>
+                  <span>Beauty & Personal Care</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html" role="menuitem">
+                  <i class="fas fa-wind"></i>
+                  <span>Perfumes & Fragrances</span>
+                </a>
+                <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html" role="menuitem">
+                  <i class="fas fa-plug"></i>
+                  <span>Electronic Appliances</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <a href="/Butlersmedpharmacy/contact-us.html" role="menuitem">Contact Us</a>
         </div>
       </div>
-    </div>
-    <a href="/Butlersmedpharmacy/contact-us.html" role="menuitem">Contact Us</a>
-  </div>
-</div>
     </nav>
-<div class="bt-mobile-overlay" id="bt-mobileOverlay"></div>
-
-<div class="bt-mobile-panel" id="bt-mobilePanel">
-  <div class="bt-mobile-inner">
-
-    <div class="bt-mobile-menu-header">
-      <a href="/Butlersmedpharmacy/index.html" class="bt-mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
-        <img class="bt-mobile-menu-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-        <div class="bt-mobile-menu-brand">
-          <strong>Butler's Med Pharmacy</strong>
+    <div class="bt-mobile-overlay" id="bt-mobileOverlay"></div>
+    <div class="bt-mobile-panel" id="bt-mobilePanel">
+      <div class="bt-mobile-inner">
+        <div class="bt-mobile-menu-header">
+          <a href="/Butlersmedpharmacy/index.html" class="bt-mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
+            <img class="bt-mobile-menu-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+            <div class="bt-mobile-menu-brand">
+              <strong>Butler's Med Pharmacy</strong>
+            </div>
+          </a>
+          <button class="bt-mobile-close-btn" id="bt-mobileCloseBtn" aria-label="Close menu">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
+              <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
         </div>
-      </a>
-
-      <button class="bt-mobile-close-btn" id="bt-mobileCloseBtn" aria-label="Close menu">
-        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
-          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-    </div>
-
-    <a class="bt-m-link" href="/Butlersmedpharmacy/index.html">Home</a>
-    <a class="bt-m-link" href="/Butlersmedpharmacy/about-us.html">About Us</a>
-
-    <details class="bt-services-acc">
-      <summary>
-        Services
-        <svg class="bt-acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </summary>
-
-      <div class="bt-acc-grid" role="group" aria-label="Services">
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/presecription.html">
-          <i class="fas fa-prescription-bottle-medical"></i>
-          Prescription Services
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/vitamins.html">
-          <i class="fas fa-capsules"></i>
-          Vitamins & Supplements
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/otc.html">
-          <i class="fas fa-pills"></i>
-          OTC Medications
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/surgical.html">
-          <i class="fas fa-stethoscope"></i>
-          Surgical & Medical Supplies
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html">
-          <i class="fas fa-globe-americas"></i>
-          Hispanic OTC Items
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Household-Supplies.html">
-          <i class="fas fa-home"></i>
-          Household Supplies
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html">
-          <i class="fas fa-shopping-basket"></i>
-          Food & Grocery Items
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html">
-          <i class="fas fa-spa"></i>
-          Beauty & Personal Care
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html">
-          <i class="fas fa-wind"></i>
-          Perfumes & Fragrances
-        </a>
-
-        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html">
-          <i class="fas fa-plug"></i>
-          Electronic Appliances
-        </a>
-
-      </div>
-    </details>
-
-    <a class="bt-m-link" href="/Butlersmedpharmacy/contact-us.html">Contact Us</a>
-
+        <a class="bt-m-link" href="/Butlersmedpharmacy/index.html">Home</a>
+        <a class="bt-m-link" href="/Butlersmedpharmacy/about-us.html">About Us</a>
+        <details class="bt-services-acc">
+          <summary>
+            Services
+            <svg class="bt-acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </summary>
+          <div class="bt-acc-grid" role="group" aria-label="Services">
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/presecription.html">
+              <i class="fas fa-prescription-bottle-medical"></i>
+              Prescription Services
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/vitamins.html">
+              <i class="fas fa-capsules"></i>
+              Vitamins & Supplements
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/otc.html">
+              <i class="fas fa-pills"></i>
+              OTC Medications
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/surgical.html">
+              <i class="fas fa-stethoscope"></i>
+              Surgical & Medical Supplies
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html">
+              <i class="fas fa-globe-americas"></i>
+              Hispanic OTC Items
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Household-Supplies.html">
+              <i class="fas fa-home"></i>
+              Household Supplies
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html">
+              <i class="fas fa-shopping-basket"></i>
+              Food & Grocery Items
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html">
+              <i class="fas fa-spa"></i>
+              Beauty & Personal Care
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html">
+              <i class="fas fa-wind"></i>
+              Perfumes & Fragrances
+            </a>
+            <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html">
+              <i class="fas fa-plug"></i>
+              Electronic Appliances
+            </a>
+          </div>
+        </details>
+        <a class="bt-m-link" href="/Butlersmedpharmacy/contact-us.html">Contact Us</a>
         <div class="bt-mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
           <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
