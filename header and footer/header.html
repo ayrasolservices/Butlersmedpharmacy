@@ -783,23 +783,9 @@
     <a href="/Butlersmedpharmacy/contact-us.html" role="menuitem">Contact Us</a>
   </div>
 </div>
+
+
     </nav>
-
-    <div class="mobile-header">
-      <div class="wrap">
-        <a class="mobile-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
-          <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-        </a>
-        <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false">
-          <div class="hamburger-icon">
-            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </button>
-      </div>
-    </div>
-
 <div class="mobile-overlay" id="mobileOverlay"></div>
 
 <div class="mobile-panel" id="mobilePanel">
@@ -912,6 +898,42 @@
       </div>
     </div>
   </header>
+
+  <div class="mobile-header">
+    <div class="wrap">
+      <a class="mobile-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
+        <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+      </a>
+      <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
+        <div class="hamburger-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
+            <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
+            <path d="
+              M96 64
+              v-14
+              c0-14 10-24 24-24
+              h16
+              c14 0 24 10 24 24
+              v14
+              h-18
+              v-12
+              c0-6-4-10-10-10
+              h-8
+              c-6 0-10 4-10 10
+              v12
+              z"
+              fill="#FFFFFF"
+            />
+            <rect x="48" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
+            <rect x="160" y="214" width="48" height="18" rx="9" fill="#FFFFFF"/>
+            <rect x="118" y="96" width="20" height="64" rx="6" fill="#FD0510"/>
+            <rect x="96" y="118" width="64" height="20" rx="6" fill="#FD0510"/>
+          </svg>
+        </div>
+      </button>
+    </div>
+  </div>
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const hamburgerBtn = document.getElementById('hamburgerBtn');
