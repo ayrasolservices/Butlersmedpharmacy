@@ -35,66 +35,66 @@
       border: none;
       cursor: pointer;
     }
-    .wrap {
+    .bt-wrap {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 16px;
     }
-    .site-header {
+    .bt-site-header {
       position: sticky;
       top: 0;
       z-index: 999;
       background: #fff;
       border-bottom: 1px solid #e6ebf2;
     }
-    .topbar {
+    .bt-topbar {
       background: #fff;
       color: #203F99;
       font-size: 14px;
       border-bottom: 1px solid #e6ebf2;
     }
-    .topbar .wrap {
+    .bt-topbar .bt-wrap {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 15px 16px;
     }
-    .topbar-left {
+    .bt-topbar-left {
       display: flex;
       align-items: center;
       gap: 12px;
       min-width: 220px;
     }
-    .logo {
+    .bt-logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .logo-img {
+    .bt-logo-img {
       width: 85px;
       height: 85px;
       border-radius: 12px;
       object-fit: contain;
     }
-    .brandtext {
+    .bt-brandtext {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
-    .brandtext strong {
+    .bt-brandtext strong {
       font-size: 22px;
       font-weight: 600;
       letter-spacing: 0.2px;
       color: #203F99;
     }
-    .logo:hover {
+    .bt-logo:hover {
       text-decoration: none;
     }
-    .logo:hover .brandtext strong {
+    .bt-logo:hover .bt-brandtext strong {
       text-decoration: none;
     }
-    .topbar-center {
+    .bt-topbar-center {
       display: flex;
       align-items: center;
       gap: 20px;
@@ -102,14 +102,14 @@
       justify-content: center;
       white-space: nowrap;
     }
-    .topbar-right {
+    .bt-topbar-right {
       display: flex;
       align-items: center;
       gap: 18px;
       min-width: 220px;
       justify-content: flex-end;
     }
-    .info-item {
+    .bt-info-item {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -117,54 +117,54 @@
       font-weight: 500;
       color: #203F99;
     }
-    .info-item svg {
+    .bt-info-item svg {
       width: 18px;
       height: 18px;
       opacity: 0.95;
       flex: 0 0 auto;
       color: #203F99;
     }
-    .info-item a {
+    .bt-info-item a {
       color: #203F99;
     }
-    .info-item a:hover {
+    .bt-info-item a:hover {
       color: #0d2e7a;
     }
-    .phone-fax {
+    .bt-phone-fax {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .phone-fax a:hover .phone-text {
+    .bt-phone-fax a:hover .bt-phone-text {
       text-decoration: underline;
     }
-    .phone-fax a:hover .fax-text {
+    .bt-phone-fax a:hover .bt-fax-text {
       text-decoration: none;
     }
-    .info-divider {
+    .bt-info-divider {
       margin: 0 8px;
       color: #666;
     }
-    .navbar {
+    .bt-navbar {
       background: #203F99;
       color: #fff;
       border-bottom: 1px solid #1a347e;
     }
-    .navbar .wrap {
+    .bt-navbar .bt-wrap {
       display: flex;
       justify-content: center;
       align-items: center;
       padding: 14px 16px;
       position: relative;
     }
-    .navlinks {
+    .bt-navlinks {
       display: flex;
       align-items: center;
       gap: 6px;
       justify-content: center;
     }
-    .navlinks a,
-    .navlinks button.linklike {
+    .bt-navlinks a,
+    .bt-navlinks button.bt-linklike {
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -179,26 +179,26 @@
       white-space: nowrap;
       text-decoration: none !important;
     }
-    .navlinks a:hover,
-    .navlinks button.linklike:hover {
+    .bt-navlinks a:hover,
+    .bt-navlinks button.bt-linklike:hover {
       background: rgba(255, 255, 255, 0.15);
       text-decoration: none !important;
     }
-    .dropdown {
+    .bt-dropdown {
       position: relative;
     }
-    .chev {
+    .bt-chev {
       width: 14px;
       height: 14px;
       transition: transform 0.3s ease;
       opacity: 0.95;
       color: #fff;
     }
-    .dropdown:hover .chev,
-    .dropdown[data-open="true"] .chev {
+    .bt-dropdown:hover .bt-chev,
+    .bt-dropdown[data-open="true"] .bt-chev {
       transform: rotate(180deg);
     }
-    .dropdown-panel {
+    .bt-dropdown-panel {
       position: absolute;
       left: 50%;
       transform: translateX(-50%) translateY(-10px);
@@ -215,18 +215,18 @@
       transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
       z-index: 1000;
     }
-    .dropdown:hover .dropdown-panel,
-    .dropdown:focus-within .dropdown-panel {
+    .bt-dropdown:hover .bt-dropdown-panel,
+    .bt-dropdown:focus-within .bt-dropdown-panel {
       opacity: 1;
       visibility: visible;
       transform: translateX(-50%) translateY(0);
     }
-    .dropdown-grid {
+    .bt-dropdown-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 10px 14px;
     }
-    .dd-item {
+    .bt-dd-item {
       display: flex;
       align-items: flex-start;
       gap: 10px;
@@ -237,12 +237,12 @@
       color: #203F99 !important;
       text-decoration: none !important;
     }
-    .dd-item:hover {
+    .bt-dd-item:hover {
       background: #f2f7ff;
       border-color: #d8e6ff;
       text-decoration: none !important;
     }
-    .dd-item i {
+    .bt-dd-item i {
       width: 18px;
       height: 18px;
       margin-top: 1px;
@@ -251,31 +251,31 @@
       align-items: center;
       justify-content: center;
     }
-    .fa-icon {
+    .bt-fa-icon {
       font-size: 16px;
       width: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .mobile-header {
+    .bt-mobile-header {
       display: none;
       background: #203F99;
       padding: 12px 16px;
       position: relative;
       border-bottom: 1px solid #1a347e;
     }
-    .mobile-header .wrap {
+    .bt-mobile-header .bt-wrap {
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .mobile-logo {
+    .bt-mobile-logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .hamburger {
+    .bt-hamburger {
       display: none;
       align-items: center;
       justify-content: center;
@@ -288,17 +288,17 @@
       transition: all 0.2s ease;
       padding: 0;
     }
-    .hamburger:hover {
+    .bt-hamburger:hover {
       background: rgba(255, 255, 255, 0.1);
     }
-    .hamburger-icon {
+    .bt-hamburger-icon {
       width: 40px;
       height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    .mobile-overlay {
+    .bt-mobile-overlay {
       display: none;
       position: fixed;
       top: 0;
@@ -308,7 +308,7 @@
       background: rgba(0, 0, 0, 0.5);
       z-index: 1000;
     }
-    .mobile-panel {
+    .bt-mobile-panel {
       position: fixed;
       top: 0;
       right: 0;
@@ -323,17 +323,17 @@
       box-shadow: -8px 0 24px rgba(11, 18, 32, 0.15);
       overflow-y: auto;
     }
-    .mobile-panel.show {
+    .bt-mobile-panel.show {
       transform: translateX(0);
     }
-    .mobile-overlay.show {
+    .bt-mobile-overlay.show {
       display: block;
     }
-    .mobile-inner {
+    .bt-mobile-inner {
       padding: 20px 16px;
       height: 100%;
     }
-    .m-link {
+    .bt-m-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -347,18 +347,18 @@
       transition: background 0.2s ease;
       text-decoration: none !important;
     }
-    .m-link:hover {
+    .bt-m-link:hover {
       background: #f6f8fc;
       text-decoration: none !important;
     }
-    details.services-acc {
+    details.bt-services-acc {
       margin-top: 6px;
       border-radius: 14px;
       padding: 4px 6px;
       background: #fff;
       margin-bottom: 8px;
     }
-    details.services-acc > summary {
+    details.bt-services-acc > summary {
       list-style: none;
       cursor: pointer;
       padding: 14px 12px;
@@ -371,34 +371,34 @@
       border-radius: 12px;
       transition: background 0.2s ease;
     }
-    details.services-acc > summary:hover {
+    details.bt-services-acc > summary:hover {
       background: #f6f8fc;
     }
-    details.services-acc > summary::-webkit-details-marker {
+    details.bt-services-acc > summary::-webkit-details-marker {
       display: none;
     }
-    .acc-chev {
+    .bt-acc-chev {
       width: 16px;
       height: 16px;
       transition: transform 0.3s ease;
       opacity: 0.75;
       color: #203F99;
     }
-    details[open] .acc-chev {
+    details[open] .bt-acc-chev {
       transform: rotate(180deg);
     }
-    .acc-grid {
+    .bt-acc-grid {
       padding: 4px 6px 10px;
       display: grid;
       grid-template-columns: 1fr;
       gap: 8px;
-      animation: fadeIn 0.3s ease;
+      animation: bt-fadeIn 0.3s ease;
     }
-    @keyframes fadeIn {
+    @keyframes bt-fadeIn {
       from { opacity: 0; transform: translateY(-5px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .acc-item {
+    .bt-acc-item {
       display: flex;
       align-items: center;
       gap: 10px;
@@ -411,11 +411,11 @@
       transition: background 0.2s ease, border-color 0.2s ease;
       text-decoration: none !important;
     }
-    .acc-item:hover {
+    .bt-acc-item:hover {
       background: #f2f7ff;
       text-decoration: none !important;
     }
-    .acc-item i {
+    .bt-acc-item i {
       width: 18px;
       height: 18px;
       color: #203F99;
@@ -423,7 +423,7 @@
       align-items: center;
       justify-content: center;
     }
-    .mobile-close-btn {
+    .bt-mobile-close-btn {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -438,11 +438,11 @@
       margin-left: auto;
       border: 1px solid #e6ebf2;
     }
-    .mobile-close-btn:hover {
+    .bt-mobile-close-btn:hover {
       background: #f2f7ff;
       border-color: #d8e6ff;
     }
-    .mobile-menu-header {
+    .bt-mobile-menu-header {
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -450,421 +450,410 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #e6ebf2;
     }
-    .mobile-menu-logo {
+    .bt-mobile-menu-logo {
       display: flex;
       align-items: center;
       gap: 12px;
     }
-    .mobile-menu-logo-img {
+    .bt-mobile-menu-logo-img {
       width: 60px;
       height: 60px;
       border-radius: 12px;
       object-fit: contain;
     }
-    .mobile-menu-brand {
+    .bt-mobile-menu-brand {
       display: flex;
       flex-direction: column;
       line-height: 1.05;
     }
-    .mobile-menu-brand strong {
+    .bt-mobile-menu-brand strong {
       font-size: 18px;
       font-weight: 600;
       color: #203F99;
     }
     @media (max-width: 1024px) {
-      .wrap {
+      .bt-wrap {
         max-width: 960px;
       }
-      .topbar .wrap {
+      .bt-topbar .bt-wrap {
         flex-wrap: wrap;
         row-gap: 12px;
       }
-      .topbar-center {
+      .bt-topbar-center {
         order: 3;
         width: 100%;
         justify-content: space-between;
         flex-wrap: wrap;
         gap: 12px;
       }
-      .topbar-right {
+      .bt-topbar-right {
         order: 2;
       }
-      .info-item {
+      .bt-info-item {
         font-size: 13px;
       }
-      .brandtext strong {
+      .bt-brandtext strong {
         font-size: 18px;
       }
-      .logo-img {
+      .bt-logo-img {
         width: 75px;
         height: 75px;
       }
     }
     @media (max-width: 992px) {
-      .wrap {
+      .bt-wrap {
         max-width: 900px;
       }
-      .topbar {
+      .bt-topbar {
         display: none;
       }
-      .navbar {
+      .bt-navbar {
         display: none;
       }
-      .mobile-header {
+      .bt-mobile-header {
         display: block;
       }
-      .hamburger {
+      .bt-hamburger {
         display: inline-flex;
       }
-      .mobile-logo .logo-img {
+      .bt-mobile-logo .bt-logo-img {
         width: 65px;
         height: 65px;
         border: none;
       }
-      .mobile-logo .brandtext {
+      .bt-mobile-logo .bt-brandtext {
         display: none;
       }
-      .hamburger-icon svg {
+      .bt-hamburger-icon svg {
         width: 40px;
         height: 40px;
       }
     }
     @media (max-width: 768px) {
-      .wrap {
+      .bt-wrap {
         max-width: 720px;
       }
-      .mobile-logo .logo-img {
+      .bt-mobile-logo .bt-logo-img {
         width: 60px;
         height: 60px;
       }
-      .mobile-panel {
+      .bt-mobile-panel {
         max-width: 300px;
       }
-      .hamburger {
+      .bt-hamburger {
         width: 52px;
         height: 52px;
       }
-      .hamburger-icon {
+      .bt-hamburger-icon {
         width: 36px;
         height: 36px;
       }
     }
     @media (max-width: 640px) {
-      .wrap {
+      .bt-wrap {
         max-width: 576px;
       }
-      .mobile-header .wrap {
+      .bt-mobile-header .bt-wrap {
         justify-content: space-between;
       }
-      .phone-fax {
+      .bt-phone-fax {
         flex-direction: row;
         align-items: center;
         flex-wrap: wrap;
       }
-      .mobile-panel {
+      .bt-mobile-panel {
         max-width: 280px;
       }
-      .hamburger {
+      .bt-hamburger {
         width: 50px;
         height: 50px;
       }
-      .hamburger-icon {
+      .bt-hamburger-icon {
         width: 34px;
         height: 34px;
       }
     }
     @media (max-width: 576px) {
-      .wrap {
+      .bt-wrap {
         max-width: 540px;
       }
-      .logo-img {
+      .bt-logo-img {
         width: 70px;
         height: 70px;
       }
-      .mobile-logo .logo-img {
+      .bt-mobile-logo .bt-logo-img {
         width: 55px;
         height: 55px;
       }
-      .mobile-panel {
+      .bt-mobile-panel {
         max-width: 100%;
       }
-      .hamburger {
+      .bt-hamburger {
         width: 48px;
         height: 48px;
       }
-      .hamburger-icon {
+      .bt-hamburger-icon {
         width: 32px;
         height: 32px;
       }
     }
     @media (max-width: 480px) {
-      .wrap {
+      .bt-wrap {
         padding: 0 12px;
       }
-      .mobile-header {
+      .bt-mobile-header {
         padding: 10px 12px;
       }
-      .mobile-inner {
+      .bt-mobile-inner {
         padding: 16px 12px;
       }
-      .m-link {
+      .bt-m-link {
         padding: 12px 10px;
         font-size: 15px;
       }
-      details.services-acc > summary {
+      details.bt-services-acc > summary {
         padding: 12px 10px;
         font-size: 15px;
       }
-      .acc-item {
+      .bt-acc-item {
         padding: 10px;
         font-size: 14px;
       }
-      .mobile-logo .logo-img {
+      .bt-mobile-logo .bt-logo-img {
         width: 50px;
         height: 50px;
       }
-      .hamburger {
+      .bt-hamburger {
         width: 46px;
         height: 46px;
       }
-      .hamburger-icon {
+      .bt-hamburger-icon {
         width: 30px;
         height: 30px;
       }
-      .mobile-menu-logo-img {
+      .bt-mobile-menu-logo-img {
         width: 50px;
         height: 50px;
       }
-      .mobile-menu-brand strong {
+      .bt-mobile-menu-brand strong {
         font-size: 16px;
       }
     }
     @media (max-width: 360px) {
-      .wrap {
+      .bt-wrap {
         padding: 0 8px;
       }
-      .mobile-header {
+      .bt-mobile-header {
         padding: 8px;
       }
-      .mobile-inner {
+      .bt-mobile-inner {
         padding: 12px 8px;
       }
-      .logo-img {
+      .bt-logo-img {
         width: 65px;
         height: 65px;
       }
-      .mobile-logo .logo-img {
+      .bt-mobile-logo .bt-logo-img {
         width: 45px;
         height: 45px;
       }
-      .hamburger {
+      .bt-hamburger {
         width: 44px;
         height: 44px;
       }
-      .hamburger-icon {
+      .bt-hamburger-icon {
         width: 28px;
         height: 28px;
       }
-      .mobile-menu-logo-img {
+      .bt-mobile-menu-logo-img {
         width: 45px;
         height: 45px;
       }
-      .mobile-menu-brand strong {
+      .bt-mobile-menu-brand strong {
         font-size: 15px;
       }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="topbar" role="region" aria-label="Pharmacy contact info">
-      <div class="wrap">
-        <div class="topbar-left">
-          <a class="logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
-            <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-            <div class="brandtext">
+  <header class="bt-site-header">
+    <div class="bt-topbar" role="region" aria-label="Pharmacy contact info">
+      <div class="bt-wrap">
+        <div class="bt-topbar-left">
+          <a class="bt-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
+            <img class="bt-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+            <div class="bt-brandtext">
               <strong>Butler's Med Pharmacy</strong>
             </div>
           </a>
         </div>
-        <div class="topbar-center">
-          <div class="contact-info">
-            <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="info-item" aria-label="Address">
-              <i class="fas fa-map-marker-alt fa-icon"></i>
+        <div class="bt-topbar-center">
+          <div class="bt-contact-info">
+            <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" class="bt-info-item" aria-label="Address">
+              <i class="fas fa-map-marker-alt bt-fa-icon"></i>
               <span>1393 Webster Ave, Bronx, NY 10456</span>
             </a>
-            <span class="info-divider">|</span>
-            <div class="info-item" aria-label="Hours">
-              <i class="far fa-clock fa-icon"></i>
+            <span class="bt-info-divider">|</span>
+            <div class="bt-info-item" aria-label="Hours">
+              <i class="far fa-clock bt-fa-icon"></i>
               <span>Mon-Fri: 10AM-5PM | </span>
             </div>
           </div>
         </div>
-        <div class="topbar-right">
-          <div class="info-item">
-            <div class="phone-fax">
+        <div class="bt-topbar-right">
+          <div class="bt-info-item">
+            <div class="bt-phone-fax">
               <a href="tel:+17187660222" aria-label="Phone number">
-                <span class="phone-text">Phone: +1 614-477-2686</span>
+                <span class="bt-phone-text">Phone: +1 614-477-2686</span>
               </a>
-              <span class="info-divider">|</span>
-              <span class="fax-text">Fax: 718-766-0226</span>
+              <span class="bt-info-divider">|</span>
+              <span class="bt-fax-text">Fax: 718-766-0226</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <nav class="navbar" aria-label="Primary navigation">
-<div class="wrap">
-  <div class="navlinks" role="menubar" aria-label="Main menu">
-    <!-- Home page -->
+    <nav class="bt-navbar" aria-label="Primary navigation">
+<div class="bt-wrap">
+  <div class="bt-navlinks" role="menubar" aria-label="Main menu">
     <a href="/Butlersmedpharmacy/index.html" role="menuitem">Home</a>
-
-    <!-- About Us -->
     <a href="/Butlersmedpharmacy/about-us.html" role="menuitem">About Us</a>
-
-    <!-- Pharmacy / Services main page -->
     <a href="/Butlersmedpharmacy/services/index.html" role="menuitem">Pharmacy</a>
-
-    <!-- Services Dropdown -->
-    <div class="dropdown" role="none">
-      <button class="linklike" type="button" id="servicesBtn" aria-haspopup="true" aria-expanded="false">
+    <div class="bt-dropdown" role="none">
+      <button class="bt-linklike" type="button" id="bt-servicesBtn" aria-haspopup="true" aria-expanded="false">
         Services
-        <svg class="chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg class="bt-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      <div class="dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="servicesBtn">
-        <div class="dropdown-grid">
-          <a class="dd-item" href="/Butlersmedpharmacy/services/presecription.html" role="menuitem">
+      <div class="bt-dropdown-panel" role="menu" aria-label="Services submenu" aria-labelledby="bt-servicesBtn">
+        <div class="bt-dropdown-grid">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/presecription.html" role="menuitem">
             <i class="fas fa-prescription-bottle-medical"></i>
             <span style="color: #203F99;">Prescription Services</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/vitamins.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/vitamins.html" role="menuitem">
             <i class="fas fa-capsules"></i>
             <span style="color: #203F99;">Vitamins & Supplements</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/otc.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/otc.html" role="menuitem">
             <i class="fas fa-pills"></i>
             <span style="color: #203F99;">OTC Medications</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/surgical.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/surgical.html" role="menuitem">
             <i class="fas fa-stethoscope"></i>
             <span style="color: #203F99;">Surgical & Medical Supplies</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html" role="menuitem">
             <i class="fas fa-globe-americas"></i>
             <span style="color: #203F99;">Hispanic OTC Items</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Household-Supplies.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Household-Supplies.html" role="menuitem">
             <i class="fas fa-home"></i>
             <span style="color: #203F99;">Household Supplies</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html" role="menuitem">
             <i class="fas fa-shopping-basket"></i>
             <span style="color: #203F99;">Food & Grocery Items</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html" role="menuitem">
             <i class="fas fa-spa"></i>
             <span style="color: #203F99;">Beauty & Personal Care</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html" role="menuitem">
             <i class="fas fa-wind"></i>
             <span style="color: #203F99;">Perfumes & Fragrances</span>
           </a>
-          <a class="dd-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html" role="menuitem">
+          <a class="bt-dd-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html" role="menuitem">
             <i class="fas fa-plug"></i>
             <span style="color: #203F99;">Electronic Appliances</span>
           </a>
         </div>
       </div>
     </div>
-
-    <!-- Contact Us -->
     <a href="/Butlersmedpharmacy/contact-us.html" role="menuitem">Contact Us</a>
   </div>
 </div>
-
-
     </nav>
-<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="bt-mobile-overlay" id="bt-mobileOverlay"></div>
 
-<div class="mobile-panel" id="mobilePanel">
-  <div class="mobile-inner">
+<div class="bt-mobile-panel" id="bt-mobilePanel">
+  <div class="bt-mobile-inner">
 
-    <div class="mobile-menu-header">
-      <a href="/Butlersmedpharmacy/index.html" class="mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
-        <img class="mobile-menu-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
-        <div class="mobile-menu-brand">
+    <div class="bt-mobile-menu-header">
+      <a href="/Butlersmedpharmacy/index.html" class="bt-mobile-menu-logo" aria-label="Butler's Med Pharmacy home">
+        <img class="bt-mobile-menu-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+        <div class="bt-mobile-menu-brand">
           <strong>Butler's Med Pharmacy</strong>
         </div>
       </a>
 
-      <button class="mobile-close-btn" id="mobileCloseBtn" aria-label="Close menu">
+      <button class="bt-mobile-close-btn" id="bt-mobileCloseBtn" aria-label="Close menu">
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" width="20" height="20">
           <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
     </div>
 
-    <a class="m-link" href="/Butlersmedpharmacy/index.html">Home</a>
-    <a class="m-link" href="/Butlersmedpharmacy/about-us.html">About Us</a>
+    <a class="bt-m-link" href="/Butlersmedpharmacy/index.html">Home</a>
+    <a class="bt-m-link" href="/Butlersmedpharmacy/about-us.html">About Us</a>
 
-    <details class="services-acc">
+    <details class="bt-services-acc">
       <summary>
         Services
-        <svg class="acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg class="bt-acc-chev" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </summary>
 
-      <div class="acc-grid" role="group" aria-label="Services">
+      <div class="bt-acc-grid" role="group" aria-label="Services">
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/presecription.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/presecription.html">
           <i class="fas fa-prescription-bottle-medical"></i>
           Prescription Services
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/vitamins.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/vitamins.html">
           <i class="fas fa-capsules"></i>
           Vitamins & Supplements
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/otc.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/otc.html">
           <i class="fas fa-pills"></i>
           OTC Medications
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/surgical.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/surgical.html">
           <i class="fas fa-stethoscope"></i>
           Surgical & Medical Supplies
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Hispanic-OTC.html">
           <i class="fas fa-globe-americas"></i>
           Hispanic OTC Items
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Household-Supplies.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Household-Supplies.html">
           <i class="fas fa-home"></i>
           Household Supplies
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Food-&-Grocery-Items.html">
           <i class="fas fa-shopping-basket"></i>
           Food & Grocery Items
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Beauty-&-Personal-Care.html">
           <i class="fas fa-spa"></i>
           Beauty & Personal Care
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Perfumes-&-Fragrances.html">
           <i class="fas fa-wind"></i>
           Perfumes & Fragrances
         </a>
 
-        <a class="acc-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html">
+        <a class="bt-acc-item" href="/Butlersmedpharmacy/services/Electronic-Appliances.html">
           <i class="fas fa-plug"></i>
           Electronic Appliances
         </a>
@@ -872,9 +861,9 @@
       </div>
     </details>
 
-    <a class="m-link" href="/Butlersmedpharmacy/contact-us.html">Contact Us</a>
+    <a class="bt-m-link" href="/Butlersmedpharmacy/contact-us.html">Contact Us</a>
 
-        <div class="mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
+        <div class="bt-mobile-contact-info" style="margin-top: 20px; padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px solid #edf2f8; box-shadow: 0 2px 8px rgba(32, 63, 153, 0.08);">
           <a href="https://maps.app.goo.gl/vuURks7HjnFVkjc66" target="_blank" style="text-decoration: none; color: inherit;">
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
               <i class="fas fa-map-marker-alt" style="color: #203F99; width: 20px; height: 20px;"></i>
@@ -899,13 +888,13 @@
     </div>
   </header>
 
-  <div class="mobile-header">
-    <div class="wrap">
-      <a class="mobile-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
-        <img class="logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
+  <div class="bt-mobile-header">
+    <div class="bt-wrap">
+      <a class="bt-mobile-logo" href="/Butlersmedpharmacy/index.html" aria-label="Butler's Med Pharmacy home">
+        <img class="bt-logo-img" src="/Butlersmedpharmacy/assets/butlers-pharmacy-logo.png" alt="Butler's Med Pharmacy logo">
       </a>
-      <button class="hamburger" type="button" id="hamburgerBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
-        <div class="hamburger-icon">
+      <button class="bt-hamburger" type="button" id="bt-hamburgerBtn" aria-label="Open menu" aria-controls="bt-mobilePanel" aria-expanded="false">
+        <div class="bt-hamburger-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-label="Medical kit icon">
             <rect x="28" y="64" width="200" height="160" rx="28" fill="#FFFFFF"/>
             <path d="
@@ -936,10 +925,10 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const hamburgerBtn = document.getElementById('hamburgerBtn');
-      const mobilePanel = document.getElementById('mobilePanel');
-      const mobileOverlay = document.getElementById('mobileOverlay');
-      const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+      const hamburgerBtn = document.getElementById('bt-hamburgerBtn');
+      const mobilePanel = document.getElementById('bt-mobilePanel');
+      const mobileOverlay = document.getElementById('bt-mobileOverlay');
+      const mobileCloseBtn = document.getElementById('bt-mobileCloseBtn');
       
       function openMobileMenu() {
         mobileOverlay.classList.add('show');
