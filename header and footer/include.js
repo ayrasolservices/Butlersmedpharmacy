@@ -1,27 +1,20 @@
-// include.js - GitHub Pages Simple Version
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Get repository name from URL (for GitHub Pages)
     const pathSegments = window.location.pathname.split('/');
     const repoName = pathSegments[1] || '';
     const isGitHubPages = window.location.hostname.includes('github.io');
     
-    // Build the correct base path
     let basePath = '';
     if (isGitHubPages && repoName) {
-        // Format: https://username.github.io/repo-name/
         basePath = '/' + repoName + '/';
     } else if (isGitHubPages) {
-        // Format: https://username.github.io/
         basePath = '/';
     } else {
-        // Local development
         basePath = './';
     }
     
-    console.log('Base path for GitHub Pages:', basePath);
+    console.log('Base path:', basePath);
     
-    // Load header
     fetch(basePath + 'header and footer/header.html')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -29,9 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(html => {
             document.getElementById('header-container').innerHTML = html;
-            console.log('✓ Header loaded');
+            console.log('Header loaded');
             
-            // Fix all links in header for GitHub Pages
             if (isGitHubPages) {
                 document.querySelectorAll('#header-container a').forEach(link => {
                     const href = link.getAttribute('href');
@@ -45,20 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
             
-            // Initialize mobile menu AFTER header is loaded
             initMobileMenu();
         })
         .catch(error => {
             console.error('Header error:', error);
             document.getElementById('header-container').innerHTML = `
-                <nav style="background:#333;color:white;padding:1rem;">
-                    <a href="${basePath}" style="color:white;">Home</a> | 
-                    <a href="${basePath}about.html" style="color:white;">About</a>
+                <nav style="background:#203F99;color:white;padding:1rem;">
+                    <a href="${basePath}" style="color:white;">Butler's Med Pharmacy</a>
                 </nav>
             `;
         });
     
-    // Load footer
     fetch(basePath + 'header and footer/footer.html')
         .then(response => {
             if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -66,63 +55,69 @@ document.addEventListener('DOMContentLoaded', function() {
         })
         .then(html => {
             document.getElementById('footer-container').innerHTML = html;
-            console.log('✓ Footer loaded');
+            console.log('Footer loaded');
         })
         .catch(error => {
             console.error('Footer error:', error);
             document.getElementById('footer-container').innerHTML = `
                 <footer style="background:#222;color:white;padding:1rem;text-align:center;">
-                    &copy; ${new Date().getFullYear()} My Website
+                    &copy; ${new Date().getFullYear()} Butler's Med Pharmacy
                 </footer>
             `;
         });
 });
 
-// Mobile menu function - must be outside DOMContentLoaded
 function initMobileMenu() {
-    console.log('Initializing mobile menu...');
+    console.log('Starting mobile menu init...');
     
-    // Try multiple times as header might load slowly
     let attempts = 0;
-    const maxAttempts = 10;
+    const maxAttempts = 20;
     
     function tryInit() {
         attempts++;
         
-        // CORRECTED: Using the "bt-" prefix that matches your header HTML
         const hamburgerBtn = document.getElementById('bt-hamburgerBtn');
         const mobilePanel = document.getElementById('bt-mobilePanel');
         const mobileOverlay = document.getElementById('bt-mobileOverlay');
         const mobileCloseBtn = document.getElementById('bt-mobileCloseBtn');
         
+        console.log(`Attempt ${attempts}:`, {
+            hamburgerBtn: !!hamburgerBtn,
+            mobilePanel: !!mobilePanel,
+            mobileOverlay: !!mobileOverlay,
+            mobileCloseBtn: !!mobileCloseBtn
+        });
+        
         if (!hamburgerBtn || !mobilePanel) {
             if (attempts < maxAttempts) {
-                console.log(`Mobile menu elements not found, retrying... (${attempts}/${maxAttempts})`);
-                setTimeout(tryInit, 200);
+                setTimeout(tryInit, 300);
             } else {
-                console.log('❌ Mobile menu elements not found after maximum attempts');
-                // Try to find by class as fallback
+                console.log('Failed to find elements');
+                
                 const hamburgerByClass = document.querySelector('.bt-hamburger');
                 const mobilePanelByClass = document.querySelector('.bt-mobile-panel');
                 if (hamburgerByClass && mobilePanelByClass) {
-                    console.log('Found elements by class, initializing...');
-                    initWithElements(hamburgerByClass, mobilePanelByClass, 
-                                   document.querySelector('.bt-mobile-overlay'),
-                                   document.querySelector('.bt-mobile-close-btn'));
+                    console.log('Found by class');
+                    const overlayByClass = document.querySelector('.bt-mobile-overlay');
+                    const closeBtnByClass = document.querySelector('.bt-mobile-close-btn');
+                    initWithElements(hamburgerByClass, mobilePanelByClass, overlayByClass, closeBtnByClass);
+                } else {
+                    console.log('Creating manual mobile menu');
+                    createManualMobileMenu();
                 }
             }
             return;
         }
         
-        console.log('✓ Found mobile menu elements by ID');
+        console.log('All elements found');
         initWithElements(hamburgerBtn, mobilePanel, mobileOverlay, mobileCloseBtn);
     }
     
     function initWithElements(hamburgerBtn, mobilePanel, mobileOverlay, mobileCloseBtn) {
-        console.log('Initializing mobile menu with elements...');
+        console.log('Setting up event listeners');
         
         function openMobileMenu() {
-            console.log('Opening mobile menu');
+            console.log('Opening menu');
             if (mobileOverlay) mobileOverlay.classList.add('show');
             if (mobilePanel) mobilePanel.classList.add('show');
             if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'true');
@@ -130,58 +125,89 @@ function initMobileMenu() {
         }
         
         function closeMobileMenu() {
-            console.log('Closing mobile menu');
+            console.log('Closing menu');
             if (mobileOverlay) mobileOverlay.classList.remove('show');
             if (mobilePanel) mobilePanel.classList.remove('show');
             if (hamburgerBtn) hamburgerBtn.setAttribute('aria-expanded', 'false');
             document.body.style.overflow = '';
         }
         
-        // Clear any existing event listeners
-        const newHamburgerBtn = hamburgerBtn.cloneNode(true);
-        hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
+        hamburgerBtn.addEventListener('click', openMobileMenu);
         
-        // Add click event to the button
-        newHamburgerBtn.addEventListener('click', openMobileMenu);
-        
-        // Also add pointer-events style to ensure SVG is clickable
-        const hamburgerIcon = newHamburgerBtn.querySelector('.bt-hamburger-icon');
-        if (hamburgerIcon) {
-            hamburgerIcon.style.pointerEvents = 'auto';
-        }
-        
-        // Add events for close button and overlay
         if (mobileCloseBtn) {
-            const newCloseBtn = mobileCloseBtn.cloneNode(true);
-            mobileCloseBtn.parentNode.replaceChild(newCloseBtn, mobileCloseBtn);
-            newCloseBtn.addEventListener('click', closeMobileMenu);
+            mobileCloseBtn.addEventListener('click', closeMobileMenu);
         }
         
         if (mobileOverlay) {
-            const newOverlay = mobileOverlay.cloneNode(true);
-            mobileOverlay.parentNode.replaceChild(newOverlay, mobileOverlay);
-            newOverlay.addEventListener('click', closeMobileMenu);
+            mobileOverlay.addEventListener('click', closeMobileMenu);
         }
         
-        // Close on window resize
         window.addEventListener('resize', function() {
             if (window.innerWidth > 992) {
                 closeMobileMenu();
             }
         });
         
-        // Close when clicking links in mobile panel
         if (mobilePanel) {
             mobilePanel.addEventListener('click', function(e) {
                 if (e.target.tagName === 'A') {
-                    closeMobileMenu();
+                    setTimeout(closeMobileMenu, 100);
                 }
             });
         }
         
-        console.log('✅ Mobile menu fully initialized');
+        console.log('Mobile menu initialized');
+        
+        hamburgerBtn.style.outline = '2px solid green';
+        setTimeout(() => {
+            hamburgerBtn.style.outline = '';
+        }, 2000);
     }
     
-    // Start initialization
+    function createManualMobileMenu() {
+        const headerContainer = document.getElementById('header-container');
+        if (!headerContainer) return;
+        
+        const existingMenu = headerContainer.querySelector('.bt-mobile-header');
+        if (existingMenu) return;
+        
+        const mobileMenuHTML = `
+            <div class="bt-mobile-header">
+                <div class="bt-wrap">
+                    <a class="bt-mobile-logo" href="./index.html">
+                        <img class="bt-logo-img" src="./assets/butlers-pharmacy-logo.png" alt="Logo">
+                    </a>
+                    <button class="bt-hamburger" id="bt-hamburgerBtn">
+                        <div class="bt-hamburger-icon">
+                            <svg viewBox="0 0 24 24" width="30" height="30">
+                                <path d="M3 12h18M3 6h18M3 18h18" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="bt-mobile-overlay" id="bt-mobileOverlay"></div>
+            <div class="bt-mobile-panel" id="bt-mobilePanel">
+                <div class="bt-mobile-inner">
+                    <button class="bt-mobile-close-btn" id="bt-mobileCloseBtn">✕</button>
+                    <p>Menu items will appear here</p>
+                </div>
+            </div>
+        `;
+        
+        headerContainer.insertAdjacentHTML('beforeend', mobileMenuHTML);
+        
+        setTimeout(() => {
+            const hamburgerBtn = document.getElementById('bt-hamburgerBtn');
+            const mobilePanel = document.getElementById('bt-mobilePanel');
+            const mobileOverlay = document.getElementById('bt-mobileOverlay');
+            const mobileCloseBtn = document.getElementById('bt-mobileCloseBtn');
+            
+            if (hamburgerBtn && mobilePanel) {
+                initWithElements(hamburgerBtn, mobilePanel, mobileOverlay, mobileCloseBtn);
+            }
+        }, 100);
+    }
+    
     tryInit();
 }
