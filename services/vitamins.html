@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vitamins & Supplements</title>
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../header and footer/header-footer.css">
     <style>
         .vitamin-hero {
             padding: 5rem 5% 4rem;
-            background: linear-gradient(rgba(32, 63, 153, 0.03), rgba(32, 63, 153, 0.05)), 
+            background: linear-gradient(rgba(173, 216, 230, 0.3), rgba(173, 216, 230, 0.5)), 
+                        linear-gradient(rgba(32, 63, 153, 0.03), rgba(32, 63, 153, 0.05)), 
                         url('../assets/services-bg.png');
             background-size: cover;
             background-position: center;
@@ -81,11 +82,15 @@
         }
 
         .vitamin-img {
-            width: 100%;
+            width: 85%;
+            max-height: 400px;
+            object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             transform: perspective(1000px) rotateY(-10deg);
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            margin: 0 auto;
+            display: block;
         }
 
         .vitamin-img:hover {
@@ -115,7 +120,7 @@
             width: 70px;
             height: 70px;
             top: 10%;
-            left: -5%;
+            left: 5%;
             background-color: rgba(32, 63, 153, 0.05);
             animation-delay: 0s;
         }
@@ -124,7 +129,7 @@
             width: 60px;
             height: 60px;
             bottom: 20%;
-            right: -5%;
+            right: 5%;
             background-color: rgba(0, 168, 150, 0.05);
             animation-delay: 1s;
         }
@@ -133,7 +138,7 @@
             width: 50px;
             height: 50px;
             top: 50%;
-            left: -10%;
+            left: 0%;
             background-color: rgba(255, 107, 107, 0.05);
             animation-delay: 2s;
         }
@@ -186,7 +191,6 @@
             overflow: hidden;
             opacity: 0;
             transform: translateY(30px);
-            /* Border-top removed as requested */
         }
 
         .category-card.visible {
@@ -195,10 +199,8 @@
             transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-       
         .category-card:hover {
-            /* transform: translateY(-10px); Removed */
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12); 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
         }
 
         .category-icon {
@@ -333,8 +335,6 @@
             border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
-     
-
         @media (max-width: 1400px) {
             .vitamin-hero-container,
             .vitamin-categories {
@@ -392,6 +392,10 @@
             .vitamin-section-title {
                 font-size: 2rem;
             }
+            
+            .vitamin-img {
+                width: 75%;
+            }
         }
 
         @media (max-width: 768px) {
@@ -424,6 +428,10 @@
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
                 min-width: 140px;
+            }
+            
+            .vitamin-img {
+                width: 85%;
             }
         }
 
@@ -504,6 +512,10 @@
             .vitamin-floating-element {
                 display: none;
             }
+            
+            .vitamin-img {
+                width: 90%;
+            }
         }
 
         @media (max-width: 360px) {
@@ -536,7 +548,7 @@
     </style>
 </head>
 <body>
-        <div id="header-container"></div>
+    <div id="header-container"></div>
 
     <section class="vitamin-hero">
         <div class="vitamin-hero-container">
@@ -631,16 +643,19 @@
         <p>Discover the difference quality supplements and professional guidance can make for your wellness journey.</p>
         
         <div class="vitamin-cta-buttons">
-            <a href="https://www.google.com/maps/search/?api=1&query=Pharmacy+Medical+City" target="_blank" class="vitamin-visit-button">
+            <a href="https://maps.app.goo.gl/dh74HeHLVCyJaJ4h8" target="_blank" class="vitamin-visit-button">
                 <i class="fas fa-store"></i> Visit Us
             </a>
-            <a href="tel:5551234567" class="vitamin-call-button">
+            <a href="tel:+16144772686" class="vitamin-call-button">
                 <i class="fas fa-phone-alt"></i> Call for Advice
             </a>
         </div>
     </section>
+    
     <div id="footer-container"></div>
 
+    <script src="../header and footer/include.js"></script>
+    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const categoryCards = document.querySelectorAll('.category-card');
@@ -733,8 +748,5 @@
             }
         });
     </script>
-
-        <link rel="stylesheet" href="../header and footer/header-footer.css">
-
 </body>
 </html>
