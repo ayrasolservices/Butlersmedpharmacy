@@ -291,7 +291,7 @@
             z-index: 1;
         }
 
-        .cta-buttons button {
+        .cta-button {
             padding: 0.9rem 1.8rem;
             border-radius: 50px;
             font-size: 0.95rem;
@@ -300,6 +300,11 @@
             transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             border: none;
             min-width: 150px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
         }
 
         .visit-button {
@@ -316,13 +321,13 @@
         .call-button {
             background: transparent;
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.5) !important;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
 
         .call-button:hover {
             background: rgba(255, 255, 255, 0.1);
             transform: translateY(-3px);
-            border-color: white !important;
+            border-color: white;
         }
 
         @media (max-width: 1400px) {
@@ -410,7 +415,7 @@
                 gap: 1rem;
             }
             
-            .cta-buttons button {
+            .cta-button {
                 padding: 0.8rem 1.5rem;
                 font-size: 0.9rem;
                 min-width: 140px;
@@ -464,7 +469,7 @@
                 gap: 0.8rem;
             }
             
-            .cta-buttons button {
+            .cta-button {
                 width: 100%;
                 max-width: 250px;
             }
@@ -621,10 +626,10 @@
         <p>Your health management should be simple and reliable. Visit us in-store or call today.</p>
         
         <div class="cta-buttons">
-            <a href="https://maps.app.goo.gl/KtkLugoJ7FHyg5yt5" target="_blank" class="visit-button" id="visitBtn">
+            <a href="https://maps.app.goo.gl/KtkLugoJ7FHyg5yt5" target="_blank" class="cta-button visit-button" id="visitBtn">
                 <i class="fas fa-store"></i> Visit Us
             </a>
-            <a href="tel:+16144772686" class="call-button" id="finalCallBtn">
+            <a href="tel:+16144772686" class="cta-button call-button" id="finalCallBtn">
                 <i class="fas fa-phone-alt"></i> Call Now
             </a>
         </div>
