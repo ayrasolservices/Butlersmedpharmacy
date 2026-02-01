@@ -89,10 +89,11 @@ function initMobileMenu() {
     function tryInit() {
         attempts++;
         
-        const hamburgerBtn = document.getElementById('hamburgerBtn');
-        const mobilePanel = document.getElementById('mobilePanel');
-        const mobileOverlay = document.getElementById('mobileOverlay');
-        const mobileCloseBtn = document.getElementById('mobileCloseBtn');
+        // CORRECTED: Using the "bt-" prefix that matches your header HTML
+        const hamburgerBtn = document.getElementById('bt-hamburgerBtn');
+        const mobilePanel = document.getElementById('bt-mobilePanel');
+        const mobileOverlay = document.getElementById('bt-mobileOverlay');
+        const mobileCloseBtn = document.getElementById('bt-mobileCloseBtn');
         
         if (!hamburgerBtn || !mobilePanel) {
             if (attempts < maxAttempts) {
@@ -101,13 +102,13 @@ function initMobileMenu() {
             } else {
                 console.log('❌ Mobile menu elements not found after maximum attempts');
                 // Try to find by class as fallback
-                const hamburgerByClass = document.querySelector('.hamburger');
-                const mobilePanelByClass = document.querySelector('.mobile-panel');
+                const hamburgerByClass = document.querySelector('.bt-hamburger');
+                const mobilePanelByClass = document.querySelector('.bt-mobile-panel');
                 if (hamburgerByClass && mobilePanelByClass) {
                     console.log('Found elements by class, initializing...');
                     initWithElements(hamburgerByClass, mobilePanelByClass, 
-                                   document.querySelector('.mobile-overlay'),
-                                   document.querySelector('.mobile-close-btn'));
+                                   document.querySelector('.bt-mobile-overlay'),
+                                   document.querySelector('.bt-mobile-close-btn'));
                 }
             }
             return;
@@ -140,11 +141,11 @@ function initMobileMenu() {
         const newHamburgerBtn = hamburgerBtn.cloneNode(true);
         hamburgerBtn.parentNode.replaceChild(newHamburgerBtn, hamburgerBtn);
         
-        // Add click event to the button AND all children (including SVG)
+        // Add click event to the button
         newHamburgerBtn.addEventListener('click', openMobileMenu);
         
         // Also add pointer-events style to ensure SVG is clickable
-        const hamburgerIcon = newHamburgerBtn.querySelector('.hamburger-icon');
+        const hamburgerIcon = newHamburgerBtn.querySelector('.bt-hamburger-icon');
         if (hamburgerIcon) {
             hamburgerIcon.style.pointerEvents = 'auto';
         }
@@ -179,12 +180,6 @@ function initMobileMenu() {
         }
         
         console.log('✅ Mobile menu fully initialized');
-        
-        // Test: Add a temporary style to show it's working
-        newHamburgerBtn.style.border = '2px solid #FD0510';
-        setTimeout(() => {
-            newHamburgerBtn.style.border = '';
-        }, 2000);
     }
     
     // Start initialization
