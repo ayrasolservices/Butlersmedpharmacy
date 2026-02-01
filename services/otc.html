@@ -11,7 +11,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <script src="../header and footer/include.js"></script>
     <style>
-            <div id="header-container"></div>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
 
         .hero-section {
             background: linear-gradient(rgba(32, 63, 153, 0.9), rgba(32, 63, 153, 0.8)), 
@@ -91,6 +96,11 @@
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
             border: 1px solid #e9ecef;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
         }
 
         .category-image {
@@ -102,14 +112,17 @@
 
         .category-image.cold {
             background-image: url('../assets/otc-1.png');
+            background-color: #e3f2fd;
         }
 
         .category-image.pain {
             background-image: url('../assets/otc-2.png');
+            background-color: #fce4ec;
         }
 
         .category-image.digestive {
             background-image: url('../assets/otc-3.png');
+            background-color: #f1f8e9;
         }
 
         .category-overlay {
@@ -174,6 +187,11 @@
             padding: 25px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
         }
 
         .product-icon {
@@ -246,6 +264,13 @@
             font-size: 1rem;
             font-weight: 600;
             text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .phone-link:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
 
         .reveal {
@@ -401,27 +426,29 @@
         <div class="container">
             <h2>Get Relief Today</h2>
             <p>Visit our pharmacy for trusted OTC medications and professional health advice.</p>
-            <a href="tel:+1 614-477-2686" class="phone-link">Call to Inquire</a>
+            <a href="tel:+16144772686" class="phone-link">Call to Inquire</a>
         </div>
     </section>
 
     <div id="footer-container"></div>
 
     <script>
-        const reveals = document.querySelectorAll('.reveal');
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                    }
+                });
+            }, {
+                threshold: 0.1
             });
-        }, {
-            threshold: 0.1
-        });
 
-        reveals.forEach(reveal => {
-            observer.observe(reveal);
+            reveals.forEach(reveal => {
+                observer.observe(reveal);
+            });
         });
     </script>
 </body>
