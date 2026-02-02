@@ -2757,11 +2757,65 @@
             font-size:18px;
         }
     }
+
+
+    /* location css starts here */
+
+
+    .mobile-map-btn{
+    position:fixed;
+    bottom:18px;
+    right:16px;
+    background:linear-gradient(135deg,#203F99,#FD0511);
+    color:#fff;
+    padding:14px 20px;
+    border-radius:50px;
+    font-size:15px;
+    font-weight:600;
+    display:none;
+    align-items:center;
+    gap:8px;
+    text-decoration:none;
+    z-index:99999;
+    box-shadow:0 8px 18px rgba(0,0,0,.3);
+    animation:mapPulse 1.6s infinite;
+}
+
+@media (max-width:576px){
+    .mobile-map-btn{display:flex;}
+}
+@media (min-width:577px){
+    .mobile-map-btn{display:none;}
+}
+
+@keyframes mapPulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.06);}
+    100%{transform:scale(1);}
+}
+    
+
+    /* location css ends here */
+
+    
+
+
+    
   </style>
 </head>
 <body>
 
       <div id="header-container"></div>
+
+
+  <!-- location code  -->
+
+  <a href="https://maps.app.goo.gl/jeDmqeBzJdUqWkMB9" class="mobile-map-btn" target="_blank">
+<i class="fa-solid fa-location-dot"></i>
+<span>Directions</span>
+</a>
+
+  
 
 <section class="hero-section">
     <div class="hero" id="hero">
